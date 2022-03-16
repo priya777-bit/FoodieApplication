@@ -41,6 +41,12 @@
 		<module>UserService</module>
 		<module>UserAuthenticationService</module>
 		<module>FavouriteService</module>
+		<module>addRestuarantService</module>
+		<module>adminService</module>
+		<module>foodInventoryService</module>
+		<module>RestuarantManagementService</module>
+		<module>searchService</module>
+		<module>EurekaService</module>
 	</modules>
 
 	<build>
