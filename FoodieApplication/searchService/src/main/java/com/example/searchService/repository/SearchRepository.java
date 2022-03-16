@@ -3,6 +3,7 @@ package com.example.searchService.repository;
 import com.example.searchService.model.Dish;
 import com.example.searchService.model.Restaurant;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,5 +12,7 @@ import java.util.List;
 public interface SearchRepository extends MongoRepository<Restaurant,String> {
 
     List<Restaurant> findByRestaurantName(String restaurantName);
+
+    @Query("{'dishList.dishName':{$in:[?0]}}")
     List<Dish> findByDishName(String dishName);
 }
