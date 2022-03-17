@@ -6,6 +6,9 @@ import com.example.RestuarantManagementService.exception.RestaurantAlreadyExist;
 import com.example.RestuarantManagementService.exception.RestaurantNotFound;
 import com.example.RestuarantManagementService.model.Dish;
 import com.example.RestuarantManagementService.model.Restaurant;
+import com.example.RestuarantManagementService.producerConfig.Producer;
+import com.example.RestuarantManagementService.rabbitMq.DishDTO;
+import com.example.RestuarantManagementService.rabbitMq.RestaurantDTO;
 import com.example.RestuarantManagementService.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,9 @@ public class RestaurantServiceImpl implements RestaurantService{
     private RestaurantRepository restaurantRepository;
 
     @Autowired
+    private Producer producer;
+
+    @Autowired
     public RestaurantServiceImpl(RestaurantRepository restaurantRepository) {
         this.restaurantRepository = restaurantRepository;
     }
@@ -29,7 +35,11 @@ public class RestaurantServiceImpl implements RestaurantService{
         if(restaurantRepository.findById(restaurant.getRestaurantId()).isPresent()){
             throw new RestaurantAlreadyExist();
         }
-
+        RestaurantDTO restaurantDTO = new RestaurantDTO();
+        restaurantDTO.setRestaurantId(restaurant.getRestaurantId());
+        restaurantDTO.setRestaurantName(restaurant.getRestaurantName());
+        restaurantDTO.setRestaurantLocation(restaurant.getRestaurantLocation());
+        producer.sendMessageToRabbit(restaurantDTO);
         return restaurantRepository.save(restaurant);
     }
 
@@ -54,11 +64,16 @@ public class RestaurantServiceImpl implements RestaurantService{
         }
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
         List<Dish> dishList = restaurant.getDishList();
+        DishDTO dishDTO = new DishDTO();
         if(dishList!=null) {
             for (Dish d : dishList) {
                 if (d.getDishId().equalsIgnoreCase(dish.getDishId())) {
                     throw new DishAlreadyExist();
                 } else {
+                    dishDTO.setDishId(dish.getDishId());
+                    dishDTO.setDishName(dish.getDishName());
+                    dishDTO.setDishType(dish.getDishType());
+                    dishDTO.setRestaurantId(restaurantId);
                     List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
                     dishList1.add(dish);
                     dishList=dishList1;
@@ -69,12 +84,14 @@ public class RestaurantServiceImpl implements RestaurantService{
             else
             {
                 System.out.println("listsavedagain");
+                dishDTO.setDishId(dish.getDishId());
+                dishDTO.setDishName(dish.getDishName());
+                dishDTO.setDishType(dish.getDishType());
+                dishDTO.setRestaurantId(restaurantId);
                 restaurant.setDishList(Arrays.asList(dish));
-//                dishList.add(dish);
-//                restaurant.setDishList(dishList);
-
             }
             System.out.println("return");
+        producer.sendMessageToRabbitMQ(dishDTO);
         return restaurantRepository.save(restaurant);
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -28,14 +29,33 @@ public class SearchServiceImpl implements SearchService{
     @Override
     public List<Dish> saveDish(String restaurantId, Dish dish) {
         Restaurant restaurant = searchRepository.findById(restaurantId).get();
+        System.out.println(restaurant);
         List<Dish> dishList = restaurant.getDishList();
-        System.out.println("in 32");
-        List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
-        System.out.println("in 34");
-        dishList1.add(dish);
-        dishList=dishList1;
-        System.out.println("in 37");
-        restaurant.setDishList(dishList);
+//        System.out.println(dishList);
+//        List<Dish> dishList1 = new ArrayList<>(dishList);
+//        System.out.println("in 34");
+//        //dishList.add(dish);
+//       // dishList=dishList;
+//        restaurant.setDishList(Arrays.asList(dish));
+//        System.out.println("in 37");
+//        //restaurant.setDishList(dishList);
+        if(dishList!=null) {
+            for (Dish d : dishList) {
+                if (d.getDishId().equalsIgnoreCase(dish.getDishId())) {
+                    return null;
+                } else {
+                    List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
+                    dishList1.add(dish);
+                    dishList=dishList1;
+                }
+            }
+            restaurant.setDishList(dishList);
+        }
+        else
+        {
+            System.out.println("listsavedagain");
+            restaurant.setDishList(Arrays.asList(dish));
+        }
         searchRepository.save(restaurant);
         return dishList;
     }
