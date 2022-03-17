@@ -35,8 +35,14 @@
 			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
+        <dependency>
+            <groupId>net.anthavio</groupId>
+            <artifactId>anthavio-aspects</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 	<modules>
 		<module>UserService</module>
 		<module>UserAuthenticationService</module>

@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/admin/restaurant")
+@RequestMapping("api/user/admin/restaurant")
 public class RestaurantController {
 
     private RestaurantServiceImpl restaurantService;

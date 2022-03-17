@@ -35,7 +35,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getUserProfile/{userEmail}")
+    @GetMapping("/users/getUserProfile/{userEmail}")
     public ResponseEntity<?> getUserProfile(@PathVariable String userEmail) throws UserNotFound {
         try {
             return new ResponseEntity<>(userService.getUserData(userEmail), HttpStatus.OK);
@@ -50,7 +50,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getAllUserProfile")
+    @GetMapping("/admin/getAllUserProfile")
     public ResponseEntity<?> getAllUserProfile() throws UserNotFound {
         try {
             return new ResponseEntity<>(userService.getAllUserData(), HttpStatus.OK);

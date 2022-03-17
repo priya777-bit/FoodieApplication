@@ -35,6 +35,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         dishDTO.setDishName(dish.getDishName());
         dishDTO.setDishType(dish.getDishType());
         dishDTO.setRestaurantId(restaurantId);
+
         producer.sendDishMsg2RabbitMq(dishDTO);
     }
 }
