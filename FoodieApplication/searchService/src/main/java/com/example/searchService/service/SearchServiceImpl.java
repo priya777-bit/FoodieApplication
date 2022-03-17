@@ -31,14 +31,6 @@ public class SearchServiceImpl implements SearchService{
         Restaurant restaurant = searchRepository.findById(restaurantId).get();
         System.out.println(restaurant);
         List<Dish> dishList = restaurant.getDishList();
-//        System.out.println(dishList);
-//        List<Dish> dishList1 = new ArrayList<>(dishList);
-//        System.out.println("in 34");
-//        //dishList.add(dish);
-//       // dishList=dishList;
-//        restaurant.setDishList(Arrays.asList(dish));
-//        System.out.println("in 37");
-//        //restaurant.setDishList(dishList);
         if(dishList!=null) {
             for (Dish d : dishList) {
                 if (d.getDishId().equalsIgnoreCase(dish.getDishId())) {
@@ -53,7 +45,6 @@ public class SearchServiceImpl implements SearchService{
         }
         else
         {
-            System.out.println("listsavedagain");
             restaurant.setDishList(Arrays.asList(dish));
         }
         searchRepository.save(restaurant);
