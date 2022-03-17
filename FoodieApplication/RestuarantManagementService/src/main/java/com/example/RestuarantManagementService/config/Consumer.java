@@ -36,7 +36,7 @@ public class Consumer {
         Dish dish = new Dish();
         dish.setDishId(dishDTO.getDishId());
         dish.setDishName(dishDTO.getDishName());
-        dish.setDishType(dish.getDishType());
+        dish.setDishType(dishDTO.getDishType());
         restaurantService.addDishToRestaurant(dishDTO.getRestaurantId(),dish);
     }
 }

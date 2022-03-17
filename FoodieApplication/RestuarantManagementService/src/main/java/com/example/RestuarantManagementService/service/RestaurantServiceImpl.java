@@ -10,6 +10,7 @@ import com.example.RestuarantManagementService.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,22 +53,28 @@ public class RestaurantServiceImpl implements RestaurantService{
             throw new RestaurantNotFound();
         }
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
-//        if(restaurant.equals(restaurantId))
         List<Dish> dishList = restaurant.getDishList();
-        if(dishList==null){
-            dishList.add(dish);
-            restaurant.setDishList(dishList);
-            System.out.println("Saved");
-//            restaurant.setDishList(Arrays.asList(dish));
-        }
-        else{
-            if(dishList.get(0).equals(dish.getDishId())){
-                throw new DishAlreadyExist();
+        if(dishList!=null) {
+            for (Dish d : dishList) {
+                if (d.getDishId().equalsIgnoreCase(dish.getDishId())) {
+                    throw new DishAlreadyExist();
+                } else {
+                    List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
+                    dishList1.add(dish);
+                    dishList=dishList1;
+                }
             }
-            dishList.add(dish);
             restaurant.setDishList(dishList);
-            System.out.println("listsavedagain");
         }
+            else
+            {
+                System.out.println("listsavedagain");
+                restaurant.setDishList(Arrays.asList(dish));
+//                dishList.add(dish);
+//                restaurant.setDishList(dishList);
+
+            }
+            System.out.println("return");
         return restaurantRepository.save(restaurant);
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -28,9 +29,14 @@ public class FoodServiceImpl implements FoodService{
     @Override
     public List<Dish> saveDish(String restaurantId, Dish dish) {
         Restaurant restaurant = foodRepository.findById(restaurantId).get();
-        List<Dish> dishList = new ArrayList<>();
-        dishList.add(dish);
-        restaurant.setDishList(dishList);
+
+        List<Dish> dishList = restaurant.getDishList();
+
+                    List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
+                    dishList1.add(dish);
+                    dishList=dishList1;
+                    restaurant.setDishList(dishList);
+
         foodRepository.save(restaurant);
         return dishList;
     }
