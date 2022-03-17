@@ -32,14 +32,11 @@ public class Consumer {
     }
 
     @RabbitListener(queues = "dish_queue")
-    public void getDishDTOFromRabbitMQ(Restaurant restaurant,DishDTO dishDTO) throws RestaurantNotFound, DishAlreadyExist {
+    public void getDishDTOFromRabbitMQ(DishDTO dishDTO) throws RestaurantNotFound, DishAlreadyExist {
         Dish dish = new Dish();
         dish.setDishId(dishDTO.getDishId());
         dish.setDishName(dishDTO.getDishName());
         dish.setDishType(dish.getDishType());
-        List<Dish> dishList = new ArrayList<>();
-        dishList.add(dish);
-        restaurant.setDishList(dishList);
-        restaurantService.addDishToRestaurant(restaurant.getRestaurantId(),dish);
+        restaurantService.addDishToRestaurant(dishDTO.getRestaurantId(),dish);
     }
 }

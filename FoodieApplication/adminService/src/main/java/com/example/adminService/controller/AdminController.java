@@ -32,4 +32,5 @@ public class AdminController {
             return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }

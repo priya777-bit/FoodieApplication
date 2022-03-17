@@ -47,7 +47,7 @@ public class RestaurantController {
         }
     }
 
-    @PostMapping("/{restaurantId}/dish")
+    @PutMapping("/{restaurantId}/dish")
     public ResponseEntity<?> addDishToRestaurant(@PathVariable String restaurantId, @RequestBody Dish dish) throws RestaurantNotFound, DishAlreadyExist{
         try {
             return new ResponseEntity<>(restaurantService.addDishToRestaurant(restaurantId,dish),HttpStatus.CREATED);

@@ -6,5 +6,5 @@ import com.example.addRestuarantService.model.Restaurant;
 public interface RestaurantService {
 
     public void addRestaurant(Restaurant restaurant);
-    public void addDish(Dish dish);
+    public void addDish(String restaurantId,Dish dish);
 }

@@ -52,9 +52,13 @@ public class RestaurantServiceImpl implements RestaurantService{
             throw new RestaurantNotFound();
         }
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+//        if(restaurant.equals(restaurantId))
         List<Dish> dishList = restaurant.getDishList();
         if(dishList==null){
-            restaurant.setDishList(Arrays.asList(dish));
+            dishList.add(dish);
+            restaurant.setDishList(dishList);
+            System.out.println("Saved");
+//            restaurant.setDishList(Arrays.asList(dish));
         }
         else{
             if(dishList.get(0).equals(dish.getDishId())){
@@ -62,6 +66,7 @@ public class RestaurantServiceImpl implements RestaurantService{
             }
             dishList.add(dish);
             restaurant.setDishList(dishList);
+            System.out.println("listsavedagain");
         }
         return restaurantRepository.save(restaurant);
     }

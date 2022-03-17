@@ -28,12 +28,13 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public void addDish(Dish dish) {
+    public void addDish(String restaurantId,Dish dish) {
+
         DishDTO dishDTO = new DishDTO();
         dishDTO.setDishId(dish.getDishId());
         dishDTO.setDishName(dish.getDishName());
         dishDTO.setDishType(dish.getDishType());
-
+        dishDTO.setRestaurantId(restaurantId);
         producer.sendDishMsg2RabbitMq(dishDTO);
     }
 }
