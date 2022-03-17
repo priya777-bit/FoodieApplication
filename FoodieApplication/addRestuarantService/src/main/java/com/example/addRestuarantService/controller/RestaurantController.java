@@ -23,7 +23,7 @@ public class RestaurantController {
         restaurantService.addRestaurant(restaurant);
     }
 
-    @PostMapping("/{restaurantId}/dish")
+    @PutMapping("/{restaurantId}/dish")
     public void addDish(@PathVariable String  restaurantId, @RequestBody Dish dish){
         try {
             restaurantService.addDish(restaurantId,dish);

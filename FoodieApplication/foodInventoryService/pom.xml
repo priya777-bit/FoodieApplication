@@ -30,6 +30,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+<<<<<<< HEAD
             <version>3.1.1</version>
         </dependency>
 
@@ -47,6 +48,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+=======
+>>>>>>> 0594ef6a65b9665f24706d9ab801303857cf314a
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.amqp</groupId>

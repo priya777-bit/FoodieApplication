@@ -18,7 +18,7 @@ public class SearchController {
         this.searchService=searchService;
     }
 
-    @GetMapping("/{restaurantName}")
+    @GetMapping("/rest/{restaurantName}")
     public ResponseEntity<?> findByRestaurantName(@PathVariable String restaurantName)
     {
         try
@@ -31,7 +31,7 @@ public class SearchController {
         }
     }
 
-    @GetMapping("/{dishName}")
+    @GetMapping("/dish/{dishName}")
     public ResponseEntity<?> findByDishName(@PathVariable String dishName)
     {
         try

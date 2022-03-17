@@ -21,6 +21,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -34,6 +35,9 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+=======
+	</dependencies>
+>>>>>>> 0594ef6a65b9665f24706d9ab801303857cf314a
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

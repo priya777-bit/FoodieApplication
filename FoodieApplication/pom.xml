@@ -53,6 +53,7 @@
 		<module>RestuarantManagementService</module>
 		<module>searchService</module>
 		<module>EurekaService</module>
+		<module>OrderService</module>
 	</modules>
 
 	<build>
