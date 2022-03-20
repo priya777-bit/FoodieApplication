@@ -37,12 +37,7 @@
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>net.anthavio</groupId>
-            <artifactId>anthavio-aspects</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
 	<dependencyManagement>
 		<dependencies>

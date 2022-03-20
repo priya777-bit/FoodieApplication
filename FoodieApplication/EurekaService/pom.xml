@@ -21,23 +21,15 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-<<<<<<< HEAD
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>net.anthavio</groupId>
-            <artifactId>anthavio-aspects</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
-=======
-	</dependencies>
->>>>>>> 0594ef6a65b9665f24706d9ab801303857cf314a
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

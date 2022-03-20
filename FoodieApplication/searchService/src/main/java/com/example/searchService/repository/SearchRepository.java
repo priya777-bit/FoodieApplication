@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SearchRepository extends MongoRepository<Restaurant,String>, JpaSpecificationExecutor<Restaurant>, JpaSpecificationExecutor<Restaurant> {
+public interface SearchRepository extends MongoRepository<Restaurant,String>{
 
     List<Restaurant> findByRestaurantName(String restaurantName);
 

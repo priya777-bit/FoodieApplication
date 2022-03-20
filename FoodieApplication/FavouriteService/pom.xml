@@ -33,12 +33,7 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 			<version>2.6.3</version>
 		</dependency>
-        <dependency>
-            <groupId>net.anthavio</groupId>
-            <artifactId>anthavio-aspects</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
 	<dependencyManagement>
 		<dependencies>

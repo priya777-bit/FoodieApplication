@@ -42,7 +42,7 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-<<<<<<< HEAD
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,9 +63,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
 
-=======
->>>>>>> 0594ef6a65b9665f24706d9ab801303857cf314a
 	</dependencies>
 
 	<dependencyManagement>

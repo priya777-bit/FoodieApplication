@@ -31,8 +31,11 @@ public class AppConfig {
                 .route(u->u.path("/api/userAuthentication/**")
                         .uri("http://localhost:8086/"))
 
-                .route(f->f.path("/api/favourite/**")
+                .route(f->f.path("/api/user/**")
                         .uri("http://localhost:8087/"))
+
+                .route(o->o.path("/api/user/**")
+                        .uri("http://localhost:8088/"))
 
                 .route(m->m.path("/api/admin/**")
                         .uri("http://localhost:8090/"))
