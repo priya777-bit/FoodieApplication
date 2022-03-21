@@ -2,27 +2,26 @@ package com.example.OrderService.controller;
 
 import com.example.OrderService.model.Order;
 import com.example.OrderService.service.OrderService;
+import com.example.OrderService.service.OrderServiceImpl;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+@Component
 @RestController
-@RequestMapping("/api/user/users/order")
+@RequestMapping("/api/user/users")
 public class OrderController {
 
-    public OrderService orderService;
-
     @Autowired
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
+    public OrderServiceImpl orderService;
 
     @HystrixCommand(fallbackMethod = "fallbackLogin")
     @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="1000")
-    @PostMapping("/addToCart")
+    @PostMapping("/order/addToCart")
     public ResponseEntity<?> addToCart(@RequestBody Order order)
     {
         try{
@@ -40,7 +39,7 @@ public class OrderController {
     }
 
 
-    @GetMapping("/getUserOrder/{userMailId}")
+    @GetMapping("/order/getUserOrder/{userMailId}")
     public ResponseEntity<?> getUserOrder(@PathVariable String userMailId)
     {
         try{
@@ -52,7 +51,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/getUserOrder")
+    @GetMapping("/order/getUserOrder")
     public ResponseEntity<?> getAllOrder()
     {
         try{

@@ -18,17 +18,19 @@ public class RestaurantServiceImpl implements RestaurantService {
     private Producer producer;
 
     @Override
-    public void addRestaurant(Restaurant restaurant) {
+    public boolean addRestaurant(Restaurant restaurant) {
         RestaurantDTO restaurantDTO = new RestaurantDTO();
         restaurantDTO.setRestaurantId(restaurant.getRestaurantId());
         restaurantDTO.setRestaurantName(restaurant.getRestaurantName());
         restaurantDTO.setRestaurantLocation(restaurant.getRestaurantLocation());
 
         producer.sendRestMsg2RabbitMq(restaurantDTO);
+
+        return true;
     }
 
     @Override
-    public void addDish(String restaurantId,Dish dish) {
+    public boolean addDish(String restaurantId,Dish dish) {
 
         DishDTO dishDTO = new DishDTO();
         dishDTO.setDishId(dish.getDishId());
@@ -37,5 +39,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         dishDTO.setRestaurantId(restaurantId);
 
         producer.sendDishMsg2RabbitMq(dishDTO);
+
+        return true;
     }
 }

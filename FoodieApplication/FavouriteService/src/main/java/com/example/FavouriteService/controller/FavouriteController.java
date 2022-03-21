@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/user/users/favourite")
+@RequestMapping("/api/user/users")
 public class FavouriteController {
 
     private FavouriteService favouriteService;
@@ -18,7 +18,7 @@ public class FavouriteController {
         this.favouriteService = favouriteService;
     }
 
-    @PostMapping("/addFavourite")
+    @PostMapping("/favourite/addFavourite")
     public ResponseEntity<?> addFavourite(@RequestBody Favourite favourite)
     {
         try
@@ -31,7 +31,7 @@ public class FavouriteController {
         }
     }
 
-    @GetMapping("/getFavourite/{userMailId}")
+    @GetMapping("/favourite/getFavourite/{userMailId}")
     public ResponseEntity<?> getFavourite(@PathVariable String userMailId)
     {
         try
