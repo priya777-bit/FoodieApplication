@@ -1,0 +1,21 @@
+06.24.36.111 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+06.24.36.119 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.24.36.926 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.24.37.016 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.24.37.054 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.24.37.055 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.24.37.059 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.24.37.059 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.24.37.061 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@32177fa5
+06.24.37.061 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@a96d56c
+06.24.37.061 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.24.37.061 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 6 ms
+06.24.37.254 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - GET "/api/user/users/order/getUserOrder", parameters={}
+06.24.37.267 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#getAllOrder()
+06.24.37.321 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+06.24.37.352 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNa (truncated)...]
+06.24.37.370 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 200 OK

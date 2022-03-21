@@ -52,7 +52,7 @@ public class FoodControllerTest {
         dishList = Arrays.asList(dish,dish1);
         restaurant = new Restaurant("r001","patel","ahmedabad",dishList);
 
-        mockMvc = MockMvcBuilders.standaloneSetup(FoodController.class).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(foodController).build();
     }
 
     @AfterEach

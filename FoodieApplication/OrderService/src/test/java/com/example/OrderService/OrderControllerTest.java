@@ -2,6 +2,7 @@ package com.example.OrderService;
 
 import com.example.OrderService.controller.OrderController;
 import com.example.OrderService.exception.OrderAlreadyExistsException;
+import com.example.OrderService.exception.OrderNotFound;
 import com.example.OrderService.model.Food;
 import com.example.OrderService.model.Order;
 import com.example.OrderService.model.Restaurant;
@@ -27,6 +28,7 @@ import java.util.List;
 
 
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -66,7 +68,7 @@ public class OrderControllerTest {
 
         orderList = Arrays.asList(order,order1);
 
-        mockMvc = MockMvcBuilders.standaloneSetup(OrderController.class).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(orderController).build();
     }
 
     @AfterEach
@@ -88,6 +90,58 @@ public class OrderControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
         verify(orderService,times(1)).saveOrder(order);
+    }
+
+    @Test
+    public void addToCartFail() throws Exception {
+        when(orderService.saveOrder(order)).thenThrow(OrderAlreadyExistsException.class);
+
+        mockMvc.perform(post("/api/user/users/order/addToCart")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonToString(order)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(orderService,times(1)).saveOrder(order);
+    }
+
+    @Test
+    public void givenUserMailIdReturnOrderListSuccess() throws Exception {
+        when(orderService.getOrderOfUser(order.getUserMailId())).thenReturn(orderList);
+
+        mockMvc.perform(get("/api/user/users/order/getUserOrder/priya@gmail.com")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonToString(order)))
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(orderService,times(1)).getOrderOfUser(order.getUserMailId());
+    }
+
+    @Test
+    public void givenUserMailIdReturnOrderListFail() throws Exception {
+        when(orderService.getOrderOfUser(order.getUserMailId())).thenThrow(OrderNotFound.class);
+
+        mockMvc.perform(get("/api/user/users/order/getUserOrder/priya@gmail.com")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonToString(order)))
+                .andExpect(status().isNotFound())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(orderService,times(1)).getOrderOfUser(order.getUserMailId());
+    }
+
+    @Test
+    public void returnAllOrderOfUser() throws Exception {
+        when(orderService.getAllOrderOfUser()).thenReturn(orderList);
+
+        mockMvc.perform(get("/api/user/users/order/getUserOrder")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonToString(order)))
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(orderService,times(1)).getAllOrderOfUser();
     }
 
     private static String jsonToString(final Object object) throws JsonProcessingException
