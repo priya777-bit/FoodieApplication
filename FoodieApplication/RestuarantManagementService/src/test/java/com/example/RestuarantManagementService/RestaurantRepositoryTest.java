@@ -50,7 +50,7 @@ public class RestaurantRepositoryTest {
     }
 
     @Test
-    public void registerRestaurant(){
+    public void registerRestaurantSuccess(){
         restaurantRepository.insert(restaurant);
         Restaurant expectedRestaurant = restaurantRepository.findById(restaurant.getRestaurantId()).get();
         assertNotNull(expectedRestaurant);
@@ -58,7 +58,7 @@ public class RestaurantRepositoryTest {
     }
 
     @Test
-    public void removeRestaurant(){
+    public void removeRestaurantSuccess(){
         restaurantRepository.insert(restaurant);
         Restaurant expectedRestaurant = restaurantRepository.findById(restaurant.getRestaurantId()).get();
         restaurantRepository.delete(expectedRestaurant);
@@ -66,7 +66,7 @@ public class RestaurantRepositoryTest {
     }
 
     @Test
-    public void addDishToRestaurant(){
+    public void addDishToRestaurantSuccess(){
         restaurantRepository.insert(restaurant);
         Restaurant expectedRestaurant = restaurantRepository.findById(restaurant.getRestaurantId()).get();
         String dishId = "d1";
@@ -76,7 +76,7 @@ public class RestaurantRepositoryTest {
     }
 
     @Test
-    public void removeDishFromRestaurant(){
+    public void removeDishFromRestaurantSuccess(){
         restaurantRepository.insert(restaurant);
         Restaurant restaurant1 = restaurantRepository.findById(restaurant.getRestaurantId()).get();
         String dishId = "d1";
@@ -88,9 +88,7 @@ public class RestaurantRepositoryTest {
     }
 
     @Test
-    public void findAllRestaurant(){
+    public void findAllRestaurantSuccess(){
         List<Restaurant> restaurantList1 = restaurantRepository.findAll();
-//        List<Restaurant> expectedList = new ArrayList<>();
-//        assertEquals(expectedList,restaurantList);
     }
 }

@@ -1,0 +1,107 @@
+06.44.17.175 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+06.44.17.182 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.44.17.543 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.44.17.567 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.44.17.907 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.44.17.908 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.44.17.909 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.44.17.909 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.44.17.910 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5a6d30e2
+06.44.17.910 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@b52b755
+06.44.17.910 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.44.17.910 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+06.44.17.983 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - GET "/api/user/users/order/getUserOrder/priya@gmail.com", parameters={}
+06.44.17.987 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#getUserOrder(String)
+06.44.18.018 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+06.44.18.025 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNa (truncated)...]
+06.44.18.050 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 200 OK
+06.44.18.080 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+06.44.18.081 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.44.18.086 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.44.18.088 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.44.18.090 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.44.18.090 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.44.18.090 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.44.18.090 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.44.18.091 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3bc4ef12
+06.44.18.091 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@50448409
+06.44.18.091 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.44.18.091 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+06.44.18.098 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - POST "/api/user/users/order/addToCart", parameters={}
+06.44.18.098 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#addToCart(Order)
+06.44.18.137 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json" to [Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNam (truncated)...]
+06.44.18.154 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+06.44.18.156 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNam (truncated)...]
+06.44.18.159 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 201 CREATED
+06.44.18.172 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+06.44.18.173 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.44.18.179 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.44.18.181 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.44.18.181 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.44.18.181 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.44.18.182 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.44.18.182 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.44.18.182 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2c991465
+06.44.18.182 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@5fef2aac
+06.44.18.182 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.44.18.182 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+06.44.18.192 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - POST "/api/user/users/order/addToCart", parameters={}
+06.44.18.193 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#addToCart(Order)
+06.44.18.197 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json" to [Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNam (truncated)...]
+06.44.18.199 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+06.44.18.199 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["try after some time"]
+06.44.18.200 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 500 INTERNAL_SERVER_ERROR
+06.44.18.213 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+06.44.18.213 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.44.18.218 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.44.18.221 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.44.18.221 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.44.18.222 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.44.18.222 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.44.18.222 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.44.18.222 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@76e9f00b
+06.44.18.222 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@314b9e4b
+06.44.18.222 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.44.18.222 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+06.44.18.226 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - GET "/api/user/users/order/getUserOrder", parameters={}
+06.44.18.226 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#getAllOrder()
+06.44.18.228 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+06.44.18.228 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNa (truncated)...]
+06.44.18.231 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 200 OK
+06.44.18.241 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+06.44.18.242 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.44.18.246 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.44.18.248 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.44.18.249 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.44.18.249 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.44.18.249 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.44.18.249 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.44.18.249 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@40fa8766
+06.44.18.249 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@67774e29
+06.44.18.249 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.44.18.249 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+06.44.18.252 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - GET "/api/user/users/order/getUserOrder/priya@gmail.com", parameters={}
+06.44.18.253 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#getUserOrder(String)
+06.44.18.255 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+06.44.18.255 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["try after some time"]
+06.44.18.262 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 500 INTERNAL_SERVER_ERROR
