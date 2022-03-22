@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="foodInventoryService" />
+        <module name="FavouriteService" />
+        <module name="apiGatewayService" />
+        <module name="addRestuarantService" />
+        <module name="UserService" />
+        <module name="searchService" />
+        <module name="EurekaService" />
+        <module name="RestuarantManagementService" />
+        <module name="UserAuthenticationService" />
+        <module name="OrderService" />
+        <module name="adminService" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="addRestuarantService" target="11" />
+      <module name="adminService" target="11" />
+      <module name="apiGatewayService" target="11" />
+      <module name="EurekaService" target="11" />
+      <module name="FavouriteService" target="11" />
+      <module name="FoodieApplication" target="11" />
+      <module name="foodInventoryService" target="11" />
+      <module name="OrderService" target="11" />
+      <module name="RestuarantManagementService" target="11" />
+      <module name="searchService" target="11" />
+      <module name="UserAuthenticationService" target="11" />
+      <module name="UserService" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EurekaService" options="-parameters" />
+      <module name="FavouriteService" options="-parameters" />
+      <module name="OrderService" options="-parameters" />
+      <module name="RestuarantManagementService" options="-parameters" />
+      <module name="UserAuthenticationService" options="-parameters" />
+      <module name="UserService" options="-parameters" />
+      <module name="addRestuarantService" options="-parameters" />
+      <module name="adminService" options="-parameters" />
+      <module name="apiGatewayService" options="-parameters" />
+      <module name="foodInventoryService" options="-parameters" />
+      <module name="searchService" options="-parameters" />
+    </option>
+  </component>
+</project>

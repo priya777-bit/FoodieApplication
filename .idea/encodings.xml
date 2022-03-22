@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/FoodieApplication/EurekaService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/FavouriteService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/OrderService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/RestuarantManagementService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/UserAuthenticationService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/UserService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/addRestuarantService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/adminService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/apiGatewayService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/foodInventoryService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/searchService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FoodieApplication/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
