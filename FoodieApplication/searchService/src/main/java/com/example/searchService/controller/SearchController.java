@@ -32,11 +32,12 @@ public class SearchController {
     }
 
     @GetMapping("/dish/{dishName}")
-    public ResponseEntity<?> findByDishName(@PathVariable String dishName)
+    public ResponseEntity<?> findAllRestaurantFromDishName(@PathVariable String dishName)
     {
+        System.out.println(dishName);
         try
         {
-            return new ResponseEntity<>(searchService.findByDishName(dishName),HttpStatus.OK);
+            return new ResponseEntity<>(searchService.findAllRestaurantFromDishName(dishName),HttpStatus.OK);
         }
         catch (Exception e)
         {
