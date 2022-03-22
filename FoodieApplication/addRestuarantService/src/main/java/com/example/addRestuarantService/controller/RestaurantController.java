@@ -5,6 +5,8 @@ import com.example.addRestuarantService.model.Dish;
 import com.example.addRestuarantService.model.Restaurant;
 import com.example.addRestuarantService.service.RestaurantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,17 +21,25 @@ public class RestaurantController {
     }
 
     @PostMapping("/restaurant")
-    public void addRestaurant(@RequestBody Restaurant restaurant){
-        restaurantService.addRestaurant(restaurant);
+    public ResponseEntity<?> addRestaurant(@RequestBody Restaurant restaurant){
+        try
+        {
+            return new ResponseEntity<>(restaurantService.addRestaurant(restaurant),HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>("try again some time ..",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/{restaurantId}/dish")
-    public void addDish(@PathVariable String  restaurantId, @RequestBody Dish dish){
+    public ResponseEntity<?> addDish(@PathVariable String  restaurantId, @RequestBody Dish dish){
         try {
-            restaurantService.addDish(restaurantId,dish);
+            return new ResponseEntity<>(restaurantService.addDish(restaurantId,dish),HttpStatus.OK);
         }
         catch (Exception e){
             e.printStackTrace();
+            return new ResponseEntity<>("try again some time ..",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -1,0 +1,22 @@
+05.57.25.566 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+05.57.25.581 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+05.57.26.961 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+05.57.27.080 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+05.57.27.157 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+05.57.27.158 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+05.57.27.170 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+05.57.27.172 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+05.57.27.176 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@765ffb14
+05.57.27.176 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@57562473
+05.57.27.177 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+05.57.27.177 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 18 ms
+05.57.27.499 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - POST "/api/user/users/order/addToCart", parameters={}
+05.57.27.526 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#addToCart(Order)
+05.57.27.808 [main] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json" to [Order(orderId=o1, userMailId=priya@gmail.com, restuarant=Restaurant(restaurantId=r001, restaurantNam (truncated)...]
+05.57.27.933 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+05.57.27.934 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["try after some time"]
+05.57.27.942 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 500 INTERNAL_SERVER_ERROR

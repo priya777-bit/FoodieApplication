@@ -1,0 +1,21 @@
+06.24.57.996 [main] DEBUG _.s.w.s.HandlerMapping.Mappings - 
+	c.e.O.c.OrderController:
+	{POST [/api/user/users/order/addToCart]}: addToCart(Order)
+	{GET [/api/user/users/order/getUserOrder/{userMailId}]}: getUserOrder(String)
+	{GET [/api/user/users/order/getUserOrder]}: getAllOrder()
+06.24.58.014 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 3 mappings in org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+06.24.58.984 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+06.24.59.087 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+06.24.59.142 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+06.24.59.143 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+06.24.59.147 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected AcceptHeaderLocaleResolver
+06.24.59.148 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected FixedThemeResolver
+06.24.59.149 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4375b013
+06.24.59.149 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@1cf0cacc
+06.24.59.149 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+06.24.59.150 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 7 ms
+06.24.59.440 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - GET "/api/user/users/order/getUserOrder/priya@gmail.com", parameters={}
+06.24.59.452 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.OrderService.controller.OrderController#getUserOrder(String)
+06.24.59.557 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+06.24.59.557 [main] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["try after some time"]
+06.24.59.613 [main] DEBUG o.s.t.w.s.TestDispatcherServlet - Completed 500 INTERNAL_SERVER_ERROR

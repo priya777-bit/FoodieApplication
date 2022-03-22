@@ -12,13 +12,10 @@ import java.util.List;
 public interface SearchRepository extends MongoRepository<Restaurant,String>{
 
     List<Restaurant> findByRestaurantName(String restaurantName);
-//
-//    @Query(value = "{ 'dishList': { $elemMatch: { 'dishName' } }}")
-//    List<Dish> findByDishName(String dishName);
 
-   // @Query("{'dishList.dishName':{$in:[?0]}}")
-
-    //@Query("{'dishList.dishName' : ?0}")
-    @Query(value = "{ 'dishList.dishName' : {$nin:[?0]}} }")
+    @Query(value = "{ 'dishList': { $elemMatch: { 'dishName' } }}")
     List<Dish> findByDishName(String dishName);
+
+//    @Query("{'dishList.dishName':{$in:[?0]}}")
+//    List<Dish> findByDishName(String dishName);
 }

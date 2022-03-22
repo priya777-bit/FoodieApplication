@@ -24,7 +24,8 @@ public class Producer {
     public void sendMessageToRabbitMQ(DishDTO dishDTO){
         rabbitTemplate.convertAndSend(directExchange.getName(),"search_dish_routing",dishDTO);
     }
-    public  void  sendMessageToRabbit(RestaurantDTO restaurantDTO){
+
+    public void sendMessageToRabbit(RestaurantDTO restaurantDTO){
         rabbitTemplate.convertAndSend(directExchange.getName(),"search_rest_routing",restaurantDTO);
     }
 }

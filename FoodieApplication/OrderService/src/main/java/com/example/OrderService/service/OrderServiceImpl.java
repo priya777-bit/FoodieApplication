@@ -1,5 +1,6 @@
 package com.example.OrderService.service;
 
+import com.example.OrderService.exception.OrderAlreadyExistsException;
 import com.example.OrderService.exception.OrderNotFound;
 import com.example.OrderService.model.Order;
 import com.example.OrderService.repository.OrderRepository;
@@ -19,7 +20,11 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public Order saveOrder(Order order) {
+    public Order saveOrder(Order order) throws OrderAlreadyExistsException {
+        if (orderRepository.findById(order.getOrderId()).isPresent())
+        {
+            throw new OrderAlreadyExistsException();
+        }
         return orderRepository.save(order);
     }
 

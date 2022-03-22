@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/user/admin/restaurant")
+@RequestMapping("api/user/admin")
 public class RestaurantController {
 
     private RestaurantServiceImpl restaurantService;
@@ -23,7 +23,7 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/restaurant/save")
     public ResponseEntity<?> registerRestaurant(@RequestBody Restaurant restaurant) throws RestaurantAlreadyExist{
         try {
             return new ResponseEntity<>(restaurantService.registerRestaurant(restaurant), HttpStatus.CREATED);
@@ -36,7 +36,7 @@ public class RestaurantController {
         }
     }
 
-    @DeleteMapping("/{restaurantId}")
+    @DeleteMapping("/restaurant/{restaurantId}")
     public ResponseEntity<?> removeRestaurant(@PathVariable String restaurantId) throws RestaurantNotFound{
         try{
             return new ResponseEntity<>(restaurantService.removeRestaurant(restaurantId),HttpStatus.OK);
@@ -47,7 +47,7 @@ public class RestaurantController {
         }
     }
 
-    @PutMapping("/{restaurantId}/dish")
+    @PutMapping("/restaurant/{restaurantId}/dish")
     public ResponseEntity<?> addDishToRestaurant(@PathVariable String restaurantId, @RequestBody Dish dish) throws RestaurantNotFound, DishAlreadyExist{
         try {
             return new ResponseEntity<>(restaurantService.addDishToRestaurant(restaurantId,dish),HttpStatus.CREATED);
@@ -64,7 +64,7 @@ public class RestaurantController {
         }
     }
 
-    @DeleteMapping("/{restaurantId}/dish/{dishId}")
+    @DeleteMapping("/restaurant/{restaurantId}/dish/{dishId}")
     public ResponseEntity<?> removeDishFromRestaurant(@PathVariable String restaurantId,@PathVariable String dishId) throws RestaurantNotFound, DishNotFound{
         try {
             return new ResponseEntity<>(restaurantService.removeDishFromRestaurant(restaurantId,dishId),HttpStatus.OK);
@@ -81,7 +81,7 @@ public class RestaurantController {
         }
     }
 
-    @GetMapping("/find")
+    @GetMapping("/restaurant/find")
     public ResponseEntity<?> findAllRestaurant(){
         try {
             return new ResponseEntity<>(restaurantService.findAllRestaurant(), HttpStatus.OK);
