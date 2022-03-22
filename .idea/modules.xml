@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/EurekaService/EurekaService.iml" filepath="$PROJECT_DIR$/FoodieApplication/EurekaService/EurekaService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/FavouriteService/FavouriteService.iml" filepath="$PROJECT_DIR$/FoodieApplication/FavouriteService/FavouriteService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/FoodieApplication.iml" filepath="$PROJECT_DIR$/FoodieApplication/FoodieApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/OrderService/OrderService.iml" filepath="$PROJECT_DIR$/FoodieApplication/OrderService/OrderService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/RestuarantManagementService/RestuarantManagementService.iml" filepath="$PROJECT_DIR$/FoodieApplication/RestuarantManagementService/RestuarantManagementService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/UserAuthenticationService/UserAuthenticationService.iml" filepath="$PROJECT_DIR$/FoodieApplication/UserAuthenticationService/UserAuthenticationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/UserService/UserService.iml" filepath="$PROJECT_DIR$/FoodieApplication/UserService/UserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/addRestuarantService/addRestuarantService.iml" filepath="$PROJECT_DIR$/FoodieApplication/addRestuarantService/addRestuarantService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/adminService/adminService.iml" filepath="$PROJECT_DIR$/FoodieApplication/adminService/adminService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/apiGatewayService/apiGatewayService.iml" filepath="$PROJECT_DIR$/FoodieApplication/apiGatewayService/apiGatewayService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/foodInventoryService/foodInventoryService.iml" filepath="$PROJECT_DIR$/FoodieApplication/foodInventoryService/foodInventoryService.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/foodieapplication_project.iml" filepath="$PROJECT_DIR$/.idea/foodieapplication_project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FoodieApplication/searchService/searchService.iml" filepath="$PROJECT_DIR$/FoodieApplication/searchService/searchService.iml" />
     </modules>
   </component>
 </project>
