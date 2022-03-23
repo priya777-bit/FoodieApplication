@@ -57,7 +57,7 @@ public class SearchServiceImpl implements SearchService{
     }
 
     @Override
-    public List<Dish> findAllRestaurantFromDishName(String dishName) {
+    public List<Restaurant> findAllRestaurantFromDishName(String dishName) {
 
         System.out.println(dishName);
         return searchRepository.findAllRestaurantFromDishName(dishName);
