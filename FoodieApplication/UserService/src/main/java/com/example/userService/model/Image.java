@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Image {
 
-    private String imageId;
-    private String imageURL;
-    private String imageSpecs;
+    private String imageName;
+    private String imageType;
+    private byte[] picByte;
 }
