@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { Dish } from '../domain/dish';
 import { Restaurant } from '../domain/restaurant';
 import { RestApiService } from '../service/rest-api.service';
@@ -22,6 +21,8 @@ export class AddDishComponent implements OnInit {
   dish = new Dish();
   types = ['Veg','Non-Veg'];
   restaurant:Restaurant[]=[];
+  id:string;
+ 
 
 
   changeRest(e:any){
@@ -31,7 +32,9 @@ export class AddDishComponent implements OnInit {
   ngOnInit(): void {
     this.restApi.findAllRestaurant().subscribe(response=>{
       this.restaurant=response;
-      console.log(response);
+      //this.restid=response.restaurantId;
+      //console.log("rest"+this.restid);
+      console.log(response.restaurantId);
     })
     this.addDishForm = this.fb.group({
       dishName: [null,Validators.required],
@@ -39,16 +42,18 @@ export class AddDishComponent implements OnInit {
     });
   }
 
-  addDish(restaurant:Restaurant){
+  addDish(){
     console.log("hieee")
     // const id = this.restaurant.indexOf(restaurant);
     // this.dish.restaurantId=this.restaurant[id].restaurantId;
     // console.log(id);
     // console.log(this.dish.restaurantId);
+
     this.dish.dishName=this.addDishForm.value.dishName;
     this.dish.dishType=this.addDishForm.value.dishType;
-    this.restApi.addDishToRestaurant(this.dish.restaurantId,this.dish).subscribe(response=>{
+    this.restApi.addDishToRestaurant(this.id,this.dish).subscribe(response=>{
       console.log(response);
+      console.log(this.id);
       if(this.addDishForm.valid){
       alert("Dish Added Successfully");
     }

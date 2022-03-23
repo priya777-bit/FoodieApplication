@@ -40,7 +40,15 @@ public class RestaurantServiceImpl implements RestaurantService{
         restaurantDTO.setRestaurantName(restaurant.getRestaurantName());
         restaurantDTO.setRestaurantLocation(restaurant.getRestaurantLocation());
         producer.sendMessageToRabbit(restaurantDTO);
-        return restaurantRepository.save(restaurant);
+        //boolean status = Boolean.parseBoolean(restaurantRepository.save(restaurant).getStatus());
+        if(restaurant.getStatus().equalsIgnoreCase("reject")){
+            restaurant.setStatus("approve");
+            restaurantRepository.save(restaurant);
+        }
+        else{
+
+        }
+        return restaurant;
     }
 
     @Override

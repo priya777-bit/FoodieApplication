@@ -11,10 +11,10 @@ import { RestApiService } from '../service/rest-api.service';
 })
 export class AddRestComponent implements OnInit {
 
-  restaurantId : string;
+  //restaurantId : string;
 
   constructor(private fb: FormBuilder,private restApi: RestApiService,private router: Router, private route: ActivatedRoute) { 
-    this.restaurantId = this.route.snapshot.params['restaurantId'];
+    //this.restaurantId = this.route.snapshot.params['restaurantId'];
   }
 
   addRestForm !: FormGroup;
@@ -24,9 +24,15 @@ export class AddRestComponent implements OnInit {
 
   ngOnInit(): void {
     this.addRestForm = this.fb.group({
+      restaurantId: [null,Validators.required],
       restaurantName: [null,Validators.required],
       restaurantLocation: [null,Validators.required]
     });
+  }
+
+  get restaurantId()
+  {
+    return this.addRestForm.get('restaurantId');
   }
 
   addRest(){
@@ -37,6 +43,7 @@ export class AddRestComponent implements OnInit {
     .subscribe(
         response=>{
           console.log(response)
+         // this.restApi.restId = response.restaurantId;
           if(this.addRestForm.valid){
           alert("Restaurant Added Successfully\n Your RestaurantId is\n" + this.Rest.restaurantId);
         }

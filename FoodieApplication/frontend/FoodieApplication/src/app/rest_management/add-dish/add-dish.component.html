@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="addDishForm" (ngSubmit)="addDish($event)">
+    <form [formGroup]="addDishForm" (ngSubmit)="addDish()">
         <mat-card class="card">
             <mat-card-header>
                 <mat-card-title>Add Dish</mat-card-title>
@@ -24,8 +24,6 @@
                         {{restaurant.restaurantName}} {{restaurant.restaurantLocation}}
                     </mat-option>
                     </mat-select>
-
-                    
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">

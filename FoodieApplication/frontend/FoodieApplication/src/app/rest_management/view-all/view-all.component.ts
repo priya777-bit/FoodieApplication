@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
 import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
 
 @Component({
@@ -8,12 +9,22 @@ import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/re
 })
 export class ViewAllComponent implements OnInit {
 
-  constructor(private addservice: RequestService) { }
+  restaurant:Restaurant[]=[];
+
+  constructor(private addservice: RequestService) { 
+  }
 
   ngOnInit(): void {
     this.addservice.getResturant().subscribe(response=>{
       console.log(response);
     })
+  }
+
+  delete(e:any){
+
+  }
+  Add(e:any){
+
   }
 
 }

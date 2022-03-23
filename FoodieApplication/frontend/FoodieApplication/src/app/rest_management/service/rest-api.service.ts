@@ -9,7 +9,7 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
-  restData : any;
+  //restId:string;
 
   constructor(private http: HttpClient) { }
 

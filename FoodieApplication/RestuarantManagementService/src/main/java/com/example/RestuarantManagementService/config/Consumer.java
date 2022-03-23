@@ -25,7 +25,11 @@ public class Consumer {
         restaurant.setRestaurantId(restaurantDTO.getRestaurantId());
         restaurant.setRestaurantName(restaurantDTO.getRestaurantName());
         restaurant.setRestaurantLocation(restaurantDTO.getRestaurantLocation());
-        restaurantService.registerRestaurant(restaurant);
+        if(restaurant.getStatus().equalsIgnoreCase("reject")) {
+            restaurant.setStatus("approve");
+            restaurantService.registerRestaurant(restaurant);
+        }
+
     }
 
     @RabbitListener(queues = "dish_queue")

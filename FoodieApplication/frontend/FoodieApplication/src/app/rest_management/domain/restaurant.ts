@@ -5,8 +5,8 @@ export class Restaurant {
     restaurantId:string
     restaurantName:string
     restaurantLocation:string
-    // dishList:List<Dish>
     dishList: Array<Dish>
+  static restaurantId: string;
 
     constructor(){
         this.restaurantId='',
