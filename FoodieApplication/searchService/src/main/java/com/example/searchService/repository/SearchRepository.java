@@ -16,6 +16,11 @@ public interface SearchRepository extends MongoRepository<Restaurant,String>{
 //    @Query(value = "{ 'dishList': { $elemMatch: { 'dishName' } }}")
 //    List<Dish> findByDishName(String dishName);
 
+<<<<<<< HEAD
     @Query("{'dishList.dishName':{$in:[?0]}}")
     List<Restaurant> findAllRestaurantFromDishName(String dishName);
+=======
+    @Query("{'dishList.dishName' : { $in : [?0]}}")
+    List<Dish> findByDishName(String dishName);
+>>>>>>> 9ba26d499f4551cb43dc21cf2b336e06e10c97bf
 }

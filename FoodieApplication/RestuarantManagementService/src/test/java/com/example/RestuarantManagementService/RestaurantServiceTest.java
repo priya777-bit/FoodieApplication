@@ -89,7 +89,7 @@ public class RestaurantServiceTest {
     }
 
     @Test
-    public void addDishToRestaurant() throws RestaurantNotFound, DishAlreadyExist {
+    public void addDishToRestaurantSuccess() throws RestaurantNotFound, DishAlreadyExist {
         when(restaurantRepository.findById(restaurant.getRestaurantId())).thenReturn(Optional.ofNullable(restaurant));
         when(restaurantRepository.save(restaurant)).thenReturn(restaurant);
         List<Dish> dishList = restaurant.getDishList();

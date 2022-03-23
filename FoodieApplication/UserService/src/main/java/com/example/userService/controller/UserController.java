@@ -2,12 +2,15 @@ package com.example.userService.controller;
 
 import com.example.userService.exception.UserAlreadyExist;
 import com.example.userService.exception.UserNotFound;
+import com.example.userService.model.Image;
 import com.example.userService.model.User;
 import com.example.userService.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/user")
@@ -20,9 +23,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/registerUser")
-    public ResponseEntity<?> registerUser(@RequestBody User user) throws UserAlreadyExist {
+   @PostMapping(value = "/registerUser",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE},headers={"Accept=application/json"})
+    public ResponseEntity<?> registerUser(@RequestPart("imageFile") MultipartFile file,@RequestPart("uploadData") User user) throws UserAlreadyExist {
         try {
+            Image img=new Image(file.getOriginalFilename(),file.getContentType(),file.getBytes());
+            System.out.println(img.getImageType());
+            user.setImage(img);
             return new ResponseEntity<>(userService.registerUser(user), HttpStatus.CREATED);
         }
         catch (UserAlreadyExist error)
@@ -31,6 +37,7 @@ public class UserController {
         }
         catch (Exception error)
         {
+            System.out.println(error);
             return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

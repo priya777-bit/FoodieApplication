@@ -38,7 +38,8 @@ public class AppConfig {
                 .route(o->o.path("/api/user/**")
                         .uri("http://localhost:8088/"))
 
-                .route(m->m.path("/api/admin/**")
+                .route(m->m.path("/api/user/admin/restaurant/**")
+                        //.uri("lb://restuarant-management-service"))
                         .uri("http://localhost:8090/"))
 
                 .build();
@@ -58,15 +59,15 @@ public class AppConfig {
         return filterRegistrationBean;
     }
 
-    @Bean
-    public FilterRegistrationBean filterRegistrationBeanAdmin()
-    {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean<>();
-
-        filterRegistrationBean.setFilter(new JwtFilter());
-
-        filterRegistrationBean.addUrlPatterns("/api/user/admin/*");
-
-        return filterRegistrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean filterRegistrationBeanAdmin()
+//    {
+//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean<>();
+//
+//        filterRegistrationBean.setFilter(new JwtFilter());
+//
+//        filterRegistrationBean.addUrlPatterns("/api/user/admin/*");
+//
+//        return filterRegistrationBean;
+//    }
 }

@@ -95,7 +95,6 @@ public class OrderControllerTest {
     @Test
     public void addToCartFail() throws Exception {
         when(orderService.saveOrder(order)).thenThrow(OrderAlreadyExistsException.class);
-
         mockMvc.perform(post("/api/user/users/order/addToCart")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonToString(order)))
