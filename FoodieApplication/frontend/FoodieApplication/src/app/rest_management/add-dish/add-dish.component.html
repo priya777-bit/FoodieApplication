@@ -1,0 +1,52 @@
+<div class="container">
+    <form [formGroup]="addDishForm" (ngSubmit)="addDish()">
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title>Add Dish</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h2>Choose your Restaurant</h2>
+                <mat-label>Restaurant Names</mat-label>
+                <mat-select (change)="changeRest($event)">
+                    <mat-option  *ngFor="let rest of restaurant" [value]="rest">
+                        {{rest}}
+                    </mat-option>
+                </mat-select>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter Dish Name" formControlName="dishName">
+                            <mat-error *ngIf="addDishForm.controls['dishName'].hasError('required')">
+                                Dish Name is <strong> required </strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <!-- <mat-label>Dish Type</mat-label>
+                            <mat-option *ngFor="let dishType of types" [value]="dishType">
+                            <input matInput type="radio" [value]="dishType" formControlName="dishType">
+                                {{dishType}}
+                            </mat-option> -->
+                            <mat-label>Dish Type</mat-label>
+                            <mat-select formControlName="dishType">
+                            <mat-option>choose your Dish Type </mat-option>
+                            <mat-option *ngFor="let dishType of types" [value]="dishType">
+                                {{dishType}}
+                            </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="addDishForm.controls['dishType'].hasError('required')">
+                                Dish Type is <strong> required </strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!addDishForm.valid" > Save </button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

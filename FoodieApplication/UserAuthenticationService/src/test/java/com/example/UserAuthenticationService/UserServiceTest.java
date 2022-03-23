@@ -38,7 +38,7 @@ public class UserServiceTest {
 
     @Test
     public void saveUserSuccess(){
-//        when(userRepository.existsById(anyString())).thenReturn(false);
+//        when(userRepository.existsById(anyString())).thenReturn(true);
         when(userRepository.save(any(User.class))).thenReturn(user1);
         User saveUser = userRepository.save(user1);
         assertThat(saveUser.getUserMailId()).isNotNull();
@@ -47,5 +47,6 @@ public class UserServiceTest {
     @Test
     public void findByUserMailIdAndUserPasswordSuccess(){
         when(userRepository.findByUserMailIdAndUserPassword(anyString(),anyString())).thenReturn(user1);
+
     }
 }

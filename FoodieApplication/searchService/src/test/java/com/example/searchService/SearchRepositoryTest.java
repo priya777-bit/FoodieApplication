@@ -103,6 +103,6 @@ public class SearchRepositoryTest
     {
         searchRepository.insert(restaurant);
         Restaurant restaurant1=searchRepository.findById(restaurant.getRestaurantId()).get();
-        assertEquals(dishList.get(0),searchRepository.findByDishName(restaurant.getDishList().get(0).getDishName()));
+        assertEquals(dishList.get(0),searchRepository.findAllRestaurantFromDishName(restaurant.getDishList().get(0).getDishName()));
     }
 }

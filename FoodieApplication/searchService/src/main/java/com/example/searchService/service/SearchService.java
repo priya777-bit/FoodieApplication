@@ -10,5 +10,5 @@ public interface SearchService {
     public Restaurant saveRestaurant(Restaurant restaurant);
     public List<Dish> saveDish(String restaurantId,Dish dish);
     public List<Restaurant> findByRestaurantName(String restaurantName);
-    public List<Dish> findAllRestaurantFromDishName(String dishName);
+    public List<Restaurant> findAllRestaurantFromDishName(String dishName);
 }

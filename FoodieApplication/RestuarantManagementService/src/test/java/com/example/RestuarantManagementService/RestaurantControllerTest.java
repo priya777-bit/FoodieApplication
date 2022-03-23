@@ -37,8 +37,8 @@ public class RestaurantControllerTest {
     @InjectMocks
     private RestaurantController restaurantController;
 
-    @Autowired
-    private RabbitListener rabbitListener;
+//    @Autowired
+//    private RabbitListener rabbitListener;
 
     private Restaurant restaurant;
     private Dish dish1;
