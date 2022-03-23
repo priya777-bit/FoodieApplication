@@ -12,16 +12,13 @@ import { RestApiService } from '../service/rest-api.service';
 export class AddRestComponent implements OnInit {
 
   restaurantId : string;
-  //restaurantName!: string;
 
   constructor(private fb: FormBuilder,private restApi: RestApiService,private router: Router, private route: ActivatedRoute) { 
     this.restaurantId = this.route.snapshot.params['restaurantId'];
-    //this.restaurantName = this.route.snapshot.params['restaurantName'];
   }
 
   addRestForm !: FormGroup;
   Rest = new Restaurant();
-  restData ! : any;
   
   Locations = ['Sigra','Lanka','Nasik','Madras','Mehmurganj','Delhi','MotiMahal','DurgaKund','Sidgiribaag','Lahatara','Babatpur','Pahariya']
 
@@ -39,8 +36,6 @@ export class AddRestComponent implements OnInit {
     this.restApi.registerRestaurant(this.Rest)
     .subscribe(
         response=>{
-          this.restData=response;
-          console.log("save data"+this.restData);
           console.log(response)
           if(this.addRestForm.valid){
           alert("Restaurant Added Successfully\n Your RestaurantId is\n" + this.Rest.restaurantId);

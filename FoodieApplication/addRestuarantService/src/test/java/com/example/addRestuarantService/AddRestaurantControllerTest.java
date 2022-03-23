@@ -76,7 +76,7 @@ public class AddRestaurantControllerTest {
 //        restaurantDTO.setRestaurantName(restaurant.getRestaurantName());
 //        restaurantDTO.setRestaurantLocation(restaurant.getRestaurantLocation());
 
-        when(restaurantService.addRestaurant(restaurant)).thenReturn(true);
+        when(restaurantService.addRestaurant(restaurant)).thenReturn(restaurant);
 
         mockMvc.perform(post("/api/request/restaurant")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -91,7 +91,7 @@ public class AddRestaurantControllerTest {
 
     @Test
     public void addDish() throws Exception {
-        when(restaurantService.addDish(any(),any())).thenReturn(true);
+        when(restaurantService.addDish(any(),any())).thenReturn(restaurant);
 
         mockMvc.perform(put("/api/request/r001/dish")
                 .contentType(MediaType.APPLICATION_JSON)

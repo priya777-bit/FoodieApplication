@@ -3,8 +3,11 @@ package com.example.addRestuarantService.service;
 import com.example.addRestuarantService.model.Dish;
 import com.example.addRestuarantService.model.Restaurant;
 
+import java.util.List;
+
 public interface RestaurantService {
 
-    public boolean addRestaurant(Restaurant restaurant);
-    public boolean addDish(String restaurantId,Dish dish);
+    public Restaurant addRestaurant(Restaurant restaurant);
+    public Restaurant addDish(String restaurantId,Dish dish);
+    public List<Restaurant> findAllRestaurant();
 }

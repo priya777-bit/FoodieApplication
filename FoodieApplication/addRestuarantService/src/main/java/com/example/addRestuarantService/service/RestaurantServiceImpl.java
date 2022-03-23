@@ -5,10 +5,10 @@ import com.example.addRestuarantService.model.Dish;
 import com.example.addRestuarantService.model.Restaurant;
 import com.example.addRestuarantService.rabbitmq.DishDTO;
 import com.example.addRestuarantService.rabbitmq.RestaurantDTO;
+import com.example.addRestuarantService.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,20 +17,23 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Autowired
     private Producer producer;
 
+    @Autowired
+    private RestaurantRepository restaurantRepository;
+
     @Override
-    public boolean addRestaurant(Restaurant restaurant) {
+    public Restaurant addRestaurant(Restaurant restaurant) {
         RestaurantDTO restaurantDTO = new RestaurantDTO();
         restaurantDTO.setRestaurantId(restaurant.getRestaurantId());
         restaurantDTO.setRestaurantName(restaurant.getRestaurantName());
         restaurantDTO.setRestaurantLocation(restaurant.getRestaurantLocation());
 
         producer.sendRestMsg2RabbitMq(restaurantDTO);
-
-        return true;
+        System.out.println(restaurant);
+        return restaurantRepository.save(restaurant);
     }
 
     @Override
-    public boolean addDish(String restaurantId,Dish dish) {
+    public Restaurant addDish(String restaurantId,Dish dish) {
 
         DishDTO dishDTO = new DishDTO();
         dishDTO.setDishId(dish.getDishId());
@@ -39,7 +42,16 @@ public class RestaurantServiceImpl implements RestaurantService {
         dishDTO.setRestaurantId(restaurantId);
 
         producer.sendDishMsg2RabbitMq(dishDTO);
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+        List<Dish> dishList = restaurant.getDishList();
+        dishList.add(dish);
+        restaurant.setDishList(dishList);
+        return restaurantRepository.save(restaurant);
 
-        return true;
+    }
+
+    @Override
+    public List<Restaurant> findAllRestaurant() {
+        return restaurantRepository.findAll();
     }
 }

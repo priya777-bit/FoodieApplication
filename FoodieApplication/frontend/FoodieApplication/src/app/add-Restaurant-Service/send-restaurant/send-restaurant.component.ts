@@ -10,12 +10,9 @@ import { RequestService } from '../addRestService/request.service';
 })
 export class SendRestaurantComponent implements OnInit {
 
-  constructor(private request:RequestService) {
-    this.restaurant=[];
-   }
+  constructor(private request:RequestService) {}
 
-  restaurant:Restaurant[];
-
+  rest = new Restaurant();
   addRestaurant!:FormGroup;
 
   ngOnInit(): void {
@@ -42,10 +39,13 @@ export class SendRestaurantComponent implements OnInit {
     return this.addRestaurant.get('restaurantLocation');
   }
 
-  sendRestaurant(restaurant:Restaurant)
+  sendRestaurant()
   {
-    this.restaurant.push(restaurant);
-    this.request.addRestaurant(restaurant).subscribe(response=>{
+  
+    // this.restaurant.push(restaurant);
+    this.rest.restaurantName=this.addRestaurant.value.restaurantName;
+    this.rest.restaurantLocation= this.addRestaurant.value.restaurantLocation;
+    this.request.addRestaurant(this.rest).subscribe(response=>{
       console.log(response);
     })
 

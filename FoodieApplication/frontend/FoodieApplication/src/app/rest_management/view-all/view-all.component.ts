@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
 
 @Component({
   selector: 'app-view-all',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAllComponent implements OnInit {
 
-  constructor() { }
+  constructor(private addservice: RequestService) { }
 
   ngOnInit(): void {
+    this.addservice.getResturant().subscribe(response=>{
+      console.log(response);
+    })
   }
 
 }

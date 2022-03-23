@@ -27,17 +27,10 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
-=======
-<<<<<<< HEAD
               "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.css"
-=======
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
->>>>>>> ba7337d5ed5706a82ca52bdf42fef33629d96650
-              "src/styles.css"
->>>>>>> 9ba26d499f4551cb43dc21cf2b336e06e10c97bf
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"
             ],
             "scripts": ["./node_modules/jquery/dist/jquery.min.js","./node_modules/bootstrap/dist/js/bootstrap.js"]
           },
@@ -104,11 +97,7 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
-=======
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
->>>>>>> ba7337d5ed5706a82ca52bdf42fef33629d96650
               "src/styles.css"
             ],
             "scripts": []

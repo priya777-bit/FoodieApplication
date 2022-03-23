@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RestApiService } from 'src/app/rest_management/service/rest-api.service';
 import { Restaurant } from '../addRestModel/restaurant';
 
 @Component({
@@ -10,21 +11,23 @@ import { Restaurant } from '../addRestModel/restaurant';
 export class SendDishComponent implements OnInit {
 
   selected='';
-  constructor() {
-    this.selected = '--'
+  constructor(private api: RestApiService) {
+    this.selected="";
     this.restaurant=[];
    }
 
   addDish!:FormGroup;
 
-  @Input()
-  restaurant:Restaurant[];
+  restaurant:Restaurant[]=[];
   
   update(e:any){
-    this.selected = e.target.value
+    this.selected = e.target.value;
   }
 
   ngOnInit(): void {
+    this.api.findAllRestaurant().subscribe(response=>{
+      this.restaurant=response;
+    })
     this.addDish = new FormGroup({
       restaurantId:new FormControl('',Validators.required),
       dishName:new FormControl('',Validators.required),

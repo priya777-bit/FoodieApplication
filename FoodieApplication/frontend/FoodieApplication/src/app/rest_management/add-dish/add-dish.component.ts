@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Dish } from '../domain/dish';
 import { Restaurant } from '../domain/restaurant';
 import { RestApiService } from '../service/rest-api.service';
@@ -11,35 +12,49 @@ import { RestApiService } from '../service/rest-api.service';
 })
 export class AddDishComponent implements OnInit {
 
-  restData! : Restaurant[];
-
+  selected='';
   constructor(private fb: FormBuilder,private restApi : RestApiService) { 
-    this.restData=[];
+    this.selected="";
+    this.restaurant=[];
   }
 
   addDishForm !: FormGroup
   dish = new Dish();
-  types = ['Veg','Non-Veg']
-  
-  restaurant: any = ['Killer Pizza from Mars','The French Laundry','Starbelly','Egg Slut', 'Goosefoot']
-  //restaurant = [this.Rest.restaurantName]
+  types = ['Veg','Non-Veg'];
+  restaurant:Restaurant[]=[];
 
 
   changeRest(e:any){
-    this.restaurant = e.target.value;
+    this.selected = e.target.value;
   }
 
   ngOnInit(): void {
+    this.restApi.findAllRestaurant().subscribe(response=>{
+      this.restaurant=response;
+      console.log(response);
+    })
     this.addDishForm = this.fb.group({
       dishName: [null,Validators.required],
       dishType: [null,Validators.required]
     });
   }
 
-  addDish(){
-    
-    if(this.addDishForm.valid){
+  addDish(restaurant:Restaurant){
+    console.log("hieee")
+    // const id = this.restaurant.indexOf(restaurant);
+    // this.dish.restaurantId=this.restaurant[id].restaurantId;
+    // console.log(id);
+    // console.log(this.dish.restaurantId);
+    this.dish.dishName=this.addDishForm.value.dishName;
+    this.dish.dishType=this.addDishForm.value.dishType;
+    this.restApi.addDishToRestaurant(this.dish.restaurantId,this.dish).subscribe(response=>{
+      console.log(response);
+      if(this.addDishForm.valid){
       alert("Dish Added Successfully");
     }
-  }
+  },
+    error =>{
+          console.log(error);
+        }
+    )}
 }

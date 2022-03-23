@@ -14,4 +14,5 @@ export class Restaurant {
         this.restaurantLocation='';
         this.dishList=[];
     }
+
 }

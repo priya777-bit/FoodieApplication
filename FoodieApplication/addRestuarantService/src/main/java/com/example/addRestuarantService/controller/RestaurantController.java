@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:4200")
+//@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("api/request")
 public class RestaurantController {
@@ -41,6 +41,17 @@ public class RestaurantController {
         catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>("try again some time ..",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/restaurant/find")
+    public ResponseEntity<?> findAllRestaurant(){
+        try {
+            return new ResponseEntity<>(restaurantService.findAllRestaurant(),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

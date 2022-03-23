@@ -2,12 +2,12 @@
 
     <h3>Choose Your Restaurant</h3>
     <select (change)="update($event)">
-    <option *ngFor="let restaurant of restaurant" [value]="restaurant">
-        {{restaurant.restuarantId}}{{restaurant.restaurantName}}{{restaurant.restaurantLocation}}
+    <option *ngFor="let restaurant of restaurant" [ngvalue]="restaurant">
+        {{restaurant.restuarantId}}{{restaurant.restaurantName}} {{restaurant.restaurantLocation}}
     </option>
     </select>
 
-    <p>You selected {{selected}}</p>
+    <p>You selected {{ selected | json}}</p>
     
     <label for="dishName">Dish Name: </label>
     <input class="form-control" id="dishName" type="text" formControlName="dishName">

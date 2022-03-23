@@ -19,12 +19,13 @@
                     <div class="col">
                         <mat-form-field class="full-width">
                             <mat-label>Restaurant Location</mat-label>
-                            <mat-select formControlName="restaurantLocation">
+                            <input matInput placeholder="Enter Restaurant Location" formControlName="restaurantLocation">
+                            <!-- <mat-select formControlName="restaurantLocation">
                             <mat-option>choose your location </mat-option>
                             <mat-option *ngFor="let restaurantLocation of Locations" [value]="restaurantLocation">
                                 {{restaurantLocation}}
                             </mat-option>
-                            </mat-select>
+                            </mat-select> -->
                             <mat-error *ngIf="addRestForm.controls['restaurantLocation'].hasError('required')">
                                 Restaurant Name is <strong> required </strong>
                             </mat-error>

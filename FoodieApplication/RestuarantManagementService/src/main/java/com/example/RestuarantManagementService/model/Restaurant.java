@@ -21,4 +21,7 @@ public class Restaurant {
     private String restaurantLocation;
     private List<Dish> dishList;
     private String status = "reject";
+
+    public Restaurant(String rest1, String priyElite, String nasik, List<Dish> dishList) {
+    }
 }
