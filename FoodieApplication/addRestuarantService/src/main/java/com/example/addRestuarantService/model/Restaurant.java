@@ -19,5 +19,6 @@ public class Restaurant {
     private String restaurantName;
     private String restaurantLocation;
     private List<Dish> dishList;
+    private String status = "reject";
 
 }

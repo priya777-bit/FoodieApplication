@@ -7,11 +7,12 @@ import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
 
 const routes: Routes = [
-  // {path:'',component:SendRestaurantComponent},
-  // {path:'dish',component:SendDishComponent},
-  {path:'addRest',component:AddRestComponent},
-  {path:'addDish',component:AddDishComponent},
-  {path:'find',component:ViewAllComponent}
+  {path:'',component:SendRestaurantComponent},
+  {path:'dish',component:SendDishComponent},
+  // {path:'addRest',component:AddRestComponent},
+  // {path:'addDish',component:AddDishComponent},
+  // {path:'find',component:ViewAllComponent}
+
 
 ];
 

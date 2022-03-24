@@ -54,4 +54,16 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<Restaurant> findAllRestaurant() {
         return restaurantRepository.findAll();
     }
+
+    @Override
+    public boolean deleteRestaurantWhenRejected(String restaurantId,String status) {
+        boolean response = false;
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+        if (status=="reject")
+        {
+            restaurantRepository.delete(restaurant);
+            response = true;
+        }
+        return response;
+    }
 }

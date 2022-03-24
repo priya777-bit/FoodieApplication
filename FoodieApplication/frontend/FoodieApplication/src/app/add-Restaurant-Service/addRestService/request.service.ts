@@ -18,4 +18,9 @@ export class RequestService {
   getResturant():Observable<any>{
     return this.http.get<any>("http://localhost:9000/api/request/restaurant/find");
   }
+
+  deleteRestaurant()
+  {
+    return this.http.delete<any>("http://localhost:9000/api/request/restaurant/delete");
+  }
 }

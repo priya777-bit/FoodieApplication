@@ -54,4 +54,17 @@ public class RestaurantController {
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/restaurant/delete")
+    public ResponseEntity<?> deleteRestaurantWhenRejected(@PathVariable String restaurantId,@PathVariable String status)
+    {
+        try
+        {
+            return new ResponseEntity<>(restaurantService.deleteRestaurantWhenRejected(restaurantId,status),HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>("Try again some time ..",HttpStatus.OK);
+        }
+    }
 }

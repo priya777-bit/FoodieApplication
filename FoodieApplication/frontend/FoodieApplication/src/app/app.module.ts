@@ -52,7 +52,7 @@ import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
