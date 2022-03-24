@@ -9,7 +9,8 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
-  //restId:string;
+  restId:string;
+  dishId:string;
 
   constructor(private http: HttpClient) { }
 
@@ -27,8 +28,8 @@ export class RestApiService {
     return this.http.put("http://localhost:8090/api/user/admin/restaurant/"+`${restaurantId}`+"/dish",dish);
   }
 
-  findAllRestaurant():Observable<any>{
-    return this.http.get<any>("http://localhost:8090/api/user/admin/restaurant/find");
+  findAllRestaurant():Observable<Array<any>>{
+    return this.http.get<Array<any>>("http://localhost:8090/api/user/admin/restaurant/find");
   }
 
 }

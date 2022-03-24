@@ -4,16 +4,15 @@
         <tr>
           <th>Restaurant Name</th>
           <th>Restaurant Location</th>
-          <th>Reject</th>
-          <th>Approve</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody class="tbody">
         <tr *ngFor="let restaurant of restaurant">
           <td>{{restaurant.restaurantName}}</td>
           <td>{{restaurant.restaurantLocation}}</td>
-          <td><button type="button" class="btn btn-danger" (click)="delete($event)">Reject</button></td>
-          <td><button type="button" class="btn btn-danger" (click)="Add($event)">Approve</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="delete()">Reject</button></td>
+          <td><button type="button" class="btn btn-primary" (click)="Add($event)">Approve</button></td>
         </tr>
       </tbody>
     </table>

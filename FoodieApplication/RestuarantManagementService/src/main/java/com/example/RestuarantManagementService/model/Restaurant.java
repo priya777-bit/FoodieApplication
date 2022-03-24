@@ -22,6 +22,6 @@ public class Restaurant {
     private List<Dish> dishList;
     private String status = "reject";
 
-    public Restaurant(String rest1, String priyElite, String nasik, List<Dish> dishList) {
+    public Restaurant(String restaurantId, String restaurantName, String restaurantLocation, List<Dish> dishList) {
     }
 }

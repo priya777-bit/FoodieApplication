@@ -12,5 +12,8 @@ public class Dish {
     private String dishId;
     private String dishName;
     private String dishType;
+    private String dishImageUrl;
 
+    public Dish(String dishId, String dishName, String dishType) {
+    }
 }

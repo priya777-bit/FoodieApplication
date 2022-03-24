@@ -12,6 +12,7 @@ import { RestApiService } from '../service/rest-api.service';
 export class AddDishComponent implements OnInit {
 
   selected='';
+ // dishList:Dish[] =[];
   constructor(private fb: FormBuilder,private restApi : RestApiService) { 
     this.selected="";
     this.restaurant=[];
@@ -19,11 +20,8 @@ export class AddDishComponent implements OnInit {
 
   addDishForm !: FormGroup
   dish = new Dish();
-  types = ['Veg','Non-Veg'];
+  types = ['Veg','Non-Veg','Dessert'];
   restaurant:Restaurant[]=[];
-  id:string;
- 
-
 
   changeRest(e:any){
     this.selected = e.target.value;
@@ -31,11 +29,18 @@ export class AddDishComponent implements OnInit {
 
   ngOnInit(): void {
     this.restApi.findAllRestaurant().subscribe(response=>{
-      this.restaurant=response;
-      //this.restid=response.restaurantId;
-      //console.log("rest"+this.restid);
-      console.log(response.restaurantId);
-    })
+    this.restaurant=response;
+      this.restaurant.forEach(element=>{
+        // if(element.restaurantId=response[0].restaurantId){
+        this.selected=element.restaurantId;
+        // this.dishList = element.dishList;
+        // console.log("element"+this.dishList)
+        this.restApi.restId=this.selected;
+        console.log(this.restApi.restId);
+        // }
+      })
+    });
+
     this.addDishForm = this.fb.group({
       dishName: [null,Validators.required],
       dishType: [null,Validators.required]
@@ -43,19 +48,17 @@ export class AddDishComponent implements OnInit {
   }
 
   addDish(){
-    console.log("hieee")
-    // const id = this.restaurant.indexOf(restaurant);
-    // this.dish.restaurantId=this.restaurant[id].restaurantId;
-    // console.log(id);
-    // console.log(this.dish.restaurantId);
-
+    this.dish.dishId=Math.random().toString(36).substring(2,15);
     this.dish.dishName=this.addDishForm.value.dishName;
     this.dish.dishType=this.addDishForm.value.dishType;
-    this.restApi.addDishToRestaurant(this.id,this.dish).subscribe(response=>{
+    this.restApi.addDishToRestaurant(this.restApi.restId,this.dish).subscribe(response=>{
+      this.restApi.dishId=this.dish.dishId;
       console.log(response);
-      console.log(this.id);
+      // this.dishList=response;
+      // console.log(this.dishList)
+      // console.log(this.restApi.restId);
       if(this.addDishForm.valid){
-      alert("Dish Added Successfully");
+      alert("Dish Added Successfully\n Your RestaurantId is\n" + this.dish.dishId);
     }
   },
     error =>{
