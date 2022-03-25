@@ -14,5 +14,5 @@
         <div *ngIf="restaurantLocation.errors?.['required']" class="alert alert-danger">Restaurant Location Required ..</div>
     </div>
 
-    <button type="submit">sendRestaurant</button>
+    <button type="submit" [disabled]="!addRestaurant.valid">sendRestaurant</button>
 </form>

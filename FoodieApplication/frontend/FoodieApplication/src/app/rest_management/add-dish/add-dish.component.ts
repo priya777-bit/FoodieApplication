@@ -34,7 +34,7 @@ export class AddDishComponent implements OnInit {
       this.restaurant=response;
       //this.restid=response.restaurantId;
       //console.log("rest"+this.restid);
-      console.log(response.restaurantId);
+      console.log(response);
     })
     this.addDishForm = this.fb.group({
       dishName: [null,Validators.required],

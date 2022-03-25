@@ -17,6 +17,7 @@ export class ViewAllComponent implements OnInit {
   ngOnInit(): void {
     this.addservice.getResturant().subscribe(response=>{
       console.log(response);
+      this.restaurant=response;
     })
   }
 

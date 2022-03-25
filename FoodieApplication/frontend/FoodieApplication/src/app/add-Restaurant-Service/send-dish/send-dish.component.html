@@ -2,8 +2,10 @@
 
     <h3>Choose Your Restaurant</h3>
     <select (change)="update($event)">
-    <option *ngFor="let restaurant of restaurant" [ngvalue]="restaurant">
-        {{restaurant.restuarantId}}{{restaurant.restaurantName}} {{restaurant.restaurantLocation}}
+    <option *ngFor="let restaurant of rest" value="name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+        <b>id:</b>{{restaurant.restaurantId}} ,
+        <b>Name:</b>{{restaurant.restaurantName}} ,
+        <b>Location:</b>{{restaurant.restaurantLocation}}
     </option>
     </select>
 
@@ -23,6 +25,10 @@
         <label class="form-check-label" for="dishType">non-veg</label>
     </div>
 
-    <button type="submit">SendDish</button>
+    <div formGroupName="image">
+        <input type="file" name="image" (change)="onFileSelected($event)">
+      </div>
+
+    <button type="submit" [disabled]="!addDish.valid">SendDish</button>
 </form>
 <router-outlet></router-outlet>
