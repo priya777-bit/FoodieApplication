@@ -11,37 +11,40 @@ import { RestApiService } from '../service/rest-api.service';
 })
 export class ViewAllComponent implements OnInit {
 
+  selected='';
   Rest = new Restaurant();
   restaurant:Restaurant[]=[];
 
   constructor(private addservice: RequestService,private restApi: RestApiService) { 
+    this.selected='';
     this.restaurant=[];
   }
 
   ngOnInit(): void {
     this.addservice.getResturant().subscribe(response=>{
+      // response.forEach(e=>{
+      // })
       this.restaurant=response;
-      console.log(response);
+      console.log(response)
     })
   }
 
   delete(){
     //this.restaurant=e.target.value;
-    this.addservice.deleteRestaurant().subscribe(response=>{
-      console.log(response);
-    })
+    // this.addservice.deleteRestaurant().subscribe(response=>{
+    //   console.log(response);
+    // })
 
   }
 
   Add(e:any){
-    // this.restaurant=e.target.value;
-    // //this.Rest=this.restaurant;
-    // // this.Rest.restaurantId=Math.random().toString(36).substring(2,15);
-    // // this.Rest.restaurantName=
-    // // this.Rest.restaurantLocation=this.restaurant.value.restaurantLocation;
-    // this.restApi.registerRestaurant(this.restaurant).subscribe(response=>{
-    //   console.log(response);
-    // })
-  }
-
+    this.selected=e.target.value;
+    
+    this.restApi.registerRestaurant(this.Rest).subscribe(res=>{
+      console.log(res);
+      alert("Restaurant Added Successfully\n Your RestaurantId is\n" + this.Rest.restaurantId); 
+    },error =>{
+          console.log(error);
+    }
+    )}
 }

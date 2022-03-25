@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
 import { Dish } from '../domain/dish';
 import { Restaurant } from '../domain/restaurant';
 import { RestApiService } from '../service/rest-api.service';
@@ -13,7 +14,7 @@ export class AddDishComponent implements OnInit {
 
   selected='';
  // dishList:Dish[] =[];
-  constructor(private fb: FormBuilder,private restApi : RestApiService) { 
+  constructor(private fb: FormBuilder,private restApi : RestApiService,private request : RequestService) { 
     this.selected="";
     this.restaurant=[];
   }
@@ -33,10 +34,6 @@ export class AddDishComponent implements OnInit {
       this.restaurant.forEach(element=>{
         // if(element.restaurantId=response[0].restaurantId){
         this.selected=element.restaurantId;
-        // this.dishList = element.dishList;
-        // console.log("element"+this.dishList)
-        this.restApi.restId=this.selected;
-        console.log(this.restApi.restId);
         // }
       })
     });
@@ -48,11 +45,10 @@ export class AddDishComponent implements OnInit {
   }
 
   addDish(){
-    this.dish.dishId=Math.random().toString(36).substring(2,15);
+    this.dish.dishId=this.request.dishId;
     this.dish.dishName=this.addDishForm.value.dishName;
     this.dish.dishType=this.addDishForm.value.dishType;
-    this.restApi.addDishToRestaurant(this.restApi.restId,this.dish).subscribe(response=>{
-      this.restApi.dishId=this.dish.dishId;
+    this.restApi.addDishToRestaurant(this.request.restaurantId,this.dish).subscribe(response=>{
       console.log(response);
       // this.dishList=response;
       // console.log(this.dishList)

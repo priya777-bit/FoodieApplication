@@ -9,6 +9,8 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
+  restName:string;
+  restLocation:string;
   restId:string;
   dishId:string;
 

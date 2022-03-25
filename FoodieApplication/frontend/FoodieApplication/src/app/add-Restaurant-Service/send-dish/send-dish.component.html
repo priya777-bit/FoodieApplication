@@ -2,8 +2,8 @@
 
     <h3>Choose Your Restaurant</h3>
     <select (change)="update($event)">
-    <option *ngFor="let restaurant of restaurant" [ngvalue]="restaurant">
-        {{restaurant.restuarantId}}{{restaurant.restaurantName}} {{restaurant.restaurantLocation}}
+    <option *ngFor="let restaurant of restaurant" value="Rest Name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+        <b >id:</b>{{restaurant.restaurantId}} <b> Rest Name:</b>{{restaurant.restaurantName}} <b>Location:</b>{{restaurant.restaurantLocation}}
     </option>
     </select>
 
@@ -23,6 +23,6 @@
         <label class="form-check-label" for="dishType">non-veg</label>
     </div>
 
-    <button type="submit">SendDish</button>
+    <button type="submit" [disabled]="!addDish.valid">SendDish</button>
 </form>
 <router-outlet></router-outlet>
