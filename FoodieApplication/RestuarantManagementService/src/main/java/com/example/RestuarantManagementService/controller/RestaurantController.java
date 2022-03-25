@@ -9,8 +9,12 @@ import com.example.RestuarantManagementService.model.Restaurant;
 import com.example.RestuarantManagementService.service.RestaurantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -90,5 +94,11 @@ public class RestaurantController {
         catch (Exception e){
             return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PostMapping("/uploadImage")
+    public ResponseEntity<?> saveFile(@RequestPart("imageFile")MultipartFile file,@RequestPart("uploadData") Dish dish) throws IOException {
+        return null;
+
     }
 }

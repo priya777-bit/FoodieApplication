@@ -74,4 +74,10 @@ public class RestaurantServiceImpl implements RestaurantService {
         }
         return response;
     }
+
+    @Override
+    public String findByRestaurantNameAndRestaurantLocation(String restaurantName, String restaurantLocation){
+        String id = restaurantRepository.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation);
+        return id;
+    }
 }

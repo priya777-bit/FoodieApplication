@@ -35,14 +35,21 @@ export class SendRestaurantComponent implements OnInit {
 
   sendRestaurant()
   {
+<<<<<<< HEAD
   
     // this.restaurant.push(restaurant);
+=======
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
     this.rest.restaurantId=Math.random().toString(36).substring(2,15);
     this.rest.restaurantName=this.addRestaurant.value.restaurantName;
     this.rest.restaurantLocation= this.addRestaurant.value.restaurantLocation;
     this.rest.dishList=this.addRestaurant.value.dishList;
     this.request.addRestaurant(this.rest).subscribe(response=>{
       console.log(response);
+<<<<<<< HEAD
+=======
+      this.request.restaurantId=this.rest.restaurantId;
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
       if(this.addRestaurant.valid)
       {
         alert("Request Send Successfully..");

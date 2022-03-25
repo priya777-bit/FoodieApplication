@@ -16,16 +16,24 @@ export class SendDishComponent implements OnInit{
   selected='';
   sel='';
 
+<<<<<<< HEAD
   resData:any;
   selectedFile:any=null;
 
   constructor(private api: RestApiService,private send:RequestService,private http:HttpClient) {
+=======
+  constructor(private api: RestApiService,private send:RequestService) {
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
     this.selected="";
     this.restaurant=[];
     this.rest=[];
     this.sel="";
    }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
    dish = new Dish();
 
   addDish!:FormGroup;
@@ -60,6 +68,7 @@ export class SendDishComponent implements OnInit{
       this.restaurant=response;
       console.log(response);
       // this.send.restaurantId=response[0].restaurantId;
+<<<<<<< HEAD
       // console.log(response[0].restaurantId);
       this.restaurant.forEach(response=>{
         this.selected=response.restaurantId;
@@ -67,11 +76,21 @@ export class SendDishComponent implements OnInit{
         console.log(response);
         // console.log(response.restaurantId);
         console.log(this.api.restId);
+=======
+      console.log(response[0].restaurantId);
+      this.restaurant.forEach(response=>{
+        this.selected=response.restaurantId;
+        this.send.restaurantId=this.selected;
+        console.log(response);
+        console.log(response.restaurantId);
+        console.log(this.send.restaurantId);
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
     })
       })
       this.addDish = new FormGroup({
         dishName:new FormControl('',Validators.required),
         dishType:new FormControl('',Validators.required),
+<<<<<<< HEAD
       image:new FormGroup({
         image:new FormControl(''),
       })
@@ -100,6 +119,10 @@ export class SendDishComponent implements OnInit{
       console.log(this.resData);
     })
   }
+=======
+      })
+      }
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
       
 
   get dishName()
@@ -114,6 +137,7 @@ export class SendDishComponent implements OnInit{
 
   sendDish()
   {
+<<<<<<< HEAD
     
     // this.dish.restaurantId=this.send.restaurantId;
     this.dish.dishId=Math.random().toString(36).substring(2,15);
@@ -122,6 +146,11 @@ export class SendDishComponent implements OnInit{
 
     this.uploadImage();
 
+=======
+    // this.dish.restaurantId=this.send.restaurantId;
+    this.dish.dishName=this.addDish.value.dishName;
+    this.dish.dishType=this.addDish.value.dishType;
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
     this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{
       console.log(observer);
       if(this.addDish.valid)

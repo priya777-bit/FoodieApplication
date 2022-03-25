@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-//@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("api/request")
 public class RestaurantController {
@@ -74,6 +73,7 @@ public class RestaurantController {
         }
     }
 
+<<<<<<< HEAD
     @PostMapping("/restaurant/files")
     public ResponseEntity<UploadResponseMessage> uploadFile(@RequestParam("file")MultipartFile file)
     {
@@ -88,6 +88,17 @@ public class RestaurantController {
         {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                     .body(new UploadResponseMessage("could not upload file .."+file.getOriginalFilename() + "!"));
+=======
+
+    @GetMapping("/restaurant/{restaurantName}/{restaurantLocation}")
+    public ResponseEntity<?> findByRestaurantNameAndRestaurantLocation(@PathVariable String restaurantName,@PathVariable String restaurantLocation){
+        try {
+            return new ResponseEntity<>(restaurantService.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
         }
     }
 }

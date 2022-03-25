@@ -7,11 +7,21 @@ import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
 
 const routes: Routes = [
+<<<<<<< HEAD
   {path:'',component:SendRestaurantComponent},
   {path:'dish',component:SendDishComponent},
   // {path:'addRest',component:AddRestComponent},
   // {path:'addDish',component:AddDishComponent},
   // {path:'find',component:ViewAllComponent}
+=======
+  // {path:'',component:SendRestaurantComponent},
+  // {path:'dish',component:SendDishComponent},
+  {path:'addRest',component:AddRestComponent},
+  {path:'addDish',component:AddDishComponent},
+  {path:'find',component:ViewAllComponent}
+
+
+>>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
 ];
 
 @NgModule({
