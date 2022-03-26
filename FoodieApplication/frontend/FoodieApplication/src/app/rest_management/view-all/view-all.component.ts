@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
+//import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
 import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
 import { RestApiService } from '../service/rest-api.service';
-//import { Restaurant } from 'src/app/rest_management/domain/restaurant';
+import { Restaurant } from 'src/app/rest_management/domain/restaurant';
 
 @Component({
   selector: 'app-view-all',

@@ -16,18 +16,18 @@ export class SendDishComponent implements OnInit{
   selected='';
   sel='';
 
-  constructor(private api: RestApiService,private send:RequestService) {
+  resData:any;
+  selectedFile:any=null;
+
+  constructor(private api: RestApiService,private send:RequestService,private http:HttpClient) {
     this.selected="";
     this.restaurant=[];
     this.rest=[];
     this.sel="";
-   }
-
-
-   dish = new Dish();
-
+  }
+  
+  dish = new Dish();
   addDish!:FormGroup;
-
   restaurant:Restaurant[]=[];
 
   rest:Restaurant[]=[];
@@ -46,18 +46,11 @@ export class SendDishComponent implements OnInit{
         this.send.restaurantId=this.sel;
         console.log(r.restaurantId);
       })
-    //   this.restaurant=r;
-    //   this.restaurant.forEach(r=>{
-    //     this.selected=r.restuarantId;
-    //     this.send.newRestId=this.selected;
-    //     console.log(this.send.newRestId);
-    //   })
     })
 
     this.api.findAllRestaurant().subscribe(response=>{
       this.restaurant=response;
-      console.log(response);
-      // this.send.restaurantId=response[0].restaurantId;
+      //this.send.restaurantId=response[0].restaurantId;
       console.log(response[0].restaurantId);
       this.restaurant.forEach(response=>{
         this.selected=response.restaurantId;
@@ -70,8 +63,34 @@ export class SendDishComponent implements OnInit{
       this.addDish = new FormGroup({
         dishName:new FormControl('',Validators.required),
         dishType:new FormControl('',Validators.required),
+        image:new FormGroup({
+        image:new FormControl(''),
+      })
       })
       }
+
+  onFileSelected(event:any)
+  {
+    this.selectedFile=event.target.files[0];
+    console.log(this.selectedFile);
+  }
+
+  uploadImage()
+  {
+    const payload = new FormData();
+
+    payload.append('file',this.selectedFile,this.selectedFile.name);
+
+    this.http.post("http://localhost:9000/api/request/restaurant/files"
+    ,payload,
+    // {headers:{'Content-Type':'multipart/formdata'}}
+    )
+
+    .subscribe((data:any)=>{
+      this.resData = data;
+      console.log(this.resData);
+    })
+  }
       
 
   get dishName()
@@ -86,7 +105,11 @@ export class SendDishComponent implements OnInit{
 
   sendDish()
   {
-    // this.dish.restaurantId=this.send.restaurantId;
+    this.dish.dishId=Math.random().toString(36).substring(2,15);
+    this.dish.dishName=this.addDish.value.dishName;
+    this.dish.dishType=this.addDish.value.dishType;
+
+    this.uploadImage();
     this.dish.dishName=this.addDish.value.dishName;
     this.dish.dishType=this.addDish.value.dishType;
     this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{

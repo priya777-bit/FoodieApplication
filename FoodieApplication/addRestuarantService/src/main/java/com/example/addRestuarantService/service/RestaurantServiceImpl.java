@@ -9,6 +9,7 @@ import com.example.addRestuarantService.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -44,8 +45,14 @@ public class RestaurantServiceImpl implements RestaurantService {
         producer.sendDishMsg2RabbitMq(dishDTO);
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
         List<Dish> dishList = restaurant.getDishList();
-        dishList.add(dish);
-        restaurant.setDishList(dishList);
+        if(dishList!=null){
+            dishList.add(dish);
+            restaurant.setDishList(dishList);
+        }
+        else
+        {
+            restaurant.setDishList(Arrays.asList(dish));
+        }
         return restaurantRepository.save(restaurant);
 
     }
@@ -56,9 +63,10 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public boolean deleteRestaurantWhenRejected(String restaurantId,String status) {
+    public boolean deleteRestaurantWhenRejected(String restaurantId) {
         boolean response = false;
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+        String status = restaurant.getStatus();
         if (status=="reject")
         {
             restaurantRepository.delete(restaurant);

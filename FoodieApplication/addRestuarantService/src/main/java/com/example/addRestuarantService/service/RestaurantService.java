@@ -10,6 +10,7 @@ public interface RestaurantService {
     public Restaurant addRestaurant(Restaurant restaurant);
     public Restaurant addDish(String restaurantId,Dish dish);
     public List<Restaurant> findAllRestaurant();
-    public boolean deleteRestaurantWhenRejected(String restaurantId,String status);
+    public boolean deleteRestaurantWhenRejected(String restaurantId);
+   // public boolean deleteRestaurantWhenRejected(String restaurantId,String status);
     public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
 }

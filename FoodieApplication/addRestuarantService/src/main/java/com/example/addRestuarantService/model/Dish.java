@@ -12,4 +12,8 @@ public class Dish {
     private String dishId;
     private String dishName;
     private String dishType;
+    private Image image;
+
+    public Dish(String d2, String paneer, String veg) {
+    }
 }

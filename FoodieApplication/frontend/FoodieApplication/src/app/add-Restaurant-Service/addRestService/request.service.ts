@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dish } from '../addRestModel/dish';
 import { Restaurant } from '../addRestModel/restaurant';
+import { SendDishComponent } from '../send-dish/send-dish.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,9 @@ export class RequestService {
     return this.http.post("http://localhost:9000/api/request/restaurant",rest);
   }
 
-  addDish(restaurantId:string,dish:Dish)
+  addDish(restaurantId:string,addDish:any)
   {
-    return this.http.put("http://localhost:8081/api/request/"+restaurantId+"/dish",dish);
+    return this.http.put("http://localhost:9000/api/request/"+restaurantId+"/dish",addDish);
   }
 
   getResturant():Observable<Array<any>>{

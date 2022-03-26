@@ -2,9 +2,11 @@
 
     <h3>Choose Your Restaurant</h3>
     <select (change)="update($event)">
-    <option *ngFor="let restaurant of restaurant" value="Rest Name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
-        <b >id:</b>{{restaurant.restaurantId}} <b> Rest Name:</b>{{restaurant.restaurantName}} <b>Location:</b>{{restaurant.restaurantLocation}}
-    </option>
+    <option *ngFor="let restaurant of rest" value="name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+        <b>id:</b>{{restaurant.restaurantId}} ,
+        <b>Name:</b>{{restaurant.restaurantName}} ,
+        <b>Location:</b>{{restaurant.restaurantLocation}}
+        </option>
     </select>
 
     <p>You selected {{ selected | json}}</p>
@@ -23,6 +25,10 @@
         <label class="form-check-label" for="dishType">non-veg</label>
     </div>
 
+    <div formGroupName="image">
+        <input type="file" name="image" (change)="onFileSelected($event)">
+    </div>
+    
     <button type="submit" [disabled]="!addDish.valid">SendDish</button>
 </form>
 <router-outlet></router-outlet>
