@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RestApiService } from 'src/app/rest_management/service/rest-api.service';
 import { Restaurant } from '../addRestModel/restaurant';
 import { RequestService } from '../addRestService/request.service';
 
@@ -10,7 +11,7 @@ import { RequestService } from '../addRestService/request.service';
 })
 export class SendRestaurantComponent implements OnInit {
 
-  constructor(private request:RequestService) {}
+  constructor(private request:RequestService,private api: RestApiService) {}
 
   rest = new Restaurant();
   addRestaurant!:FormGroup;
@@ -36,6 +37,7 @@ export class SendRestaurantComponent implements OnInit {
   sendRestaurant()
   {
     this.rest.restaurantId=Math.random().toString(36).substring(2,15);
+    this.api.restId=this.rest.restaurantId;
     this.rest.restaurantName=this.addRestaurant.value.restaurantName;
     this.rest.restaurantLocation= this.addRestaurant.value.restaurantLocation;
     this.rest.dishList=this.addRestaurant.value.dishList;

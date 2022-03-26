@@ -12,6 +12,7 @@ import { RestApiService } from '../service/rest-api.service';
 export class ViewAllComponent implements OnInit {
 
   selected='';
+  status:boolean;
   Rest = new Restaurant();
   restaurant:Restaurant[]=[];
 
@@ -22,29 +23,33 @@ export class ViewAllComponent implements OnInit {
 
   ngOnInit(): void {
     this.addservice.getResturant().subscribe(response=>{
-      // response.forEach(e=>{
-      // })
+      console.log(response);
       this.restaurant=response;
-      console.log(response)
     })
   }
 
-  delete(){
-    //this.restaurant=e.target.value;
-    // this.addservice.deleteRestaurant().subscribe(response=>{
-    //   console.log(response);
-    // })
-
+  delete(id: any){
+    console.log('Selected remove Id ', id);
+    this.restApi.removeRestaurant(id).subscribe(res=>{
+      console.log(res);
+    })
   }
 
-  Add(e:any){
-    this.selected=e.target.value;
-    
+  Add(restaurant: any){
+    this.Rest=restaurant;
     this.restApi.registerRestaurant(this.Rest).subscribe(res=>{
       console.log(res);
-      alert("Restaurant Added Successfully\n Your RestaurantId is\n" + this.Rest.restaurantId); 
+      alert("Restaurant Added Successfully"); 
+      // if(status="approve"){
+      
+      // }
     },error =>{
-          console.log(error);
+      if(this.Rest=restaurant){
+        alert("Restaurant Already Exist");
+      }
+      else{
+        console.log(error);
+      }
     }
     )}
 }

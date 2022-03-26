@@ -22,7 +22,7 @@ export class RestApiService {
   }
 
   removeRestaurant(restaurantId:string){
-    return this.http.delete("http://localhost:8090/api/user/admin/restaurant"+`${restaurantId}`);
+    return this.http.delete("http://localhost:8090/api/user/admin/restaurant/"+`${restaurantId}`);
   }
 
   addDishToRestaurant(restaurantId:string,dish:any):Observable<any>{
