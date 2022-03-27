@@ -12,5 +12,6 @@ public interface RestaurantService {
     public List<Restaurant> findAllRestaurant();
     public boolean deleteRestaurantWhenRejected(String restaurantId);
    // public boolean deleteRestaurantWhenRejected(String restaurantId,String status);
-    public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+   // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+    public List<Dish> findAllDishByRestaurantId(String restaurantId);
 }

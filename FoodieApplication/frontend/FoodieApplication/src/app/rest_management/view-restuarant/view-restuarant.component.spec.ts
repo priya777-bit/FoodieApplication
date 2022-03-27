@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewAllComponent } from './view-all.component';
+import { ViewRestuarantComponent } from './view-restuarant.component';
 
-describe('ViewAllComponent', () => {
-  let component: ViewAllComponent;
-  let fixture: ComponentFixture<ViewAllComponent>;
+describe('ViewRestuarantComponent', () => {
+  let component: ViewRestuarantComponent;
+  let fixture: ComponentFixture<ViewRestuarantComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewAllComponent ]
+      declarations: [ ViewRestuarantComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewAllComponent);
+    fixture = TestBed.createComponent(ViewRestuarantComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

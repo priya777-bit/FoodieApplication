@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-//import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
-import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
+import { Restaurant } from '../../add-Restaurant-Service/addRestModel/restaurant';
+import { RequestService } from '../../add-Restaurant-Service/addRestService/request.service';
 import { RestApiService } from '../service/rest-api.service';
-import { Restaurant } from 'src/app/rest_management/domain/restaurant';
 
 @Component({
-  selector: 'app-view-all',
-  templateUrl: './view-all.component.html',
-  styleUrls: ['./view-all.component.css']
+  selector: 'app-view-restuarant',
+  templateUrl: './view-restuarant.component.html',
+  styleUrls: ['./view-restuarant.component.css']
 })
-export class ViewAllComponent implements OnInit {
+export class ViewRestuarantComponent implements OnInit {
 
   selected='';
-  status:boolean;
   Rest = new Restaurant();
   restaurant:Restaurant[]=[];
+  isSubmitBtnDisabled: boolean= false;
 
   constructor(private addservice: RequestService,private restApi: RestApiService) { 
     this.selected='';
@@ -29,9 +28,10 @@ export class ViewAllComponent implements OnInit {
   }
 
   delete(id: any){
-    console.log('Selected remove Id ', id);
-    this.restApi.removeRestaurant(id).subscribe(res=>{
+    //console.log('Selected remove Id ', id);
+    this.addservice.deleteRestaurant(id).subscribe(res=>{
       console.log(res);
+      alert("Request rejected...");
     })
   }
 
@@ -39,10 +39,10 @@ export class ViewAllComponent implements OnInit {
     this.Rest=restaurant;
     this.restApi.registerRestaurant(this.Rest).subscribe(res=>{
       console.log(res);
-      alert("Restaurant Added Successfully"); 
-      // if(status="approve"){
-      
+      // if(res){
+      //   this.isSubmitBtnDisabled=true;
       // }
+      alert("Restaurant Added Successfully");
     },error =>{
       if(this.Rest=restaurant){
         alert("Restaurant Already Exist");
@@ -52,4 +52,5 @@ export class ViewAllComponent implements OnInit {
       }
     }
     )}
+
 }

@@ -6,15 +6,17 @@ import com.example.RestuarantManagementService.exception.RestaurantAlreadyExist;
 import com.example.RestuarantManagementService.exception.RestaurantNotFound;
 import com.example.RestuarantManagementService.model.Dish;
 import com.example.RestuarantManagementService.model.Restaurant;
+//import com.example.RestuarantManagementService.model.UploadResponseMessage;
+//import com.example.RestuarantManagementService.service.DishImageServiceImpl;
+import com.example.RestuarantManagementService.model.UploadResponseMessage;
+import com.example.RestuarantManagementService.service.DishImageServiceImpl;
 import com.example.RestuarantManagementService.service.RestaurantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -22,10 +24,12 @@ import java.io.IOException;
 public class RestaurantController {
 
     private RestaurantServiceImpl restaurantService;
+    private DishImageServiceImpl dishImageService;
 
     @Autowired
-    public RestaurantController(RestaurantServiceImpl restaurantService) {
+    public RestaurantController(RestaurantServiceImpl restaurantService,DishImageServiceImpl dishImageService) {
         this.restaurantService = restaurantService;
+        this.dishImageService=dishImageService;
     }
 
     @PostMapping("/restaurant/save")
@@ -96,9 +100,16 @@ public class RestaurantController {
         }
     }
 
-    @PostMapping("/uploadImage")
-    public ResponseEntity<?> saveFile(@RequestPart("imageFile")MultipartFile file,@RequestPart("uploadData") Dish dish) throws IOException {
-        return null;
-
+    @PostMapping("/dishImage")
+    public ResponseEntity<UploadResponseMessage> uploadFile (@RequestParam("file")MultipartFile file) {
+        try {
+            System.out.println("post");
+            dishImageService.saveFile(file);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new UploadResponseMessage("Uploaded The File Successfully.." + file.getOriginalFilename()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+                    .body(new UploadResponseMessage("could not upload file .." + file.getOriginalFilename() + "!"));
+        }
     }
 }

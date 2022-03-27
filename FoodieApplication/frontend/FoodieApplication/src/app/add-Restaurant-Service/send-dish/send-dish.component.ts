@@ -24,10 +24,12 @@ export class SendDishComponent implements OnInit{
     this.restaurant=[];
     this.rest=[];
     this.sel="";
-  }
-  
-  dish = new Dish();
+   }
+
+   dish = new Dish();
+
   addDish!:FormGroup;
+
   restaurant:Restaurant[]=[];
 
   rest:Restaurant[]=[];
@@ -37,7 +39,7 @@ export class SendDishComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.send.getResturant().subscribe(r=>{
+    this.send.getResturant().subscribe((r)=>{
       console.log(r);
       this.rest=r;
       console.log(this.rest);
@@ -48,26 +50,36 @@ export class SendDishComponent implements OnInit{
       })
     })
 
-    this.api.findAllRestaurant().subscribe(response=>{
+    this.api.findAllRestaurant().subscribe((response)=>{
       this.restaurant=response;
-      //this.send.restaurantId=response[0].restaurantId;
-      console.log(response[0].restaurantId);
+      console.log(response);
       this.restaurant.forEach(response=>{
         this.selected=response.restaurantId;
-        this.send.restaurantId=this.selected;
+        this.api.restId=this.selected;
         console.log(response);
-        console.log(response.restaurantId);
-        console.log(this.send.restaurantId);
-    })
+        console.log(this.api.restId);
+      })
       })
       this.addDish = new FormGroup({
         dishName:new FormControl('',Validators.required),
         dishType:new FormControl('',Validators.required),
-        image:new FormGroup({
+
+      image:new FormGroup({
         image:new FormControl(''),
       })
       })
-      }
+    }
+    
+
+  get dishName()
+  {
+    return this.addDish.get('dishName');
+  }
+
+  get dishType()
+  {
+    return this.addDish.get('dishType');
+  }
 
   onFileSelected(event:any)
   {
@@ -83,24 +95,12 @@ export class SendDishComponent implements OnInit{
 
     this.http.post("http://localhost:9000/api/request/restaurant/files"
     ,payload,
-    // {headers:{'Content-Type':'multipart/formdata'}}
     )
 
     .subscribe((data:any)=>{
       this.resData = data;
       console.log(this.resData);
     })
-  }
-      
-
-  get dishName()
-  {
-    return this.addDish.get('dishName');
-  }
-
-  get dishType()
-  {
-    return this.addDish.get('dishType');
   }
 
   sendDish()
@@ -110,8 +110,10 @@ export class SendDishComponent implements OnInit{
     this.dish.dishType=this.addDish.value.dishType;
 
     this.uploadImage();
+
     this.dish.dishName=this.addDish.value.dishName;
     this.dish.dishType=this.addDish.value.dishType;
+
     this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{
       console.log(observer);
       if(this.addDish.valid)
@@ -120,6 +122,4 @@ export class SendDishComponent implements OnInit{
       }
     })
   }
-
 }
-

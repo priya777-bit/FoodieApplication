@@ -29,14 +29,18 @@ export class RequestService {
     return this.http.get<Array<any>>("http://localhost:9000/api/request/restaurant/find");
   }
 
-  findByRestaurantNameAndRestaurantLocation(restaurantName:string,restaurantLocation:string):Observable<any>{
-    // return this.http.get<any>("http://localhost:9000/api/request/restaurant/"+`${restaurantName}`+"/"+`${restaurantLocation}`);
-    return this.http.get<any>("http://localhost:9000/api/request/restaurant/cafe/lanka,{responseType:text}");
+  // findByRestaurantNameAndRestaurantLocation(restaurantName:string,restaurantLocation:string):Observable<any>{
+  //   // return this.http.get<any>("http://localhost:9000/api/request/restaurant/"+`${restaurantName}`+"/"+`${restaurantLocation}`);
+  //   return this.http.get<any>("http://localhost:9000/api/request/restaurant/cafe/lanka,{responseType:text}");
+  // }
+
+  deleteRestaurant(restaurantId:any):Observable<any>
+  {
+    return this.http.delete<any>("http://localhost:9000/api/request/restaurant/"+ `${restaurantId}`);
   }
 
-  deleteRestaurant(restaurantId:Restaurant):Observable<any>
-  {
-    return this.http.delete<any>("http://localhost:9000/api/request/restaurant/"+restaurantId);
+  findAllDishByRestaurantId(restaurantId:any):Observable<any>{
+    return this.http.get<any>("http://localhost:9000/api/request/restaurant/"+`${restaurantId}`);
   }
 
 }

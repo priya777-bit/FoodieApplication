@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/request")
 public class RestaurantController {
@@ -60,7 +62,7 @@ public class RestaurantController {
         }
     }
 
-    @DeleteMapping("/restaurant/{restaurantId")
+    @DeleteMapping("/restaurant/{restaurantId}")
     public ResponseEntity<?> deleteRestaurantWhenRejected(@PathVariable String restaurantId)
     {
         try
@@ -69,7 +71,7 @@ public class RestaurantController {
         }
         catch (Exception e)
         {
-            return new ResponseEntity<>("Try again some time ..",HttpStatus.OK);
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -86,14 +88,25 @@ public class RestaurantController {
         }
     }
 
-    @GetMapping("/restaurant/{restaurantName}/{restaurantLocation}")
-    public ResponseEntity<?> findByRestaurantNameAndRestaurantLocation(@PathVariable String restaurantName,@PathVariable String restaurantLocation){
+    @GetMapping("/restaurant/{restaurantId}")
+    public ResponseEntity<?> findAllDishByRestaurantId(@PathVariable String restaurantId){
         try {
-            return new ResponseEntity<>(restaurantService.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation),HttpStatus.OK);
+            return new ResponseEntity<>(restaurantService.findAllDishByRestaurantId(restaurantId),HttpStatus.OK);
         }
         catch (Exception e){
             e.printStackTrace();
-            return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+//    @GetMapping("/restaurant/{restaurantName}/{restaurantLocation}")
+//    public ResponseEntity<?> findByRestaurantNameAndRestaurantLocation(@PathVariable String restaurantName,@PathVariable String restaurantLocation){
+//        try {
+//            return new ResponseEntity<>(restaurantService.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation),HttpStatus.OK);
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//            return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }

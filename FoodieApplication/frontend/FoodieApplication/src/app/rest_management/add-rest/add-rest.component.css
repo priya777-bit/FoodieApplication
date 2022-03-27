@@ -1,7 +1,11 @@
 
-.full-width {
-  width: 100%;
+.container{
+  margin-left: -100%;
 }
+
+/* .full-width {
+  width: 100%;
+} */
 
 .card {
   min-width: 100px;
