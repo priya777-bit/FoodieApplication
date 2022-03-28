@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <form class="example-form">
+    <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Choose Restaurant</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-select (change)="changeRest($event)">
+        <mat-option *ngFor="let restaurant of restaurant" value=" Rest Name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+          <b>Rest Name:</b> {{restaurant.restaurantName}} <b>Location:</b> {{restaurant.restaurantLocation}}
+        </mat-option>
+        </mat-select>
+        <p>You selected {{ selected | json}}</p>
+    </mat-card-content>
+    </mat-card>
+  </form>
+  </div>
+<div class="mt-5">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Dish Id </th>
+        <th>Dish Name</th>
+        <th>Dish Type</th>
+        <th>Dish Image</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let dish of dish">
+        <td>{{dish.dishId}}</td>
+        <td>{{dish.dishName}}</td>
+        <td>{{dish.dishType}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="Add(dish)">Add</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

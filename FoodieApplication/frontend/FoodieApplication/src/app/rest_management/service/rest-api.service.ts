@@ -9,14 +9,20 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
+<<<<<<< HEAD
 
   restId:string;
 
+=======
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
   restName:string;
   restLocation:string;
   //restId:string;
   dishId:string;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +32,7 @@ export class RestApiService {
   }
 
   removeRestaurant(restaurantId:string){
-    return this.http.delete("http://localhost:8090/api/user/admin/restaurant"+`${restaurantId}`);
+    return this.http.delete("http://localhost:8090/api/user/admin/restaurant/"+`${restaurantId}`);
   }
 
   addDishToRestaurant(restaurantId:string,dish:any):Observable<any>{

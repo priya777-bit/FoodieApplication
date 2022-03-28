@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
     <form [formGroup]="addDish" (ngSubmit)="sendDish()">
         <mat-card class="card">
@@ -57,3 +58,39 @@
         </mat-card>
     </form>
 </div>
+=======
+<form [formGroup]="addDish" (ngSubmit)="sendDish()" class="container-fluid">
+
+    <h3>Choose Your Restaurant</h3>
+    <select (change)="update($event)">
+    <option *ngFor="let restaurant of rest" value="name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+        <b>id:</b>{{restaurant.restaurantId}} ,
+        <b>Name:</b>{{restaurant.restaurantName}} ,
+        <b>Location:</b>{{restaurant.restaurantLocation}}
+        </option>
+    </select>
+
+    <p>You selected {{ selected | json}}</p>
+    
+    <label for="dishName">Dish Name: </label>
+    <input class="form-control" id="dishName" type="text" formControlName="dishName">
+    <div *ngIf="dishName.invalid && (dishName.dirty ||dishName.touched)"></div>
+        <div *ngIf="dishName.errors?.['required']" class="alert alert-danger">Dish Name Required ..</div>
+        
+    <div>
+        <input  type="radio" formControlName="dishType" value="veg" />
+        <label class="form-check-label" for="dishType">veg</label>
+    </div>
+    <div>
+        <input type="radio" formControlName="dishType" value="non-veg" />
+        <label class="form-check-label" for="dishType">non-veg</label>
+    </div>
+
+    <div formGroupName="image">
+        <input type="file" name="image" (change)="onFileSelected($event)">
+    </div>
+    
+    <button type="submit" [disabled]="!addDish.valid">SendDish</button>
+</form>
+<router-outlet></router-outlet>
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba

@@ -1,0 +1,22 @@
+ <div class="mt-2">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Restaurant Id </th>
+          <th>Restaurant Name</th>
+          <th>Restaurant Location</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let restaurant of restaurant">
+          <td>{{restaurant.restaurantId}}</td>
+          <td>{{restaurant.restaurantName}}</td>
+          <td>{{restaurant.restaurantLocation}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(restaurant.restaurantId)">Reject</button></td>
+          <td><button type="button" class="btn btn-primary" (click)="Add(restaurant)">Approve</button></td>
+          <!-- <td><button type="button" class="btn btn-primary" [disabled]="isSubmitBtnDisabled" (click)="Add(restaurant)">Approve</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>

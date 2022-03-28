@@ -1,0 +1,16 @@
+    
+.table {
+    margin-top: 2rem !important;
+    margin-left: -25rem !important;
+    align-content: center;
+}
+
+.container-fluid{
+  margin-left: -150%;
+}
+
+.card {
+  min-width: 100px;
+  margin-top: 200%;
+}
+

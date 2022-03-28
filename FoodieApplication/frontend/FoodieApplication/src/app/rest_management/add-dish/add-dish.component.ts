@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
@@ -13,15 +14,16 @@ import { RestApiService } from '../service/rest-api.service';
 export class AddDishComponent implements OnInit {
 
   selected='';
- // dishList:Dish[] =[];
-  constructor(private fb: FormBuilder,private restApi : RestApiService,private request : RequestService) { 
+  selectedFile:any=null;
+  newdata:any;
+  constructor(private fb: FormBuilder,private restApi : RestApiService,private request : RequestService,private http:HttpClient) { 
     this.selected="";
     this.restaurant=[];
   }
 
   addDishForm !: FormGroup
   dish = new Dish();
-  types = ['Veg','Non-Veg','Dessert'];
+  types = ['Veg','Non-Veg'];
   restaurant:Restaurant[]=[];
 
   changeRest(e:any){
@@ -29,12 +31,15 @@ export class AddDishComponent implements OnInit {
   }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.restApi.findAllRestaurant().subscribe(response=>{
 
+=======
+   this.restApi.findAllRestaurant().subscribe((response)=>{
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
       this.restaurant=response;
-      //this.restid=response.restaurantId;
-      //console.log("rest"+this.restid);
       console.log(response);
+<<<<<<< HEAD
     })
 
     // this.restaurant=response;
@@ -73,3 +78,58 @@ export class AddDishComponent implements OnInit {
   }
 
  
+=======
+      this.restaurant.forEach(response=>{
+        this.selected=response.restaurantId;
+        this.restApi.restId=this.selected;
+        console.log(response);
+        console.log(this.restApi.restId);
+      })
+      })
+
+    this.addDishForm = this.fb.group({
+      dishName: [null,Validators.required],
+      dishType: [null,Validators.required],
+      image : this.fb.group({
+        image:[null]
+      })
+    })
+  }
+
+  onFileSelected(event:any)
+  {
+    this.selectedFile=event.target.files[0];
+    console.log(this.selectedFile);
+  }
+
+  uploadImage()
+  {
+    const payload = new FormData();
+
+    payload.append('file',this.selectedFile,this.selectedFile.name);
+
+    this.http.post("http://localhost:8090/api/user/admin/dishImage",payload,)
+    .subscribe((data:any)=>{
+      this.newdata = data;
+      console.log(this.newdata);
+    })
+  }
+
+
+  addDish(){
+    this.dish.dishId=this.request.dishId;
+    this.dish.dishName=this.addDishForm.value.dishName;
+    this.dish.dishType=this.addDishForm.value.dishType;
+    this.uploadImage();
+    this.restApi.addDishToRestaurant(this.restApi.restId,this.dish).subscribe(response=>{
+      console.log(response);
+      if(this.addDishForm.valid){
+      alert("Dish Added Successfully\n Your RestaurantId is\n" + this.dish.dishId);
+    }
+  },
+    error =>{
+          console.log(error);
+        }
+    )}
+}
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
