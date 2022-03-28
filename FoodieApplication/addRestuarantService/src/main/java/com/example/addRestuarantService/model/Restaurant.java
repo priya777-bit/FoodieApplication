@@ -21,11 +21,8 @@ public class Restaurant {
     private List<Dish> dishList;
     private String status = "reject";
 
-<<<<<<< HEAD
 //    public Restaurant(String r001, String leaves, String nasik, List<Dish> dishList) {
 //    }
-=======
-    public Restaurant(String restaurantId, String restaurantName, String restaurantLocation, List<Dish> dishList) {
-    }
->>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
+//    public Restaurant(String restaurantId, String restaurantName, String restaurantLocation, List<Dish> dishList) {
+//    }
 }

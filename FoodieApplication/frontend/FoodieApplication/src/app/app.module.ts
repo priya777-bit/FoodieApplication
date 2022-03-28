@@ -21,6 +21,9 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
 import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.component';
+import { DashboardComponent } from './add-Restaurant-Service/dashboard/dashboard.component';
+import { SearchComponent } from './search-Service/search/search.component';
+import { NavComponent } from './search-Service/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.
     SendRestaurantComponent,
     SendDishComponent,
     UserRegisterComponent,
+    DashboardComponent,
+    SearchComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

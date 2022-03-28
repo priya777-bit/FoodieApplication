@@ -5,23 +5,18 @@ import { AddRestComponent } from './rest_management/add-rest/add-rest.component'
 import { ViewAllComponent } from './rest_management/view-all/view-all.component';
 import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.component';
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
+import { SearchComponent } from './search-Service/search/search.component';
+import { DashboardComponent } from './add-Restaurant-Service/dashboard/dashboard.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
-  {path:'',component:SendRestaurantComponent},
+  // {path:'',component:DashboardComponent},
+  {path:'rest',component:SendRestaurantComponent},
   {path:'dish',component:SendDishComponent},
-  // {path:'addRest',component:AddRestComponent},
-  // {path:'addDish',component:AddDishComponent},
-  // {path:'find',component:ViewAllComponent}
-=======
-  // {path:'',component:SendRestaurantComponent},
-  // {path:'dish',component:SendDishComponent},
   {path:'addRest',component:AddRestComponent},
   {path:'addDish',component:AddDishComponent},
-  {path:'find',component:ViewAllComponent}
+  {path:'find',component:ViewAllComponent},
+  {path:'search',component:SearchComponent}
 
-
->>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
 ];
 
 @NgModule({

@@ -1,0 +1,16 @@
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #cfeb34;
+}
+.mat-sidenav-content{
+    background-color: #404040;
+}
+.sidenav{
+    background-color: gray;
+}
+.mat-sidenav-container{
+    margin-top: 63px;
+
+}

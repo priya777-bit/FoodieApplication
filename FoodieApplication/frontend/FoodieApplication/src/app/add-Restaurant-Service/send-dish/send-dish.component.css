@@ -1,0 +1,18 @@
+.full-width {
+    width: 100%;
+}
+
+  .card {
+    min-width: 120px;
+    margin-top: 190%;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }

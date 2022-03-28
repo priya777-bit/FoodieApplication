@@ -30,11 +30,11 @@ export class AddRestComponent implements OnInit {
       this.restApi.restLocation=res[3].restaurantLocation;
     });
 
-    this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
-      console.log(this.restApi.restName);
-      console.log(this.restApi.restLocation)
-      console.log(r);
-    })
+    // this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
+    //   console.log(this.restApi.restName);
+    //   console.log(this.restApi.restLocation)
+    //   console.log(r);
+    // })
 
     //this.request.findByRestaurantNameAndRestaurantLocation();
 

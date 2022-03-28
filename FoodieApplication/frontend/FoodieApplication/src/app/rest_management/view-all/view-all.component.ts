@@ -22,15 +22,15 @@ export class ViewAllComponent implements OnInit {
 
   ngOnInit(): void {
     this.addservice.getResturant().subscribe(response=>{
-<<<<<<< HEAD
+
       console.log(response);
       this.restaurant=response;
-=======
+
       // response.forEach(e=>{
       // })
       this.restaurant=response;
       console.log(response)
->>>>>>> 9c4ba12d7f397fea4d823ba6e6d7d0c5084800bf
+
     })
   }
 
