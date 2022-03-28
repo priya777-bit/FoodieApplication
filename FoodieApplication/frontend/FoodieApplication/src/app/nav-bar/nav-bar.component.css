@@ -1,0 +1,29 @@
+
+.bg-img {  
+  min-height: 380px;
+  background-image: url("/bg_image.jpg");  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+ 
+} 
+.sidenav-container {
+  height: 100%;
+}
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.navButton{
+  margin-left:1200px ;
+}

@@ -16,7 +16,7 @@ public class DishImageServiceImpl implements DishImageService{
 
 
     @Override
-    @PostConstruct
+    //@PostConstruct
     public void createDirectory() {
         try {
             Files.createDirectory(uploadPath);

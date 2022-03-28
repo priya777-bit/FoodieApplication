@@ -22,6 +22,16 @@ import { SendRestaurantComponent } from './add-Restaurant-Service/send-restauran
 import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.component';
 import { ViewDishComponent } from './rest_management/view-dish/view-dish.component';
 import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-restuarant.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
+import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
+import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +44,11 @@ import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-
     UserRegisterComponent,
     ViewDishComponent,
     ViewRestuarantComponent,
+    UserLoginComponent,
+    ProfileDashboardComponent,
+    NavBarComponent,
+    ShowRestaurantComponent,
+    ShowDishComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +70,11 @@ import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,10 @@
+<mat-card app-player matRipple class="card" *ngFor="let dish of dishes">
+  <!-- <a routerLink="dishList/{{restuarent.restaurantId}}">
+   {{restuarent.restaurantId}}
+<!-- <img mat-card-image [src]="video.snippet.thumbnails.medium.url"> -->
+<!-- </a>  --> 
+<div>{{ dish.dishName }}</div>
+<mat-card-content>
+<h5>{{ dish.dishType }}</h5>
+</mat-card-content>
+</mat-card>

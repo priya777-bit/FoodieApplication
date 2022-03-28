@@ -6,7 +6,6 @@ import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Configuration
 public class AppConfig {
@@ -15,7 +14,7 @@ public class AppConfig {
     public RouteLocator myRoutes(RouteLocatorBuilder builder)
     {
         return builder.routes().route(r->r.path("/api/request/**")
-                .uri("http://localhost:8081/"))
+                        .uri("http://localhost:8081/"))
 
                 .route(i->i.path("/api/inventory/**")
                         .uri("http://localhost:8082/"))
@@ -23,7 +22,7 @@ public class AppConfig {
                 .route(a->a.path("/api/admin/**")
                         .uri("http://localhost:8083/"))
 
-                .route(s->s.path("/api/user/**")
+                .route(s->s.path("/api/v1/**")
                         .uri("http://localhost:8084/"))
 
                 .route(u1->u1.path("/api/user/**")
@@ -38,7 +37,7 @@ public class AppConfig {
                 .route(o->o.path("/api/user/**")
                         .uri("http://localhost:8088/"))
 
-                .route(m->m.path("/api/user/admin/**")
+                .route(m->m.path("/api/user/admin/restaurant/**")
                         //.uri("lb://restuarant-management-service"))
                         .uri("http://localhost:8090/"))
 
@@ -52,7 +51,7 @@ public class AppConfig {
 
         filterRegistrationBean.setFilter(new JwtFilter());
 
-        filterRegistrationBean.addUrlPatterns("/api/user/users/*");
+        filterRegistrationBean.addUrlPatterns("/api/user/users01/*");
 
 //        filterRegistrationBean.addUrlPatterns("/api/user/admin/*");
 

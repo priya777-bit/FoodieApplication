@@ -6,6 +6,12 @@ import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
 import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-restuarant.component';
 import { ViewDishComponent } from './rest_management/view-dish/view-dish.component';
+import { AuthguardGuard } from './authguard.guard';
+import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
+import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 
 const routes: Routes = [
   // {path:'',component:SendRestaurantComponent},
@@ -13,7 +19,13 @@ const routes: Routes = [
   {path:'addRest',component:AddRestComponent},
   {path:'addDish',component:AddDishComponent},
   {path:'restRequest',component:ViewRestuarantComponent},
-  {path:'dishRequest',component:ViewDishComponent}
+  {path:'dishRequest',component:ViewDishComponent},
+  {path:"login",component:UserLoginComponent},
+  {path:"register",component:UserRegisterComponent},
+  {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
+  {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
+  {path:"showRest/dishList/:id",component:ShowDishComponent}
+  
 ];
 
 @NgModule({
