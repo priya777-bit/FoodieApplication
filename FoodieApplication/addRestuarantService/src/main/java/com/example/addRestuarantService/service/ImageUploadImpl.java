@@ -1,10 +1,7 @@
 package com.example.addRestuarantService.service;
 
-<<<<<<< HEAD
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-=======
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

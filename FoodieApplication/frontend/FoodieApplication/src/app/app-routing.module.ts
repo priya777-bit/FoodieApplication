@@ -4,20 +4,8 @@ import { AddDishComponent } from './rest_management/add-dish/add-dish.component'
 import { AddRestComponent } from './rest_management/add-rest/add-rest.component';
 import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.component';
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
-<<<<<<< HEAD
 import { SearchComponent } from './search-Service/search/search.component';
 import { DashboardComponent } from './add-Restaurant-Service/dashboard/dashboard.component';
-
-const routes: Routes = [
-  // {path:'',component:DashboardComponent},
-  {path:'rest',component:SendRestaurantComponent},
-  {path:'dish',component:SendDishComponent},
-  {path:'addRest',component:AddRestComponent},
-  {path:'addDish',component:AddDishComponent},
-  {path:'find',component:ViewAllComponent},
-  {path:'search',component:SearchComponent}
-
-=======
 import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-restuarant.component';
 import { ViewDishComponent } from './rest_management/view-dish/view-dish.component';
 import { AuthguardGuard } from './authguard.guard';
@@ -26,6 +14,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
+
+
 
 const routes: Routes = [
   // {path:'',component:SendRestaurantComponent},
@@ -38,9 +28,9 @@ const routes: Routes = [
   {path:"register",component:UserRegisterComponent},
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
   {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
-  {path:"showRest/dishList/:id",component:ShowDishComponent}
+  {path:"showRest/dishList/:id",component:ShowDishComponent},
+  {path:'search',component:SearchComponent}
   
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 ];
 
 @NgModule({

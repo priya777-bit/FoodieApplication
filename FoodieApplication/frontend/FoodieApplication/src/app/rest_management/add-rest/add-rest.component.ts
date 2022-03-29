@@ -18,26 +18,23 @@ export class AddRestComponent implements OnInit {
   Rest = new Restaurant();
 
   ngOnInit(): void {
-<<<<<<< HEAD
-    this.request.getResturant().subscribe(res=>{
-      //console.log(res);
-      this.restApi.restId=res[3].restaurantId;
-      console.log(this.restApi.restId)
-      this.restApi.restName=res[3].restaurantName;
-      console.log(this.restApi.restName);
-      this.restApi.restLocation=res[3].restaurantLocation;
-    });
-
-    // this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
+    // this.request.getResturant().subscribe(res=>{
+    //   //console.log(res);
+    //   this.restApi.restId=res[3].restaurantId;
+    //   console.log(this.restApi.restId)
+    //   this.restApi.restName=res[3].restaurantName;
     //   console.log(this.restApi.restName);
-    //   console.log(this.restApi.restLocation)
-    //   console.log(r);
-    // })
+    //   this.restApi.restLocation=res[3].restaurantLocation;
+    // });
 
-    //this.request.findByRestaurantNameAndRestaurantLocation();
+    // // this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
+    // //   console.log(this.restApi.restName);
+    // //   console.log(this.restApi.restLocation)
+    // //   console.log(r);
+    // // })
 
-=======
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
+    // //this.request.findByRestaurantNameAndRestaurantLocation();
+
     this.addRestForm = this.fb.group({
       restaurantName: [null,Validators.required],
       restaurantLocation: [null,Validators.required]

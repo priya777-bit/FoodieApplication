@@ -22,12 +22,9 @@ export class SendDishComponent implements OnInit{
   selectedFile:any=null;
 
   constructor(private api: RestApiService,private send:RequestService,private http:HttpClient) {
-<<<<<<< HEAD
 
   // constructor(private api: RestApiService,private send:RequestService) {
 
-=======
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
     this.selected="";
     this.restaurant=[];
     this.rest=[];
@@ -58,7 +55,6 @@ export class SendDishComponent implements OnInit{
       })
     })
 
-<<<<<<< HEAD
     // this.api.findAllRestaurant().subscribe((response)=>{
     //   this.restaurant=response;
     //   console.log(response);
@@ -83,7 +79,6 @@ export class SendDishComponent implements OnInit{
 
     // })
     //   })
-=======
     this.api.findAllRestaurant().subscribe((response)=>{
       this.restaurant=response;
       console.log(response);
@@ -94,7 +89,6 @@ export class SendDishComponent implements OnInit{
         console.log(this.api.restId);
       })
       })
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
       this.addDish = new FormGroup({
         dishName:new FormControl('',Validators.required),
         dishType:new FormControl('',Validators.required),
@@ -115,31 +109,6 @@ export class SendDishComponent implements OnInit{
   {
     return this.addDish.get('dishType');
   }
-<<<<<<< HEAD
-=======
-
-  onFileSelected(event:any)
-  {
-    this.selectedFile=event.target.files[0];
-    console.log(this.selectedFile);
-  }
-
-  uploadImage()
-  {
-    const payload = new FormData();
-
-    payload.append('file',this.selectedFile,this.selectedFile.name);
-
-    this.http.post("http://localhost:9000/api/request/restaurant/files"
-    ,payload,
-    )
-
-    .subscribe((data:any)=>{
-      this.resData = data;
-      console.log(this.resData);
-    })
-  }
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 
   onFileSelected(event:any)
   {
@@ -152,6 +121,7 @@ export class SendDishComponent implements OnInit{
     const payload = new FormData();
 
     payload.append('file',this.selectedFile,this.dish.dishId);
+    console.log(payload);
 
     this.http.post("http://localhost:9000/api/request/restaurant/files"
     ,payload,
@@ -166,25 +136,19 @@ export class SendDishComponent implements OnInit{
 
   sendDish()
   {
-<<<<<<< HEAD
     // this.dish.restaurantId=this.send.restaurantId;
-=======
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
     this.dish.dishId=Math.random().toString(36).substring(2,15);
     this.dish.dishName=this.addDish.value.dishName;
     this.dish.dishType=this.addDish.value.dishType;
 
     this.uploadImage();
 
-<<<<<<< HEAD
 
     // this.dish.restaurantId=this.send.restaurantId;
     // this.dish.dishName=this.addDish.value.dishName;
     // this.dish.dishType=this.addDish.value.dishType;
-=======
     this.dish.dishName=this.addDish.value.dishName;
     this.dish.dishType=this.addDish.value.dishType;
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 
     this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{
       console.log(observer);
@@ -195,9 +159,4 @@ export class SendDishComponent implements OnInit{
       }
     })
   }
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba

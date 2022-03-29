@@ -87,8 +87,6 @@ public class RestaurantController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                     .body(new UploadResponseMessage("could not upload file .." + file.getOriginalFilename() + "!"));
-<<<<<<< HEAD
-=======
         }
     }
 
@@ -100,7 +98,6 @@ public class RestaurantController {
         catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
         }
     }
 
@@ -136,7 +133,6 @@ public class RestaurantController {
 //        catch (Exception e){
 //            e.printStackTrace();
 //            return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
-<<<<<<< HEAD
 //
 //        }
 //    }
@@ -149,8 +145,4 @@ public class RestaurantController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
                 .body(file);
     }
-=======
-//        }
-//    }
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 }

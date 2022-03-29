@@ -1,3 +1,6 @@
+<section>
+    <button mat-raised-button (click)="display()" color="primary">Primary</button>
+</section>
 <mat-card app-player matRipple class="card" *ngFor="let dish of dishes">
   <!-- <a routerLink="dishList/{{restuarent.restaurantId}}">
    {{restuarent.restaurantId}}
@@ -6,5 +9,8 @@
 <div>{{ dish.dishName }}</div>
 <mat-card-content>
 <h5>{{ dish.dishType }}</h5>
+<div *ngIf=data>
+  <img [src]="data">
+</div>
 </mat-card-content>
 </mat-card>
