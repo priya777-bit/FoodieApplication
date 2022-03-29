@@ -12,7 +12,7 @@ import { RestApiService } from '../service/rest-api.service';
 })
 export class AddRestComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private restApi: RestApiService, private request:RequestService) { }
+  constructor(private fb: FormBuilder,private restApi: RestApiService,private request: RequestService) { }
 
   addRestForm !: FormGroup;
   Rest = new Restaurant();
@@ -42,6 +42,10 @@ export class AddRestComponent implements OnInit {
           console.log(error);
         }
     )
+    this.request.updateRestaurantWhenApprove(this.Rest,"approve").subscribe(res=>{
+      console.log(res);
+    })
+    
   }
   
 }

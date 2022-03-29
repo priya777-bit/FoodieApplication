@@ -25,8 +25,8 @@ export class RequestService {
     return this.http.put("http://localhost:9000/api/request/"+restaurantId+"/dish",addDish);
   }
 
-  getResturant():Observable<Array<any>>{
-    return this.http.get<Array<any>>("http://localhost:9000/api/request/restaurant/find");
+  findAllRestaurantByStatus(status:any):Observable<Array<any>>{
+    return this.http.get<Array<any>>("http://localhost:9000/api/request/find/"+ `${status}`);
   }
 
   // findByRestaurantNameAndRestaurantLocation(restaurantName:string,restaurantLocation:string):Observable<any>{
@@ -39,8 +39,16 @@ export class RequestService {
     return this.http.delete<any>("http://localhost:9000/api/request/restaurant/"+ `${restaurantId}`);
   }
 
-  findAllDishByRestaurantId(restaurantId:any):Observable<any>{
-    return this.http.get<any>("http://localhost:9000/api/request/restaurant/"+`${restaurantId}`);
+  findAllDishByRestaurantId(restaurantId:string):Observable<Array<any>>{
+    return this.http.get<Array<any>>("http://localhost:9000/api/request/restaurant/"+`${restaurantId}`);
+  }
+
+  updateRestaurantWhenApprove(restaurant:Restaurant,status:string){
+    return this.http.put("http://localhost:9000/api/request/restaurant/" +`${status}`,restaurant);
+  }
+
+  updateDishWhenApprove(restaurantId:string, dish:Dish, dishStatus:string){
+    return this.http.put("http://localhost:9000/api/request/"+`${restaurantId}` +"/dish/" +`${dishStatus}`,dish)
   }
 
 }

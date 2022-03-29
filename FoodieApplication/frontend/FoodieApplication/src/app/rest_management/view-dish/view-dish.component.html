@@ -5,9 +5,10 @@
       <mat-card-title>Choose Restaurant</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <mat-select (change)="changeRest($event)">
-        <mat-option *ngFor="let restaurant of restaurant" value=" Rest Name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
-          <b>Rest Name:</b> {{restaurant.restaurantName}} <b>Location:</b> {{restaurant.restaurantLocation}}
+        <mat-select  (selectionChange)="changeRest($event)">
+        <mat-option [value]="rest.restaurantId" *ngFor="let rest of restaurant">
+        <b> Rest Id :</b> {{rest.restaurantId}}  <b>Rest Name:</b> {{rest.restaurantName}}
+         <b>Location:</b> {{rest.restaurantLocation}}
         </mat-option>
         </mat-select>
         <p>You selected {{ selected | json}}</p>
@@ -22,6 +23,7 @@
         <th>Dish Id </th>
         <th>Dish Name</th>
         <th>Dish Type</th>
+        <th>Dish Status</th>
         <th>Dish Image</th>
       </tr>
     </thead>
@@ -30,7 +32,8 @@
         <td>{{dish.dishId}}</td>
         <td>{{dish.dishName}}</td>
         <td>{{dish.dishType}}</td>
-        <td><button type="button" class="btn btn-primary" (click)="Add(dish)">Add</button></td>
+        <td><img [src]="imageId"></td>
+        <td><button type="button" class="btn btn-primary" (click)="Add(dish)">Approve</button></td>
       </tr>
     </tbody>
   </table>

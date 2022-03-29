@@ -15,37 +15,49 @@ export class ViewDishComponent implements OnInit {
   Dish = new Dish();
   dish:Dish[]=[];
   restaurant : Restaurant [] =[];
+  dishStatus='reject';
+  imageId:string;
 
   constructor(private addService: RequestService, private restApi: RestApiService) { 
-    this.selected='';
+    this.selected = 'Please Select a Restaurant';
     this.restaurant=[];
     this.dish=[];
+    this.imageId = this.Dish.dishId; 
   }
 
   ngOnInit(): void {
-    this.addService.getResturant().subscribe(res=>{
+    this.addService.findAllRestaurantByStatus("approve").subscribe(res=>{
       console.log(res);
       this.restaurant=res;
-      this.restaurant.forEach(res=>{
-        this.selected=res.restaurantId;
-        this.addService.restaurantId=this.selected;
-      })
-       this.addService.findAllDishByRestaurantId(this.addService.restaurantId).subscribe(r=>{
-          console.log(r);
-        })
+      console.log('Rst', this.restaurant);
     });
-    // this.addService.findAllDishByRestaurantId().subscribe(res=>{
-    //   console.log(res);
-    // })
   }
 
-  changeRest(e:any){
-    this.selected = e.target.value;
+  
+
+  changeRest(e: any){
+    console.log('Selected Id ', e.value);
+    this.selected = e.value;
+    console.log(this.selected);
+    this.addService.restaurantId = this.selected;
+  
+      console.log("iddddd",this.addService.restaurantId);
+       this.addService.findAllDishByRestaurantId(this.addService.restaurantId).subscribe(r=>{
+         this.dish = r.filter(f=>f.dishStatus!="approve");
+          console.log("dish", this.dish);
+        })
   }
+  
 
   Add(dish: any){
     this.Dish=dish;
-    //this.restApi.addDishToRestaurant()
-
+    this.restApi.addDishToRestaurant(this.addService.restaurantId,dish).subscribe(r=>{
+      console.log(r);
+      alert("Dish Request Accepted....")
+    })
+    this.addService.updateDishWhenApprove(this.addService.restaurantId,this.Dish,"approve")
+    .subscribe(d=>{
+      console.log("updated Dish",d);
+    })
   }
 }

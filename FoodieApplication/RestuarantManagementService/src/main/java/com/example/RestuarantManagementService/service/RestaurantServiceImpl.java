@@ -71,6 +71,7 @@ public class RestaurantServiceImpl implements RestaurantService{
             throw new RestaurantNotFound();
         }
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+        dish.setDishStatus("approve");
         List<Dish> dishList = restaurant.getDishList();
         DishDTO dishDTO = new DishDTO();
         if(dishList!=null) {
@@ -84,7 +85,7 @@ public class RestaurantServiceImpl implements RestaurantService{
                     dishDTO.setRestaurantId(restaurantId);
                     List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
                     dishList1.add(dish);
-                    dishList=dishList1;
+                    dishList = dishList1;
                 }
             }
             restaurant.setDishList(dishList);

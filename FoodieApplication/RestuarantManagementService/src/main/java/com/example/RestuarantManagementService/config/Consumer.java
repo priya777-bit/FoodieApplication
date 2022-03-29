@@ -38,6 +38,9 @@ public class Consumer {
         dish.setDishId(dishDTO.getDishId());
         dish.setDishName(dishDTO.getDishName());
         dish.setDishType(dishDTO.getDishType());
-        restaurantService.addDishToRestaurant(dishDTO.getRestaurantId(),dish);
+        if(dish.getDishStatus().equalsIgnoreCase("reject")){
+            dish.setDishStatus("approve");
+            restaurantService.addDishToRestaurant(dishDTO.getRestaurantId(),dish);
+        }
     }
 }

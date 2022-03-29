@@ -12,8 +12,8 @@ public class Dish {
     private String dishId;
     private String dishName;
     private String dishType;
-    private Image image;
+    private String dishStatus = "reject";
 
-    public Dish(String d2, String paneer, String veg) {
+    public Dish(String dishId, String dishName, String dishType) {
     }
 }

@@ -14,6 +14,7 @@ export class ViewRestuarantComponent implements OnInit {
   Rest = new Restaurant();
   restaurant:Restaurant[]=[];
   isSubmitBtnDisabled: boolean= false;
+  status = "reject";
 
   constructor(private addservice: RequestService,private restApi: RestApiService) { 
     this.selected='';
@@ -21,7 +22,7 @@ export class ViewRestuarantComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.addservice.getResturant().subscribe(response=>{
+    this.addservice.findAllRestaurantByStatus(this.status).subscribe(response=>{
       console.log(response);
       this.restaurant=response;
     })
@@ -39,10 +40,8 @@ export class ViewRestuarantComponent implements OnInit {
     this.Rest=restaurant;
     this.restApi.registerRestaurant(this.Rest).subscribe(res=>{
       console.log(res);
-      // if(res){
-      //   this.isSubmitBtnDisabled=true;
-      // }
       alert("Restaurant Added Successfully");
+      
     },error =>{
       if(this.Rest=restaurant){
         alert("Restaurant Already Exist");
@@ -51,6 +50,10 @@ export class ViewRestuarantComponent implements OnInit {
         console.log(error);
       }
     }
-    )}
+    )
+    this.addservice.updateRestaurantWhenApprove(this.Rest,"approve").subscribe(res=>{
+        console.log(res);
+      })
+    }
 
 }

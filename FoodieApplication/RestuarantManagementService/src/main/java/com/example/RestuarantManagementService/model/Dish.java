@@ -12,7 +12,7 @@ public class Dish {
     private String dishId;
     private String dishName;
     private String dishType;
-    private Image image;
+    private String dishStatus = "reject";
 
     public Dish(String dishId, String dishName, String dishType) {
     }

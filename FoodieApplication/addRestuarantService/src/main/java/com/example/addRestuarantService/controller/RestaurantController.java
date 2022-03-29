@@ -51,10 +51,10 @@ public class RestaurantController {
         }
     }
 
-    @GetMapping("/restaurant/find")
-    public ResponseEntity<?> findAllRestaurant(){
+    @GetMapping("/find/{status}")
+    public ResponseEntity<?> findAllRestaurantByStatus(@PathVariable String status){
         try {
-            return new ResponseEntity<>(restaurantService.findAllRestaurant(),HttpStatus.OK);
+            return new ResponseEntity<>(restaurantService.findAllRestaurantByStatus(status),HttpStatus.OK);
         }
         catch (Exception e){
             e.printStackTrace();
@@ -97,6 +97,30 @@ public class RestaurantController {
             e.printStackTrace();
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PutMapping("/restaurant/{status}")
+    public ResponseEntity<?> updateRestaurantWhenApprove(@RequestBody Restaurant restaurant ,@PathVariable String status){
+        try {
+            return new ResponseEntity<>(restaurantService.updateRestaurantWhenApprove(restaurant,status),HttpStatus.OK);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PutMapping("/{restaurantId}/dish/{dishStatus}")
+    public ResponseEntity<?> updateDishWhenApprove(@PathVariable String restaurantId , @RequestBody Dish dish,
+                                                   @PathVariable String dishStatus) {
+        try {
+            return new ResponseEntity<>(restaurantService.updateDishWhenApprove(restaurantId,dish,dishStatus),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
 //    @GetMapping("/restaurant/{restaurantName}/{restaurantLocation}")

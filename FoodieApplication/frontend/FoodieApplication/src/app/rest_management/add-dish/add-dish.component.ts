@@ -17,30 +17,42 @@ export class AddDishComponent implements OnInit {
   selectedFile:any=null;
   newdata:any;
   constructor(private fb: FormBuilder,private restApi : RestApiService,private request : RequestService,private http:HttpClient) { 
-    this.selected="";
     this.restaurant=[];
+    this.selected = 'Please Select a Restaurant';
+
+
   }
 
   addDishForm !: FormGroup
   dish = new Dish();
+  dishes:Dish[]=[];
   types = ['Veg','Non-Veg'];
   restaurant:Restaurant[]=[];
 
-  changeRest(e:any){
-    this.selected = e.target.value;
+  changeRest(e: any){
+    console.log('Selected Id ', e.value);
+    this.selected = e.value;
+    console.log(this.selected);
+    this.restApi.restId = this.selected;
+  
+      console.log("iddddd",this.selected);
+      this.selected=this.restApi.restId
+      this.request.findAllDishByRestaurantId(this.restApi.restId).subscribe(r=>{
+         console.log("se"+this.selected)
+         console.log("Restapi",this.restApi.restId)
+         this.dishes=r;
+          console.log("dish",r);
+        })
+      
+
   }
 
-  ngOnInit(): void {
-   this.restApi.findAllRestaurant().subscribe((response)=>{
-      this.restaurant=response;
-      console.log(response);
-      this.restaurant.forEach(response=>{
-        this.selected=response.restaurantId;
-        this.restApi.restId=this.selected;
-        console.log(response);
-        console.log(this.restApi.restId);
-      })
-      })
+  ngOnInit(): void { 
+    this.request.findAllRestaurantByStatus("approve").subscribe(res=>{
+      console.log(res);
+      this.restaurant=res;
+      console.log('Rst', this.restaurant);
+    });
 
     this.addDishForm = this.fb.group({
       dishName: [null,Validators.required],
@@ -61,7 +73,7 @@ export class AddDishComponent implements OnInit {
   {
     const payload = new FormData();
 
-    payload.append('file',this.selectedFile,this.selectedFile.name);
+    payload.append('file',this.selectedFile,this.dish.dishId);
 
     this.http.post("http://localhost:8090/api/user/admin/dishImage",payload,)
     .subscribe((data:any)=>{
@@ -85,5 +97,9 @@ export class AddDishComponent implements OnInit {
     error =>{
           console.log(error);
         }
-    )}
+    )
+    this.request.updateDishWhenApprove(this.restApi.restId,this.dish,"approve").subscribe(response=>{
+      console.log(response);
+    })
+  }
 }

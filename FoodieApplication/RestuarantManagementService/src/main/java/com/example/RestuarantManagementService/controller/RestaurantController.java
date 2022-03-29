@@ -1,9 +1,6 @@
 package com.example.RestuarantManagementService.controller;
 
-import com.example.RestuarantManagementService.exception.DishAlreadyExist;
-import com.example.RestuarantManagementService.exception.DishNotFound;
-import com.example.RestuarantManagementService.exception.RestaurantAlreadyExist;
-import com.example.RestuarantManagementService.exception.RestaurantNotFound;
+import com.example.RestuarantManagementService.exception.*;
 import com.example.RestuarantManagementService.model.Dish;
 import com.example.RestuarantManagementService.model.Restaurant;
 //import com.example.RestuarantManagementService.model.UploadResponseMessage;
@@ -17,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -27,7 +26,7 @@ public class RestaurantController {
     private DishImageServiceImpl dishImageService;
 
     @Autowired
-    public RestaurantController(RestaurantServiceImpl restaurantService,DishImageServiceImpl dishImageService) {
+    public RestaurantController(RestaurantServiceImpl restaurantService, DishImageServiceImpl dishImageService) {
         this.restaurantService = restaurantService;
         this.dishImageService=dishImageService;
     }
@@ -101,7 +100,7 @@ public class RestaurantController {
     }
 
     @PostMapping("/dishImage")
-    public ResponseEntity<UploadResponseMessage> uploadFile (@RequestParam("file")MultipartFile file) {
+    public ResponseEntity<UploadResponseMessage> uploadFile (@RequestParam("file")MultipartFile file) throws DirectoryAlreadyExist, IOException {
         try {
             System.out.println("post");
             dishImageService.saveFile(file);

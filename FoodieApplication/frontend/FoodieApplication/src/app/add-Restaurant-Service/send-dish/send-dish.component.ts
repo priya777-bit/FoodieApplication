@@ -39,7 +39,7 @@ export class SendDishComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.send.getResturant().subscribe((r)=>{
+    this.send.findAllRestaurantByStatus("reject").subscribe((r)=>{
       console.log(r);
       this.rest=r;
       console.log(this.rest);
@@ -116,6 +116,7 @@ export class SendDishComponent implements OnInit{
 
     this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{
       console.log(observer);
+      this.send.dishId=this.dish.dishId;
       if(this.addDish.valid)
       {
         alert("Send Dish Request Successful..");

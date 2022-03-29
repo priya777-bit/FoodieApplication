@@ -58,8 +58,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public List<Restaurant> findAllRestaurant() {
-        return restaurantRepository.findAll();
+    public List<Restaurant> findAllRestaurantByStatus(String status) {
+       return restaurantRepository.findAllRestaurantByStatus(status);
     }
 
     @Override
@@ -73,7 +73,27 @@ public class RestaurantServiceImpl implements RestaurantService {
     public List<Dish> findAllDishByRestaurantId(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
         List<Dish> dishList = restaurant.getDishList();
+        System.out.println(restaurant);
         return dishList;
+    }
+
+    @Override
+    public Restaurant updateRestaurantWhenApprove(Restaurant restaurant ,String status) {
+        restaurant.setStatus(status);
+        return restaurantRepository.save(restaurant);
+    }
+
+    @Override
+    public Dish updateDishWhenApprove(String restaurantId ,Dish dish, String dishStatus) {
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+        Dish dish1 = restaurant.getDishList().get(0);
+        if(dish.getDishId().equalsIgnoreCase(dish1.getDishId())){
+            dish1.setDishStatus(dishStatus);
+            restaurantRepository.save(restaurant);
+        }
+//        System.out.println("re"+restaurant);
+
+        return dish;
     }
 
 //    @Override

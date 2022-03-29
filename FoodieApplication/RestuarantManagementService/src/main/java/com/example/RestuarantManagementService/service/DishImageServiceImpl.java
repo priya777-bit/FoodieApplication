@@ -10,16 +10,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
-public class DishImageServiceImpl implements DishImageService{
+public class DishImageServiceImpl implements DishImageService {
 
-    private final Path uploadPath = Paths.get("upload");
+    private Path imagePath = Paths.get("imagePath");
 
 
     @Override
     @PostConstruct
-    public void createDirectory() {
+    public void createDirectory(){
         try {
-            Files.createDirectory(uploadPath);
+            Files.createDirectories(imagePath);
         } catch (IOException e){
             throw new RuntimeException("Could not create upload folder!");
         }
@@ -28,7 +28,7 @@ public class DishImageServiceImpl implements DishImageService{
     @Override
     public void saveFile(MultipartFile file) {
         try {
-            Path root = Paths.get(String.valueOf(uploadPath));
+            Path root = Paths.get(String.valueOf(imagePath));
             if(!Files.exists(root)){
                 System.out.println("In Save File");
                 createDirectory();

@@ -6,12 +6,13 @@
             </mat-card-header>
             <mat-card-content>
                 <h3>Choose Your Restaurant</h3>
-                <mat-select (change)="changeRest($event)">
-                    <mat-option *ngFor="let restaurant of restaurant" value=" Rest Name:{{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
-                    <b>Rest Name:</b> {{restaurant.restaurantName}} <b>Location:</b> {{restaurant.restaurantLocation}}
-                    </mat-option>
+                <mat-select  (selectionChange)="changeRest($event)">
+                <mat-option [value]="rest.restaurantId" *ngFor="let rest of restaurant">
+                <b> Rest Id :</b> {{rest.restaurantId}}  <b>Rest Name:</b> {{rest.restaurantName}} 
+                <b>Location:</b> {{rest.restaurantLocation}}
+                </mat-option>
                 </mat-select>
-                <!-- <p>You selected {{ selected | json}}</p> -->
+                <p>You selected {{ selected | json}}</p>
 
                 <div class="row">
                     <div class="col">
@@ -47,6 +48,7 @@
                 <div formGroupName="image">
                     <div class="row">
                     <div class="col">
+                        <h6> Upload Dish Image</h6>
                         <input name="image" type="file" (change)="onFileSelected($event)">
                     </div>
                 </div>
