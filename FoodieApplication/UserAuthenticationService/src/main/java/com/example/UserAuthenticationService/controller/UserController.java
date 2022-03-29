@@ -60,4 +60,19 @@ public class UserController {
             return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/getData")
+    public ResponseEntity<?> getUser() throws UserNotFound {
+        try{
+            return new ResponseEntity<>(userService.GetAllData(), HttpStatus.OK);
+        }
+        catch (UserNotFound error)
+        {
+            throw new UserNotFound();
+        }
+        catch (Exception error)
+        {
+            return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

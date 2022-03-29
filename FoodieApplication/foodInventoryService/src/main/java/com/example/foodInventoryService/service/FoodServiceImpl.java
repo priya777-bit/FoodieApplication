@@ -29,15 +29,46 @@ public class FoodServiceImpl implements FoodService{
     @Override
     public List<Dish> saveDish(String restaurantId, Dish dish) {
         Restaurant restaurant = foodRepository.findById(restaurantId).get();
+        System.out.println(restaurant);
 
         List<Dish> dishList = restaurant.getDishList();
+        if(dishList!=null) {
 
-                    List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
-                    dishList1.add(dish);
-                    dishList=dishList1;
-                    restaurant.setDishList(dishList);
-
+            List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
+            dishList1.add(dish);
+            dishList = dishList1;
+            restaurant.setDishList(dishList);
+        }
+        else
+        {
+            System.out.println("listsavedagain");
+            restaurant.setDishList(Arrays.asList(dish));
+        }
+        System.out.println("return");
         foodRepository.save(restaurant);
+        return dishList;
+
+//        List<Dish> dishList = restaurant.getDishList();
+//        System.out.println("restaurant");
+//                    List<Dish> dishList1 = new ArrayList<>(restaurant.getDishList());
+//                    dishList1.add(dish);
+//                    dishList=dishList1;
+//        System.out.println("restaurant");
+//                    restaurant.setDishList(dishList);
+//
+//        foodRepository.save(restaurant);
+//        return dishList;
+    }
+
+    @Override
+    public List<Restaurant> getAllData() {
+        return foodRepository.findAll();
+    }
+
+    @Override
+    public List<Dish> getDishData(String restaurantId) {
+        Restaurant restaurant=foodRepository.findById(restaurantId).get();
+        List<Dish> dishList=restaurant.getDishList();
         return dishList;
     }
 }

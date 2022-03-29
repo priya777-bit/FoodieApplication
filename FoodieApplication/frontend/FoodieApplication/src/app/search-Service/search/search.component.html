@@ -1,0 +1,23 @@
+<form [formGroup]="search" (ngSubmit)="searching($event)" class="container-fluid">
+    <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title> Send Restaurant</mat-card-title>
+        </mat-card-header>
+    <mat-card-content>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Search By Restaurant / Cuisine" formControlName="find">
+                    <mat-error *ngIf="search.controls['find'].hasError('required')">
+                    Search By Restaurant Name Or Cuisine Name <strong> required </strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-card-actions>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="!search.valid">send Restaurant</button>
+                </mat-card-actions> 
+            </div>
+        </div>
+    </mat-card-content>
+    </mat-card>
+</form>

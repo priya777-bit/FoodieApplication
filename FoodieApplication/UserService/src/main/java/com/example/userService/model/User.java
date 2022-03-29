@@ -19,5 +19,5 @@ public class User {
     private String userPassword;
     private String userPhoneNo;
     private Image image;
-    private List<Address> addressList;
+    private Address addressList;
 }

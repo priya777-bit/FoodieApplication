@@ -16,8 +16,13 @@ public class DishImageServiceImpl implements DishImageService {
 
 
     @Override
+<<<<<<< HEAD
     @PostConstruct
     public void createDirectory(){
+=======
+    //@PostConstruct
+    public void createDirectory() {
+>>>>>>> b840cb22b92bec9b2129e91d83715e410df79aa3
         try {
             Files.createDirectories(imagePath);
         } catch (IOException e){

@@ -1,5 +1,6 @@
+<div>
 <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
-  <mat-card class="shipping-card">
+  <mat-card class="register">
     <mat-card-header>
       <mat-card-title>User Register</mat-card-title>
     </mat-card-header>
@@ -36,16 +37,77 @@
         </div>
       </div>
 
-      <div formGroupName="image">
+      <div>
         <div class="row">
           <div class="col">
               <div>
                 <input type="file" (change)="onFileChanged($event)">
                 <img [src]="imgURL" height="200" *ngIf="imgURL">
             </div>
-          
           </div>
         </div>
+      </div>
+
+      <div formGroupName="addressList">
+        <h2>Address</h2>
+        
+      <mat-form-field appearance="fill">
+      <mat-label>Address Type</mat-label>
+      <mat-select formControlName="addressType" name="addressType">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let type of types" [value]="type.value">
+      {{type.viewValue}}
+      </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="Street Number" formControlName="streetNo">
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="Street Name" formControlName="streetName">
+      </mat-form-field>
+    </div>
+  </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="city" formControlName="city">
+</mat-form-field>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="state" formControlName="state">
+</mat-form-field>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+        <input type="text"matInput placeholder="pincode" formControlName="pincode">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width">
+  <input type="text"matInput placeholder="landmark" formControlName="landmark">
+</mat-form-field>
+</div>
+</div>
       </div>
 
       <!-- <div class="row">
@@ -135,3 +197,4 @@
     </mat-card-actions>
   </mat-card>
 </form>
+</div>

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators ,FormGroup,FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserRequestService } from '../user-request.service';
+
+interface Type {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-user-register',
@@ -28,14 +34,23 @@ export class UserRegisterComponent {
       userName:new FormControl('',Validators.required),
       userPassword: new FormControl(null, Validators.required),
       userPhoneNo: new FormControl(null, Validators.required),
-      image:new FormGroup({
-        image:new FormControl('')
+      addressList:new FormGroup({
+        addressType:new FormControl('',Validators.required),
+        streetNo:new FormControl('',Validators.required),
+        streetName:new FormControl('',Validators.required),
+        city:new FormControl('',Validators.required),
+        state:new FormControl('',Validators.required),
+        pincode:new FormControl('',Validators.required),
+        landmark:new FormControl('',Validators.required),
       })
     });
 
-  hasUnitNumber = false;
+    
+    types: Type[] = [
+      {value: 'Work', viewValue: 'Work'},
+      {value: 'Home', viewValue: 'Home'}]
 
-  constructor(private fb: FormBuilder,private userRequest:UserRequestService) {}
+  constructor(private fb: FormBuilder,private userRequest:UserRequestService,private router:Router) {}
 
   public selectedFile:any;
   public event1:any;
@@ -44,30 +59,22 @@ export class UserRegisterComponent {
   base64Data: any;
   convertedImage: any;
   
-  public  onFileChanged(event:any) {
+  public  onFileChanged(event:any) {   
     this.selectedFile = event.target.files[0];
-    // this.registerForm.value.image=this.selectedFile;
-    // console.log(this.registerForm.value.image);
-  //   // let reader = new FileReader();
-  //   // reader.readAsDataURL(event.target.files[0]);
-  //   // reader.onload = (event2) => {
-  //   //   this.imgURL = reader.result;
-  // };
 }
 
 onSubmit(): void {
   
   const uploadImageData = new FormData();
   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  uploadImageData.append('uploadData', JSON.stringify(this.registerForm.value))
 
-  const uploadData = new FormData();
-  uploadData.append('uploadData', this.registerForm.value)
+  // this.userRequest.uploadImage(this.selectedFile).subscribe(()=>{
 
-  // const data=this.registerForm.value;
-  // console.log(data);
-  // console.log(uploadImageData);
-  this.userRequest.register(uploadImageData,uploadData).subscribe(()=>{
-    // this.router.navigate(['/login']);
-  })
+  // })
+
+ this.userRequest.register(uploadImageData).subscribe(()=>{
+    this.router.navigate(['/login']);
+ })
 }
 }

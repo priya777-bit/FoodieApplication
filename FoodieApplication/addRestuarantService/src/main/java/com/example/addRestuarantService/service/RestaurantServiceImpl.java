@@ -45,6 +45,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         producer.sendDishMsg2RabbitMq(dishDTO);
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
         List<Dish> dishList = restaurant.getDishList();
+
         if(dishList!=null){
             dishList.add(dish);
             restaurant.setDishList(dishList);
@@ -69,6 +70,8 @@ public class RestaurantServiceImpl implements RestaurantService {
         return true;
     }
 
+<<<<<<< HEAD
+=======
     @Override
     public List<Dish> findAllDishByRestaurantId(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
@@ -77,6 +80,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dishList;
     }
 
+<<<<<<< HEAD
     @Override
     public Restaurant updateRestaurantWhenApprove(Restaurant restaurant ,String status) {
         restaurant.setStatus(status);
@@ -96,6 +100,9 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dish;
     }
 
+=======
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
+>>>>>>> b840cb22b92bec9b2129e91d83715e410df79aa3
 //    @Override
 //    public String findByRestaurantNameAndRestaurantLocation(String restaurantName, String restaurantLocation){
 //        String id = restaurantRepository.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation);

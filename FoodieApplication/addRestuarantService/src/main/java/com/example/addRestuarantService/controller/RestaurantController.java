@@ -7,6 +7,8 @@ import com.example.addRestuarantService.model.UploadResponseMessage;
 import com.example.addRestuarantService.service.ImageUploadImpl;
 import com.example.addRestuarantService.service.RestaurantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -85,6 +87,8 @@ public class RestaurantController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                     .body(new UploadResponseMessage("could not upload file .." + file.getOriginalFilename() + "!"));
+<<<<<<< HEAD
+=======
         }
     }
 
@@ -96,6 +100,7 @@ public class RestaurantController {
         catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
         }
     }
 
@@ -131,6 +136,21 @@ public class RestaurantController {
 //        catch (Exception e){
 //            e.printStackTrace();
 //            return new ResponseEntity<>("Try After SomeTime",HttpStatus.INTERNAL_SERVER_ERROR);
+<<<<<<< HEAD
+//
 //        }
 //    }
+
+    @GetMapping("/restaurant/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+        Resource file = imageUpload.load(filename);
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                .body(file);
+    }
+=======
+//        }
+//    }
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 }

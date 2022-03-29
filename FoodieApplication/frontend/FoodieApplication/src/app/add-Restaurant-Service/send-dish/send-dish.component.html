@@ -1,3 +1,64 @@
+<<<<<<< HEAD
+<div class="container">
+    <form [formGroup]="addDish" (ngSubmit)="sendDish()">
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title>Send Dish</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>Choose Your Restaurant</h3>
+                <mat-select (change)="update($event)">
+                    <mat-option *ngFor="let restaurant of rest" value=" Rest Name: {{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+                    <b>Id:</b> {{restaurant.restaurantId}} <b>Rest Name:</b> {{restaurant.restaurantName}} <b>Location:</b> {{restaurant.restaurantLocation}}
+                    </mat-option>
+                </mat-select>
+                <p>You selected {{ sel }}</p>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter Dish Name" formControlName="dishName">
+                            <mat-error *ngIf="addDish.controls['dishName'].hasError('required')">
+                                Dish Name is <strong> required </strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
+                            <!-- <mat-label>Dish Type</mat-label>
+                            <mat-option *ngFor="let dishType of types" [value]="dishType">
+                            <input matInput type="radio" [value]="dishType" formControlName="dishType">
+                                {{dishType}}
+                            </mat-option> -->
+                            <mat-label>Dish Type</mat-label>
+                            <mat-select formControlName="dishType">
+                            <mat-option>choose your Dish Type </mat-option>
+                            <mat-option *ngFor="let dishType of dishes" [value]="dishType">
+                                {{dishType}}
+                            </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="addDish.controls['dishType'].hasError('required')">
+                                Dish Type is <strong> required </strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div formGroupName="image">
+                    <div class="row">
+                    <div class="col">
+                        <input name="image" type="file" (change)="onFileSelected($event)">
+                    </div>
+                </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!addDish.valid" > Send Dish </button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
+=======
 <form [formGroup]="addDish" (ngSubmit)="sendDish()" class="container-fluid">
 
     <h3>Choose Your Restaurant</h3>
@@ -32,3 +93,4 @@
     <button type="submit" [disabled]="!addDish.valid">SendDish</button>
 </form>
 <router-outlet></router-outlet>
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba

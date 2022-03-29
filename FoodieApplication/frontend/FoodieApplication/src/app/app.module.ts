@@ -20,8 +20,24 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { SendRestaurantComponent } from './add-Restaurant-Service/send-restaurant/send-restaurant.component';
 import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.component';
+<<<<<<< HEAD
+import { DashboardComponent } from './add-Restaurant-Service/dashboard/dashboard.component';
+import { SearchComponent } from './search-Service/search/search.component';
+import { NavComponent } from './search-Service/nav/nav.component';
+=======
 import { ViewDishComponent } from './rest_management/view-dish/view-dish.component';
 import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-restuarant.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
+import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
+import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 
 @NgModule({
   declarations: [
@@ -32,8 +48,19 @@ import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-
     SendRestaurantComponent,
     SendDishComponent,
     UserRegisterComponent,
+<<<<<<< HEAD
+    DashboardComponent,
+    SearchComponent,
+    NavComponent,
+=======
     ViewDishComponent,
     ViewRestuarantComponent,
+    UserLoginComponent,
+    ProfileDashboardComponent,
+    NavBarComponent,
+    ShowRestaurantComponent,
+    ShowDishComponent
+>>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
   ],
   imports: [
     BrowserModule,
@@ -55,6 +82,11 @@ import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
