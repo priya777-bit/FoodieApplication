@@ -2,6 +2,7 @@ package com.example.foodInventoryService.controller;
 
 import com.example.foodInventoryService.model.Dish;
 //import com.example.foodInventoryService.model.Image;
+import com.example.foodInventoryService.model.Image;
 import com.example.foodInventoryService.model.Restaurant;
 import com.example.foodInventoryService.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +82,7 @@ public class FoodController {
 
     @GetMapping("/restaurant/{filename}")
     public ResponseEntity<?> getFile(@PathVariable String filename) {
-        List<String> images = foodService.load(filename);
+        List<Image> images = foodService.load(filename);
         return new ResponseEntity<>(images,HttpStatus.OK);
     }
 }

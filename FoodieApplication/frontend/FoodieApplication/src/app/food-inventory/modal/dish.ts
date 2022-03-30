@@ -1,5 +1,8 @@
+import { Image } from "./image";
+
 export class Dish {
-    dishId:String="";
+    dishId:string="";
     dishName:String="";
     dishType:String="";
+    image:Image[];
 }

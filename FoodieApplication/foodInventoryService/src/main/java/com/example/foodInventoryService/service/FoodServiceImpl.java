@@ -1,6 +1,7 @@
 package com.example.foodInventoryService.service;
 
 import com.example.foodInventoryService.model.Dish;
+import com.example.foodInventoryService.model.Image;
 import com.example.foodInventoryService.model.Restaurant;
 import com.example.foodInventoryService.repository.FoodRepository;
 import org.apache.commons.io.FilenameUtils;
@@ -88,8 +89,8 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public List<String> load(String filename) {
-        List<String> images = new ArrayList<>();
+    public List<Image> load(String filename) {
+        List<Image> images = new ArrayList<>();
         Path file = Paths.get(String.valueOf(path)).resolve(filename);
         //String filePath = context.getRealPath("/upload");
         File fileFolder = new File(String.valueOf(file));
@@ -103,7 +104,11 @@ public class FoodServiceImpl implements FoodService {
                         byte[] bytes = new byte[(int) fileFolder.length()];
                         fileInputStream.read(bytes);
                         enCodeBase64 = Base64.getEncoder().encodeToString(bytes);
-                        images.add("data:image/" + extension + ";base64," + enCodeBase64);
+                        String[] fileId = filename.split("\\.");
+                        Image img=new Image(fileId[0],"data:image/" + extension + ";base64," + enCodeBase64);
+                        images.add(img);
+                       // images.add("data:image/" + extension + ";base64," + enCodeBase64);
+                        System.out.println(images);
                         fileInputStream.close();
                     } catch (Exception e) {
                         e.printStackTrace();

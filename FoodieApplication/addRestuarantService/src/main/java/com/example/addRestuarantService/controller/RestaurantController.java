@@ -137,8 +137,8 @@ public class RestaurantController {
 //        }
 //    }
 
-    @GetMapping("/restaurant/{filename:.+}")
-    @ResponseBody
+    @GetMapping("/restaurants/{filename}")
+    //@ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         Resource file = imageUpload.load(filename);
         return ResponseEntity.ok()

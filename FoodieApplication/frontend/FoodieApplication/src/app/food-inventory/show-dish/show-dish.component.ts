@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ActivatedRoute } from '@angular/router';
 import { InventoryRequestService } from '../service/inventory-request.service';
+import { Map } from '../modal/map';
+import { List } from '../modal/list';
 import { Dish } from '../modal/dish';
+import { Observable } from 'rxjs';
+import { Image } from '../modal/image';
 
 @Component({
   selector: 'app-show-dish',
@@ -12,46 +14,38 @@ import { Dish } from '../modal/dish';
 })
 export class ShowDishComponent {
  
-  data2:Array<String>=[];
+  // data2:Array<String>=[];
 
-  dishes:any;
-  data:any;
+  
+  // data:Dish[]=[];
+  data:Dish[];
+  // myArray: any; 
+  //  map = new Map;
+  //  list=new List;
+   data2:Image[];
+  //  dataDisp:Dish[];
+  //  imagDisp:Image[];
 
-  ngOnInit(): void {
-    // this.activatedRoute.paramMap.subscribe(data=>{
-    //   let id=data.get('id') ??0;
-    //   this.request.getDishes(id).subscribe(result=>{
-    //     this.dishes=result;
-    //     for(var i=0;i<result.length;i++)
-    //     {
-    //       this.getImage(result[i].dishId)
-    //     }
-        
-    //   });
-    // })
-    
-  }
 
-  display():void{
+
+  ngOnInit(): void{
     this.activatedRoute.paramMap.subscribe(data=>{
       let id=data.get('id') ??0;
-      this.request.getDishes(id).subscribe(result=>{
-        for(var i=0;i<result.length;i++)
+      this.request.getDishes(id).subscribe(result1=>
         {
-          this.getImage(result[i].dishId)
-          this.dishes=result;
-        }
-        
+        result1.forEach((element: Dish) => {
+          this.request.getImages(element.dishId).subscribe(result=>{
+            this.data2=result;
+            element.image=result;
+            console.log(element);
+            console.log(result1);
+            this.data=result1;
+          })  
+        });  
       });
     })
     
   }
-  getImage(id:any){
-    this.request.getImages(id).subscribe(result=>{
-      this.data=result;
-    })
-  }
-
   constructor(private activatedRoute:ActivatedRoute,private request:InventoryRequestService) 
   {
     

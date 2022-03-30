@@ -1,6 +1,7 @@
 package com.example.foodInventoryService.service;
 
 import com.example.foodInventoryService.model.Dish;
+import com.example.foodInventoryService.model.Image;
 import com.example.foodInventoryService.model.Restaurant;
 import org.springframework.core.io.Resource;
 
@@ -12,5 +13,5 @@ public interface FoodService {
     public List<Dish> saveDish(String restaurantId,Dish dish);
     public List<Restaurant> getAllData();
     public List<Dish> getDishData(String restaurantId);
-    public List<String> load(String filename);
+    public List<Image> load(String filename);
 }
