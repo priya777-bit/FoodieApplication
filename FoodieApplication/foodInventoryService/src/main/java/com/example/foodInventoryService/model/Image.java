@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.File;
+import java.net.URL;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Image {
 
-    private String imageId;
-    private String imageUrl;
-    private long imageSpecs;
+    private String fileName;
+    private String image;
 }

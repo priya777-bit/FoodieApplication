@@ -9,10 +9,20 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
+<<<<<<< HEAD
   restId:string;
+=======
+
+  restId:string;
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
   restName:string;
   restLocation:string;
   dishId:string;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
 
   constructor(private http: HttpClient) { }
 

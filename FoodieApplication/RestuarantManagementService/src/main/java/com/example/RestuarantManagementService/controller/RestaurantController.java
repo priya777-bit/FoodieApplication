@@ -17,7 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 
+<<<<<<< HEAD
 @CrossOrigin(origins="http://localhost:4200")
+=======
+
+//@CrossOrigin("http://localhost:4200")
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
 @RestController
 @RequestMapping("api/user/admin")
 public class RestaurantController {

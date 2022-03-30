@@ -1,21 +1,34 @@
-.grid-container {
+.card {
+  width: 260px;
+  height: 270px;
+  display: inline-block;
   margin: 20px;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.card img{
+  height: 150px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.card h5{
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  letter-spacing: .25px;
+  font-weight: 500;
+  font-size: 1.15em;
+  -webkit-line-clamp: 2;
 }
 
-.dashboard-card-content {
-  text-align: center;
+#duration {
+  background-color: black;
+  position: absolute;
+  top: 45%;
+  right: 4%;
+  z-index: 1;
+  width: auto;
+  height: 20px;
+  text-align: right;
+  padding: 1px 6px;
 }
