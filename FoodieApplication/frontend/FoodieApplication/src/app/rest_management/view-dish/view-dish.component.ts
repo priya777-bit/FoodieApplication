@@ -49,10 +49,11 @@ export class ViewDishComponent implements OnInit {
   }
   
 
-  Add(dish: any){
+  Add(dish: Dish){
     this.Dish=dish;
     this.restApi.addDishToRestaurant(this.addService.restaurantId,dish).subscribe(r=>{
       console.log(r);
+      this.dish=r;
       alert("Dish Request Accepted....")
     })
     this.addService.updateDishWhenApprove(this.addService.restaurantId,this.Dish,"approve")

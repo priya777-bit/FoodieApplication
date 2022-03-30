@@ -1,9 +1,12 @@
+import { Image } from "./image";
+
 export class Dish {
 
     restaurantId:string
     dishId:string;
     dishName:string;
     dishType:string;
+    image:Image[]=[];
 
     constructor()
     {
