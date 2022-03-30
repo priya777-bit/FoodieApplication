@@ -14,10 +14,27 @@
                 </mat-form-field>
 
                 <mat-card-actions>
-                    <button type="submit" mat-raised-button color="primary" [disabled]="!search.valid">send Restaurant</button>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="!search.valid"> Search</button>
                 </mat-card-actions> 
             </div>
         </div>
     </mat-card-content>
     </mat-card>
 </form>
+
+<div class="container">
+    <div class="row text-lg-left">
+        <div *ngFor="let dishes of dishes">
+            <mat-card-content>
+                <div>{{dishes.dishName}}</div>
+                <div>{{dishes.dishType}}</div>
+            
+                <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of dishes.image">
+                <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" [src]="image.imageName" style="height: 171px;width: fit-content;">
+                </a>
+                </div>
+            </mat-card-content>
+        </div>
+    </div>
+</div>

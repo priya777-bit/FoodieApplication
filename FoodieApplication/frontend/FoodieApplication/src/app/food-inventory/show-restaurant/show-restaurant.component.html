@@ -1,10 +1,20 @@
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
+
+
+<div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
 <mat-card app-player matRipple class="card" *ngFor="let restuarent of restuarents">
+    <!-- <img src="https://mdbootstrap.com/img/new/fluid/city/113.webp" class="w-100" /> -->
    <a routerLink="dishList/{{restuarent.restaurantId}}">
+    <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);">
     {{restuarent.restaurantId}}
 <!-- <img mat-card-image [src]="video.snippet.thumbnails.medium.url"> -->
-</a> 
-<div>{{ restuarent.restaurantName }}</div>
 <mat-card-content>
+<div>{{ restuarent.restaurantName }}</div>
 <h5>{{ restuarent.restaurantLocation }}</h5>
 </mat-card-content>
+</div>
+</a> 
+<a routerLink="dishList/{{restuarent.restaurantId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
 </mat-card>
+</div>

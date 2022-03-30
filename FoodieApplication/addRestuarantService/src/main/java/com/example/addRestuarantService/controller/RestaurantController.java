@@ -11,6 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,7 +42,7 @@ public class RestaurantController {
         }
     }
 
-    @PutMapping("/{restaurantId}/dish")
+    @PutMapping("/restaurant/{restaurantId}/dish")
     public ResponseEntity<?> addDish(@PathVariable String  restaurantId, @RequestBody Dish dish){
         try {
             System.out.println(restaurantId);
@@ -137,12 +138,29 @@ public class RestaurantController {
 //        }
 //    }
 
-    @GetMapping("/restaurant/{filename:.+}")
+<<<<<<< HEAD
+    @GetMapping("/{filename:.+}")
     @ResponseBody
+    public ResponseEntity<?> getFile(@PathVariable String fileName) {
+
+        try
+        {
+            return new ResponseEntity<>(imageUpload.load(fileName),HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return new ResponseEntity<>("Not able to load ..",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+=======
+    @GetMapping("/restaurants/{filename}")
+    //@ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         Resource file = imageUpload.load(filename);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
                 .body(file);
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
     }
 }

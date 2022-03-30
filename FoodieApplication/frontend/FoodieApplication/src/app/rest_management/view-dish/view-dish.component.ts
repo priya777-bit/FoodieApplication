@@ -81,14 +81,20 @@ export class ViewDishComponent implements OnInit {
     }
   
 
+<<<<<<< HEAD
   Add(dish: any){
     // this.Dish.dishId=this.addService.dishId;
     // console.log(this.Dish.dishId)
     //this.Dish=dish;
     //console.log("this.Dish"+this.Dish);
     console.log("dish",dish)
+=======
+  Add(dish: Dish){
+    this.Dish=dish;
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
     this.restApi.addDishToRestaurant(this.addService.restaurantId,dish).subscribe(r=>{
       console.log(r);
+      this.dish=r;
       alert("Dish Request Accepted....")
     });
 

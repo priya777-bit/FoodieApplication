@@ -12,13 +12,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+<<<<<<< HEAD
 import org.apache.commons.io.FilenameUtils;
+=======
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -36,6 +42,13 @@ public class DishImageServiceImpl implements DishImageService {
     @Override
     @PostConstruct
     public void createDirectory(){
+<<<<<<< HEAD
+=======
+=======
+    //@PostConstruct
+    public void createDirectory() {
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
         try {
             Files.createDirectories(imagePath);
         } catch (IOException e){
@@ -58,6 +71,7 @@ public class DishImageServiceImpl implements DishImageService {
         }
     }
 
+<<<<<<< HEAD
 //    public Resource load(String filename) {
 //        try {
 //            Path file = Paths.get(String.valueOf(imagePath)).resolve(filename);
@@ -103,6 +117,21 @@ public class DishImageServiceImpl implements DishImageService {
         System.out.println("img"+dishImages);
         return dishImages;
 
+=======
+    public Resource load(String filename) {
+        try {
+            Path file = Paths.get(String.valueOf(imagePath)).resolve(filename);
+            Resource resource = new UrlResource(file.toUri());
+
+            if (resource.exists() || resource.isReadable()) {
+                return resource;
+            } else {
+                throw new RuntimeException("Could not read the file!");
+            }
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Error: " + e.getMessage());
+        }
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
     }
 
 }

@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Dish } from 'src/app/add-Restaurant-Service/addRestModel/dish';
+import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
 import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
-import { Dish } from '../domain/dish';
-import { Restaurant } from '../domain/restaurant';
+// import { Dish } from '../domain/dish';
+// import { Restaurant } from '../domain/restaurant';
 import { RestApiService } from '../service/rest-api.service';
 
 @Component({
@@ -75,7 +77,11 @@ export class AddDishComponent implements OnInit {
   {
     const payload = new FormData();
 
+<<<<<<< HEAD
     payload.append('file',this.selectedFile,this.dish.dishId +".jfif");
+=======
+    payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 
     this.http.post("http://localhost:8090/api/user/admin/dishImage",payload,)
     .subscribe((data:any)=>{

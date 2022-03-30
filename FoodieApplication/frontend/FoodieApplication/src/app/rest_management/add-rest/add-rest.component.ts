@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
+=======
+import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
-import { Restaurant } from 'src/app/rest_management/domain/restaurant';
+// import { Restaurant } from 'src/app/rest_management/domain/restaurant';
 import { RestApiService } from '../service/rest-api.service';
 
 @Component({
@@ -17,6 +21,29 @@ export class AddRestComponent implements OnInit {
   Rest = new Restaurant();
 
   ngOnInit(): void {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    // this.request.getResturant().subscribe(res=>{
+    //   //console.log(res);
+    //   this.restApi.restId=res[3].restaurantId;
+    //   console.log(this.restApi.restId)
+    //   this.restApi.restName=res[3].restaurantName;
+    //   console.log(this.restApi.restName);
+    //   this.restApi.restLocation=res[3].restaurantLocation;
+    // });
+
+    // // this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
+    // //   console.log(this.restApi.restName);
+    // //   console.log(this.restApi.restLocation)
+    // //   console.log(r);
+    // // })
+
+    // //this.request.findByRestaurantNameAndRestaurantLocation();
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
     this.addRestForm = this.fb.group({
       restaurantId:[null,Validators.required],
       restaurantName: [null,Validators.required],

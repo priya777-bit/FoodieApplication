@@ -8,6 +8,8 @@ import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaura
 })
 export class FindService {
 
+  res:Restaurant[]=[];
+
   constructor(private http:HttpClient) { }
 
   getByRestaurantName(restaurantName:string):Observable<Array<any>>
@@ -22,6 +24,6 @@ export class FindService {
 
   getImage(filename:string):Observable<any>
   {
-    return this.http.get<any>("http://localhost:9000/api/request/restaurant/"+filename);
+    return this.http.get<any>("http://localhost:9000/api/request/"+filename+".jpg");
   }
 }

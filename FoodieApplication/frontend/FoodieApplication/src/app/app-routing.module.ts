@@ -15,6 +15,8 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 
+
+
 const routes: Routes = [
   // {path:'',component:DashboardComponent},
   {path:'rest',component:SendRestaurantComponent},
@@ -30,7 +32,16 @@ const routes: Routes = [
   {path:"register",component:UserRegisterComponent},
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
   {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
+<<<<<<< HEAD
   {path:"showRest/dishList/:id",component:ShowDishComponent}
+<<<<<<< HEAD
+=======
+=======
+  {path:"showRest/dishList/:id",component:ShowDishComponent},
+  {path:'search',component:SearchComponent}
+  
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 ];
 
 @NgModule({

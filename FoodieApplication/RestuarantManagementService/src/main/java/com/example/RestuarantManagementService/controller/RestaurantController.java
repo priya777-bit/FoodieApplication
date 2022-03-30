@@ -18,6 +18,14 @@ import java.util.List;
 
 
 @CrossOrigin(origins="http://localhost:4200")
+<<<<<<< HEAD
+=======
+=======
+
+//@CrossOrigin("http://localhost:4200")
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 @RestController
 @RequestMapping("api/user/admin")
 public class RestaurantController {

@@ -35,8 +35,15 @@ import { MatListModule } from '@angular/material/list';
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
 import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
+<<<<<<< HEAD
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
 import { AddFavComponent } from './favService/add-fav/add-fav.component';
+=======
+<<<<<<< HEAD
+import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
+=======
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 
 @NgModule({
   declarations: [
@@ -56,9 +63,18 @@ import { AddFavComponent } from './favService/add-fav/add-fav.component';
     ProfileDashboardComponent,
     NavBarComponent,
     ShowRestaurantComponent,
+<<<<<<< HEAD
     ShowDishComponent,
     GetAllFavComponent,
     AddFavComponent
+=======
+<<<<<<< HEAD
+    ShowDishComponent,
+    GetAllFavComponent
+=======
+    ShowDishComponent
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
   ],
   imports: [
     BrowserModule,

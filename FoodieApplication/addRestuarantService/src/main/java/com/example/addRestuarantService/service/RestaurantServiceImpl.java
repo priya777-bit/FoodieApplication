@@ -64,12 +64,24 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
+    public List<Restaurant> findAllRestaurant() {
+        return restaurantRepository.findAll();
+    }
+
+    @Override
     public boolean deleteRestaurantWhenRejected(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
         restaurantRepository.delete(restaurant);
         return true;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
     @Override
     public List<Dish> findAllDishByRestaurantId(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
@@ -78,6 +90,13 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dishList;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
     @Override
     public Restaurant updateRestaurantWhenApprove(Restaurant restaurant ,String status) {
         restaurant.setStatus(status);
@@ -102,6 +121,13 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dish1;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 //    @Override
 //    public String findByRestaurantNameAndRestaurantLocation(String restaurantName, String restaurantLocation){
 //        String id = restaurantRepository.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation);

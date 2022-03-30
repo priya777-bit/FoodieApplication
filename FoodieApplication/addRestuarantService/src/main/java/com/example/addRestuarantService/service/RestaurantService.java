@@ -9,6 +9,7 @@ public interface RestaurantService {
 
     public Restaurant addRestaurant(Restaurant restaurant);
     public Restaurant addDish(String restaurantId,Dish dish);
+<<<<<<< HEAD
     public List<Restaurant> findAllRestaurantByStatus(String status);
    // public List<Restaurant> findAllRestaurant();
     public boolean deleteRestaurantWhenRejected(String restaurantId);
@@ -16,4 +17,33 @@ public interface RestaurantService {
     public List<Dish> findAllDishByRestaurantId(String restaurantId);
     public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
     public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
+=======
+
+    public List<Restaurant> findAllRestaurantByStatus(String status);
+
+<<<<<<< HEAD
+    public List<Restaurant> findAllRestaurant();
+=======
+    //public List<Restaurant> findAllRestaurant();
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+
+
+    public boolean deleteRestaurantWhenRejected(String restaurantId);
+
+//    public boolean deleteRestaurantWhenRejected(String restaurantId,String status);
+//    public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+
+
+<<<<<<< HEAD
+//    public boolean deleteRestaurantWhenRejected(String restaurantId);
+=======
+   // public boolean deleteRestaurantWhenRejected(String restaurantId);
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+   // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+    public List<Dish> findAllDishByRestaurantId(String restaurantId);
+
+    public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
+    public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
+
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 }

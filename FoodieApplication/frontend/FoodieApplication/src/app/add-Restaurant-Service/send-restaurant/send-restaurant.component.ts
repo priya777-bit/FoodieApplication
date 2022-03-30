@@ -36,6 +36,16 @@ export class SendRestaurantComponent implements OnInit {
 
   sendRestaurant()
   {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+  
+    // this.restaurant.push(restaurant);
+
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
     this.rest.restaurantId=Math.random().toString(36).substring(2,15);
     this.api.restId=this.rest.restaurantId;
     this.rest.restaurantName=this.addRestaurant.value.restaurantName;
@@ -43,6 +53,13 @@ export class SendRestaurantComponent implements OnInit {
     this.rest.dishList=this.addRestaurant.value.dishList;
     this.request.addRestaurant(this.rest).subscribe((response: any)=>{
       console.log(response);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
       this.request.restaurantId=this.rest.restaurantId;
       if(this.addRestaurant.valid)
       {
