@@ -19,8 +19,8 @@ export class AddDishComponent implements OnInit {
   constructor(private fb: FormBuilder,private restApi : RestApiService,private request : RequestService,private http:HttpClient) { 
     this.restaurant=[];
     this.selected = 'Please Select a Restaurant';
-
-
+    
+    
   }
 
   addDishForm !: FormGroup
@@ -47,73 +47,16 @@ export class AddDishComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
   ngOnInit(): void { 
+    
     this.request.findAllRestaurantByStatus("approve").subscribe(res=>{
       console.log(res);
       this.restaurant=res;
       console.log('Rst', this.restaurant);
     });
-=======
-  ngOnInit(): void {
-<<<<<<< HEAD
-    this.restApi.findAllRestaurant().subscribe(response=>{
-
-=======
-   this.restApi.findAllRestaurant().subscribe((response)=>{
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
-      this.restaurant=response;
-      console.log(response);
-<<<<<<< HEAD
-    })
-
-    // this.restaurant=response;
-      this.restaurant.forEach(element=>{
-        // if(element.restaurantId=response[0].restaurantId){
-        this.selected=element.restaurantId;
-        // }
-      })
-
-      this.addDishForm = this.fb.group({
-        dishName: [null,Validators.required],
-        dishType: [null,Validators.required]
-      });
-    }
-
-
-    
-
-    addDish(){
-      this.dish.dishId=this.request.dishId;
-      this.dish.dishName=this.addDishForm.value.dishName;
-      this.dish.dishType=this.addDishForm.value.dishType;
-      this.restApi.addDishToRestaurant(this.request.restaurantId,this.dish).subscribe(response=>{
-        console.log(response);
-        // this.dishList=response;
-        // console.log(this.dishList)
-        // console.log(this.restApi.restId);
-        if(this.addDishForm.valid){
-        alert("Dish Added Successfully\n Your RestaurantId is\n" + this.dish.dishId);
-      }
-    },
-      error =>{
-            console.log(error);
-          }
-      )}
-  }
-
- 
-=======
-      this.restaurant.forEach(response=>{
-        this.selected=response.restaurantId;
-        this.restApi.restId=this.selected;
-        console.log(response);
-        console.log(this.restApi.restId);
-      })
-      })
->>>>>>> b840cb22b92bec9b2129e91d83715e410df79aa3
 
     this.addDishForm = this.fb.group({
+      dishId: [null,Validators.required],
       dishName: [null,Validators.required],
       dishType: [null,Validators.required],
       image : this.fb.group({
@@ -132,7 +75,7 @@ export class AddDishComponent implements OnInit {
   {
     const payload = new FormData();
 
-    payload.append('file',this.selectedFile,this.dish.dishId);
+    payload.append('file',this.selectedFile,this.dish.dishId +".jfif");
 
     this.http.post("http://localhost:8090/api/user/admin/dishImage",payload,)
     .subscribe((data:any)=>{
@@ -143,7 +86,10 @@ export class AddDishComponent implements OnInit {
 
 
   addDish(){
-    this.dish.dishId=this.request.dishId;
+    // this.dish.dishId=this.restApi.dishId;
+    // console.log("iee"+this.restApi.dishId)
+    // console.log("ds"+this.dish.dishId)
+    this.dish.dishId=this.addDishForm.value.dishId;
     this.dish.dishName=this.addDishForm.value.dishName;
     this.dish.dishType=this.addDishForm.value.dishType;
     this.uploadImage();
@@ -162,4 +108,3 @@ export class AddDishComponent implements OnInit {
     })
   }
 }
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba

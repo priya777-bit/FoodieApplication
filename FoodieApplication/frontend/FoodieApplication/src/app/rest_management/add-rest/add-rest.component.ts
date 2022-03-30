@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from 'src/app/add-Restaurant-Service/addRestService/request.service';
 import { Restaurant } from 'src/app/rest_management/domain/restaurant';
 import { RestApiService } from '../service/rest-api.service';
@@ -18,27 +17,8 @@ export class AddRestComponent implements OnInit {
   Rest = new Restaurant();
 
   ngOnInit(): void {
-<<<<<<< HEAD
-    this.request.getResturant().subscribe(res=>{
-      //console.log(res);
-      this.restApi.restId=res[3].restaurantId;
-      console.log(this.restApi.restId)
-      this.restApi.restName=res[3].restaurantName;
-      console.log(this.restApi.restName);
-      this.restApi.restLocation=res[3].restaurantLocation;
-    });
-
-    // this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
-    //   console.log(this.restApi.restName);
-    //   console.log(this.restApi.restLocation)
-    //   console.log(r);
-    // })
-
-    //this.request.findByRestaurantNameAndRestaurantLocation();
-
-=======
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
     this.addRestForm = this.fb.group({
+      restaurantId:[null,Validators.required],
       restaurantName: [null,Validators.required],
       restaurantLocation: [null,Validators.required]
     });
@@ -46,7 +26,9 @@ export class AddRestComponent implements OnInit {
 
   
   addRest(){
-    this.Rest.restaurantId=this.restApi.restId;
+    // this.Rest.restaurantId=this.restApi.restId;
+    // console.log(this.Rest.restaurantId);
+    this.Rest.restaurantId=this.addRestForm.value.restaurantId;
     this.Rest.restaurantName=this.addRestForm.value.restaurantName;
     this.Rest.restaurantLocation=this.addRestForm.value.restaurantLocation;
     this.Rest.dishList=this.addRestForm.value.dishList;

@@ -1,9 +1,12 @@
+import { Image } from "src/app/rest_management/domain/image";
+
 export class Dish {
 
     restaurantId:string
     dishId:string;
     dishName:string;
     dishType:string;
+    image:Image[];
 
     constructor()
     {
@@ -11,5 +14,6 @@ export class Dish {
         this.dishId='';
         this.dishName='';
         this.dishType='';
+        this.image=[];
     }
 }

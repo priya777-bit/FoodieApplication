@@ -13,6 +13,7 @@ public class Dish {
     private String dishName;
     private String dishType;
     private String dishStatus = "reject";
+//    private Image image;
 
     public Dish(String dishId, String dishName, String dishType) {
     }

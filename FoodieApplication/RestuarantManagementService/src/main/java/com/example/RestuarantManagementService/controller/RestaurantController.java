@@ -2,9 +2,8 @@ package com.example.RestuarantManagementService.controller;
 
 import com.example.RestuarantManagementService.exception.*;
 import com.example.RestuarantManagementService.model.Dish;
+import com.example.RestuarantManagementService.model.Image;
 import com.example.RestuarantManagementService.model.Restaurant;
-//import com.example.RestuarantManagementService.model.UploadResponseMessage;
-//import com.example.RestuarantManagementService.service.DishImageServiceImpl;
 import com.example.RestuarantManagementService.model.UploadResponseMessage;
 import com.example.RestuarantManagementService.service.DishImageServiceImpl;
 import com.example.RestuarantManagementService.service.RestaurantServiceImpl;
@@ -15,13 +14,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 
-<<<<<<< HEAD
 @CrossOrigin(origins="http://localhost:4200")
-=======
-//@CrossOrigin("http://localhost:4200")
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
 @RestController
 @RequestMapping("api/user/admin")
 public class RestaurantController {
@@ -114,5 +110,11 @@ public class RestaurantController {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                     .body(new UploadResponseMessage("could not upload file .." + file.getOriginalFilename() + "!"));
         }
+    }
+
+    @GetMapping("{filename:.+}")
+    public ResponseEntity<?> getFile(@PathVariable String filename) {
+        List<Image> dishImages = dishImageService.load(filename);
+        return new ResponseEntity<>(dishImages,HttpStatus.OK);
     }
 }

@@ -70,8 +70,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return true;
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public List<Dish> findAllDishByRestaurantId(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
@@ -80,7 +78,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dishList;
     }
 
-<<<<<<< HEAD
     @Override
     public Restaurant updateRestaurantWhenApprove(Restaurant restaurant ,String status) {
         restaurant.setStatus(status);
@@ -90,19 +87,21 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public Dish updateDishWhenApprove(String restaurantId ,Dish dish, String dishStatus) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
-        Dish dish1 = restaurant.getDishList().get(0);
-        if(dish.getDishId().equalsIgnoreCase(dish1.getDishId())){
-            dish1.setDishStatus(dishStatus);
-            restaurantRepository.save(restaurant);
+        List<Dish>dishList = restaurant.getDishList();
+        Dish dish1 = null;
+        for(int i =0;i<dishList.size();i++) {
+            dish1 = dishList.get(i);
+            if (dish.getDishId().equalsIgnoreCase(dish1.getDishId())) {
+                dish1.setDishStatus(dishStatus);
+                System.out.println(dish1);
+                restaurantRepository.save(restaurant);
+            }
         }
-//        System.out.println("re"+restaurant);
+        System.out.println("return dish"+dish1);
 
-        return dish;
+        return dish1;
     }
 
-=======
->>>>>>> c7255009cf9e2407eb1546240a46198fe3fc1eba
->>>>>>> b840cb22b92bec9b2129e91d83715e410df79aa3
 //    @Override
 //    public String findByRestaurantNameAndRestaurantLocation(String restaurantName, String restaurantLocation){
 //        String id = restaurantRepository.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation);
