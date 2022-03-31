@@ -12,11 +12,10 @@ public interface RestaurantService {
 
     public List<Restaurant> findAllRestaurantByStatus(String status);
 
-<<<<<<< HEAD
     public List<Restaurant> findAllRestaurant();
-=======
+
     //public List<Restaurant> findAllRestaurant();
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+
 
 
     public boolean deleteRestaurantWhenRejected(String restaurantId);
@@ -25,11 +24,10 @@ public interface RestaurantService {
 //    public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
 
 
-<<<<<<< HEAD
 //    public boolean deleteRestaurantWhenRejected(String restaurantId);
-=======
+
    // public boolean deleteRestaurantWhenRejected(String restaurantId);
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+
    // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
     public List<Dish> findAllDishByRestaurantId(String restaurantId);
 

@@ -138,29 +138,25 @@ public class RestaurantController {
 //        }
 //    }
 
-<<<<<<< HEAD
     @GetMapping("/{filename:.+}")
     @ResponseBody
     public ResponseEntity<?> getFile(@PathVariable String fileName) {
 
-        try
-        {
-            return new ResponseEntity<>(imageUpload.load(fileName),HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
+        try {
+            return new ResponseEntity<>(imageUpload.load(fileName), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Not able to load ..",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Not able to load ..", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
-=======
-    @GetMapping("/restaurants/{filename}")
-    //@ResponseBody
-    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
-        Resource file = imageUpload.load(filename);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
-                .body(file);
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
     }
+
+//    @GetMapping("/restaurants/{filename}")
+//    //@ResponseBody
+//    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+//        Resource file = imageUpload.load(filename);
+//        return ResponseEntity.ok()
+//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+//                .body(file);
+//>>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+//    }
 }

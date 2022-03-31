@@ -32,13 +32,7 @@ const routes: Routes = [
   {path:"register",component:UserRegisterComponent},
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
   {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
-<<<<<<< HEAD
   {path:"showRest/dishList/:id",component:ShowDishComponent}
-=======
-  {path:"showRest/dishList/:id",component:ShowDishComponent},
-  {path:'search',component:SearchComponent}
-  
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
 ];
 
 @NgModule({

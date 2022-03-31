@@ -75,10 +75,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return true;
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
     @Override
     public List<Dish> findAllDishByRestaurantId(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
@@ -87,10 +83,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dishList;
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
     @Override
     public Restaurant updateRestaurantWhenApprove(Restaurant restaurant ,String status) {
         restaurant.setStatus(status);
@@ -110,10 +102,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dish;
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
 //    @Override
 //    public String findByRestaurantNameAndRestaurantLocation(String restaurantName, String restaurantLocation){
 //        String id = restaurantRepository.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation);

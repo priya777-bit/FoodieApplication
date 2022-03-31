@@ -14,16 +14,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.RestuarantManagementService.model.Image;
+
 import java.io.IOException;
+import java.util.List;
 
 
-<<<<<<< HEAD
 @CrossOrigin(origins="http://localhost:4200")
-=======
 
 //@CrossOrigin("http://localhost:4200")
 
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
 @RestController
 @RequestMapping("api/user/admin")
 public class RestaurantController {
@@ -117,4 +117,11 @@ public class RestaurantController {
                     .body(new UploadResponseMessage("could not upload file .." + file.getOriginalFilename() + "!"));
         }
     }
+
+    @GetMapping("{filename:.+}")
+    public ResponseEntity<?> getFile(@PathVariable String filename) {
+        List<Image> dishImages = dishImageService.load(filename);
+        return new ResponseEntity<>(dishImages,HttpStatus.OK);
+    }
+
 }

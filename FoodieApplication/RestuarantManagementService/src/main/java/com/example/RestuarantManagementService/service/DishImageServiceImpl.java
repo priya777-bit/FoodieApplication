@@ -1,14 +1,23 @@
 package com.example.RestuarantManagementService.service;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.List;
+
+import com.example.RestuarantManagementService.model.Image;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -20,19 +29,15 @@ public class DishImageServiceImpl implements DishImageService {
 
 
     @Override
-<<<<<<< HEAD
     @PostConstruct
-    public void createDirectory(){
-=======
-    //@PostConstruct
     public void createDirectory() {
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
-        try {
-            Files.createDirectories(imagePath);
-        } catch (IOException e){
-            throw new RuntimeException("Could not create upload folder!");
+        //@PostConstruct{
+            try {
+                Files.createDirectories(imagePath);
+            } catch (IOException e) {
+                throw new RuntimeException("Could not create upload folder!");
+            }
         }
-    }
 
     @Override
     public void saveFile(MultipartFile file) {
@@ -49,19 +54,51 @@ public class DishImageServiceImpl implements DishImageService {
         }
     }
 
-    public Resource load(String filename) {
-        try {
-            Path file = Paths.get(String.valueOf(imagePath)).resolve(filename);
-            Resource resource = new UrlResource(file.toUri());
+//    public Resource load(String filename) {
+//        try {
+//            Path file = Paths.get(String.valueOf(imagePath)).resolve(filename);
+//            Resource resource = new UrlResource(file.toUri());
+//
+//            if (resource.exists() || resource.isReadable()) {
+//                return resource;
+//            } else {
+//                throw new RuntimeException("Could not read the file!");
+//            }
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException("Error: " + e.getMessage());
+//        }
+//    }
 
-            if (resource.exists() || resource.isReadable()) {
-                return resource;
-            } else {
-                throw new RuntimeException("Could not read the file!");
+        @Override
+        public List<Image> load(String filename) {
+            List<Image> dishImages = new ArrayList<>();
+            Path file = Paths.get(String.valueOf("upload")).resolve(filename);
+            File fileFolder = new File(String.valueOf(file));
+//        System.out.println(fileFolder);
+            System.out.println("name " + filename);
+            if (fileFolder != null) {
+                String enCodeBase64 = null;
+                try {
+                    String extension = FilenameUtils.getExtension(fileFolder.getName());
+                    FileInputStream fileInputStream = new FileInputStream(fileFolder);
+                    byte[] bytes = new byte[(int) fileFolder.length()];
+                    fileInputStream.read(bytes);
+                    enCodeBase64 = Base64.getEncoder().encodeToString(bytes);
+                    String[] imgId = filename.split("\\.");
+                    System.out.println("imgid" + imgId);
+                    Image image = new Image(imgId[0], "data:image/" + extension + ";base64," + enCodeBase64);
+                    dishImages.add(image);
+                    fileInputStream.close();
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Error: " + e.getMessage());
+            System.out.println("img" + dishImages);
+            return dishImages;
         }
-    }
 
-}
+
+    }
