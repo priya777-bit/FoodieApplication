@@ -18,7 +18,9 @@ import { ShowDishComponent } from './food-inventory/show-dish/show-dish.componen
 
 
 const routes: Routes = [
-  // {path:'',component:DashboardComponent},
+ // {path:'',component:DashboardComponent},
+  {path:"",component:ShowRestaurantComponent,children:[]},
+  {path:"dishList/:id",component:UserLoginComponent},
   {path:'rest',component:SendRestaurantComponent},
   {path:'dish',component:SendDishComponent},
   {path:'addRest',component:AddRestComponent},

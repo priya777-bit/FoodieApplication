@@ -1,16 +1,12 @@
 <mat-card app-player matRipple class="card" *ngFor="let dish of data;index as indexOfelement">
-
+  <mat-card-header>
+    <mat-card-title>{{ dish.dishName }}</mat-card-title>
+    <mat-card-subtitle>{{ dish.dishType }}</mat-card-subtitle>
+</mat-card-header>
 <mat-card-content>
-  <!-- <div>{{dish.dishId}}</div> -->
-<div>{{ dish.dishName }}</div>
-<h5>{{ dish.dishType }}</h5>
  <div *ngFor="let image of dish.image">
-  <!-- <div>{{image.fileName}}</div> -->
-   <!-- <div *ngIf="image.fileName==dish.dishId"> -->
   <img  [src]="image.image">
-<!-- </div> -->
   </div>
 </mat-card-content>
 <a routerLink="dishList/{{dish.dishId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
-
  </mat-card>

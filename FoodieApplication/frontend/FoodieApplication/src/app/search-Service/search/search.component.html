@@ -24,17 +24,38 @@
 
 <div class="container">
     <div class="row text-lg-left">
-        <div *ngFor="let dishes of dishes">
+        <div *ngFor="let dishes of restaurant">
+            <div *ngFor="let dishes1 of dishes.dishList">
+                <div *ngIf="rest.restaurantName==dishes.restaurantName; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock>
             <mat-card-content>
-                <div>{{dishes.dishName}}</div>
-                <div>{{dishes.dishType}}</div>
-            
-                <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of dishes.image">
+                <div>{{dishes.restaurantName}}</div>
+                <div>{{dishes1.dishId}}</div>
+                <div>{{dishes1.dishName}}</div>
+                <div>{{dishes1.dishType}}</div>
+                <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of dishes1.image">
                 <a href="#" class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" [src]="image.image" style="height: 171px;width: fit-content;">
                 </a>
                 </div>
             </mat-card-content>
+        </ng-template>
+    <ng-template #elseBlock>
+            <mat-card-content>
+                    <div *ngIf="dishes1.dishName==dish.dishName">
+                <div>{{dishes.restaurantName}}</div>
+                <div>{{dishes1.dishId}}</div>
+                <div>{{dishes1.dishName}}</div>
+                <div>{{dishes1.dishType}}</div>
+                <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of dishes1.image">
+                <a href="#" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" [src]="image.image" style="height: 171px;width: fit-content;">
+                </a>
+                </div>
+            </div>
+            </mat-card-content>
+    </ng-template>
         </div>
+    </div>
     </div>
 </div>

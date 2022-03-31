@@ -16,6 +16,8 @@ export class SearchComponent implements OnInit {
   search:FormGroup;
 
   rest = new Restaurant();
+  rest1 = new Restaurant();
+
 
   dish = new Dish();
 
@@ -72,11 +74,13 @@ getRestaurant()
       this.dishes=this.rest.dishList;
       this.dishes.forEach(d=>{
         this.dish.dishId=d.dishId;
+        console.log(this.dish.dishId)
         this.fs.getImage(this.dish.dishId).subscribe(obj=>{
           this.image=obj;
           d.image=obj;
           this.data=this.dishes;
           console.log(this.dishes);
+          console.log(this.restaurant);
         })
         // this.image=this.dish.image;
         // this.image.forEach(i=>{
@@ -108,47 +112,38 @@ getRestaurant()
 getDish()
 {
   this.dish.dishName=this.search.value.find;
-  // this.getDishId();
-  // const rest = this.rest;
-  // console.log("const rest"+rest);
   this.fs.getByDishName(this.dish.dishName).subscribe(obj=>{
-    //  const dishes=rest.dishList;
-    //  console.log("const dishes"+dishes);
     console.log(obj);
     this.restaurant=obj
     console.log(this.restaurant);
     this.restaurant.forEach(p=>{
-      this.rest=p;
-      this.dishes=this.rest.dishList;
-
+      this.rest1=p;
+      this.dishes=this.rest1.dishList;
       console.log("dishes"+this.dishes);
-      console.log("rest dishlist"+this.rest.dishList);
-
-      this.dishes.forEach(p=>{
-        console.log(p);
-        this.dish.dishId=p.dishId;
-        this.getImage(this.dish.dishId);
-        this.image=this.dish.image
-        this.image.forEach(i=>{
-          this.img.fileName=i.fileName;
-          console.log("image dish dishId"+this.image);
-        console.log("dish dish id"+this.dish.dishId);
-        
+      console.log("rest dishlist"+this.rest1.dishList);
+      this.dishes.forEach(d=>{
+        console.log(d);
+        if(d.dishName==this.search.value.find)
+        {
+        this.dish.dishId=d.dishId;
+        console.log(this.dish.dishId);
+        this.fs.getImage(this.dish.dishId).subscribe(obj=>{
+          this.image=obj;
+          d.image=obj;
+          this.data=this.dishes;
+          console.log("data "+this.data);
+          console.log(this.dishes);
+          console.log(this.restaurant);
         })
-        // this.dish2.dishId=this.dish.dishId;
-
-        
+      }       
       })
     })
-    // this.dishes=obj.filter(p=>{
-    //   this.dishes2=p.dishList;
-    // });
-    
-    
+   
   })
   
   
 }
+
 
 getImage(id:string)
 {
@@ -162,8 +157,9 @@ getImage(id:string)
 
   searching(event:any)
   {
-    this.getRestaurant();
+    
     this.getDish();
+    this.getRestaurant();
   }
 
 }

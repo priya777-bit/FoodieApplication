@@ -12,7 +12,7 @@ export class UserRequestService {
   constructor(private http:HttpClient) { }
 
   mailId:any;
-  show:boolean;
+  show:boolean=false;
 
   registerURL="http://localhost:9000/api/user/registerUser";
   imgURL="http://localhost:9000/api/user/userImage";

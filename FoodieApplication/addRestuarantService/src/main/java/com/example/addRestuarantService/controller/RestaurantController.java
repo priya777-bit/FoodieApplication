@@ -128,8 +128,7 @@ public class RestaurantController {
 //    }
 
 
-    @GetMapping("/{filename:.+}")
-    @ResponseBody
+    @GetMapping("/restaurants/{fileName}")
     public ResponseEntity<?> getFile(@PathVariable String fileName) {
 
         try {

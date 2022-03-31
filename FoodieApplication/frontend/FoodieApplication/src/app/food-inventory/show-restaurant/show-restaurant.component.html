@@ -4,18 +4,16 @@
 
 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
     <mat-card app-player matRipple class="card" *ngFor="let restuarent of data">
-        
+        <mat-card-header>
+        <mat-card-title>{{ restuarent.restaurantName }}</mat-card-title>
+        <mat-card-subtitle>{{ restuarent.restaurantLocation }}</mat-card-subtitle>
+    </mat-card-header>
        <a routerLink="dishList/{{restuarent.restaurantId}}">
-        <!-- <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);"> -->
-        {{restuarent.restaurantId}}
     <mat-card-content>
-    <div>{{ restuarent.restaurantName }}</div>
-    <h5>{{ restuarent.restaurantLocation }}</h5>
     <div *ngFor="let image of restuarent.image">
             <img mat-card-image [src]="image.image">
         </div>
     </mat-card-content>
-    <!-- </div> -->
     </a>
     <a routerLink="dishList01/{{restuarent.restaurantId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
     </mat-card>
