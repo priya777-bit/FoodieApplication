@@ -75,7 +75,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         return true;
     }
 
-
     @Override
     public List<Dish> findAllDishByRestaurantId(String restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
@@ -108,10 +107,4 @@ public class RestaurantServiceImpl implements RestaurantService {
         return dish;
     }
 
-
-//    @Override
-//    public String findByRestaurantNameAndRestaurantLocation(String restaurantName, String restaurantLocation){
-//        String id = restaurantRepository.findByRestaurantNameAndRestaurantLocation(restaurantName,restaurantLocation);
-//        return id;
-//    }
 }

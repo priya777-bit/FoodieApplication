@@ -1,10 +1,23 @@
-<<<<<<< HEAD
+<!-- 
 <mat-grid-list cols="1" rowHeight="6:1">
   <mat-grid-tile>1</mat-grid-tile>
   <mat-grid-tile>2</mat-grid-tile>
   <mat-grid-tile>3</mat-grid-tile>
   <mat-grid-tile>4</mat-grid-tile>
 </mat-grid-list>
-=======
-<p>get-all-fav works!</p>
->>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
+
+<div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
+    <mat-card app-player matRipple class="card" *ngFor="let restuarent of data">
+       <a routerLink="dishList/{{restuarent.restaurantId}}">
+        {{restuarent.restaurantId}}
+    <mat-card-content>
+    <div>{{ restuarent.restaurantName }}</div>
+    <h5>{{ restuarent.restaurantLocation }}</h5>
+    <div *ngFor="let image of restuarent.image">
+            <img mat-card-image [src]="image.image">
+        </div>
+    </mat-card-content>
+    </a>
+    <a routerLink="dishList01/{{restuarent.restaurantId}}"><mat-icon style="float: right;" onclick="remove(restuarent)">favorite</mat-icon></a>
+    </mat-card>
+    </div> -->

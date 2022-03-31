@@ -15,6 +15,7 @@
         </div>
     </mat-card-content>
     </a>
-    <a routerLink="dishList01/{{restuarent.restaurantId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
+    <a routerLink="dishList01/{{restuarent.restaurantId}}"></a>
+        <mat-icon style="float: right;"  (click)="add(restuarent)" >favorite</mat-icon>
     </mat-card>
     </div>

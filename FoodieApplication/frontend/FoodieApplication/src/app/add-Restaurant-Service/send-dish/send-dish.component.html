@@ -6,12 +6,12 @@
             </mat-card-header>
             <mat-card-content>
                 <h3>Choose Your Restaurant</h3>
-                <mat-select (change)="update($event)">
-                    <mat-option *ngFor="let restaurant of restaurant" value=" Rest Name: {{restaurant.restaurantName}} , location:{{restaurant.restaurantLocation}}">
+                <mat-select (selectionChange)="update($event)">
+                    <mat-option [value]="restaurant.restaurantId" *ngFor="let restaurant of restaurant">
                     <b>Id:</b> {{restaurant.restaurantId}} <b>Rest Name:</b> {{restaurant.restaurantName}} <b>Location:</b> {{restaurant.restaurantLocation}}
                     </mat-option>
                 </mat-select>
-                <p>You selected {{ sel }}</p>
+                <p>You selected {{ selected | json }}</p>
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">

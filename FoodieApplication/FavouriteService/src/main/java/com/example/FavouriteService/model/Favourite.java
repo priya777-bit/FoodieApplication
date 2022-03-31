@@ -18,7 +18,7 @@ public class Favourite {
     @Id
     private String favouriteId;
     private String userMailId;
-    private String restaurantName;
-    private String foodName;
+    private List<Restaurant> restaurantList;
+//    private String foodName;
 
 }

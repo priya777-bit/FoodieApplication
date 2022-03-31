@@ -9,12 +9,10 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
-
   restId:string;
   restName:string;
   restLocation:string;
   dishId:string;
-
 
   constructor(private http: HttpClient) { }
 

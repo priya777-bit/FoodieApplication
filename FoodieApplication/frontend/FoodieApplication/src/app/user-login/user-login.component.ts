@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { FavService } from '../favService/service/fav.service';
 import { UserRequestService } from '../user-request.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class UserLoginComponent {
     userPassword: [null, Validators.required]
   });
 
-  constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router) {}
+  constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService) {}
 
   onSubmit(): void {
     const data=this.loginForm.value;
@@ -27,6 +28,8 @@ export class UserLoginComponent {
         this.request.login(data).subscribe(response=>{
         console.log(response);
         this.request.mailId=data.userMailId;
+        console.log("id",this.request.mailId)
+        //this.request.mailId=this.fav.userMailId;
         this.authServe.logIn();
         this.request.show=true;
         this.router.navigate(["/showRest"]);

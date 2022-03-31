@@ -20,6 +20,9 @@ public class FavouriteServiceImpl implements FavouriteService{
     @Override
     public Favourite addFavourite(Favourite favourite) {
         Favourite favourite1=null;
+        String id = favourite.getFavouriteId();
+        System.out.println(id);
+        System.out.println(favourite);
         if(!favouriteRepository.existsById(favourite.getFavouriteId()))
         {
              favourite1= favouriteRepository.save(favourite);
