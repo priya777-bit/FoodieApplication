@@ -1,4 +1,5 @@
-import { Restaurant } from "./restaurant";
+import { Restaurant } from "src/app/rest_management/domain/restaurant";
+
 
 export class Favourite {
     favouriteId: string;

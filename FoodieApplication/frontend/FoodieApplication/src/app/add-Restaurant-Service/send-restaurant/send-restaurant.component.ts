@@ -16,6 +16,8 @@ export class SendRestaurantComponent implements OnInit {
   rest = new Restaurant();
   addRestaurant!:FormGroup;
 
+  sendDish:boolean=false;
+
   ngOnInit(): void {
     this.addRestaurant = new FormGroup({
       restaurantName: new FormControl('',Validators.required),
@@ -47,9 +49,14 @@ export class SendRestaurantComponent implements OnInit {
       if(this.addRestaurant.valid)
       {
         alert("Request Send Successfully..");
+        if(this.api.restId===this.rest.restaurantId)
+        {
+          this.request.findAllRestaurantByStatus("approve").subscribe(s=>{
+            this.sendDish=true;
+          })
+        } 
       }
     })
-
   }
 
 }

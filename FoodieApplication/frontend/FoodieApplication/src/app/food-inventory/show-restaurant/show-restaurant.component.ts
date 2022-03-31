@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { InventoryRequestService } from '../service/inventory-request.service';
