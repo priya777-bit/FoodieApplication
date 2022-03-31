@@ -18,8 +18,6 @@ export class AddRestComponent implements OnInit {
   Rest = new Restaurant();
 
   ngOnInit(): void {
-<<<<<<< HEAD
-=======
     // this.request.getResturant().subscribe(res=>{
     //   //console.log(res);
     //   this.restApi.restId=res[3].restaurantId;
@@ -37,7 +35,6 @@ export class AddRestComponent implements OnInit {
 
     // //this.request.findByRestaurantNameAndRestaurantLocation();
 
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
     this.addRestForm = this.fb.group({
       restaurantName: [null,Validators.required],
       restaurantLocation: [null,Validators.required]

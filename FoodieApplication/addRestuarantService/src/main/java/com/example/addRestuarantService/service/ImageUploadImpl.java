@@ -1,14 +1,14 @@
 package com.example.addRestuarantService.service;
 
-<<<<<<< HEAD
+
 
 import com.example.addRestuarantService.model.Image;
 
 import org.apache.commons.io.FilenameUtils;
-=======
+
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
->>>>>>> 2bae6d81d8ef16b1b7dc4f8834e1d5cb2917bf1b
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

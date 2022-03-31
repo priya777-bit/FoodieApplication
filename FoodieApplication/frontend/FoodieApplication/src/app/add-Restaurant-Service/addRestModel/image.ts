@@ -1,11 +1,11 @@
 export class Image {
 
     fileName:string;
-    imageName:string;
+    image:string;
 
     constructor()
     {
         this.fileName='';
-        this.imageName='';
+        this.image='';
     }
 }
