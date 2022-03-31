@@ -34,7 +34,8 @@ const routes: Routes = [
   {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
   {path:"showRest/dishList/:id",component:ShowDishComponent},
   {path:'search',component:SearchComponent}
-  
+
+
 ];
 
 @NgModule({

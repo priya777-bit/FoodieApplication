@@ -21,8 +21,8 @@ export class AddDishComponent implements OnInit {
   constructor(private fb: FormBuilder,private restApi : RestApiService,private request : RequestService,private http:HttpClient) { 
     this.restaurant=[];
     this.selected = 'Please Select a Restaurant';
-
-
+    
+    
   }
 
   addDishForm !: FormGroup
@@ -50,6 +50,7 @@ export class AddDishComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+    
     this.request.findAllRestaurantByStatus("approve").subscribe(res=>{
       console.log(res);
       this.restaurant=res;
@@ -57,6 +58,7 @@ export class AddDishComponent implements OnInit {
     });
 
     this.addDishForm = this.fb.group({
+      dishId: [null,Validators.required],
       dishName: [null,Validators.required],
       dishType: [null,Validators.required],
       image : this.fb.group({
@@ -75,7 +77,11 @@ export class AddDishComponent implements OnInit {
   {
     const payload = new FormData();
 
+<<<<<<< HEAD
+    payload.append('file',this.selectedFile,this.dish.dishId +".jfif");
+=======
     payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 
     this.http.post("http://localhost:8090/api/user/admin/dishImage",payload,)
     .subscribe((data:any)=>{
@@ -86,7 +92,10 @@ export class AddDishComponent implements OnInit {
 
 
   addDish(){
-    this.dish.dishId=this.request.dishId;
+    // this.dish.dishId=this.restApi.dishId;
+    // console.log("iee"+this.restApi.dishId)
+    // console.log("ds"+this.dish.dishId)
+    this.dish.dishId=this.addDishForm.value.dishId;
     this.dish.dishName=this.addDishForm.value.dishName;
     this.dish.dishType=this.addDishForm.value.dishType;
     this.uploadImage();

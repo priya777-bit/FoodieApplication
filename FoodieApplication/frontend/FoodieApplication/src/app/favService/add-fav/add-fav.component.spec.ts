@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewDishComponent } from './view-dish.component';
+import { AddFavComponent } from './add-fav.component';
 
-describe('ViewDishComponent', () => {
-  let component: ViewDishComponent;
-  let fixture: ComponentFixture<ViewDishComponent>;
+describe('AddFavComponent', () => {
+  let component: AddFavComponent;
+  let fixture: ComponentFixture<AddFavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewDishComponent ]
+      declarations: [ AddFavComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewDishComponent);
+    fixture = TestBed.createComponent(AddFavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

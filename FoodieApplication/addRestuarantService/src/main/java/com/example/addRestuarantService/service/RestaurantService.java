@@ -9,6 +9,15 @@ public interface RestaurantService {
 
     public Restaurant addRestaurant(Restaurant restaurant);
     public Restaurant addDish(String restaurantId,Dish dish);
+<<<<<<< HEAD
+    public List<Restaurant> findAllRestaurantByStatus(String status);
+   // public List<Restaurant> findAllRestaurant();
+    public boolean deleteRestaurantWhenRejected(String restaurantId);
+   // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+    public List<Dish> findAllDishByRestaurantId(String restaurantId);
+    public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
+    public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
+=======
 
     public List<Restaurant> findAllRestaurantByStatus(String status);
 
@@ -36,4 +45,5 @@ public interface RestaurantService {
     public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
     public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
 
+>>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 }

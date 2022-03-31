@@ -14,8 +14,13 @@ export class RequestService {
 
   restaurantId:string;
 
+  dishId:string;
+  payload=new FormData();
+
+
 
   dishId:string;
+
 
 
   addRestaurant(rest:Restaurant)
@@ -23,9 +28,15 @@ export class RequestService {
     return this.http.post("http://localhost:9000/api/request/restaurant",rest);
   }
 
-  addDish(restaurantId:string,addDish:any)
+
+  addDish(restaurantId:string,dish:Dish)
   {
-    return this.http.put("http://localhost:9000/api/request/"+restaurantId+"/dish",addDish);
+    return this.http.put("http://localhost:9000/api/request/restaurant/"+restaurantId+"/dish",dish);
+
+//   addDish(restaurantId:string,addDish:any)
+//   {
+//     return this.http.put("http://localhost:9000/api/request/"+restaurantId+"/dish",addDish);
+
   }
 
   findAllRestaurantByStatus(status:any):Observable<Array<any>>{
@@ -39,12 +50,18 @@ export class RequestService {
   // }
 
 
+
+  //   return this.http.get<any>("http://localhost:9000/api/request/restaurant/"+restaurantName"/"+restaurantLocation",{responseType:text}");
+  // }
+
+
   // deleteRestaurant(restaurantId:Restaurant):Observable<any>
   // {
   //   return this.http.delete<any>("http://localhost:9000/api/request/restaurant/"+restaurantId);
 
   // //   return this.http.get<any>("http://localhost:9000/api/request/restaurant/cafe/lanka,{responseType:text}");
   // // }
+
 
   deleteRestaurant(restaurantId:any):Observable<any>
   {

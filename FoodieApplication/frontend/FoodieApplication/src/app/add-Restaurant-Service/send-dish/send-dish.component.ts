@@ -38,7 +38,7 @@ export class SendDishComponent implements OnInit{
   restaurant:Restaurant[]=[];
 
   rest:Restaurant[]=[];
-  
+
   update(e:any){
     this.selected = e.target.value;
   }
@@ -98,7 +98,7 @@ export class SendDishComponent implements OnInit{
       })
       })
     }
-    
+
 
   get dishName()
   {
@@ -118,12 +118,12 @@ export class SendDishComponent implements OnInit{
 
   uploadImage()
   {
-    // this.send.payload = new FormData();
+    this.send.payload = new FormData();
 
-    // this.send.payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
+    this.send.payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
 
-    // this.http.post("http://localhost:9000/api/request/restaurant/files"
-    // ,this.send.payload,
+    this.http.post("http://localhost:9000/api/request/restaurant/files"
+    ,this.send.payload,
     const payload = new FormData();
 
     payload.append('file',this.selectedFile,this.dish.dishId);
@@ -142,7 +142,9 @@ export class SendDishComponent implements OnInit{
 
   sendDish()
   {
+
     // this.dish.restaurantId=this.send.restaurantId;
+
     this.dish.dishId=Math.random().toString(36).substring(2,15);
     this.dish.dishName=this.addDish.value.dishName;
     this.dish.dishType=this.addDish.value.dishType;
@@ -151,6 +153,7 @@ export class SendDishComponent implements OnInit{
 
     this.send.addDish(this.api.restId,this.dish).subscribe(observer=>{
 
+
     // this.dish.restaurantId=this.send.restaurantId;
     // this.dish.dishName=this.addDish.value.dishName;
     // this.dish.dishType=this.addDish.value.dishType;
@@ -158,6 +161,7 @@ export class SendDishComponent implements OnInit{
     this.dish.dishType=this.addDish.value.dishType;
 
     this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{
+
       console.log(observer);
       this.send.dishId=this.dish.dishId;
       if(this.addDish.valid)
@@ -165,6 +169,6 @@ export class SendDishComponent implements OnInit{
         alert("Send Dish Request Successfull..");
       }
     })
-  })
+  }
 }
 }

@@ -17,6 +17,17 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter Dish Id" formControlName="dishId">
+                            <mat-error *ngIf="addDishForm.controls['dishId'].hasError('required')">
+                                Dish Id is <strong> required </strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
                             <input matInput placeholder="Enter Dish Name" formControlName="dishName">
                             <mat-error *ngIf="addDishForm.controls['dishName'].hasError('required')">
                                 Dish Name is <strong> required </strong>
