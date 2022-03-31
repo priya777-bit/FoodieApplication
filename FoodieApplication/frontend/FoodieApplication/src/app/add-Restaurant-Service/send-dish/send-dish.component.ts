@@ -118,13 +118,13 @@ export class SendDishComponent implements OnInit{
 
   uploadImage()
   {
-    this.send.payload = new FormData();
+    // this.send.payload = new FormData();
 
-    this.send.payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
+    // this.send.payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
 
-    this.http.post("http://localhost:9000/api/request/restaurant/files"
-    ,this.send.payload,
-    const payload = new FormData();
+    // this.http.post("http://localhost:9000/api/request/restaurant/files"
+    // ,this.send.payload,
+     const payload = new FormData();
 
     payload.append('file',this.selectedFile,this.dish.dishId);
     console.log(payload);
@@ -169,6 +169,6 @@ export class SendDishComponent implements OnInit{
         alert("Send Dish Request Successfull..");
       }
     })
-  }
+  })
 }
 }

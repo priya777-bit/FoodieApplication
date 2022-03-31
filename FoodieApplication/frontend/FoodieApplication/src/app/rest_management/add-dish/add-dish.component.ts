@@ -77,11 +77,8 @@ export class AddDishComponent implements OnInit {
   {
     const payload = new FormData();
 
-<<<<<<< HEAD
     payload.append('file',this.selectedFile,this.dish.dishId +".jfif");
-=======
     payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
->>>>>>> 6db9e26f3effcfb998c101096dc0324145f6893b
 
     this.http.post("http://localhost:8090/api/user/admin/dishImage",payload,)
     .subscribe((data:any)=>{

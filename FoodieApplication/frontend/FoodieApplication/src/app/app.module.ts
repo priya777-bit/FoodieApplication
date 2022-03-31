@@ -81,7 +81,6 @@ import { AddFavComponent } from './favService/add-fav/add-fav.component';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    ReactiveFormsModule,
     HttpClientModule,
     MatGridListModule,
     MatMenuModule,

@@ -19,10 +19,6 @@ export class RequestService {
 
 
 
-  dishId:string;
-
-
-
   addRestaurant(rest:Restaurant)
   {
     return this.http.post("http://localhost:9000/api/request/restaurant",rest);

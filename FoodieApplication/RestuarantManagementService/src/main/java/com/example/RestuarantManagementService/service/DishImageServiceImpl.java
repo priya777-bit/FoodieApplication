@@ -5,7 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
-import java.awt.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +19,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+import com.example.RestuarantManagementService.model.Image;
+
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -61,7 +62,7 @@ public class DishImageServiceImpl implements DishImageService {
     @Override
     public List<Image> load(String filename) {
         List<Image> dishImages = new ArrayList<>();
-        Path file = Paths.get(String.valueOf(upload)).resolve(filename);
+        Path file = Paths.get(String.valueOf("upload")).resolve(filename);
         File fileFolder = new File(String.valueOf(file));
 //        System.out.println(fileFolder);
         System.out.println("name " + filename);

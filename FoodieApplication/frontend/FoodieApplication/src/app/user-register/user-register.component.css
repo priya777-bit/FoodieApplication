@@ -9,6 +9,7 @@ margin-right: 500px;
 .register {
   min-width: 120px;
   margin: 20px auto;
+  background:#212529b8;
 }
 .row {
   display: flex;

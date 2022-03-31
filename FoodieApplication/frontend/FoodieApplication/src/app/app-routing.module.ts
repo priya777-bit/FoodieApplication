@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:"login",component:UserLoginComponent},
   {path:"register",component:UserRegisterComponent},
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
-  {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
+  {path:"showRest",component:ShowRestaurantComponent,children:[]},
   {path:"showRest/dishList/:id",component:ShowDishComponent},
   {path:'search',component:SearchComponent}
 

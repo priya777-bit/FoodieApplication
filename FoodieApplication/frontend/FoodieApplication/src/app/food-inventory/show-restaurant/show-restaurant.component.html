@@ -3,18 +3,20 @@
 
 
 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
-<mat-card app-player matRipple class="card" *ngFor="let restuarent of restuarents">
-    <!-- <img src="https://mdbootstrap.com/img/new/fluid/city/113.webp" class="w-100" /> -->
-   <a routerLink="dishList/{{restuarent.restaurantId}}">
-    <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);">
-    {{restuarent.restaurantId}}
-<!-- <img mat-card-image [src]="video.snippet.thumbnails.medium.url"> -->
-<mat-card-content>
-<div>{{ restuarent.restaurantName }}</div>
-<h5>{{ restuarent.restaurantLocation }}</h5>
-</mat-card-content>
-</div>
-</a> 
-<a routerLink="dishList/{{restuarent.restaurantId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
-</mat-card>
-</div>
+    <mat-card app-player matRipple class="card" *ngFor="let restuarent of data">
+        
+       <a routerLink="dishList/{{restuarent.restaurantId}}">
+        <!-- <div class="mask" style="background-color: rgba(57, 192, 237, 0.2);"> -->
+        {{restuarent.restaurantId}}
+    <mat-card-content>
+    <div>{{ restuarent.restaurantName }}</div>
+    <h5>{{ restuarent.restaurantLocation }}</h5>
+    <div *ngFor="let image of restuarent.image">
+            <img mat-card-image [src]="image.image">
+        </div>
+    </mat-card-content>
+    <!-- </div> -->
+    </a>
+    <a routerLink="dishList01/{{restuarent.restaurantId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
+    </mat-card>
+    </div>
