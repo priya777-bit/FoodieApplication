@@ -36,6 +36,7 @@ import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard
 import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
+import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.compone
     ShowDishComponent,
     GetAllFavComponent,
     ShowDishComponent,
+    GetFavDishComponent,
   ],
   imports: [
     BrowserModule,

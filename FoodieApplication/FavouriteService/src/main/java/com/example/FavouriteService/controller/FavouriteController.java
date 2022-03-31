@@ -1,5 +1,6 @@
 package com.example.FavouriteService.controller;
 
+import com.example.FavouriteService.exception.FavouriteAlreadyExist;
 import com.example.FavouriteService.model.Favourite;
 import com.example.FavouriteService.service.FavouriteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,14 @@ public class FavouriteController {
     }
 
     @PostMapping("/favourite/addFavourite")
-    public ResponseEntity<?> addFavourite(@RequestBody Favourite favourite)
+    public ResponseEntity<?> addFavourite(@RequestBody Favourite favourite) throws FavouriteAlreadyExist
     {
         try
         {
             return new ResponseEntity<>(favouriteService.addFavourite(favourite), HttpStatus.CREATED);
+        }
+        catch (FavouriteAlreadyExist e){
+            throw new FavouriteAlreadyExist();
         }
         catch(Exception e)
         {
@@ -44,6 +48,17 @@ public class FavouriteController {
         {
             e.printStackTrace();
             return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/remove/{favouriteId}")
+    public ResponseEntity<?> removeFromFav(@PathVariable String favouriteId){
+        try {
+            return new ResponseEntity<>(favouriteService.removeFromFav(favouriteId),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

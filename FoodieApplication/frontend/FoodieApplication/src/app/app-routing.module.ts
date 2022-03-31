@@ -14,6 +14,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
+import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
+import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
 
 
 
@@ -35,10 +37,11 @@ const routes: Routes = [
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
   //{path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
   //{path:"showRest/dishList/:id",component:ShowDishComponent}
-
   {path:"showRest",component:ShowRestaurantComponent,children:[]},
   {path:"showRest/dishList/:id",component:ShowDishComponent},
-  {path:'search',component:SearchComponent}
+  {path:'search',component:SearchComponent},
+  {path:'getFav',component:GetAllFavComponent},
+  {path:'getFav/dishList/:id',component:GetFavDishComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
 package com.example.FavouriteService.service;
 
+import com.example.FavouriteService.exception.FavouriteAlreadyExist;
 import com.example.FavouriteService.model.Favourite;
+import com.example.FavouriteService.model.Restaurant;
 import com.example.FavouriteService.repository.FavouriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,20 +20,32 @@ public class FavouriteServiceImpl implements FavouriteService{
     }
 
     @Override
-    public Favourite addFavourite(Favourite favourite) {
-        Favourite favourite1=null;
-        String id = favourite.getFavouriteId();
-        System.out.println(id);
-        System.out.println(favourite);
-        if(!favouriteRepository.existsById(favourite.getFavouriteId()))
+    public Favourite addFavourite(Favourite favourite) throws FavouriteAlreadyExist {
+
+        if(favouriteRepository.findById(favourite.getFavouriteId()).isPresent())
         {
-             favourite1= favouriteRepository.save(favourite);
+             throw new FavouriteAlreadyExist();
         }
-        return favourite1;
+
+        return favouriteRepository.save(favourite);
     }
 
     @Override
     public List<Favourite> getALlFavourite(String userMailId) {
         return favouriteRepository.findByUserMailId(userMailId);
+    }
+
+    @Override
+    public boolean removeFromFav(String favouriteId) {
+        boolean result = false;
+        Favourite favourite = favouriteRepository.findById(favouriteId).get();
+
+        if(favouriteRepository.findById(favouriteId).isPresent())
+        {
+            favouriteRepository.delete(favourite);
+            result = true;
+        }
+
+        return result;
     }
 }

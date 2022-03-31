@@ -1,0 +1,20 @@
+<div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
+    <mat-card app-player matRipple class="card" *ngFor="let fav of favs">
+        <div *ngFor="let rest of fav.restaurantList">
+            <mat-card-content>
+            <div>{{rest.restaurantId}}</div>
+            <div>{{ rest.restaurantName }}</div>
+            <div *ngFor="let dish of dishes">
+                <div>{{dish.dishName}}</div>
+                <div>{{dish.dishId}}</div>
+            <div *ngFor="let image of dish.image">
+                <img [src]="image.image">
+            </div>
+            </div>
+            </mat-card-content>
+        </div>
+        <button mat-mini-fab >
+            <mat-icon style="float: right;" (click)="remove(fav)" >favorite</mat-icon>
+        </button>
+    </mat-card>
+</div>
