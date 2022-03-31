@@ -81,17 +81,16 @@ export class ViewDishComponent implements OnInit {
     }
   
 
-  // Add(dish: any){
-  //   // this.Dish.dishId=this.addService.dishId;
-  //   // console.log(this.Dish.dishId)
-  //   //this.Dish=dish;
-  //   //console.log("this.Dish"+this.Dish);
-  //   console.log("dish",dish)
-  Add(dish: Dish){
-    this.Dish=dish;
+    
+  Add(dish: any){
+    // this.Dish.dishId=this.addService.dishId;
+    // console.log(this.Dish.dishId)
+    //this.Dish=dish;
+    //console.log("this.Dish"+this.Dish);
+    console.log("dish",dish)
+    // this.Dish=dish;
     this.restApi.addDishToRestaurant(this.addService.restaurantId,dish).subscribe(r=>{
       console.log(r);
-      // this.dish=r;
       alert("Dish Request Accepted....")
     });
 

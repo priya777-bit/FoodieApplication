@@ -17,9 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-
-
-//@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("api/user/admin")
 public class RestaurantController {

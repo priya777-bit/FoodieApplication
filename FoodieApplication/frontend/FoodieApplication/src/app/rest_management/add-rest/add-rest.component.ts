@@ -18,32 +18,14 @@ export class AddRestComponent implements OnInit {
   Rest = new Restaurant();
 
   ngOnInit(): void {
-
-    // this.request.getResturant().subscribe(res=>{
-    //   //console.log(res);
-    //   this.restApi.restId=res[3].restaurantId;
-    //   console.log(this.restApi.restId)
-    //   this.restApi.restName=res[3].restaurantName;
-    //   console.log(this.restApi.restName);
-    //   this.restApi.restLocation=res[3].restaurantLocation;
-    // });
-
-    // // this.request.findByRestaurantNameAndRestaurantLocation(this.restApi.restName,this.restApi.restLocation).subscribe(r=>{
-    // //   console.log(this.restApi.restName);
-    // //   console.log(this.restApi.restLocation)
-    // //   console.log(r);
-    // // })
-
-    // //this.request.findByRestaurantNameAndRestaurantLocation();
-
-
     this.addRestForm = this.fb.group({
+      restaurantId:[null,Validators.required],
       restaurantName: [null,Validators.required],
       restaurantLocation: [null,Validators.required]
     });
   }
 
-
+  
   addRest(){
     // this.Rest.restaurantId=this.restApi.restId;
     // console.log(this.Rest.restaurantId);
@@ -66,7 +48,7 @@ export class AddRestComponent implements OnInit {
     this.request.updateRestaurantWhenApprove(this.Rest,"approve").subscribe(res=>{
       console.log(res);
     })
-
+    
   }
-
+  
 }

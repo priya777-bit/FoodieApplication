@@ -4,6 +4,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { InventoryRequestService } from '../service/inventory-request.service';
 import { Restaurant } from '../modal/restaurant';
+import { FavService } from 'src/app/favService/service/fav.service';
+
 
 @Component({
   selector: 'app-show-restaurant',
@@ -16,7 +18,7 @@ export class ShowRestaurantComponent {
   restuarents: any;
   data:Restaurant[];
   
-  constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService) {}
+  constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private fav:FavService) {}
 
   ngOnInit(){
     this.request.getdata().subscribe(result=>{
@@ -32,6 +34,14 @@ export class ShowRestaurantComponent {
         })  
       }); 
     })
+  }
+
+  add(restuarent:any){
+    console.log("res",restuarent);
+    this.fav.addToFav(restuarent).subscribe(res=>{
+      console.log(res);
+    })
+
   }
 
 }
