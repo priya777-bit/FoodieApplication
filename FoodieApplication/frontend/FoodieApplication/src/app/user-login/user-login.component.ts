@@ -28,7 +28,8 @@ export class UserLoginComponent {
         this.request.login(data).subscribe(response=>{
         console.log(response);
         this.request.mailId=data.userMailId;
-         this.request.mailId=this.fav.userMailId;
+        console.log("id",this.request.mailId)
+        //this.request.mailId=this.fav.userMailId;
         this.authServe.logIn();
         this.request.show=false;
         this.router.navigate(["/showRest"]);

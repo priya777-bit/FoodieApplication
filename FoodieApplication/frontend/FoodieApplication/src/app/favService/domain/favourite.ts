@@ -1,13 +1,13 @@
+import { Restaurant } from "./restaurant";
+
 export class Favourite {
-    favId: string;
+    favouriteId: string;
     userMailId: string;
-    restaurantName: string;
-    dishName: string;
+    restaurantList: Array<Restaurant>;
 
     constructor(){
-        this.favId='';
+        this.favouriteId='';
         this.userMailId='';
-        this.restaurantName='';
-        this.dishName='';
+        this.restaurantList=[];
     }
 }

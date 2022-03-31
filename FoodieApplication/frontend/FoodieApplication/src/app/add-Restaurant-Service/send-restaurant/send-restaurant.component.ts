@@ -36,10 +36,6 @@ export class SendRestaurantComponent implements OnInit {
 
   sendRestaurant()
   {
-<<<<<<< HEAD
-=======
-    // this.restaurant.push(restaurant);
->>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     this.rest.restaurantId=Math.random().toString(36).substring(2,15);
     this.api.restId=this.rest.restaurantId;
     this.rest.restaurantName=this.addRestaurant.value.restaurantName;

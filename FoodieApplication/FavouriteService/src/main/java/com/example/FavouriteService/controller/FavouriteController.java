@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api/user/users")
 public class FavouriteController {
@@ -27,6 +28,7 @@ public class FavouriteController {
         }
         catch(Exception e)
         {
+            e.printStackTrace();
             return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -40,6 +42,7 @@ public class FavouriteController {
         }
         catch(Exception e)
         {
+            e.printStackTrace();
             return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
