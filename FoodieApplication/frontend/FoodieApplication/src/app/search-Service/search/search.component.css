@@ -17,3 +17,14 @@
     flex: 1;
     margin-right: 20px;
   }
+
+  .card2 {
+    width: 260px;
+    height: 270px;
+    display: inline-block;
+    margin: 20px;
+  }
+
+  .card2 img{
+    height: 150px;
+  }

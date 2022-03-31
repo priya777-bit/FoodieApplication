@@ -27,6 +27,7 @@
 </mat-card-content>
     <mat-card-actions>
         <button type="submit" mat-raised-button color="primary" [disabled]="!addRestaurant.valid">send Restaurant</button>
+        <button  mat-raised-button color="primary" class="search" routerLink="/dish" style="float:right" [disabled]="sendDish===false">Send Dish</button>
     </mat-card-actions>  
     </mat-card>
 </form>

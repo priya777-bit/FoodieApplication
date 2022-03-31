@@ -1,7 +1,7 @@
 <form [formGroup]="search" (ngSubmit)="searching($event)" class="container-fluid">
     <mat-card class="card">
         <mat-card-header>
-          <mat-card-title> Send Restaurant</mat-card-title>
+          <mat-card-title> Restaurant/Cuisine</mat-card-title>
         </mat-card-header>
     <mat-card-content>
         <div class="row">
@@ -24,7 +24,7 @@
 
 <div class="container">
     <div class="row text-lg-left">
-        <div *ngFor="let dishes of restaurant">
+        <div class="card2" *ngFor="let dishes of restaurant">
             <div *ngFor="let dishes1 of dishes.dishList">
                 <div *ngIf="rest.restaurantName==dishes.restaurantName; then thenBlock else elseBlock"></div>
                 <ng-template #thenBlock>
@@ -33,10 +33,8 @@
                 <div>{{dishes1.dishId}}</div>
                 <div>{{dishes1.dishName}}</div>
                 <div>{{dishes1.dishType}}</div>
-                <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of dishes1.image">
-                <a href="#" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" [src]="image.image" style="height: 171px;width: fit-content;">
-                </a>
+                <div *ngFor="let image of dishes1.image">
+                <img class="img-thumbnail" [src]="image.image">
                 </div>
             </mat-card-content>
         </ng-template>
@@ -47,15 +45,13 @@
                 <div>{{dishes1.dishId}}</div>
                 <div>{{dishes1.dishName}}</div>
                 <div>{{dishes1.dishType}}</div>
-                <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of dishes1.image">
-                <a href="#" class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" [src]="image.image" style="height: 171px;width: fit-content;">
-                </a>
+                <div *ngFor="let image of dishes1.image">
+                <img class="img-fluid img-thumbnail" [src]="image.image">
                 </div>
             </div>
             </mat-card-content>
     </ng-template>
         </div>
-    </div>
+        </div>
     </div>
 </div>

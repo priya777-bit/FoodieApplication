@@ -4,7 +4,8 @@
 
   .card {
     min-width: 120px;
-    margin-top: 190%;
+    margin-top: 2%;
+    background:#212529b8;
   }
 
   .row {
@@ -15,4 +16,8 @@
   .col {
     flex: 1;
     margin-right: 20px;
+  }
+
+  .search{
+    margin-left: 50px;
   }
