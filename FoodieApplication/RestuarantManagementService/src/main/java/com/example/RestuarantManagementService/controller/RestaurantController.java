@@ -2,9 +2,8 @@ package com.example.RestuarantManagementService.controller;
 
 import com.example.RestuarantManagementService.exception.*;
 import com.example.RestuarantManagementService.model.Dish;
+import com.example.RestuarantManagementService.model.Image;
 import com.example.RestuarantManagementService.model.Restaurant;
-//import com.example.RestuarantManagementService.model.UploadResponseMessage;
-//import com.example.RestuarantManagementService.service.DishImageServiceImpl;
 import com.example.RestuarantManagementService.model.UploadResponseMessage;
 import com.example.RestuarantManagementService.service.DishImageServiceImpl;
 import com.example.RestuarantManagementService.service.RestaurantServiceImpl;
@@ -18,12 +17,20 @@ import com.example.RestuarantManagementService.model.Image;
 
 import java.io.IOException;
 import java.util.List;
+<<<<<<< HEAD
 
 
 @CrossOrigin(origins="http://localhost:4200")
 
 //@CrossOrigin("http://localhost:4200")
 
+=======
+
+
+
+
+//@CrossOrigin("http://localhost:4200")
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 @RestController
 @RequestMapping("api/user/admin")
 public class RestaurantController {
@@ -123,5 +130,8 @@ public class RestaurantController {
         List<Image> dishImages = dishImageService.load(filename);
         return new ResponseEntity<>(dishImages,HttpStatus.OK);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 }

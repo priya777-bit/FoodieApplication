@@ -23,7 +23,14 @@ export class SendDishComponent implements OnInit{
   selectedFile:any=null;
 
   constructor(private api: RestApiService,private send:RequestService,private http:HttpClient) {
+<<<<<<< HEAD
     this.selected="Please Select a Restaurant";
+=======
+
+  // constructor(private api: RestApiService,private send:RequestService) {
+
+    this.selected="";
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     this.restaurant=[];
     this.rest=[];
     this.sel="";
@@ -37,6 +44,13 @@ export class SendDishComponent implements OnInit{
   restaurant:Restaurant[]=[];
 
   rest:Restaurant[]=[];
+<<<<<<< HEAD
+=======
+
+  update(e:any){
+    this.selected = e.target.value;
+  }
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 
   ngOnInit(): void {
     this.send.findAllRestaurantByStatus("reject").subscribe((r)=>{
@@ -50,6 +64,33 @@ export class SendDishComponent implements OnInit{
       })
     })
 
+<<<<<<< HEAD
+=======
+    // this.api.findAllRestaurant().subscribe((response)=>{
+    //   this.restaurant=response;
+    //   console.log(response);
+    //   this.send.restaurantId=response[0].restaurantId;
+    //   console.log(response[0].restaurantId);
+    //   this.restaurant.forEach(response=>{
+    //     this.selected=response.restaurantId;
+    //     this.api.restId=this.selected;
+    //     console.log(this.selected);
+    //     console.log(response);
+    //     // console.log(response.restaurantId);
+    //     console.log(this.api.restId);
+    //   })
+
+    //   console.log(response[0].restaurantId);
+    //   this.restaurant.forEach(response=>{
+    //     this.selected=response.restaurantId;
+    //     this.send.restaurantId=this.selected;
+    //     console.log(response);
+    //     console.log(response.restaurantId);
+    //     console.log(this.send.restaurantId);
+
+    // })
+    //   })
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     this.api.findAllRestaurant().subscribe((response)=>{
       this.restaurant=response;
       console.log(response);
@@ -69,7 +110,7 @@ export class SendDishComponent implements OnInit{
       })
       })
     }
-    
+
 
   get dishName()
   {
@@ -89,12 +130,28 @@ export class SendDishComponent implements OnInit{
 
   uploadImage()
   {
+<<<<<<< HEAD
     this.send.payload = new FormData();
+=======
+    // this.send.payload = new FormData();
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 
-    this.send.payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
+    // this.send.payload.append('file',this.selectedFile,this.dish.dishId+".jpg");
 
+<<<<<<< HEAD
     this.http.post("http://localhost:9000/api/request/restaurant/files"
     ,this.send.payload,
+=======
+    // this.http.post("http://localhost:9000/api/request/restaurant/files"
+    // ,this.send.payload,
+     const payload = new FormData();
+
+    payload.append('file',this.selectedFile,this.dish.dishId);
+    console.log(payload);
+
+    this.http.post("http://localhost:9000/api/request/restaurant/files"
+    ,payload,
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     // {headers:{'Content-Type':'multipart/formdata'}}
     )
 
@@ -111,6 +168,12 @@ export class SendDishComponent implements OnInit{
 
   sendDish()
   {
+<<<<<<< HEAD
+=======
+
+    // this.dish.restaurantId=this.send.restaurantId;
+
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     this.dish.dishId=Math.random().toString(36).substring(2,15);
     this.dish.dishName=this.addDish.value.dishName;
     this.dish.dishType=this.addDish.value.dishType;
@@ -118,6 +181,19 @@ export class SendDishComponent implements OnInit{
     this.uploadImage();
 
     this.send.addDish(this.api.restId,this.dish).subscribe(observer=>{
+<<<<<<< HEAD
+=======
+
+
+    // this.dish.restaurantId=this.send.restaurantId;
+    // this.dish.dishName=this.addDish.value.dishName;
+    // this.dish.dishType=this.addDish.value.dishType;
+    this.dish.dishName=this.addDish.value.dishName;
+    this.dish.dishType=this.addDish.value.dishType;
+
+    this.send.addDish(this.send.restaurantId,this.dish).subscribe(observer=>{
+
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
       console.log(observer);
       this.send.dishId=this.dish.dishId;
       if(this.addDish.valid)
@@ -125,5 +201,11 @@ export class SendDishComponent implements OnInit{
         alert("Send Dish Request Successfull..");
       }
     })
+<<<<<<< HEAD
   }
 }
+=======
+  })
+}
+}
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910

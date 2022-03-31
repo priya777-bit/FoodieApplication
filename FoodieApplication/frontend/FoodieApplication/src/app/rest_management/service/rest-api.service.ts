@@ -9,14 +9,22 @@ export class RestApiService {
 
   isRegister: boolean = false;
   isAddedDish : boolean = false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
   restId:string;
   restName:string;
   restLocation:string;
   dishId:string;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 
   constructor(private http: HttpClient) { }
 
-   registerRestaurant(restaurant:any):Observable<any>{
+   registerRestaurant(restaurant:any){
     this.isRegister = true;
     return this.http.post("http://localhost:8090/api/user/admin/restaurant/save",restaurant);
   }
@@ -25,7 +33,7 @@ export class RestApiService {
     return this.http.delete("http://localhost:8090/api/user/admin/restaurant/"+`${restaurantId}`);
   }
 
-  addDishToRestaurant(restaurantId:string,dish:any):Observable<any>{
+  addDishToRestaurant(restaurantId:string,dish:any){
     this.isAddedDish = true;
     return this.http.put("http://localhost:8090/api/user/admin/restaurant/"+`${restaurantId}`+"/dish",dish);
   }
@@ -34,4 +42,7 @@ export class RestApiService {
     return this.http.get<Array<any>>("http://localhost:8090/api/user/admin/restaurant/find");
   }
 
+  getImages(id:any):Observable<any>{
+    return this.http.get<any>("http://localhost:8090/api/user/admin/"+`${id}`+".jpg");
+  }
 }

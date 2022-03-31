@@ -1,15 +1,19 @@
-
+/* 
 .container{
   margin-left: -100%;
-}
+} */
 
 .full-width {
   width: 100%;
 }
 
 .card {
-  min-width: 100px;
-  margin-top: 240%;
+  position: absolute;
+  /* margin-top: 5rem;
+  margin-left: -40rem;
+  margin-right: 1rem */
+  margin: 4rem;
+  margin-left: -38rem
 }
 
 .mat-radio-button {

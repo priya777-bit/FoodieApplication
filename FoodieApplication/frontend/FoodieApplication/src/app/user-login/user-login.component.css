@@ -2,9 +2,15 @@
   width: 100%;
 }
 
+form{
+  margin-left: 500px;
+  margin-right: 500px;
+  }
+
 .shipping-card {
   min-width: 120px;
   margin: 20px auto;
+  background:#212529b8;
 }
 
 .mat-radio-button {

@@ -11,7 +11,7 @@
       <a mat-list-item routerLink="showRest">Show Restaurant</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 / cover'}">
     <mat-toolbar color="primary">
       <button
         type="button"

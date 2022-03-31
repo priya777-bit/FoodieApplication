@@ -25,61 +25,52 @@ public class RestaurantController {
     private ImageUploadImpl imageUpload;
 
     @Autowired
-    public RestaurantController(RestaurantServiceImpl restaurantService,ImageUploadImpl imageUpload) {
+    public RestaurantController(RestaurantServiceImpl restaurantService, ImageUploadImpl imageUpload) {
         this.restaurantService = restaurantService;
-        this.imageUpload=imageUpload;
+        this.imageUpload = imageUpload;
     }
 
     @PostMapping("/restaurant")
-    public ResponseEntity<?> addRestaurant(@RequestBody Restaurant restaurant){
-        try
-        {
-            return new ResponseEntity<>(restaurantService.addRestaurant(restaurant),HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>("try again some time ..",HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<?> addRestaurant(@RequestBody Restaurant restaurant) {
+        try {
+            return new ResponseEntity<>(restaurantService.addRestaurant(restaurant), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("try again some time ..", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/restaurant/{restaurantId}/dish")
-    public ResponseEntity<?> addDish(@PathVariable String  restaurantId, @RequestBody Dish dish){
+    public ResponseEntity<?> addDish(@PathVariable String restaurantId, @RequestBody Dish dish) {
         try {
             System.out.println(restaurantId);
-            return new ResponseEntity<>(restaurantService.addDish(restaurantId,dish),HttpStatus.OK);
-        }
-        catch (Exception e){
+            return new ResponseEntity<>(restaurantService.addDish(restaurantId, dish), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("try again some time ..",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("try again some time ..", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/find/{status}")
-    public ResponseEntity<?> findAllRestaurantByStatus(@PathVariable String status){
+    public ResponseEntity<?> findAllRestaurantByStatus(@PathVariable String status) {
         try {
-            return new ResponseEntity<>(restaurantService.findAllRestaurantByStatus(status),HttpStatus.OK);
-        }
-        catch (Exception e){
+            return new ResponseEntity<>(restaurantService.findAllRestaurantByStatus(status), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Try After Some Time", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @DeleteMapping("/restaurant/{restaurantId}")
-    public ResponseEntity<?> deleteRestaurantWhenRejected(@PathVariable String restaurantId)
-    {
-        try
-        {
-            return new ResponseEntity<>(restaurantService.deleteRestaurantWhenRejected(restaurantId),HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<?> deleteRestaurantWhenRejected(@PathVariable String restaurantId) {
+        try {
+            return new ResponseEntity<>(restaurantService.deleteRestaurantWhenRejected(restaurantId), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Try After Some Time", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping("/restaurant/files")
-    public ResponseEntity<UploadResponseMessage> uploadFile(@RequestParam("file")MultipartFile file) {
+    public ResponseEntity<UploadResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             System.out.println("post");
             imageUpload.saveFile(file);
@@ -92,36 +83,34 @@ public class RestaurantController {
     }
 
     @GetMapping("/restaurant/{restaurantId}")
-    public ResponseEntity<?> findAllDishByRestaurantId(@PathVariable String restaurantId){
+    public ResponseEntity<?> findAllDishByRestaurantId(@PathVariable String restaurantId) {
         try {
-            return new ResponseEntity<>(restaurantService.findAllDishByRestaurantId(restaurantId),HttpStatus.OK);
-        }
-        catch (Exception e){
+            return new ResponseEntity<>(restaurantService.findAllDishByRestaurantId(restaurantId), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Try After Some Time", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PutMapping("/restaurant/{status}")
-    public ResponseEntity<?> updateRestaurantWhenApprove(@RequestBody Restaurant restaurant ,@PathVariable String status){
+    public ResponseEntity<?> updateRestaurantWhenApprove(@RequestBody Restaurant restaurant, @PathVariable String status) {
         try {
-            return new ResponseEntity<>(restaurantService.updateRestaurantWhenApprove(restaurant,status),HttpStatus.OK);
-        }catch (Exception e){
+            return new ResponseEntity<>(restaurantService.updateRestaurantWhenApprove(restaurant, status), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Try After Some Time", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
 
     @PutMapping("/{restaurantId}/dish/{dishStatus}")
-    public ResponseEntity<?> updateDishWhenApprove(@PathVariable String restaurantId , @RequestBody Dish dish,
+    public ResponseEntity<?> updateDishWhenApprove(@PathVariable String restaurantId, @RequestBody Dish dish,
                                                    @PathVariable String dishStatus) {
         try {
-            return new ResponseEntity<>(restaurantService.updateDishWhenApprove(restaurantId,dish,dishStatus),HttpStatus.OK);
-        }
-        catch (Exception e){
+            return new ResponseEntity<>(restaurantService.updateDishWhenApprove(restaurantId, dish, dishStatus), HttpStatus.OK);
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Try After Some Time", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
@@ -138,6 +127,10 @@ public class RestaurantController {
 //        }
 //    }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     @GetMapping("/{filename:.+}")
     @ResponseBody
     public ResponseEntity<?> getFile(@PathVariable String fileName) {
@@ -148,6 +141,20 @@ public class RestaurantController {
             e.printStackTrace();
             return new ResponseEntity<>("Not able to load ..", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+<<<<<<< HEAD
+=======
+
+
+//    @GetMapping("/restaurants/{filename}")
+//    //@ResponseBody
+//    public ResponseEntity<Resource> getFile(@PathVariable String filename) {
+//        Resource file = imageUpload.load(filename);
+//        return ResponseEntity.ok()
+//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+//                .body(file);
+//
+//    }
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     }
 
 //    @GetMapping("/restaurants/{filename}")

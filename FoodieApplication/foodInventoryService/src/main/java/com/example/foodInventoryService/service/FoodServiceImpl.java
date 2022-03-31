@@ -108,7 +108,6 @@ public class FoodServiceImpl implements FoodService {
                         Image img=new Image(fileId[0],"data:image/" + extension + ";base64," + enCodeBase64);
                         images.add(img);
                        // images.add("data:image/" + extension + ";base64," + enCodeBase64);
-                        System.out.println(images);
                         fileInputStream.close();
                     } catch (Exception e) {
                         e.printStackTrace();

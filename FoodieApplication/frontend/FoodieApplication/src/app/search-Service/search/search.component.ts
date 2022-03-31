@@ -31,6 +31,8 @@ export class SearchComponent implements OnInit {
 
   img = new Image();
 
+  data:Dish[];
+
 
   // dishes2:Dish[]=[];
 
@@ -70,16 +72,20 @@ getRestaurant()
       this.dishes=this.rest.dishList;
       this.dishes.forEach(d=>{
         this.dish.dishId=d.dishId;
-        this.getImage(this.dish.dishId);
-        console.log("dish...."+this.dish.image);
-        this.image=this.dish.image;
-        this.image.forEach(i=>{
-          this.img.fileName=i.fileName;
-          console.log("img"+this.img);
-          console.log("image dish dishid"+this.dish.dishId);
-        console.log("rest dish dishid"+this.image);
-        
+        this.fs.getImage(this.dish.dishId).subscribe(obj=>{
+          this.image=obj;
+          d.image=obj;
+          this.data=this.dishes;
+          console.log(this.dishes);
         })
+        // this.image=this.dish.image;
+        // this.image.forEach(i=>{
+        //   this.img.fileName=i.fileName;
+        //   console.log("img"+this.img);
+        //   console.log("image dish dishid"+this.dish.dishId);
+        // console.log("rest dish dishid"+this.image);
+        
+       // })
         
       })
       // console.log("dishes..:"+this.dishes);

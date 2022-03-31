@@ -23,16 +23,19 @@
         <th>Dish Id </th>
         <th>Dish Name</th>
         <th>Dish Type</th>
-        <th>Dish Status</th>
         <th>Dish Image</th>
+        <th>Dish Status</th>
       </tr>
     </thead>
     <tbody class="tbody">
-      <tr *ngFor="let dish of dish">
+      <tr *ngFor="let dish of dishes">
         <td>{{dish.dishId}}</td>
         <td>{{dish.dishName}}</td>
         <td>{{dish.dishType}}</td>
-        <td><img [src]="imageId"></td>
+        <div *ngFor= "let image of dish.image">
+        <td ><img [src]="image.image" width="fit-content" height="50px"></td>
+        <!-- <td *ngIf="dish.dishId==imgpath"><img [src]="imgpath" width="fit-content"></td> -->
+        </div>
         <td><button type="button" class="btn btn-primary" (click)="Add(dish)">Approve</button></td>
       </tr>
     </tbody>

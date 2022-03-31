@@ -11,6 +11,7 @@ public interface RestaurantService {
     public Restaurant addDish(String restaurantId,Dish dish);
 
     public List<Restaurant> findAllRestaurantByStatus(String status);
+<<<<<<< HEAD
 
     public List<Restaurant> findAllRestaurant();
 
@@ -18,20 +19,50 @@ public interface RestaurantService {
 
 
 
+=======
+   // public List<Restaurant> findAllRestaurant();
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
     public boolean deleteRestaurantWhenRejected(String restaurantId);
+   // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+    public List<Dish> findAllDishByRestaurantId(String restaurantId);
+    public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
+    public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
+
+
+   // public List<Restaurant> findAllRestaurantByStatus(String status);
+
+
+    public List<Restaurant> findAllRestaurant();
+
+    //public List<Restaurant> findAllRestaurant();
+
+
+
+  //  public boolean deleteRestaurantWhenRejected(String restaurantId);
 
 //    public boolean deleteRestaurantWhenRejected(String restaurantId,String status);
 //    public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
 
 
+<<<<<<< HEAD
 //    public boolean deleteRestaurantWhenRejected(String restaurantId);
 
    // public boolean deleteRestaurantWhenRejected(String restaurantId);
 
    // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
     public List<Dish> findAllDishByRestaurantId(String restaurantId);
+=======
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 
-    public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
-    public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
+//    public boolean deleteRestaurantWhenRejected(String restaurantId);
+
+   // public boolean deleteRestaurantWhenRejected(String restaurantId);
+
+   // public String findByRestaurantNameAndRestaurantLocation(String restaurantName,String restaurantLocation);
+    //public List<Dish> findAllDishByRestaurantId(String restaurantId);
+
+    //public Restaurant updateRestaurantWhenApprove(Restaurant restaurant,String status);
+   // public Dish updateDishWhenApprove(String restaurantId ,Dish dish,String dishStatus);
+
 
 }

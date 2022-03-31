@@ -8,6 +8,16 @@
                 <div class="row">
                     <div class="col">
                         <mat-form-field class="full-width">
+                            <input matInput placeholder="Enter Restaurant Id" formControlName="restaurantId">
+                            <mat-error *ngIf="addRestForm.controls['restaurantId'].hasError('required')">
+                                Restaurant Id is <strong> required </strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field class="full-width">
                             <input matInput placeholder="Enter Restaurant Name" formControlName="restaurantName">
                             <mat-error *ngIf="addRestForm.controls['restaurantName'].hasError('required')">
                                 Restaurant Name is <strong> required </strong>

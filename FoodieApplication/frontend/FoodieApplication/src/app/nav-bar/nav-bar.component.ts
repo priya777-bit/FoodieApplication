@@ -19,6 +19,8 @@ export class NavBarComponent {
       shareReplay()
     );
 
+    backgroundUrl="/assets/bg_image.jpg"
+
   constructor(private breakpointObserver: BreakpointObserver,private authService:AuthenticationService,private router:Router,private request:UserRequestService) {}
 
   show:boolean=true;

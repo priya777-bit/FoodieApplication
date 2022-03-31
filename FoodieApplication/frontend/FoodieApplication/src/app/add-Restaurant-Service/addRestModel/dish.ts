@@ -14,5 +14,6 @@ export class Dish {
         this.dishId='';
         this.dishName='';
         this.dishType='';
+        this.image=[];
     }
 }

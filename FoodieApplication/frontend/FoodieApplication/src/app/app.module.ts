@@ -36,6 +36,10 @@ import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard
 import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-restaurant.component';
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
+<<<<<<< HEAD
+=======
+import { AddFavComponent } from './favService/add-fav/add-fav.component';
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
 
 @NgModule({
   declarations: [
@@ -56,7 +60,15 @@ import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.compone
     NavBarComponent,
     ShowRestaurantComponent,
     ShowDishComponent,
+<<<<<<< HEAD
     GetAllFavComponent
+=======
+    GetAllFavComponent,
+    ShowDishComponent,
+    AddFavComponent
+
+
+>>>>>>> 42890fe7d0123c4ca9e9e90f787dcccdfc3fe910
   ],
   imports: [
     BrowserModule,
@@ -76,7 +88,6 @@ import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.compone
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    ReactiveFormsModule,
     HttpClientModule,
     MatGridListModule,
     MatMenuModule,
