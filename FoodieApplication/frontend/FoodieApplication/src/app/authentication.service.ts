@@ -13,11 +13,29 @@ export class AuthenticationService {
   isLoggedIn:boolean=false;
   redirectURL:String="";
 
+  loginUser(token: any) {
+    console.log(token);
+    localStorage.setItem("token", token);
+    return true;
+  }
+
   logIn(){
-    this.isLoggedIn=true;
-    this.authStatusListener.next(true);  
+    let token = localStorage.getItem("token");
+    console.log(token);
+    if (token ==null || token ==undefined|| token == '' ) {
+      this.isLoggedIn=false;
+      console.log("in if");
+      return false;
+    }
+    else {
+      console.log("in else");
+      this.isLoggedIn=true;
+      this.authStatusListener.next(true);
+      return true;
+    }
   }
   logOut(){
+    localStorage.removeItem("token");
     this.isLoggedIn=false;
     this.authStatusListener.next(false);  
   }

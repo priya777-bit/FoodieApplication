@@ -31,12 +31,16 @@ export class UserLoginComponent {
         this.data=response;
         this.request.token=this.data.token;
         console.log(this.data.token);
+        this.authServe.loginUser(null);
         this.request.mailId=data.userMailId;
         console.log("id",this.request.mailId)
+        const value=this.authServe.logIn();
+        console.log(value);
         //this.request.mailId=this.fav.userMailId;
-        this.authServe.logIn();
-        this.request.show=true;
+        if(value)
+        {
         this.router.navigate(["/showRest"]);
+        }
       })
       }
       }

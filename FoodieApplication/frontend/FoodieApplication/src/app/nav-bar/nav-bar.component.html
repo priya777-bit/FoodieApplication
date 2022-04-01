@@ -36,6 +36,8 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li> -->
+     
+      <div style="display: flex;">
       <button mat-button color="accent"  class="search" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
       <button mat-button color="accent"  class="search" routerLink="/rest">Send Restaurant</button>
       <button mat-button color="accent" routerLink="/dish">Send Dish</button>
@@ -43,14 +45,16 @@
       <button mat-button color="accent" routerLink="addDish">Add Dish</button>
       <button mat-button color="accent" routerLink="restRequest">View Restaurant Request</button>
       <button mat-button color="accent" routerLink="dishRequest">View Dish Request</button>
-
-      <div style="margin-left:950px ;" *ngIf = "!userIsAuthenticated"> 
-       <a style="color: white;" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
-       <a style="color: white;" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
       </div>
-      <div class="navButton" *ngIf = "userIsAuthenticated"> 
+
+      <div style="margin-left:150px ;" > 
+       <a style="color: white;" *ngIf = "!userIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+       <a style="color: white;" *ngIf = "!userIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+       <div *ngIf = "userIsAuthenticated"> 
         <button mat-button  type="submit" (click)="logout()">Logout</button>
       </div>
+      </div>
+      
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

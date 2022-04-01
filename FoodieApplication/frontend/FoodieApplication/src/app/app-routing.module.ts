@@ -28,8 +28,6 @@ const routes: Routes = [
   {path:'addRest',component:AddRestComponent},
   {path:'addDish',component:AddDishComponent},
   {path:'search',component:SearchComponent},
-  {path:'addRest',component:AddRestComponent},
-  {path:'addDish',component:AddDishComponent},
   {path:'restRequest',component:ViewRestuarantComponent},
   {path:'dishRequest',component:ViewDishComponent},
   {path:"login",component:UserLoginComponent},
@@ -37,9 +35,8 @@ const routes: Routes = [
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
   //{path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
   //{path:"showRest/dishList/:id",component:ShowDishComponent}
-  {path:"showRest",component:ShowRestaurantComponent,children:[]},
-  {path:"showRest/dishList/:id",component:ShowDishComponent},
-  {path:'search',component:SearchComponent},
+  {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
+  {path:"showRest/dishList/:id",component:ShowDishComponent,canActivate:[AuthguardGuard]},
   {path:'getFav',component:GetAllFavComponent},
   {path:'getFav/dishList/:id',component:GetFavDishComponent}
 ];

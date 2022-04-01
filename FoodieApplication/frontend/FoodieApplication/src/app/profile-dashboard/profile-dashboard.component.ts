@@ -4,6 +4,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { UserRequestService } from '../user-request.service';
 import { Login } from '../modal/login';
 import { User } from '../modal/user';
+import { AuthenticationService } from '../authentication.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ProfileDashboardComponent {
   data?:any;
   userName?:any;
 
-  constructor(private breakpointObserver: BreakpointObserver,private request:UserRequestService) {}
+  constructor(private breakpointObserver: BreakpointObserver,private request:UserRequestService,private authServe:AuthenticationService) {}
 
   ngOnInit() {
     this.request.getProfile().subscribe(res=>{
@@ -27,6 +28,7 @@ export class ProfileDashboardComponent {
       this.retrieveResonse = res.image;
       this.base64Data = this.retrieveResonse.picByte;
       this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+      this.authServe.logIn();
     })
  }
 }

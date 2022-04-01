@@ -1,17 +1,18 @@
     
 .table {
     margin-top: 2rem !important;
-    margin-left: -25rem !important;
+    margin-left: -1rem !important;
     align-content: center;
+    color: white;
 }
 
 .container-fluid{
-  margin-left: -150%;
+  /* margin-left: 1%; */
 }
 
 .card {
   min-width: 100px;
-  margin-top: 200%;
+  margin-top: 5%;
 }
 
 
