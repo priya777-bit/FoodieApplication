@@ -19,16 +19,12 @@ export class GetAllFavComponent implements OnInit {
   ngOnInit(): void {
     this.FavService.getAllFav(this.user.mailId).subscribe(data=>{
       this.favs = data;
+      console.log(data);
       this.favs.forEach(r=>{
         this.rest=r.restaurantList;
         console.log(r.restaurantList);
       })
       console.log("favs" + JSON.stringify(this.favs));
-      // let {favId }= data;
-      // this.fav.restaurantList = this.restaurant;
-      // console.log(this.fav.restaurantList)
-      // console.log("res",this.restaurant)
-      console.log(data);
     })
 
   }
@@ -37,7 +33,6 @@ export class GetAllFavComponent implements OnInit {
     this.FavService.removeFromFav(fav.favouriteId).subscribe(f=>{
       console.log(f);
     })
-
   }
 
 
