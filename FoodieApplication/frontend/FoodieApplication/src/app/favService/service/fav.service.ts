@@ -30,8 +30,8 @@ export class FavService {
     return this.http.delete(`${this.removeUrl}/${favouriteId}`);
   }
 
-  removeDish(favouriteId:string,dishId:string){
-    return this.http.delete(`${this.removeDishUrl}/${favouriteId}/${dishId}`);
+  removeDish(favouriteId:string,restaurantId:string,dishId:string){
+    return this.http.delete(`${this.removeDishUrl}/${favouriteId}/${restaurantId}/${dishId}`);
   }
 
   addDish(favouriteId:string,restaurantId:any,dish:any){

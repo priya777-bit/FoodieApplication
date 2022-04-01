@@ -26,7 +26,6 @@ export class ShowDishComponent {
   favs:Favourite[];
   fId:string;
   rest:Restaurant[];
-  restId:string;
   // myArray: any; 
   //  map = new Map;
   //  list=new List;
@@ -58,16 +57,11 @@ export class ShowDishComponent {
   {}
 
   add(dish:any){
-    //this.data=dish;
     this.favService.getAllFav(this.user.mailId).subscribe(d=>{
       this.favs=d;
       this.favs.forEach(r=>{
         console.log(r);
         r.restaurantList.forEach(restau=>{
-          //this.restId=restau.restaurantId;
-        // this.fId=r.favouriteId;
-        // console.log("rid",r.favouriteId)
-        // console.log(this.fId);
         this.favService.addDish(r.favouriteId,restau.restaurantId,dish).subscribe(d=>{
       console.log("added Dish",d);
     })

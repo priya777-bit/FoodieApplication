@@ -19,6 +19,7 @@ export class GetFavDishComponent implements OnInit {
   dishes:Dish[];
   image:Image[];
   dishId:any;
+  rId:string;
   favId:string;
 
   constructor(private FavService:FavService,private user:UserRequestService,private request:InventoryRequestService) { }
@@ -33,6 +34,7 @@ export class GetFavDishComponent implements OnInit {
         this.rest=r.restaurantList;
         console.log(r.restaurantList);
           this.rest.forEach(d=>{
+            this.rId=d.restaurantId;
             this.dishes=d.dishList;
             console.log(this.dishes);
             this.dishes.forEach(data=>{
@@ -50,7 +52,8 @@ export class GetFavDishComponent implements OnInit {
     }
 
   remove(dish:any){
-    this.FavService.removeDish(this.favId,this.dishId).subscribe(f=>{
+    console.log(dish);
+    this.FavService.removeDish(this.favId,this.rId,dish.dishId).subscribe(f=>{
       console.log(f);
     })
 
