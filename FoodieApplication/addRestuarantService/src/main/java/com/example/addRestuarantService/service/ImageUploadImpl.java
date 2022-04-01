@@ -63,6 +63,11 @@ public class ImageUploadImpl implements ImageUpload {
 
         File fileFolder = new File(String.valueOf(filePath));
 
+//        Path file = Paths.get(String.valueOf(path)).resolve(filename);
+        //String filePath = context.getRealPath("/upload");
+//        File fileFolder = new File(String.valueOf(file));
+        System.out.println(fileFolder);
+
         if (fileFolder != null) {
             String encodeBase64 = null;
 
@@ -76,6 +81,7 @@ public class ImageUploadImpl implements ImageUpload {
                 Image image = new Image(fileId[0],"data:image/" + extension + ";base64," + encodeBase64);
                 files.add(image);
                 fileInputStream.close();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

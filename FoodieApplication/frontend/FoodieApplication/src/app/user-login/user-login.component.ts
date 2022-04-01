@@ -16,6 +16,7 @@ export class UserLoginComponent {
     userPassword: [null, Validators.required]
   });
 
+  data:any;
   constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService) {}
 
   onSubmit(): void {
@@ -27,6 +28,9 @@ export class UserLoginComponent {
       {
         this.request.login(data).subscribe(response=>{
         console.log(response);
+        this.data=response;
+        this.request.token=this.data.token;
+        console.log(this.data.token);
         this.request.mailId=data.userMailId;
         console.log("id",this.request.mailId)
         //this.request.mailId=this.fav.userMailId;

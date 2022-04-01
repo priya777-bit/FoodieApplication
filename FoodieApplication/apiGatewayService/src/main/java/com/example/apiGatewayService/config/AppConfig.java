@@ -26,6 +26,7 @@ public class AppConfig {
                         .uri("http://localhost:8084/"))
 
                 .route(u1->u1.path("/api/user/**")
+                        //.uri("lb://USER-SERVICE"))
                         .uri("http://localhost:8085"))
 
                 .route(u->u.path("/api/userAuthentication/**")
@@ -51,7 +52,7 @@ public class AppConfig {
 
         filterRegistrationBean.setFilter(new JwtFilter());
 
-        filterRegistrationBean.addUrlPatterns("/api/user/users01/*");
+        filterRegistrationBean.addUrlPatterns("/api/user/users/getUserProfile/*");
 
 //        filterRegistrationBean.addUrlPatterns("/api/user/admin/*");
 

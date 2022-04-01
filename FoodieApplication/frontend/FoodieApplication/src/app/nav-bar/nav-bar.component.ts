@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
@@ -21,6 +21,9 @@ export class NavBarComponent {
 
     backgroundUrl="/assets/bg_image.jpg"
 
+    private authListenerSubs: Subscription; 
+    userIsAuthenticated:any;
+
   constructor(private breakpointObserver: BreakpointObserver,private authService:AuthenticationService,private router:Router,private request:UserRequestService) {}
 
   LoginStatus$=new BehaviorSubject<boolean>(null);
@@ -29,7 +32,15 @@ export class NavBarComponent {
     // this.authService.globalStateChanged.subscribe(state=>{
     //   this.LoginStatus$.next(state.logIn)
     // })
+    this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{  
+      this.userIsAuthenticated = isAuthenticated
+    });  
   }
+
+  ngOnDestroy(){
+    this.authListenerSubs.unsubscribe();
+  }
+    
 
   logout():void{
     this.authService.logOut();

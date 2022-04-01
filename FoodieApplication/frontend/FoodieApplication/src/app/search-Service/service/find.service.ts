@@ -24,6 +24,7 @@ export class FindService {
 
   getImage(filename:string):Observable<any>
   {
-    return this.http.get<any>("http://localhost:9000/api/inventory/restaurant/"+filename+".jpg");
+    return this.http.get<any>("http://localhost:9000/api/request/restaurants/"+filename+".jpg");
+   // return this.http.get<any>("http://localhost:9000/api/inventory/restaurant/"+filename+".jpg");
   }
 }
