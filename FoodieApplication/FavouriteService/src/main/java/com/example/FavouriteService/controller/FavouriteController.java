@@ -1,12 +1,19 @@
 package com.example.FavouriteService.controller;
 
 import com.example.FavouriteService.exception.FavouriteAlreadyExist;
+import com.example.FavouriteService.model.Dish;
 import com.example.FavouriteService.model.Favourite;
+import com.example.FavouriteService.model.Image;
+import com.example.FavouriteService.model.UploadResponseMessage;
 import com.example.FavouriteService.service.FavouriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -61,5 +68,35 @@ public class FavouriteController {
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/dish/remove/{favouriteId}/{dishId}")
+    public ResponseEntity<?> removeDishFromFav(@PathVariable String favouriteId,@PathVariable String dishId){
+        try {
+            return new ResponseEntity<>(favouriteService.removeDishFromFav(favouriteId,dishId),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PostMapping("{favouriteId}/{restaurantId}/dish")
+    public ResponseEntity<?> addDishToFav(@PathVariable String favouriteId, @PathVariable String restaurantId, @RequestBody Dish dish){
+        try {
+            return new ResponseEntity<>(favouriteService.addDishToFav(favouriteId,restaurantId,dish),HttpStatus.OK);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+//    @GetMapping("{filename:.+}")
+//    public ResponseEntity<?> getFile(@PathVariable String filename) {
+//        List<Image> dishImages = favouriteService.load(filename);
+//        return new ResponseEntity<>(dishImages,HttpStatus.OK);
+//    }
 
 }

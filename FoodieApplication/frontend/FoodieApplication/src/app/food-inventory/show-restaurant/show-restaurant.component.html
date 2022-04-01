@@ -4,11 +4,11 @@
 
 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
     <mat-card app-player matRipple class="card" *ngFor="let restuarent of data">
+        <a routerLink="dishList/{{restuarent.restaurantId}}">
         <mat-card-header>
         <mat-card-title>{{ restuarent.restaurantName }}</mat-card-title>
         <mat-card-subtitle>{{ restuarent.restaurantLocation }}</mat-card-subtitle>
     </mat-card-header>
-       <a routerLink="dishList/{{restuarent.restaurantId}}">
     <mat-card-content>
     <div *ngFor="let image of restuarent.image">
             <img mat-card-image [src]="image.image">
