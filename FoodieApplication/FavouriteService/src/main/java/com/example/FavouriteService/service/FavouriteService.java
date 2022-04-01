@@ -12,6 +12,6 @@ public interface FavouriteService {
     Favourite addFavourite(Favourite favourite) throws FavouriteAlreadyExist;
     List<Favourite> getALlFavourite(String userMailId);
     boolean removeFromFav(String favouriteId);
-    boolean removeDishFromFav(String favouriteId,String restaurantId,String dishId);
     List<Dish> addDishToFav(String favouriteId,String restaurantId, Dish dish);
+    boolean removeDishFromFav(String favouriteId,String restaurantId,String dishId);
 }

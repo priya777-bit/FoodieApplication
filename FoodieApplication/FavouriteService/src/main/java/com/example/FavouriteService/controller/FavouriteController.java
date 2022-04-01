@@ -63,6 +63,17 @@ public class FavouriteController {
         }
     }
 
+    @PostMapping("{favouriteId}/{restaurantId}/dish")
+    public ResponseEntity<?> addDishToFav(@PathVariable String favouriteId, @PathVariable String restaurantId, @RequestBody Dish dish){
+        try {
+            return new ResponseEntity<>(favouriteService.addDishToFav(favouriteId,restaurantId,dish),HttpStatus.CREATED);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @DeleteMapping("/dish/remove/{favouriteId}/{restaurantId}/{dishId}")
     public ResponseEntity<?> removeDishFromFav(@PathVariable String favouriteId,@PathVariable String restaurantId,@PathVariable String dishId){
         try {
@@ -73,17 +84,6 @@ public class FavouriteController {
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-    }
-
-    @PostMapping("{favouriteId}/{restaurantId}/dish")
-    public ResponseEntity<?> addDishToFav(@PathVariable String favouriteId, @PathVariable String restaurantId, @RequestBody Dish dish){
-        try {
-            return new ResponseEntity<>(favouriteService.addDishToFav(favouriteId,restaurantId,dish),HttpStatus.CREATED);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 
 

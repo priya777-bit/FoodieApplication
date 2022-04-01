@@ -50,6 +50,27 @@ public class FavouriteServiceImpl implements FavouriteService{
         return result;
     }
 
+
+    @Override
+    public List<Dish> addDishToFav(String favouriteId,String restaurantId,Dish dish) {
+        Favourite favourite = favouriteRepository.findById(favouriteId).get();
+        List<Restaurant> restaurantList = favouriteRepository.findById(favouriteId).get().getRestaurantList();
+        List<Dish> dishList=null;
+        for(int i =0; i<restaurantList.size();i++) {
+            Restaurant restaurant = restaurantList.get(i);
+//            System.out.println(restaurant);
+            String restId = restaurant.getRestaurantId();
+            if(restId.equalsIgnoreCase(restaurantId)){
+                dishList = restaurant.getDishList();
+                dishList.add(dish);
+                restaurantList.set(i,restaurant);
+            }
+            favourite.setRestaurantList(restaurantList);
+            favouriteRepository.save(favourite);
+        }
+        return dishList;
+    }
+
     @Override
     public boolean removeDishFromFav(String favouriteId,String restaurantId,String dishId) {
         boolean result = false;
@@ -75,26 +96,6 @@ public class FavouriteServiceImpl implements FavouriteService{
             favouriteRepository.save(favourite);
         }
         return result;
-    }
-
-    @Override
-    public List<Dish> addDishToFav(String favouriteId,String restaurantId,Dish dish) {
-        Favourite favourite = favouriteRepository.findById(favouriteId).get();
-        List<Restaurant> restaurantList = favouriteRepository.findById(favouriteId).get().getRestaurantList();
-        List<Dish> dishList=null;
-        for(int i =0; i<restaurantList.size();i++) {
-             Restaurant restaurant = restaurantList.get(i);
-//            System.out.println(restaurant);
-             String restId = restaurant.getRestaurantId();
-             if(restId.equalsIgnoreCase(restaurantId)){
-                 dishList = restaurant.getDishList();
-                 dishList.add(dish);
-                 restaurantList.set(i,restaurant);
-             }
-            favourite.setRestaurantList(restaurantList);
-            favouriteRepository.save(favourite);
-        }
-        return dishList;
     }
 
 }
