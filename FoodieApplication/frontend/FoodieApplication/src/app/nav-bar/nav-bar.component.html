@@ -9,9 +9,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a  mat-list-item routerLink="login">User Login</a>
-      <a mat-list-item routerLink="register">User Register</a>
-      <a mat-list-item routerLink="profile">Profile</a>
+      <a *ngIf = "userIsAuthenticated" mat-list-item routerLink="profile">Profile</a>
       <a mat-list-item routerLink="showRest">Show Restaurant</a>
       <a mat-list-item routerLink="getFav">Favourite</a>
     </mat-nav-list>
@@ -38,9 +36,19 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li> -->
-      <button mat-button color="accent" class="search" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
-      <button mat-button color="accent" class="search" routerLink="/rest">Send Restaurant</button>
-      <div class="navButton" > 
+      <button mat-button color="accent"  class="search" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
+      <button mat-button color="accent"  class="search" routerLink="/rest">Send Restaurant</button>
+      <button mat-button color="accent" routerLink="/dish">Send Dish</button>
+      <button mat-button color="accent" routerLink="addRest">Add Restaurant</button>
+      <button mat-button color="accent" routerLink="addDish">Add Dish</button>
+      <button mat-button color="accent" routerLink="restRequest">View Restaurant Request</button>
+      <button mat-button color="accent" routerLink="dishRequest">View Dish Request</button>
+
+      <div style="margin-left:950px ;" *ngIf = "!userIsAuthenticated"> 
+       <a style="color: white;" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+       <a style="color: white;" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+      </div>
+      <div class="navButton" *ngIf = "userIsAuthenticated"> 
         <button mat-button  type="submit" (click)="logout()">Logout</button>
       </div>
     </mat-toolbar>

@@ -21,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/user")
+//@RequestMapping("/api/user")
 public class UserController {
 
     private UserService userService;
@@ -69,7 +69,7 @@ public class UserController {
 
 
 
-    @GetMapping("/users/getUserProfile/{userEmail}")
+    @GetMapping("/api/user/users/getUserProfile/{userEmail}")
     public ResponseEntity<?> getUserProfile(@PathVariable String userEmail) throws UserNotFound {
         try {
             return new ResponseEntity<>(userService.getUserData(userEmail), HttpStatus.OK);

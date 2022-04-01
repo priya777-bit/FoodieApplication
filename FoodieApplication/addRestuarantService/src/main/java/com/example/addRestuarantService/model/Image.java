@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Image {
 
     private String fileName;
-    private String imageName;
+    private String image;
 }

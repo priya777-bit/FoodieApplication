@@ -13,6 +13,7 @@ export class UserRequestService {
 
   mailId:any;
   show:boolean=false;
+  token:any;
 
   registerURL="http://localhost:9000/api/user/registerUser";
   imgURL="http://localhost:9000/api/user/userImage";
@@ -47,7 +48,8 @@ export class UserRequestService {
   }
 
   getProfile():Observable<any>{
+    //const headers=new HttpHeaders().set("authorization",this.token);,{headers}
+    console.log(this.token);
     return this.http.get<any>(`${this.getProfileURL}/${this.mailId}`);
   }
-
 }
