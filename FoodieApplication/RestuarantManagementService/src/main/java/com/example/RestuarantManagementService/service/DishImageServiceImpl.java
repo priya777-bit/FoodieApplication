@@ -28,14 +28,14 @@ public class DishImageServiceImpl implements DishImageService {
     ServletContext context;
 
     private Path upload = Paths.get("upload");
-    private Path imagePath = Paths.get("imagePath");
+    //private Path imagePath = Paths.get("imagePath");
 
 
     @Override
     @PostConstruct
     public void createDirectory(){
         try {
-            Files.createDirectories(imagePath);
+            Files.createDirectories(upload);
         } catch (IOException e){
             throw new RuntimeException("Could not create upload folder!");
         }
@@ -44,7 +44,7 @@ public class DishImageServiceImpl implements DishImageService {
     @Override
     public void saveFile(MultipartFile file) {
         try {
-            Path root = Paths.get(String.valueOf(imagePath));
+            Path root = Paths.get(String.valueOf(upload));
             if(!Files.exists(root)){
                 System.out.println("In Save File");
                 createDirectory();

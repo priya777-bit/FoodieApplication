@@ -8,5 +8,7 @@
   <img  [src]="image.image">
   </div>
 </mat-card-content>
-<a routerLink="dishList/{{dish.dishId}}"><mat-icon style="float: right;">favorite</mat-icon></a>
- </mat-card>
+<button mat-mini-fab >
+  <mat-icon style="float: right;" (click)="add(dish)" >favorite</mat-icon>
+</button>
+</mat-card>

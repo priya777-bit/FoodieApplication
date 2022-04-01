@@ -19,14 +19,17 @@ export class GetFavDishComponent implements OnInit {
   dishes:Dish[];
   image:Image[];
   dishId:any;
+  favId:string;
 
   constructor(private FavService:FavService,private user:UserRequestService,private request:InventoryRequestService) { }
 
   ngOnInit(): void {
     this.FavService.getAllFav(this.user.mailId).subscribe(data=>{
       this.favs = data;
+      console.log("f",this.favId)
       console.log("favs" + JSON.stringify(this.favs));
       this.favs.forEach(r=>{
+        this.favId = r.favouriteId
         this.rest=r.restaurantList;
         console.log(r.restaurantList);
           this.rest.forEach(d=>{
@@ -37,6 +40,7 @@ export class GetFavDishComponent implements OnInit {
               console.log(this.dishId);
               this.request.getImages(this.dishId).subscribe(i=>{
                 this.image=i;
+                data.image=i;
                 console.log(this.image);
               })
             })
@@ -45,8 +49,8 @@ export class GetFavDishComponent implements OnInit {
       })
     }
 
-  remove(fav:any){
-    this.FavService.removeFromFav(fav.favouriteId).subscribe(f=>{
+  remove(dish:any){
+    this.FavService.removeDish(this.favId,this.dishId).subscribe(f=>{
       console.log(f);
     })
 

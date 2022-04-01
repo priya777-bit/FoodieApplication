@@ -7,6 +7,7 @@ import { FavService } from 'src/app/favService/service/fav.service';
 import { Favourite } from 'src/app/favService/domain/favourite';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Dish } from '../modal/dish';
+import { Image } from '../modal/image';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class ShowRestaurantComponent {
   data:Restaurant[];
   // favId:any;
   // mailId:any;
+  dishes:Dish[];
+  image:Image[];
   favourite = new Favourite();
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService) {}
@@ -49,15 +52,25 @@ export class ShowRestaurantComponent {
     this.favourite.userMailId = this.userRqst.mailId;
     console.log("mail"+this.favourite.userMailId)
     this.favourite.restaurantList = [restuarent];
-    console.log("res",restuarent);
-    console.log("fav",this.favourite)
-    // restuarent.dishList.forEach((element:Dish)=> {
-    //   this.request.getImages(element.dishId).subscribe(i=>{
-    //     element.image=i;
-    //   })
-    // });
+    this.favourite.restaurantList.forEach(d=>{
+        this.dishes=d.dishList;
+        console.log("dish",this.dishes);
+          this.dishes.forEach(i=>{
+            this.request.getImages(i.dishId).subscribe(val=>{
+              this.image=val;
+              console.log("img",this.image);
+            })
+          })
+        })
     this.favService.addToFav(this.favourite).subscribe(res=>{
       console.log(res);
+    },error =>{
+      if(this.favourite.restaurantList=[restuarent]){
+        alert("Already Added");
+      }
+      else{
+        console.log(error);
+      }
     })
 
   }

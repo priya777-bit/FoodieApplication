@@ -6,6 +6,10 @@ import { List } from '../modal/list';
 import { Dish } from '../modal/dish';
 import { Observable } from 'rxjs';
 import { Image } from '../modal/image';
+import { FavService } from 'src/app/favService/service/fav.service';
+import { Favourite } from 'src/app/favService/domain/favourite';
+import { UserRequestService } from 'src/app/user-request.service';
+import { Restaurant } from '../modal/restaurant';
 
 @Component({
   selector: 'app-show-dish',
@@ -19,6 +23,10 @@ export class ShowDishComponent {
   
   // data:Dish[]=[];
   data:Dish[];
+  favs:Favourite[];
+  fId:string;
+  rest:Restaurant[];
+  restId:string;
   // myArray: any; 
   //  map = new Map;
   //  list=new List;
@@ -46,8 +54,28 @@ export class ShowDishComponent {
     })
     
   }
-  constructor(private activatedRoute:ActivatedRoute,private request:InventoryRequestService) 
-  {
-    
+  constructor(private activatedRoute:ActivatedRoute,private request:InventoryRequestService,private favService:FavService,private user:UserRequestService) 
+  {}
+
+  add(dish:any){
+    //this.data=dish;
+    this.favService.getAllFav(this.user.mailId).subscribe(d=>{
+      this.favs=d;
+      this.favs.forEach(r=>{
+        console.log(r);
+        r.restaurantList.forEach(restau=>{
+          //this.restId=restau.restaurantId;
+        // this.fId=r.favouriteId;
+        // console.log("rid",r.favouriteId)
+        // console.log(this.fId);
+        this.favService.addDish(r.favouriteId,restau.restaurantId,dish).subscribe(d=>{
+      console.log("added Dish",d);
+    })
+      })
+    })
+      console.log("favsdish" + JSON.stringify(this.favs));
+      console.log(d);
+    })
+
   }
 }
