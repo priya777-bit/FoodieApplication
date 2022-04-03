@@ -46,6 +46,7 @@ export class ShowRestaurantComponent {
 
   add(restuarent:any){
     //restuarent.isSelected = true;
+    
     this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
     this.favService.favId=this.favourite.favouriteId
     console.log(this.favourite.favouriteId);

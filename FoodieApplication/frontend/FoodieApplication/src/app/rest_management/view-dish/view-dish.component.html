@@ -33,8 +33,7 @@
         <td>{{dish.dishName}}</td>
         <td>{{dish.dishType}}</td>
         <div *ngFor= "let image of dish.image">
-        <td ><img [src]="image.image" width="fit-content" height="50px"></td>
-        <!-- <td *ngIf="dish.dishId==imgpath"><img [src]="imgpath" width="fit-content"></td> -->
+        <td ><img [src]="image.image" width="fit-content" height="80px"></td>
         </div>
         <td><button type="button" class="btn btn-primary" (click)="Add(dish)">Approve</button></td>
       </tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InventoryRequestService } from 'src/app/food-inventory/service/inventory-request.service';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Dish } from '../domain/dish';
@@ -18,45 +19,51 @@ export class GetFavDishComponent implements OnInit {
   rest:Restaurant[];
   dishes:Dish[];
   image:Image[];
-  dishId:any;
-  rId:string;
-  favId:string;
+  rId:any;
+  //favId:string;
 
-  constructor(private FavService:FavService,private user:UserRequestService,private request:InventoryRequestService) { }
+  constructor(private FavService:FavService,private user:UserRequestService,private request:InventoryRequestService,private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
+    this.activateRoute.paramMap.subscribe(data=>{
+      let id=data.get('id') ??0;
+      this.rId = id;
+
+    console.log('rid '+ id);
+
     this.FavService.getAllFav(this.user.mailId).subscribe(data=>{
       this.favs = data;
-      console.log("f",this.favId)
       console.log("favs" + JSON.stringify(this.favs));
       this.favs.forEach(r=>{
-        this.favId = r.favouriteId
         this.rest=r.restaurantList;
-        console.log(r.restaurantList);
           this.rest.forEach(d=>{
-            this.rId=d.restaurantId;
-            this.dishes=d.dishList;
-            console.log(this.dishes);
-            this.dishes.forEach(data=>{
-              this.dishId=data.dishId;
-              console.log(this.dishId);
-              this.request.getImages(this.dishId).subscribe(i=>{
-                this.image=i;
-                data.image=i;
-                console.log(this.image);
-              })
-            })
+            if(id == d.restaurantId){
+              // console.log('rid '+ id);
+              // console.log('d.restaurantId '+ d.restaurantId);
+                this.dishes=d.dishList;
+                console.log(this.dishes);
+                this.dishes.forEach(dish=>{
+                  this.request.getImages(dish.dishId).subscribe(i=>{
+                    this.image=i;
+                    dish.image=i;
+                    console.log('Img'+this.image);
+                  })
+                })
+              }
           })
         })
       })
-    }
+    })
+  }
 
   remove(dish:any){
     console.log(dish);
-    this.FavService.removeDish(this.favId,this.rId,dish.dishId).subscribe(f=>{
+    this.favs.forEach(f=>{
+      this.FavService.removeDish(f.favouriteId,this.rId,dish.dishId).subscribe(f=>{
       console.log(f);
     })
-
+    })
   }
 
 }
