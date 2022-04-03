@@ -28,7 +28,7 @@ export class ProfileDashboardComponent {
       this.retrieveResonse = res.image;
       this.base64Data = this.retrieveResonse.picByte;
       this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-      this.authServe.logIn();
+      // this.authServe.logIn();
     })
  }
 }

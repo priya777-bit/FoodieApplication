@@ -34,7 +34,7 @@ export class UserLoginComponent {
         this.authServe.loginUser(null);
         this.request.mailId=data.userMailId;
         console.log("id",this.request.mailId)
-        const value=this.authServe.logIn();
+        const value=this.authServe.logIn(data.userMailId);
         console.log(value);
         //this.request.mailId=this.fav.userMailId;
         if(value)

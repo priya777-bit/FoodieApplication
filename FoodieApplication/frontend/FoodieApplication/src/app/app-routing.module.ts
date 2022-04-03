@@ -16,20 +16,22 @@ import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-r
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
 import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
+import { CanLoadGuard } from './can-load.guard';
 
 
 
 const routes: Routes = [
  // {path:'',component:DashboardComponent},
+ {path: 'admin',loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),canLoad: [CanLoadGuard]},
   {path:"",component:ShowRestaurantComponent,children:[]},
   {path:"dishList/:id",component:UserLoginComponent},
   {path:'rest',component:SendRestaurantComponent},
   {path:'dish',component:SendDishComponent},
-  {path:'addRest',component:AddRestComponent},
-  {path:'addDish',component:AddDishComponent},
+  // {path:'addRest',component:AddRestComponent},
+  // {path:'addDish',component:AddDishComponent},
   {path:'search',component:SearchComponent},
-  {path:'restRequest',component:ViewRestuarantComponent},
-  {path:'dishRequest',component:ViewDishComponent},
+  // {path:'restRequest',component:ViewRestuarantComponent},
+  // {path:'dishRequest',component:ViewDishComponent},
   {path:"login",component:UserLoginComponent},
   {path:"register",component:UserRegisterComponent},
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},

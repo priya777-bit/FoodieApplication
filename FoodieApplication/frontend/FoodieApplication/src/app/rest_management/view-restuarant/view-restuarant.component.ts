@@ -25,6 +25,12 @@ export class ViewRestuarantComponent implements OnInit {
     this.addservice.findAllRestaurantByStatus(this.status).subscribe(response=>{
       console.log(response);
       this.restaurant=response;
+      this.restaurant.forEach((element: Restaurant)=>{
+      this.restApi.getImages(element.restaurantId).subscribe(i=>{
+        element.image=i;
+        console.log(i);
+    })
+  })
     })
   }
 

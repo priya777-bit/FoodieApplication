@@ -12,6 +12,8 @@ export class AuthenticationService {
   constructor() { }
   isLoggedIn:boolean=false;
   redirectURL:String="";
+  isUserAdmin: boolean = false;
+
 
   loginUser(token: any) {
     console.log(token);
@@ -19,9 +21,13 @@ export class AuthenticationService {
     return true;
   }
 
-  logIn(){
+  logIn(code:any){
     let token = localStorage.getItem("token");
     console.log(token);
+    console.log(code);
+    console.log(this.isUserAdmin);
+    this.isUserAdmin = code.startsWith('admin');
+    console.log(this.isUserAdmin);
     if (token ==null || token ==undefined|| token == '' ) {
       this.isLoggedIn=false;
       console.log("in if");
@@ -38,6 +44,8 @@ export class AuthenticationService {
     localStorage.removeItem("token");
     this.isLoggedIn=false;
     this.authStatusListener.next(false);  
+    this.isUserAdmin =false;
+    console.log(this.isUserAdmin);
   }
 
   getAuthStatusListener(){

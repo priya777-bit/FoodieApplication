@@ -37,12 +37,13 @@ import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-r
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
 import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
+import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddRestComponent,
-    AddDishComponent,
+    // AddRestComponent,
+    // AddDishComponent,
     NavbarComponent,
     SendRestaurantComponent,
     SendDishComponent,
@@ -50,8 +51,8 @@ import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.comp
     DashboardComponent,
     SearchComponent,
     NavComponent,
-    ViewDishComponent,
-    ViewRestuarantComponent,
+    // ViewDishComponent,
+    // ViewRestuarantComponent,
     UserLoginComponent,
     ProfileDashboardComponent,
     NavBarComponent,
@@ -60,6 +61,7 @@ import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.comp
     GetAllFavComponent,
     ShowDishComponent,
     GetFavDishComponent,
+    // AdminNavBarComponent,
   ],
   imports: [
     BrowserModule,
