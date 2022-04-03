@@ -1,28 +1,23 @@
-<!-- <div class="bg-image hover-overlay hover-zoom hover-shadow ripple"> -->
-    <!-- <mat-card app-player matRipple class="card" *ngFor="let fav of favs">
-        <div *ngFor="let rest of fav.restaurantList">
-                <mat-card-header>
-                    <div *ngFor="let dish of rest.dishList">
-                    <mat-card-title>{{dish.dishName}}</mat-card-title>
-                    <mat-card-subtitle>{{dish.dishType}}</mat-card-subtitle>
-                    <mat-card-content>
-                    <div *ngFor="let image of dish.image">
-                        <img [src]="image.image">
-                    </div>
-                    </mat-card-content>
-                    <button mat-mini-fab >
-                        <mat-icon style="float: right;" (click)="remove(dish)" >favorite</mat-icon>
-                    </button>
-                    </div>
-                </mat-card-header>
-        </div>
-    </mat-card> -->
+<mat-card app-player matRipple class="card" *ngFor="let dish of dishes">
+  <mat-card-header>
+    <mat-card-title>{{ dish.dishName }}</mat-card-title>
+    <mat-card-subtitle>{{ dish.dishType }}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+ <div *ngFor="let image of dish.image">
+  <img  [src]="image.image">
+  </div>
+</mat-card-content>
+<button mat-mini-fab >
+  <mat-icon style="float: right;" (click)="remove(dish)" >favorite</mat-icon>
+</button>
+</mat-card>
 
-    <div class="container">
+    <!-- <div class="container">
     <div class="row text-lg-left">
         <div class="card2" *ngFor="let fav of favs">
             <div *ngFor="let rest of fav.restaurantList">
-                <div *ngFor="let dish of rest.dishList">
+                <div *ngFor="let dish of dishes">
                 <mat-card-header>
                 <div>{{dish.dishName}}</div>
                 <div>{{dish.dishType}}</div>
@@ -39,4 +34,4 @@
         </div>
         </div>
     </div>
-</div>
+</div> -->

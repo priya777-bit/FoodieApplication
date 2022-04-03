@@ -1,18 +1,6 @@
 /* 
-.container{
-  margin-left: -100%;
-} */
-
-
-.full-width {
-  width: 100%;
-}
-
 .card {
   position: absolute;
-  /* margin-top: 5rem;
-  margin-left: -40rem;
-  margin-right: 1rem */
   margin: 4rem;
   margin-left: 15rem;
 }
@@ -38,4 +26,24 @@
 
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
+}  */
+
+.full-width {
+  width: 100%;
+}
+
+.card {
+  min-width: 120px;
+  margin-top: 2%;
+  background: #212529b8;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
 }

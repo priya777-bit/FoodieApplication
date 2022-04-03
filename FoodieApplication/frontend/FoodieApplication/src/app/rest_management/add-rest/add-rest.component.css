@@ -1,25 +1,11 @@
-/* 
-.container{
-  margin-left: -100%;
-} */
-
 .full-width {
   width: 100%;
 }
 
 .card {
-  position: absolute;
-  /* margin-top: 5rem;
-  margin-left: -40rem;
-  margin-right: 1rem */
-  margin: 6rem;
-  margin-left: 10em;
-
-}
-
-.mat-radio-button {
-  display: block;
-  margin: 5px 0;
+  min-width: 120px;
+  margin-top: 2%;
+  background: #212529b8;
 }
 
 .row {
@@ -32,10 +18,6 @@
   margin-right: 20px;
 }
 
-.col:last-child {
-  margin-right: 0;
-} 
-
-.mat-radio-button ~ .mat-radio-button {
-  margin-left: 16px;
+.search {
+  margin-left: 50px;
 }

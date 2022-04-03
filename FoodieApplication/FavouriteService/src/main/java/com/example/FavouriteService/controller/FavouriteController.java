@@ -39,7 +39,7 @@ public class FavouriteController {
     }
 
     @GetMapping("/favourite/getFavourite/{userMailId}")
-    public ResponseEntity<?> getFavourite(@PathVariable String userMailId)
+    public ResponseEntity<?> getAllFavourite(@PathVariable String userMailId)
     {
         try
         {
