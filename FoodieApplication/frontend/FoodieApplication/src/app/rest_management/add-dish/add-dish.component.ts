@@ -55,7 +55,6 @@ export class AddDishComponent implements OnInit {
     });
 
     this.addDishForm = this.fb.group({
-      dishId: [null,Validators.required],
       dishName: [null,Validators.required],
       dishType: [null,Validators.required],
       image : this.fb.group({
@@ -87,7 +86,7 @@ export class AddDishComponent implements OnInit {
     // this.dish.dishId=this.restApi.dishId;
     // console.log("iee"+this.restApi.dishId)
     // console.log("ds"+this.dish.dishId)
-    this.dish.dishId=this.addDishForm.value.dishId;
+    this.dish.dishId=Math.random().toString(36).substring(2,15);
     this.dish.dishName=this.addDishForm.value.dishName;
     this.dish.dishType=this.addDishForm.value.dishType;
     this.uploadImage();

@@ -40,11 +40,7 @@ const routes: Routes = [
   {path:"showRest",component:ShowRestaurantComponent,canActivate:[AuthguardGuard]},
   {path:"showRest/dishList/:id",component:ShowDishComponent,canActivate:[AuthguardGuard]},
   {path:'getFav',component:GetAllFavComponent,canActivate:[AuthguardGuard]},
-<<<<<<< HEAD
-  {path:'getFav/dishList/:id',component:GetFavDishComponent}
-=======
   {path:'getFav/dishList/:id',component:GetFavDishComponent,canActivate:[AuthguardGuard]}
->>>>>>> 602e062606f823f2b8b60d7bdedbf9c4c4702b5c
 ];
 
 @NgModule({

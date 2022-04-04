@@ -22,7 +22,6 @@ export class AddRestComponent implements OnInit {
 
   ngOnInit(): void {
     this.addRestForm = this.fb.group({
-      restaurantId:[null,Validators.required],
       restaurantName: [null,Validators.required],
       restaurantLocation: [null,Validators.required],
       image : this.fb.group({
@@ -33,9 +32,7 @@ export class AddRestComponent implements OnInit {
 
   
   addRest(){
-    // this.Rest.restaurantId=this.restApi.restId;
-    // console.log(this.Rest.restaurantId);
-    this.Rest.restaurantId=this.addRestForm.value.restaurantId;
+    this.Rest.restaurantId=Math.random().toString(36).substring(2,15);
     this.Rest.restaurantName=this.addRestForm.value.restaurantName;
     this.Rest.restaurantLocation=this.addRestForm.value.restaurantLocation;
     this.Rest.dishList=this.addRestForm.value.dishList;
