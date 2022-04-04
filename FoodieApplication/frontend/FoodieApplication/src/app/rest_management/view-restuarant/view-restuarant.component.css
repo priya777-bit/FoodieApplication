@@ -1,7 +1,45 @@
-    
-.table {
-    position: absolute;
-    margin-top: 2rem !important;
-    align-content: center;
-    color: white;
+.container-fluid {
+    display: block;
+}
+
+.card-container {
+    display: none;
+}
+
+@media screen and (min-width: 800px) {
+
+    .table-responsive {
+        display: block;
+    }
+
+    .table {
+        position: absolute;
+        margin-top: 2rem !important;
+        align-content: center;
+        color: white;
+    }
+
+}
+
+
+@media screen and (max-width: 799px) {
+
+    .table-responsive {
+        display: none;
+    }
+
+    .card-container {
+        width: 195px;
+        height: 290px;
+        display: inline-block;
+        margin: 15px;
+        border-radius: 2px;
+        background: rgba(21, 20, 20, 0.122);
+    }
+
+    .card-container img {
+        height: 95px;
+        background: rgba(35, 34, 34, 0.12);
+    }
+
 }

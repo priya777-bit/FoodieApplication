@@ -39,6 +39,8 @@ import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.compone
 import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
 import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,12 @@ import { FormsModule } from '@angular/forms';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],

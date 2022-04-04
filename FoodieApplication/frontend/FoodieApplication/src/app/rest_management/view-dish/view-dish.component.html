@@ -40,3 +40,22 @@
     </tbody>
   </table>
 </div>
+
+<div class="card-container">
+  <mat-card app-player matRipple  *ngFor="let dish of dishes">
+    <mat-card-content>
+      <div *ngFor="let image of dish.image">
+        <img  [src]="image.image" width="fit-content">
+        </div>
+    </mat-card-content>
+    
+  <mat-card-header>
+    <mat-card-title><b> Dish Name: {{ dish.dishName }}</b></mat-card-title>
+    <mat-card-subtitle>Dish Id: {{ dish.dishId }} </mat-card-subtitle>
+    <mat-card-subtitle>Dish Type: {{ dish.dishType }}</mat-card-subtitle>
+</mat-card-header>
+
+<button type="button" class="btn btn-primary"(click)="Add(dish)">Approve
+</button>
+</mat-card>
+</div>

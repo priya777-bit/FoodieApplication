@@ -16,6 +16,7 @@ export class FavService {
   getAllFavUrl="http://localhost:9000/api/user/users/favourite/getFavourite";
   removeUrl="http://localhost:9000/api/user/users/remove";
   removeDishUrl="http://localhost:9000/api/user/users/dish/remove";
+  addDishUrl="http://localhost:9000/api/user/users";
 
 
   addToFav(fav:any):Observable<any>{
@@ -35,6 +36,6 @@ export class FavService {
   }
 
   addDish(favouriteId:string,restaurantId:any,dish:any){
-    return this.http.post("http://localhost:8087/api/user/users/"+`${favouriteId}`+"/"+`${restaurantId}`+"/dish",dish);
+    return this.http.post(`${this.addDishUrl}/${favouriteId}/${restaurantId}`+"/dish",dish);
   }
 }

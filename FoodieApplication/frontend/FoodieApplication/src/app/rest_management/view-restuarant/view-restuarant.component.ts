@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Restaurant } from '../../add-Restaurant-Service/addRestModel/restaurant';
 import { RequestService } from '../../add-Restaurant-Service/addRestService/request.service';
 import { RestApiService } from '../service/rest-api.service';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-view-restuarant',
@@ -15,6 +16,9 @@ export class ViewRestuarantComponent implements OnInit {
   restaurant:Restaurant[]=[];
   isSubmitBtnDisabled: boolean= false;
   status = "reject";
+
+  displayedColumns: string[] = ['restaurantId', 'restaurantName', 'restaurantLocation', 'image'];
+   dataSource = new MatTableDataSource<Restaurant>(this.restaurant);
 
   constructor(private addservice: RequestService,private restApi: RestApiService) { 
     this.selected='';

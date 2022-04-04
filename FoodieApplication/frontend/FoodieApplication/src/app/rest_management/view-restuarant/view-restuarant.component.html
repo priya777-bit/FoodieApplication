@@ -1,4 +1,4 @@
- <div class="mt-2">
+ <div class="table-responsive">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -15,7 +15,6 @@
           <td>{{restaurant.restaurantName}}</td>
           <div *ngFor= "let image of restaurant.image">
             <td ><img [src]="image.image" width="fit-content" height="80px"></td>
-            <!-- <td *ngIf="dish.dishId==imgpath"><img [src]="imgpath" width="fit-content"></td> -->
             </div>
           <td>{{restaurant.restaurantLocation}}</td>
           <td><button type="button" class="btn btn-danger" (click)="delete(restaurant.restaurantId)">Reject</button></td>
@@ -24,3 +23,28 @@
       </tbody>
     </table>
   </div>
+
+  <div class="card-container">
+  <mat-card app-player matRipple  *ngFor="let restaurant of restaurant">
+    <mat-card-content>
+      <div *ngFor="let image of restaurant.image">
+        <img  [src]="image.image" width="fit-content">
+        </div>
+    </mat-card-content>
+    
+  <mat-card-header>
+    <mat-card-title><b> Restaurant Name: {{restaurant.restaurantName}}</b></mat-card-title>
+    <mat-card-subtitle>Restaurant Id: {{restaurant.restaurantId}} </mat-card-subtitle>
+    <mat-card-subtitle>Restaurant Location: {{restaurant.restaurantLocation}}</mat-card-subtitle>
+</mat-card-header>
+
+<button type="button" class="btn btn-danger" (click)="delete(restaurant.restaurantId)">Reject</button>
+<span>
+<button type="button" style="margin: 3px;" class="btn btn-primary"(click)="Add(restaurant)">Approve
+</button>
+</span>
+</mat-card>
+</div>
+
+  
+

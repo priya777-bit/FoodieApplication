@@ -1,14 +1,48 @@
     
-.table {
+.container-fluid {
+  display: block;
+}
+
+.card-container {
+  display: none;
+}
+
+@media screen and (min-width: 481px) {
+  /* mobile version css */
+
+  .mt-5 {
+    display: block;
+  }
+
+  .table {
     position: absolute;
     margin-top: 2rem !important;
     align-content: center;
     color: white;
-}
+  }
 
-.card {
-  min-width: 100px;
-  margin-top: 5%;
 }
 
 
+@media screen and (min-width: 200px) and (max-width: 480px) {
+  /* mobile version css */
+
+  .mt-5{
+    display: none;
+  }
+
+  .card-container {
+    width: 195px;
+    height: 290px;
+    display: inline-block;
+    margin: 15px;
+    border-radius: 2px;
+    background: rgba(21, 20, 20, 0.122);
+  }
+  
+  .card-container img {
+    height: 120px;
+    background: rgba(35, 34, 34, 0.12);
+  }
+
+}
