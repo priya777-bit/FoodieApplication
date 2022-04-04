@@ -15,10 +15,10 @@ export class UserRequestService {
   show:boolean=false;
   token:any;
 
-  registerURL="http://localhost:9000/api/user/registerUser";
-  imgURL="http://localhost:9000/api/user/userImage";
+  registerURL="http://localhost:9000/api/user/v2/registerUser";
+  imgURL="http://localhost:9000/api/user/v2/userImage";
   loginURL="http://localhost:9000/api/userAuthentication/login";
-  getProfileURL="http://localhost:9000/api/user/users/getUserProfile"
+  getProfileURL="http://localhost:9000/api/user/v2/users/getUserProfile"
   getDataURL="http://localhost:9000/api/userAuthentication/getData";
 
   register(uploadImageData:any):Observable<any>
