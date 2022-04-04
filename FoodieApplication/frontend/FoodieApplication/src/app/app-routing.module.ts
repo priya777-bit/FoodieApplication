@@ -24,7 +24,7 @@ const routes: Routes = [
  // {path:'',component:DashboardComponent},
  {path: 'admin',loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),canLoad: [CanLoadGuard]},
   {path:"",component:ShowRestaurantComponent},
-  {path:"dishList/:id",component:UserLoginComponent},
+  {path:"dishList/:id",component:ShowDishComponent,canActivate:[AuthguardGuard]},
   {path:'rest',component:SendRestaurantComponent},
   {path:'dish',component:SendDishComponent},
   // {path:'addRest',component:AddRestComponent},

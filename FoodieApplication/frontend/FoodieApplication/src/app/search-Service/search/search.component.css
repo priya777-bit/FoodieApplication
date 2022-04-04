@@ -37,3 +37,12 @@
   margin-bottom: 52px;
   background: rgba(0, 0, 0, 0.437);
 }
+
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+a:hover {
+  color: rgb(190, 32, 111);
+}

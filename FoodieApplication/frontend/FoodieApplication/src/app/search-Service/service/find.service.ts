@@ -14,12 +14,12 @@ export class FindService {
 
   getByRestaurantName(restaurantName:string):Observable<Array<any>>
   {
-    return this.http.get<Array<any>>("http://localhost:8084/api/v1/search/rest/"+restaurantName);
+    return this.http.get<Array<any>>("http://localhost:9000/api/v1/search/rest/"+restaurantName);
   }
 
   getByDishName(dishName:string):Observable<Array<any>>
   {
-    return this.http.get<Array<any>>("http://localhost:8084/api/v1/search/dish/"+dishName);
+    return this.http.get<Array<any>>("http://localhost:9000/api/v1/search/dish/"+dishName);
   }
 
   getImage(filename:string):Observable<any>

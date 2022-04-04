@@ -28,21 +28,22 @@
             <div *ngFor="let dishes1 of dishes.dishList">
                 <div *ngIf="rest.restaurantName==dishes.restaurantName; then thenBlock else elseBlock"></div>
                 <ng-template #thenBlock>
+                    <a href="dishList/{{dishes.restaurantId}}">
             <mat-card-content>
                 <div>{{dishes.restaurantName}}</div>
-                <div>{{dishes1.dishId}}</div>
                 <div>{{dishes1.dishName}}</div>
                 <div>{{dishes1.dishType}}</div>
                 <div *ngFor="let image of dishes1.image">
                 <img class="img-thumbnail" [src]="image.image">
                 </div>
             </mat-card-content>
+        </a>
         </ng-template>
     <ng-template #elseBlock>
+        <a href="dishList/{{dishes.restaurantId}}">
             <mat-card-content>
                     <div *ngIf="dishes1.dishName==dish.dishName">
                 <div>{{dishes.restaurantName}}</div>
-                <div>{{dishes1.dishId}}</div>
                 <div>{{dishes1.dishName}}</div>
                 <div>{{dishes1.dishType}}</div>
                 <div *ngFor="let image of dishes1.image">
@@ -50,6 +51,7 @@
                 </div>
             </div>
             </mat-card-content>
+        </a>
     </ng-template>
         </div>
         </div>

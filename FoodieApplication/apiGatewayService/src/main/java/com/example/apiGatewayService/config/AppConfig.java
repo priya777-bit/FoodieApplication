@@ -25,7 +25,7 @@ public class AppConfig {
                 .route(s->s.path("/api/v1/**")
                         .uri("http://localhost:8084/"))
 
-                .route(u1->u1.path("/api/user/**")
+                .route(u1->u1.path("/api/user/v2/**")
                         //.uri("lb://USER-SERVICE"))
                         .uri("http://localhost:8085"))
 
@@ -35,7 +35,7 @@ public class AppConfig {
                 .route(f->f.path("/api/user/users/**")
                         .uri("http://localhost:8087/"))
 
-                .route(o->o.path("/api/user/**")
+                .route(o->o.path("/api/user/users/order/**")
                         .uri("http://localhost:8088/"))
 
                 .route(m->m.path("/api/user/admin/**")

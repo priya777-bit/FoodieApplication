@@ -1,4 +1,5 @@
 <mat-card app-player matRipple class="card" *ngFor="let dish of data;index as indexOfelement">
+  <a href="#">
   <mat-card-header>
     <mat-card-title>{{ dish.dishName }}</mat-card-title>
     <mat-card-subtitle>{{ dish.dishType }}</mat-card-subtitle>
@@ -8,6 +9,7 @@
   <img  [src]="image.image">
   </div>
 </mat-card-content>
+  </a>
 <button mat-mini-fab >
   <mat-icon style="float: right;" (click)="add(dish)" >favorite</mat-icon>
 </button>

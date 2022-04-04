@@ -47,13 +47,14 @@
       <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</button>
       </div>
 
-      <div style="margin-left:150px ;" > 
+      <div style="margin-left:auto ;" > 
        <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
        <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+      </div>
        <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
         <button mat-button  type="submit" (click)="logout()">Logout</button>
       </div>
-      </div>
+
       
     </mat-toolbar>
     <router-outlet></router-outlet>

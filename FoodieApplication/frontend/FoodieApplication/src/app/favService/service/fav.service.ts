@@ -12,10 +12,10 @@ export class FavService {
 
   constructor(private http: HttpClient) { }
 
-  addToFavUrl="http://localhost:8087/api/user/users/favourite/addFavourite";
-  getAllFavUrl="http://localhost:8087/api/user/users/favourite/getFavourite";
-  removeUrl="http://localhost:8087/api/user/users/remove";
-  removeDishUrl="http://localhost:8087/api/user/users/dish/remove";
+  addToFavUrl="http://localhost:9000/api/user/users/favourite/addFavourite";
+  getAllFavUrl="http://localhost:9000/api/user/users/favourite/getFavourite";
+  removeUrl="http://localhost:9000/api/user/users/remove";
+  removeDishUrl="http://localhost:9000/api/user/users/dish/remove";
 
 
   addToFav(fav:any):Observable<any>{
