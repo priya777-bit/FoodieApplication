@@ -39,7 +39,7 @@ const routes: Routes = [
   //{path:"showRest/dishList/:id",component:ShowDishComponent}
   {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
   {path:"showRest/dishList/:id",component:ShowDishComponent,canActivate:[AuthguardGuard]},
-  {path:'getFav',component:GetAllFavComponent},
+  {path:'getFav',component:GetAllFavComponent,canActivate:[AuthguardGuard]},
   {path:'getFav/dishList/:id',component:GetFavDishComponent}
 ];
 
