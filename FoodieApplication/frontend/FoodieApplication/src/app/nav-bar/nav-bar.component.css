@@ -24,7 +24,7 @@
   position: relative;
  
 } 
-.sidenav-container {
+/* .sidenav-container {
   height: 100%;
 }
 .sidenav {
@@ -42,7 +42,7 @@
 }
 .navButton{
   margin-left:975px ;
-}
+} */
 .search{
   margin-left: 50px;
 }
@@ -55,3 +55,15 @@
   margin-top: 25px;
 }
 
+.nav-item{
+  padding:2px;
+  margin-left: 7px;
+}
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}

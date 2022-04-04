@@ -2,10 +2,10 @@
   width: 100%;
 }
 
-form{
+/* form{
   margin-left: 500px;
   margin-right: 500px;
-  }
+  } */
 
 .shipping-card {
   min-width: 120px;
@@ -18,7 +18,7 @@ form{
   margin: 5px 0;
 }
 
-.row {
+.row1 {
   display: flex;
   flex-direction: row;
 }

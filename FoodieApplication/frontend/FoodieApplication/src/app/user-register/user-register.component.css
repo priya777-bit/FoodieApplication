@@ -1,17 +1,17 @@
 .full-width {
   width: 100%;
 }
-form{
+/* form{
 
 margin-left: 500px;
 margin-right: 500px;
-}
+} */
 .register {
   min-width: 120px;
   margin: 20px auto;
   background:#212529b8;
 }
-.row {
+.row1 {
   display: flex;
   flex-direction: row;
 }

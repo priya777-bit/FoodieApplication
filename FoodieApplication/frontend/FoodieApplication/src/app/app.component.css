@@ -1,8 +1,9 @@
-/* .bg-img {  
-    min-height: 750px;
-    background-image: url("/bg_image.jpg");  
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }  */
+.my-container {
+  margin-top: 70px;
+  width: 100%;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
