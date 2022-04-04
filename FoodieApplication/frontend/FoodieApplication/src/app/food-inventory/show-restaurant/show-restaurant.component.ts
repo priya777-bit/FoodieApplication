@@ -66,12 +66,12 @@ export class ShowRestaurantComponent {
     this.favService.addToFav(this.favourite).subscribe(res=>{
       console.log(res);
     },error =>{
-      if(this.favourite.restaurantList=[restuarent]){
-        alert("Already Added");
-      }
-      else{
+      // if(this.favourite.restaurantList=[restuarent]){
+      //   alert("Already Added");
+      // }
+      // else{
         console.log(error);
-      }
+      //}
     })
 
   }

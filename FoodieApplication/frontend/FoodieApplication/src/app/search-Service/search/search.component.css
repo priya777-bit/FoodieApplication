@@ -23,11 +23,17 @@
   height: 270px;
   display: inline-block;
   margin: 20px;
-  background: rgba(0, 0, 0, 0.437);
 }
 
 .card2 img {
   height: 150px;
   margin-top: 10px;
+}
+
+.mat-card-actions,
+.mat-card-subtitle,
+.mat-card-content {
+  display: block;
+  margin-bottom: 52px;
   background: rgba(0, 0, 0, 0.437);
 }
