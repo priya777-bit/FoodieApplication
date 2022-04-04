@@ -1,4 +1,20 @@
 
+/* 
+@media only screen and(min-width: 425px) {
+
+  .mat-toolbar-row,
+  .mat-toolbar-single-row {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 404%;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+} */
+
 .bg-img {  
   min-height: 380px;
   background-image: url("/bg_image.jpg");  
@@ -38,3 +54,4 @@
   margin-left: 10px;
   margin-top: 25px;
 }
+
