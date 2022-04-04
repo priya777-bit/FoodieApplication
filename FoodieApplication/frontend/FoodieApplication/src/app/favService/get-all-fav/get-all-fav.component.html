@@ -12,13 +12,16 @@
     <mat-card app-player matRipple class="card" *ngFor="let fav of favs">
       <div *ngFor="let rest of fav.restaurantList">
         <a routerLink="dishList/{{rest.restaurantId}}">
-                <mat-card-content >
-                    <mat-card-header>
-                        <mat-card-title>{{ rest.restaurantName }}</mat-card-title>
-                        <mat-card-subtitle>{{ rest.restaurantLocation }}</mat-card-subtitle>
-                    </mat-card-header>
-                </mat-card-content>
-            </a>
+            <mat-card-header>
+                <mat-card-title>{{ rest.restaurantName }}</mat-card-title>
+                <mat-card-subtitle>{{ rest.restaurantLocation }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngFor="let image of rest.image">
+                    <img mat-card-image [src]="image.image">
+                </div>
+            </mat-card-content>
+        </a>
         </div>
         <button mat-mini-fab >
             <mat-icon style="float: right;" (click)="remove(fav)" >favorite</mat-icon>

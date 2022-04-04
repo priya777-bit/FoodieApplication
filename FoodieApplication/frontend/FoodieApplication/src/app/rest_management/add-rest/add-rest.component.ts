@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Restaurant } from 'src/app/add-Restaurant-Service/addRestModel/restaurant';
@@ -12,16 +13,21 @@ import { RestApiService } from '../service/rest-api.service';
 })
 export class AddRestComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private restApi: RestApiService,private request: RequestService) { }
+  constructor(private fb: FormBuilder,private restApi: RestApiService,private request: RequestService,private http:HttpClient) { }
 
   addRestForm !: FormGroup;
   Rest = new Restaurant();
+  selectedFile:any=null;
+   newdata:any;
 
   ngOnInit(): void {
     this.addRestForm = this.fb.group({
       restaurantId:[null,Validators.required],
       restaurantName: [null,Validators.required],
-      restaurantLocation: [null,Validators.required]
+      restaurantLocation: [null,Validators.required],
+      image : this.fb.group({
+        image:[null]
+      })
     });
   }
 
@@ -33,6 +39,7 @@ export class AddRestComponent implements OnInit {
     this.Rest.restaurantName=this.addRestForm.value.restaurantName;
     this.Rest.restaurantLocation=this.addRestForm.value.restaurantLocation;
     this.Rest.dishList=this.addRestForm.value.dishList;
+    this.uploadImage();
     this.restApi.registerRestaurant(this.Rest)
     .subscribe(
         response=>{
@@ -49,6 +56,24 @@ export class AddRestComponent implements OnInit {
       console.log(res);
     })
     
+  }
+
+  onFileSelected(event:any)
+  {
+    this.selectedFile=event.target.files[0];
+    console.log(this.selectedFile);
+  }
+
+  uploadImage()
+  {
+    const payload = new FormData();
+    payload.append('file',this.selectedFile,this.Rest.restaurantId+".jpg");
+
+    this.http.post("http://localhost:8090/api/user/admin/image",payload,)
+    .subscribe((data:any)=>{
+      this.newdata = data;
+      console.log(this.newdata);
+    })
   }
   
 }

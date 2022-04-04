@@ -1,30 +1,33 @@
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
-  .card {
-    min-width: 160px;
-    margin-top: 2%;
-    background:#212529b8;
-  }
+.card {
+  min-width: 160px;
+  margin-top: 2%;
+  background: rgba(0, 0, 0, 0.437);
+}
 
-  .row {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .col {
-    flex: 1;
-    margin-right: 20px;
-  }
+.row {
+  display: flex;
+  flex-direction: row;
+}
 
-  .card2 {
-    width: 260px;
-    height: 270px;
-    display: inline-block;
-    margin: 20px;
-  }
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
 
-  .card2 img{
-    height: 150px;
-  }
+.card2 {
+  width: 260px;
+  height: 270px;
+  display: inline-block;
+  margin: 20px;
+  background: rgba(0, 0, 0, 0.437);
+}
+
+.card2 img {
+  height: 150px;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.437);
+}

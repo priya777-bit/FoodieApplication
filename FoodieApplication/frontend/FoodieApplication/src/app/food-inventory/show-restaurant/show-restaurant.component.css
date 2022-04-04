@@ -3,11 +3,13 @@
   height: 270px;
   display: inline-block;
   margin: 20px;
+  background: rgba(0, 0, 0, 0.437);
 }
 
-.card img{
+.card img {
   height: 150px;
-  background: rgba(0, 0, 0, 0.12);
+  margin-top: 5px;
+  background: rgb(0 0 0 / 12%);
 }
 
 a {

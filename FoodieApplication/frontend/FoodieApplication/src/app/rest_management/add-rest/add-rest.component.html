@@ -36,6 +36,14 @@
                         </mat-form-field>
                     </div>
                 </div>
+                <div formGroupName="image">
+                    <div class="row">
+                    <div class="col">
+                        <h6> Upload Restaurant Image</h6>
+                        <input name="image" type="file" (change)="onFileSelected($event)">
+                    </div>
+                </div>
+                </div>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="primary" type="submit" [disabled]="!addRestForm.valid" >Save</button>
