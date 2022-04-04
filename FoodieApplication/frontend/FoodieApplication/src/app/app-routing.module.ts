@@ -23,7 +23,7 @@ import { CanLoadGuard } from './can-load.guard';
 const routes: Routes = [
  // {path:'',component:DashboardComponent},
  {path: 'admin',loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),canLoad: [CanLoadGuard]},
-  {path:"",component:ShowRestaurantComponent,children:[]},
+  {path:"",component:ShowRestaurantComponent},
   {path:"dishList/:id",component:UserLoginComponent},
   {path:'rest',component:SendRestaurantComponent},
   {path:'dish',component:SendDishComponent},
@@ -37,10 +37,10 @@ const routes: Routes = [
   {path:"profile",component:ProfileDashboardComponent,canActivate:[AuthguardGuard]},
   //{path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
   //{path:"showRest/dishList/:id",component:ShowDishComponent}
-  {path:"showRest",component:ShowRestaurantComponent,children:[],canActivate:[AuthguardGuard]},
+  {path:"showRest",component:ShowRestaurantComponent,canActivate:[AuthguardGuard]},
   {path:"showRest/dishList/:id",component:ShowDishComponent,canActivate:[AuthguardGuard]},
-  {path:'getFav',component:GetAllFavComponent},
-  {path:'getFav/dishList/:id',component:GetFavDishComponent}
+  {path:'getFav',component:GetAllFavComponent,canActivate:[AuthguardGuard]},
+  {path:'getFav/dishList/:id',component:GetFavDishComponent,canActivate:[AuthguardGuard]}
 ];
 
 @NgModule({

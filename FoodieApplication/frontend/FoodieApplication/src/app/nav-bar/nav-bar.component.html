@@ -39,10 +39,10 @@
      
       <div style="display: flex;">
       <button mat-button color="accent"  class="search" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
-      <button mat-button color="accent"  class="search" routerLink="/rest">Send Restaurant</button>
-      <button mat-button color="accent" routerLink="/dish">Send Dish</button>
-      <button mat-button color="accent" routerLink="admin/addRest">Add Restaurant</button>
-      <button mat-button color="accent" routerLink="admin/addDish">Add Dish</button>
+      <button mat-button color="accent"  *ngIf = "!userIsAuthenticated"  class="search" routerLink="/rest">Send Restaurant</button>
+      <button mat-button color="accent"  *ngIf = "!userIsAuthenticated" routerLink="/dish">Send Dish</button>
+      <button mat-button color="accent"  routerLink="admin/addRest">Add Restaurant</button>
+      <button mat-button color="accent"  routerLink="admin/addDish">Add Dish</button>
       <button mat-button color="accent" routerLink="admin/restRequest">View Restaurant Request</button>
       <button mat-button color="accent" routerLink="admin/dishRequest">View Dish Request</button>
       </div>
@@ -57,5 +57,8 @@
       
     </mat-toolbar>
     <router-outlet></router-outlet>
+
+  
+
   </mat-sidenav-content>
 </mat-sidenav-container>

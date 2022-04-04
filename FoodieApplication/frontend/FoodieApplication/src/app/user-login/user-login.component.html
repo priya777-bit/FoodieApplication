@@ -22,6 +22,25 @@
           </mat-form-field>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col">
+          <label id="example-radio-group-label">Type Of User</label>
+          <mat-radio-group formControlName="loginType">
+            <mat-radio-button (click)="isAdmin = !isAdmin" value="admin">Admin User</mat-radio-button>
+            <mat-radio-button  value="Normal">Normal User</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="isAdmin">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Secret Key" formControlName="secretKey">
+          </mat-form-field>
+        </div>
+      </div>
+
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Submit</button>

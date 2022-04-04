@@ -23,6 +23,7 @@ export class NavBarComponent {
 
     private authListenerSubs: Subscription; 
     userIsAuthenticated:any;
+    isUserAdmin:boolean=false;
 
   constructor(private breakpointObserver: BreakpointObserver,private authService:AuthenticationService,private router:Router,private request:UserRequestService) {}
 
@@ -35,6 +36,8 @@ export class NavBarComponent {
     this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{  
       this.userIsAuthenticated = isAuthenticated
     });  
+
+    this.isUserAdmin=this.authService.isUserAdmin;
   }
 
   ngOnDestroy(){

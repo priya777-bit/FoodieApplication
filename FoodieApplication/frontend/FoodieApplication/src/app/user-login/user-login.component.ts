@@ -13,11 +13,28 @@ import { UserRequestService } from '../user-request.service';
 export class UserLoginComponent {
   loginForm = this.fb.group({
     userMailId: [null, Validators.required],
-    userPassword: [null, Validators.required]
+    userPassword: [null, Validators.required],
+    loginType:[null, Validators.required],
+    secretKey:[null, Validators.required]
   });
 
   data:any;
+  loginType: any;
+  types: string[] = ['Admin User', 'Normal User'];
+  isAdmin:Boolean=false;
   constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService) {}
+
+  ngOnInit(){
+    const data=this.loginForm.value;
+    if(data.loginType=='admin')
+    {
+      this.isAdmin=true;
+    }
+    else
+    {
+      this.isAdmin=false;
+    }
+  }
 
   onSubmit(): void {
     const data=this.loginForm.value;
@@ -27,19 +44,21 @@ export class UserLoginComponent {
         if(data.userMailId==data1[i].userMailId && data.userPassword==data1[i].userPassword)
       {
         this.request.login(data).subscribe(response=>{
-        console.log(response);
         this.data=response;
         this.request.token=this.data.token;
         console.log(this.data.token);
-        this.authServe.loginUser(null);
+        this.authServe.loginUser(this.data.token);
         this.request.mailId=data.userMailId;
-        console.log("id",this.request.mailId)
-        const value=this.authServe.logIn(data.userMailId);
-        console.log(value);
+        const value=this.authServe.logIn(data.loginType);
         //this.request.mailId=this.fav.userMailId;
         if(value)
         {
         this.router.navigate(["/showRest"]);
+        }
+        else
+        {
+          alert("Invalid UserName or Password");
+          
         }
       })
       }
