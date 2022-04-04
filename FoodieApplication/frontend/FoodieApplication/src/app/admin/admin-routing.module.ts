@@ -8,17 +8,18 @@ import { AdminNavBarComponent } from './admin-nav-bar/admin-nav-bar.component';
 
 const routes: Routes = [
   {
-    path:'',
+     path:'',
+    // component:AdminNavBarComponent,
     children: [
       {path:'addRest',component:AddRestComponent},
       {path:'addDish',component:AddDishComponent},
       {path:'restRequest',component:ViewRestuarantComponent},
       {path:'dishRequest',component:ViewDishComponent},
-      // {
-      //   path: "",
-      //   redirectTo: 'addRest',
-      //   pathMatch: "full"
-      // }
+      {
+        path: '',
+        redirectTo: 'admin',
+        pathMatch: "full"
+      }
     ]
   }
 ]

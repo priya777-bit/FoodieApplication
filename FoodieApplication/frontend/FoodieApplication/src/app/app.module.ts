@@ -38,6 +38,7 @@ import { ShowDishComponent } from './food-inventory/show-dish/show-dish.componen
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
 import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
 import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.compon
     MatMenuModule,
     LayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

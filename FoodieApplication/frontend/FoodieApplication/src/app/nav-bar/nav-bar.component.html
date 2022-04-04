@@ -9,7 +9,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a *ngIf = "userIsAuthenticated" mat-list-item routerLink="profile">Profile</a>
+      <a *ngIf = "userIsAuthenticated || adminIsAuthenticated" mat-list-item routerLink="profile">Profile</a>
       <a mat-list-item routerLink="showRest">Show Restaurant</a>
       <a mat-list-item routerLink="getFav">Favourite</a>
     </mat-nav-list>
@@ -41,23 +41,23 @@
       <button mat-button color="accent"  class="search" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
       <button mat-button color="accent" *ngIf = "!userIsAuthenticated" class="search" routerLink="/rest">Send Restaurant</button>
       <button mat-button color="accent" *ngIf = "!userIsAuthenticated" routerLink="/dish">Send Dish</button>
-      <button mat-button color="accent" routerLink="admin/addRest">Add Restaurant</button>
-      <button mat-button color="accent" routerLink="admin/addDish">Add Dish</button>
-      <button mat-button color="accent" routerLink="admin/restRequest">View Restaurant Request</button>
-      <button mat-button color="accent" routerLink="admin/dishRequest">View Dish Request</button>
+      <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/addRest">Add Restaurant</button>
+      <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/addDish">Add Dish</button>
+      <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/restRequest">View Restaurant Request</button>
+      <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</button>
       </div>
 
       <div style="margin-left:150px ;" > 
-       <a style="color: white;" *ngIf = "!userIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
-       <a style="color: white;" *ngIf = "!userIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
-       <div *ngIf = "userIsAuthenticated"> 
+       <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+       <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+       <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
         <button mat-button  type="submit" (click)="logout()">Logout</button>
       </div>
       </div>
       
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <mat-card-footer>
+    <mat-card-footer style="width: 99.9vw;">
       <div style="margin-top:350px;padding-left: 30px;display:flex;">
         <div style="margin-left: 30%;">
           <p><b>FOR YOU</b></p>

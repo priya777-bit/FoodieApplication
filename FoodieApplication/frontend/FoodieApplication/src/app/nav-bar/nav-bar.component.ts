@@ -23,22 +23,26 @@ export class NavBarComponent {
 
     private authListenerSubs: Subscription; 
     userIsAuthenticated:any;
+    private isUserAdminSubs:Subscription;
+    adminIsAuthenticated:any;
 
   constructor(private breakpointObserver: BreakpointObserver,private authService:AuthenticationService,private router:Router,private request:UserRequestService) {}
 
   LoginStatus$=new BehaviorSubject<boolean>(null);
 
   ngOnInit(){
-    // this.authService.globalStateChanged.subscribe(state=>{
-    //   this.LoginStatus$.next(state.logIn)
-    // })
     this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{  
       this.userIsAuthenticated = isAuthenticated
     });  
+
+    this.isUserAdminSubs=this.authService.getAdminStatusListener().subscribe(isAuthenticated=>{
+      this.adminIsAuthenticated=isAuthenticated
+    })
   }
 
   ngOnDestroy(){
     this.authListenerSubs.unsubscribe();
+    this.isUserAdminSubs.unsubscribe();
   }
     
 

@@ -16,6 +16,8 @@ public class ProducerMessageConfiguration {
     private String exchangeName="search_exchange";
     private String searchDishQueue="search_dish_queue";
     private String searchRestQueue="search_rest_queue";
+    private String foodInvenDishQueue="inventory_dish_queue";
+    private String foodInvenRestQueue="inventory_rest_queue";
 
     @Bean
     public DirectExchange directExchange(){
@@ -30,6 +32,16 @@ public class ProducerMessageConfiguration {
     @Bean
     public Queue searchDishQueue(){
         return new Queue(searchDishQueue);
+    }
+
+    @Bean
+    public Queue foodInvenDishQueue(){
+        return  new Queue(foodInvenDishQueue);
+    }
+
+    @Bean
+    public Queue foodInvenRestQueue(){
+        return new Queue(foodInvenRestQueue);
     }
 
     @Bean
@@ -52,6 +64,16 @@ public class ProducerMessageConfiguration {
     @Bean
     Binding bindingDish(Queue searchDishQueue,DirectExchange directExchange){
         return BindingBuilder.bind(searchDishQueue()).to(directExchange).with("search_dish_routing");
+    }
+
+    @Bean
+    Binding bindingInventoryRest(Queue foodInvenRestQueue,DirectExchange directExchange){
+        return BindingBuilder.bind(foodInvenRestQueue()).to(directExchange).with("search_rest_routing");
+    }
+
+    @Bean
+    Binding bindingInventoryDish(Queue foodInvenDishQueue,DirectExchange directExchange){
+        return BindingBuilder.bind(foodInvenDishQueue()).to(directExchange).with("search_dish_routing");
     }
 
 }
