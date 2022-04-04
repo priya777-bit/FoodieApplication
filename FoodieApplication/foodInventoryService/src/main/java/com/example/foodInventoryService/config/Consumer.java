@@ -18,7 +18,7 @@ public class Consumer {
     @Autowired
     private FoodService foodService;
 
-    @RabbitListener(queues = "search_rest_queue")
+    @RabbitListener(queues = "inventory_rest_queue")
     public void getRestaurantDTOFromRabbitMq(RestaurantDTO restaurantDTO)
     {
         Restaurant restaurant = new Restaurant();
@@ -29,7 +29,7 @@ public class Consumer {
         foodService.saveRestaurant(restaurant);
     }
 
-    @RabbitListener(queues = "search_dish_queue")
+    @RabbitListener(queues = "inventory_dish_queue")
     public void getDishDTOFromRabbitMq(DishDTO dishDTO)
     {
         Dish dish = new Dish();
