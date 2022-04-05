@@ -6,6 +6,7 @@ export class Restaurant {
     restaurantId:string;
     restaurantName:string;
     restaurantLocation:string;
+    // isFavouriteRestaurant:string;
     image:Image[];
     dishList: Array<Dish>;
 
@@ -13,6 +14,7 @@ export class Restaurant {
         this.restaurantId='',
         this.restaurantName='';
         this.restaurantLocation='';
+        // this.isFavouriteRestaurant='';
         this.image=[];
         this.dishList=[];
     }

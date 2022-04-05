@@ -25,6 +25,7 @@ export class ShowRestaurantComponent {
   dishes:Dish[];
   image:Image[];
   favourite = new Favourite();
+  color="white";
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService) {}
 
@@ -46,6 +47,7 @@ export class ShowRestaurantComponent {
 
   add(restuarent:any){
     //restuarent.isSelected = true;
+    this.color="red";
     
     this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
     this.favService.favId=this.favourite.favouriteId

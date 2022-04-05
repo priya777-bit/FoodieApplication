@@ -24,7 +24,7 @@
         </a>
         </div>
         <button mat-mini-fab >
-            <mat-icon style="float: right;" (click)="remove(fav)" >favorite</mat-icon>
+            <mat-icon [style.color]=fav.isFavourite (click)="remove(fav)" >favorite</mat-icon>
         </button>
     </mat-card>
   </div>
