@@ -34,12 +34,12 @@
         display: inline-block;
         margin: 15px;
         border-radius: 2px;
-        background: rgba(21, 20, 20, 0.122);
+        background: rgb(0 0 0 / 12%);
     }
 
     .card-container img {
         height: 95px;
-        background: rgba(35, 34, 34, 0.12);
+        background: rgb(0 0 0 / 12%);
     }
 
 }

@@ -14,7 +14,7 @@
     </a>
     <a routerLink="dishList/{{restuarent.restaurantId}}"></a>
     <button mat-mini-fab >
-        <mat-icon  color="whitesmoke" (click)="add(restuarent)" >favorite</mat-icon>
+        <mat-icon  [style.color]="color" (click)="add(restuarent)" >favorite</mat-icon>
         </button>
     </mat-card>
     </div>
