@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { InventoryRequestService } from '../service/inventory-request.service';
@@ -16,7 +16,9 @@ import { Router } from '@angular/router';
   templateUrl: './show-restaurant.component.html',
   styleUrls: ['./show-restaurant.component.css']
 })
+
 export class ShowRestaurantComponent {
+
 
   
   restuarents: any;
@@ -26,69 +28,91 @@ export class ShowRestaurantComponent {
   dishes:Dish[];
   image:Image[];
   favourite = new Favourite();
-  color="white";
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
   ngOnInit(){
+    let tempFavRestId:any[]=[];
+
+    this.favService.getAllFav(this.userRqst.mailId).subscribe(data=>{
+      //console.log("favobj", data);
+      data.forEach(favourite=>{
+        favourite.restaurantList.forEach((restaurant:any)=>{     
+          tempFavRestId.push(restaurant.restaurantId);
+        })
+      })
+      //console.log("tempFavRestId",tempFavRestId);
+      this.getInventoryRestaurants(tempFavRestId);
+    })
+
+    
+  }
+
+  getInventoryRestaurants(tempFavRestId:any[]){
+
     this.request.getdata().subscribe(result=>{
-      this.restuarents=result;
-      result.forEach((element: Restaurant) => {
-        console.log(element.restaurantId);
+      let tempArray:any[]=[];
+	  
+      result.forEach((element) => {
         this.request.getImages(element.restaurantId).subscribe(result1=>{
-          // this.data2=result;
           element.image=result1;
-          console.log(element);
-          console.log(result);
-          this.data=result;
+         
+          let rest = {
+            "restaurantId": element.restaurantId,
+            "restaurantName": element.restaurantName,
+            "restaurantLocation": element.restaurantLocation,
+            "restaurantImage": element.image[0].image,
+            "isFavourite": "white",
+            "dishList": element.dishList
+          };
+          
+          if(tempFavRestId.includes(element.restaurantId)){
+            rest.isFavourite = 'red';
+          }
+		      tempArray.push(rest);
         })  
-      }); 
+      });
+      this.restuarents = tempArray; 
+      console.log('Restaurants updated ', this.restuarents);
     })
   }
 
   add(restuarent:any){
-    //restuarent.isSelected = true;
-<<<<<<< HEAD
-    this.color="red";
-    
-=======
 
-    if(this.userRqst.mailId!=null)
-    {
->>>>>>> b2f9bf21f0e46779dd8add24387ac0c079bdaaed
-    this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
-    this.favService.favId=this.favourite.favouriteId
-    console.log(this.favourite.favouriteId);
-    this.favourite.userMailId = this.userRqst.mailId;
-    console.log("mail"+this.favourite.userMailId)
-    this.favourite.restaurantList = [restuarent];
-    this.favourite.restaurantList.forEach(d=>{
-        this.dishes=d.dishList;
-        console.log("dish",this.dishes);
-          this.dishes.forEach(i=>{
-            this.request.getImages(i.dishId).subscribe(val=>{
-              this.image=val;
-              console.log("img",this.image);
-            })
-          })
-        })
-    this.favService.addToFav(this.favourite).subscribe(res=>{
-      console.log(res);
-    },error =>{
-      // if(this.favourite.restaurantList=[restuarent]){
-      //   alert("Already Added");
-      // }
-      // else{
-        console.log(error);
-      //}
+    this.restuarents.forEach((ele:any)=>{
+      if(ele.restaurantId == restuarent.restaurantId){
+        ele.isFavourite = 'red';
+      }
     })
 
+    if(this.userRqst.mailId!=null){
+      this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
+      this.favService.favId=this.favourite.favouriteId
+      console.log(this.favourite.favouriteId);
+      this.favourite.userMailId = this.userRqst.mailId;
+      console.log("mail"+this.favourite.userMailId)
+      this.favourite.restaurantList = [restuarent];
+
+      this.favourite.restaurantList.forEach(d=>{
+        console.log("restaurantList",d)
+          this.dishes=d.dishList;
+          console.log("dish",this.dishes);
+            this.dishes.forEach(i=>{
+              this.request.getImages(i.dishId).subscribe(val=>{
+                this.image=val;
+                console.log("img",this.image);
+              })
+            })
+          })
+        console.log('favou. last ', this.favourite);
+
+      this.favService.addToFav(this.favourite).subscribe(res=>{
+        console.log(res);
+      },error =>{
+          console.log(error);
+      })
+    }else{
+      this.router.navigate(['/login']);
+    }
   }
-  else
-{
-  this.router.navigate(['/login']);
-}
-}
-
-
 }
