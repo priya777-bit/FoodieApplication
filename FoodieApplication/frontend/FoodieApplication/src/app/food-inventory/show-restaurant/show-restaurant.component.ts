@@ -27,6 +27,7 @@ export class ShowRestaurantComponent {
   image:Image[];
   favourite = new Favourite();
   color="white";
+  isadmin:boolean=true;
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
@@ -44,6 +45,14 @@ export class ShowRestaurantComponent {
         })  
       }); 
     })
+    if(this.userRqst.loginType!="admin")
+    {
+      this.isadmin=true;
+    }
+    else
+    {
+      this.isadmin=false;
+    }
   }
 
   add(restuarent:any){

@@ -38,6 +38,7 @@ export class UserLoginComponent {
 
   onSubmit(): void {
     const data=this.loginForm.value;
+    this.request.loginType=data.loginType;
     this.request.getData().subscribe(data1=>{
       for(var i=0;i<data1.length;i++)
       {
@@ -55,13 +56,13 @@ export class UserLoginComponent {
         {
         this.router.navigate(["/showRest"]);
         }
-        else
-        {
-          alert("Invalid UserName or Password");
-          
-        }
       })
       }
+      // else
+      //   // {
+      //   //   alert("Invalid UserName or Password");
+      //   //   break;
+      //   // }
       }
     })
   }
