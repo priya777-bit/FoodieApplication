@@ -51,16 +51,15 @@ export class UserLoginComponent {
         this.request.mailId=data.userMailId;
         const value=this.authServe.logIn(data.loginType);
         //this.request.mailId=this.fav.userMailId;
-        if(value)
+        if(value===this.authServe.logIn(data.loginType))
         {
         this.router.navigate(["/showRest"]);
-        }
-        else
-        {
-          alert("Invalid UserName or Password");
-          
-        }
+        } 
       })
+      }
+      else
+      {
+        alert("Invalid Credentials..");
       }
       }
     })

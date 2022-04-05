@@ -48,14 +48,11 @@ export class ShowRestaurantComponent {
 
   add(restuarent:any){
     //restuarent.isSelected = true;
-<<<<<<< HEAD
     this.color="red";
     
-=======
 
     if(this.userRqst.mailId!=null)
     {
->>>>>>> b2f9bf21f0e46779dd8add24387ac0c079bdaaed
     this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
     this.favService.favId=this.favourite.favouriteId
     console.log(this.favourite.favouriteId);
