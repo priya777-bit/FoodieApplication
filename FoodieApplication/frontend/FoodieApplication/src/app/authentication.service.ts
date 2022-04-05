@@ -48,6 +48,7 @@ export class AuthenticationService {
   }
   logOut(){
     localStorage.removeItem("token");
+    localStorage.clear();
     this.isLoggedIn=false;
     this.authStatusListener.next(false);  
     this.adminStatusListener.next(false);  

@@ -73,9 +73,9 @@
 
 
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="height: 75px;">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" style="height: 75px;">
   <div class="container-fluid">
-  <a class="navbar-brand" href="#">Foodie Application</a>
+  <a class="navbar-brand" routerLink="">Foodie Application</a>
   <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
   <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
     aria-expanded="false" aria-label="Toggle navigation"> -->
@@ -87,9 +87,7 @@
         <li class="nav-item">
           <button mat-button color="accent" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
         </li>
-        <li class="nav-item">
-        <button mat-button color="accent"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</button>
-      </li>
+       
         <li class="nav-item">
       <button mat-button color="accent"  routerLink="showRest">Show Restaurant</button>
     </li>
@@ -114,15 +112,28 @@
         <li class="nav-item">
           <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</button>
         </li>
-  
+        <li class="nav-item">
+          <button mat-button color="accent"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</button>
+        </li>
+        <li class="nav-item">
+          <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+        </li>
+        <li class="nav-item">
+          <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+        </li>
+        <li class="nav-item">
+          <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
+            <button mat-button  color="accent" type="submit" (click)="logout()">Logout</button>
+          </div>
+        </li>
       </ul> 
-       <div> 
+       <!-- <div> 
         <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
        <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
        </div>
         <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
          <button mat-button  color="accent" type="submit" (click)="logout()">Logout</button>
-       </div>
+       </div> -->
 </div>
 </div>
 </div>
