@@ -33,7 +33,7 @@ public class UserController {
         this.fileSaveService=fileSaveService;
     }
 
-    @PostMapping(value = "/registerUser",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE},headers={"Accept=application/json"})
+    @PostMapping(value = "/registerUser")//,consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,MediaType.APPLICATION_JSON_VALUE},headers={"Accept=application/json"})
     public ResponseEntity<?> registerUser(@RequestParam("imageFile") MultipartFile file,@RequestParam("uploadData") String user) throws UserAlreadyExist {
         try {
             User user1= new ObjectMapper().readValue(user,User.class);

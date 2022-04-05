@@ -1,5 +1,5 @@
 <mat-card app-player matRipple class="card" *ngFor="let dish of data;index as indexOfelement">
-  <a href="#">
+  <a routerLink="">
   <mat-card-header>
     <mat-card-title>{{ dish.dishName }}</mat-card-title>
     <mat-card-subtitle>{{ dish.dishType }}</mat-card-subtitle>
@@ -10,7 +10,7 @@
   </div>
 </mat-card-content>
   </a>
-<button mat-mini-fab >
+<button mat-mini-fab *ngIf="isadmin">
   <mat-icon style="float: right;" (click)="add(dish)" >favorite</mat-icon>
 </button>
 </mat-card>

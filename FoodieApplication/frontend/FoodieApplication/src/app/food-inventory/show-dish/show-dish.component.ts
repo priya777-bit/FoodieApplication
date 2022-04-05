@@ -32,7 +32,7 @@ export class ShowDishComponent {
    data2:Image[];
   //  dataDisp:Dish[];
   //  imagDisp:Image[];
-
+  isadmin:boolean=true;
 
 
   ngOnInit(): void{
@@ -51,7 +51,14 @@ export class ShowDishComponent {
         });  
       });
     })
-    
+    if(this.user.loginType!="admin")
+    {
+      this.isadmin=true;
+    }
+    else
+    {
+      this.isadmin=false;
+    }
   }
   constructor(private activatedRoute:ActivatedRoute,private request:InventoryRequestService,private favService:FavService,private user:UserRequestService) 
   {}
@@ -59,6 +66,7 @@ export class ShowDishComponent {
   add(dish:any){
     this.favService.getAllFav(this.user.mailId).subscribe(d=>{
       this.favs=d;
+
       this.favs.forEach(r=>{
         console.log(r);
         r.restaurantList.forEach(restau=>{

@@ -38,6 +38,7 @@ export class UserLoginComponent {
 
   onSubmit(): void {
     const data=this.loginForm.value;
+    this.request.loginType=data.loginType;
     this.request.getData().subscribe(data1=>{
       for(var i=0;i<data1.length;i++)
       {
@@ -51,17 +52,27 @@ export class UserLoginComponent {
         this.request.mailId=data.userMailId;
         const value=this.authServe.logIn(data.loginType);
         //this.request.mailId=this.fav.userMailId;
-        if(value)
+        if(value===this.authServe.logIn(data.loginType))
         {
         this.router.navigate(["/showRest"]);
-        }
-        else
-        {
-          alert("Invalid UserName or Password");
-          
+<<<<<<< HEAD
+        } 
+      })
+      }
+      else
+      {
+        alert("Invalid Credentials..");
+      }
+=======
         }
       })
       }
+      // else
+      //   // {
+      //   //   alert("Invalid UserName or Password");
+      //   //   break;
+      //   // }
+>>>>>>> 1d986d4b38e88964dae5aedd48606eaa0d066b23
       }
     })
   }
