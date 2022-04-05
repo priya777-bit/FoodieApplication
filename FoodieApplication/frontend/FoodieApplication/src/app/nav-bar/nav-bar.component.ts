@@ -20,6 +20,7 @@ export class NavBarComponent {
     );
 
     backgroundUrl="/assets/bg_image.jpg"
+    backgroundUrl1="/assets/food-footer.jpg"
 
     private authListenerSubs: Subscription; 
     userIsAuthenticated:any;

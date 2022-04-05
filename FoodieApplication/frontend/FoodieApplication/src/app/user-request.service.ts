@@ -14,6 +14,7 @@ export class UserRequestService {
   mailId:any;
   show:boolean=false;
   token:any;
+  loginType:any;
 
   registerURL="http://localhost:9000/api/user/v2/registerUser";
   imgURL="http://localhost:9000/api/user/v2/userImage";
