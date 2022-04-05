@@ -8,6 +8,7 @@ import { Favourite } from 'src/app/favService/domain/favourite';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Dish } from '../modal/dish';
 import { Image } from '../modal/image';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class ShowRestaurantComponent {
   image:Image[];
   favourite = new Favourite();
   
-  constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService) {}
+  constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
   ngOnInit(){
     this.request.getdata().subscribe(result=>{
@@ -46,7 +47,9 @@ export class ShowRestaurantComponent {
 
   add(restuarent:any){
     //restuarent.isSelected = true;
-    
+
+    if(this.userRqst.mailId!=null)
+    {
     this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
     this.favService.favId=this.favourite.favouriteId
     console.log(this.favourite.favouriteId);
@@ -75,5 +78,11 @@ export class ShowRestaurantComponent {
     })
 
   }
+  else
+{
+  this.router.navigate(['/login']);
+}
+}
+
 
 }
