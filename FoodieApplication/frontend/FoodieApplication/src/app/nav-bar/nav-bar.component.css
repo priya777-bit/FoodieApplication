@@ -81,13 +81,14 @@
 
 .footer-section {
   color: rgb(170, 165, 165);
-  position:fixed;
+  /* position:fixed; */
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
   text-align: center;
-  margin-top: 80vh;
+  /* margin-top: 1vh; */
+  /* margin-bottom: 90vh; */
 }
 
 .footer-navigations>a {
