@@ -75,7 +75,10 @@
 
 <nav #nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-  <a class="navbar-brand" routerLink="">Foodie Application</a>
+    <div class="navbar-brand" style="margin-left: 10px;" routerLink="">
+    <img width="45px" style="border-radius: 2px;" alt="foodieLogo" src="..\assets\logo.jpg">
+    </div>
+  <!-- <a class="navbar-brand" style="margin-left: 10px;" routerLink="">Foodie Application</a> -->
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span></button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
@@ -112,10 +115,10 @@
           <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button style="margin-top: -2rem;" mat-button  type="submit">Login</button> </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button style="margin-top: -2rem;" mat-button  type="submit">SiginUp</button> </a>
         </li>
         <li class="nav-item">
           <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
@@ -163,13 +166,10 @@
 <p style="margin-left: 20px;text-align: center;">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies.<br> All trademarks are properties of their respective owners. 2008-2022 © FoodieApplication™ Ltd. All rights reserved.</p>
 </mat-card-footer> -->
 
-<<<<<<< HEAD
 <!-- <footer class="footer-section"> -->
 
 <div style="margin-top: 0px;">
-=======
 <div style="background-color: #ceced6;margin-top: 0px;">
->>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
 <footer class="footer-section">
     <div class="d-none
                 d-sm-flex
@@ -220,8 +220,6 @@
     <a class="p-2 d-block text-center d-block d-md-block d-lg-inline-flex" href="">Privacy Policy</a>
   </div>
 </footer>
-<<<<<<< HEAD
-=======
 </div>
->>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
+</div>
 

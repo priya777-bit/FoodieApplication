@@ -59,7 +59,6 @@ export class UserLoginComponent {
         {
         this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
-<<<<<<< HEAD
       }
       else
       {
@@ -71,23 +70,14 @@ export class UserLoginComponent {
       })
     }
 }
-=======
-        } 
-      })
-      }
-        }
-      })
 
       // if(flag==0)
       // {
       //   alert("Invalid UserName or Password");
       // }
-      }
       
       // else
       //   // {
       //   //   alert("Invalid UserName or Password");
       //   //   break;
       //   // }
-      }
->>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
