@@ -38,12 +38,14 @@ export class UserLoginComponent {
 
   onSubmit(): void {
     const data=this.loginForm.value;
+    var flag=0;
     this.request.loginType=data.loginType;
     this.request.getData().subscribe(data1=>{
       for(var i=0;i<data1.length;i++)
       {
         if(data.userMailId==data1[i].userMailId && data.userPassword==data1[i].userPassword)
       {
+        flag=1;
         this.request.login(data).subscribe(response=>{
         this.data=response;
         this.request.token=this.data.token;
@@ -60,7 +62,13 @@ export class UserLoginComponent {
       }
         }
       })
+
+      // if(flag==0)
+      // {
+      //   alert("Invalid UserName or Password");
+      // }
       }
+      
       // else
       //   // {
       //   //   alert("Invalid UserName or Password");

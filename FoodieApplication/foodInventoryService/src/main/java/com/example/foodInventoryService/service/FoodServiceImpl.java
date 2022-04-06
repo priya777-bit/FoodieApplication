@@ -115,4 +115,8 @@ public class FoodServiceImpl implements FoodService {
         }
         return images;
     }
+    @Override
+    public Restaurant getRestaurant(String restaurantId) {
+        return this.foodRepository.findById(restaurantId).get();
+    }
 }

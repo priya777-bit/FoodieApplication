@@ -3,6 +3,7 @@ package com.example.FavouriteService.controller;
 import com.example.FavouriteService.exception.FavouriteAlreadyExist;
 import com.example.FavouriteService.model.Dish;
 import com.example.FavouriteService.model.Favourite;
+import com.example.FavouriteService.model.Restaurant;
 import com.example.FavouriteService.service.FavouriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -84,6 +85,22 @@ public class FavouriteController {
             return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @PutMapping("/update/{favouriteId}/restaurant/dish")
+    public ResponseEntity<?> updateRestAndDishToFav(@PathVariable String favouriteId, @RequestBody Restaurant restaurant)
+    //public ResponseEntity<?> updateRestAndDishToFav(@PathVariable String favouriteId, @RequestBody Restaurant restaurant,@RequestBody Dish dish)
+    {
+        try
+        {
+            System.out.println(restaurant);
+            return new ResponseEntity<>(favouriteService.updateRestAndDishToFav(favouriteId,restaurant), HttpStatus.OK);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 
