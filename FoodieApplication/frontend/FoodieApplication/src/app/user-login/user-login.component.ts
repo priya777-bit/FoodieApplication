@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { FavService } from '../favService/service/fav.service';
 import { UserRequestService } from '../user-request.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-login',
@@ -22,7 +23,7 @@ export class UserLoginComponent {
   loginType: any;
   types: string[] = ['Admin User', 'Normal User'];
   isAdmin:Boolean=false;
-  constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService) {}
+  constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService,private toastr: ToastrService) {}
 
   ngOnInit(){
     const data=this.loginForm.value;
@@ -56,6 +57,7 @@ export class UserLoginComponent {
         //this.request.mailId=this.fav.userMailId;
         if(value===this.authServe.logIn(data.loginType))
         {
+        this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
         } 
       })
