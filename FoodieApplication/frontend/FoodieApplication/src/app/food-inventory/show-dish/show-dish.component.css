@@ -1,6 +1,6 @@
 .card {
   width: 260px;
-  height: 300px;
+  height: 280px;
   display: inline-block;
   margin: 20px;
   border-radius: 2px;
@@ -10,6 +10,10 @@
 .card img {
   height: 150px;
   background: rgb(0 0 0 / 12%);
+} 
+
+mat-card-content>img{
+  object-fit:cover;
 }
 
 a {

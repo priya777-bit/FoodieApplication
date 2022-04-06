@@ -55,15 +55,9 @@ export class UserLoginComponent {
         if(value===this.authServe.logIn(data.loginType))
         {
         this.router.navigate(["/showRest"]);
-<<<<<<< HEAD
         } 
       })
       }
-      else
-      {
-        alert("Invalid Credentials..");
-      }
-=======
         }
       })
       }
@@ -72,8 +66,4 @@ export class UserLoginComponent {
       //   //   alert("Invalid UserName or Password");
       //   //   break;
       //   // }
->>>>>>> 1d986d4b38e88964dae5aedd48606eaa0d066b23
       }
-    })
-  }
-}

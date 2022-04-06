@@ -6,12 +6,21 @@ import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { UserRequestService } from '../user-request.service';
 
+import * as $ from 'jquery'
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent {
+
+   navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Web)
     .pipe(
@@ -32,6 +41,15 @@ export class NavBarComponent {
   LoginStatus$=new BehaviorSubject<boolean>(null);
 
   ngOnInit(){
+
+    let elem: any;
+    elem = $(".navbar-collapse");
+
+
+    $('.navbar-nav>li>a').on('click', function(){
+      elem.collapse('hide');
+  });
+
     this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{  
       this.userIsAuthenticated = isAuthenticated
     });  
