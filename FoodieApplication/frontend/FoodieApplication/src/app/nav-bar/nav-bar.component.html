@@ -73,57 +73,53 @@
 
 
 
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" style="height: 75px;">
+<nav #nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
   <a class="navbar-brand" routerLink="">Foodie Application</a>
-  <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-    aria-expanded="false" aria-label="Toggle navigation"> -->
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <button mat-button color="accent" routerLink="/search"><mat-icon>search</mat-icon>Search</button>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/search"><mat-icon>search</mat-icon>Search</a>
         </li>
        
         <li class="nav-item">
-      <button mat-button color="accent"  routerLink="showRest">Show Restaurant</button>
+      <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="showRest">Show Restaurant</a>
     </li>
       <li class="nav-item">
-      <button mat-button color="accent"  *ngIf = "!adminIsAuthenticated" routerLink="getFav">Favourite</button>
+      <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!adminIsAuthenticated" routerLink="getFav">Favourite</a>
     </li>
         <li class="nav-item">
-          <button mat-button color="accent" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" class="search" routerLink="/rest">Send Restaurant</button>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/rest">Send Restaurant</a>
         </li>
         <li class="nav-item">
-          <button mat-button color="accent" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/dish">Send Dish</button>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/dish">Send Dish</a>
         </li>
         <li class="nav-item">
-          <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/addRest">Add Restaurant</button>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/addRest">Add Restaurant</a>
         </li>
         <li class="nav-item">
-          <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/addDish">Add Dish</button>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/addDish">Add Dish</a>
         </li>
         <li class="nav-item">
-          <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/restRequest">View Restaurant Request</button>
+          <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/restRequest">View Restaurant Request</a>
         </li>
         <li class="nav-item">
-          <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</button>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</a>
         </li>
         <li class="nav-item">
-          <button mat-button color="accent"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</button>
+          <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
         </li>
         <li class="nav-item">
-          <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
         </li>
         <li class="nav-item">
           <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
-            <button mat-button  color="accent" type="submit" (click)="logout()">Logout</button>
+            <a class="nav-link" mat-button  color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" type="submit" (click)="logout()">Logout</a>
           </div>
         </li>
       </ul> 
@@ -136,12 +132,11 @@
        </div> -->
 </div>
 </div>
-</div>
  
 </nav>
 <!-- <div class="bg-image" [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 / cover'}"> -->
   <div class="bg-image" 
-  [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 /cover'}" style="height: 100%;margin-top: 75px;">
+  [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 /cover'}" style="height: 100%;margin-top: 71px;">
 <router-outlet></router-outlet>
   </div>
 
@@ -168,14 +163,20 @@
 <p style="margin-left: 20px;text-align: center;">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies.<br> All trademarks are properties of their respective owners. 2008-2022 © FoodieApplication™ Ltd. All rights reserved.</p>
 </mat-card-footer> -->
 
+<<<<<<< HEAD
 <!-- <footer class="footer-section"> -->
 
 <div style="margin-top: 0px;">
+=======
+<div style="background-color: #ceced6;margin-top: 0px;">
+>>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
 <footer class="footer-section">
     <div class="d-none
                 d-sm-flex
                 d-md-flex
                 d-lg-block
+                align-content-center
+                justify-content-center
                 footer-navigations">
       <a class="p-2" href="">ABOUT US</a>
       <a class="p-2" href="">SERVICES</a>
@@ -188,17 +189,39 @@
       <a class="p-2" href="">State Disclosures</a>
   </div>
 
-  <div class="social-icons">
+  <div class="d-md-flex
+              d-lg-flex
+              flex-column
+              justify-content-center
+              align-items-center">
+  <div class="d-block
+              d-md-flex
+              d-lg-flex
+              justify-content-between
+              align-items-center">       
+    <div class="p-3 social-icons">
       <a href="" class="p-2 fa fa-facebook fa-lg"><img class="img2" src="/assets/social-media-icons/facebook.png"></a>
       <a href="" class="p-2 fa fa-twitter fa-lg"><img class="img2" src="/assets/social-media-icons/twitter.png"></a>
       <a href="" class="p-2 fa fa-instagram fa-lg"><img class="img2" src="/assets/social-media-icons/instagram.png"></a>
       <a href="" class="p-2 fa fa-youtube fa-lg"><img class="img2" src="/assets/social-media-icons/youtube.png"></a>
-  </div>
+    </div>
+</div>
+</div> 
     
-  <div class="copyright-section">
+  <div class="d-block
+              d-lg-flex
+              d-md-flex
+              justify-content-center
+              align-items-center
+              p-5
+              copyright-section">
     <p class="p-2 mt-3 text-center">Copyright © 2021 FoodieApplication™</p>
     <a class="p-2 d-block text-center d-block d-md-block d-lg-inline-flex"  href="">Security</a>
     <a class="p-2 d-block text-center d-block d-md-block d-lg-inline-flex" href="">Privacy Policy</a>
   </div>
 </footer>
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
 

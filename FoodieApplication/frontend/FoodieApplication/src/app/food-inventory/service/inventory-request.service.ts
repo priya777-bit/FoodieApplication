@@ -14,6 +14,7 @@ export class InventoryRequestService {
   getURL='http://localhost:9000/api/inventory/getAllData';
   getDishesURL='http://localhost:9000/api/inventory/getDishesData';
   getImageURL='http://localhost:9000/api/inventory/restaurant';
+  getRestDataURL='http://localhost:9000/api/inventory/restData';
   //getImageURL='http://localhost:9000/api/request/restaurants';
 
   getdata():Observable<Array<any>>
@@ -29,6 +30,11 @@ export class InventoryRequestService {
   getImages(id:any):Observable<Array<Image>>
   {
     return this.http.get<Array<Image>>(`${this.getImageURL}/${id}.jpg`);
+  }
+
+  getRestData(id:any):Observable<any>
+  {
+    return this.http.get<any>(`${this.getRestDataURL}/${id}`);
   }
 
 }

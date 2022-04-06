@@ -14,4 +14,5 @@ public interface FoodService {
     public List<Restaurant> getAllData();
     public List<Dish> getDishData(String restaurantId);
     public List<Image> load(String filename);
+    public Restaurant getRestaurant(String restaurantId);
 }

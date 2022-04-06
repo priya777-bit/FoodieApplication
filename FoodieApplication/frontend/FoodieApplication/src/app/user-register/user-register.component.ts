@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators ,FormGroup,FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRequestService } from '../user-request.service';
+import { ToastrService } from 'ngx-toastr';
 
 interface Type {
   value: string;
@@ -50,7 +51,7 @@ export class UserRegisterComponent {
       {value: 'Work', viewValue: 'Work'},
       {value: 'Home', viewValue: 'Home'}]
 
-  constructor(private fb: FormBuilder,private userRequest:UserRequestService,private router:Router) {}
+  constructor(private fb: FormBuilder,private userRequest:UserRequestService,private router:Router,private toastr: ToastrService) {}
 
   public selectedFile:any;
   public event1:any;
@@ -79,6 +80,7 @@ onSubmit(): void {
   // })
 
  this.userRequest.register(uploadImageData).subscribe(()=>{
+  this.toastr.success('Registration Success');
     this.router.navigate(['/login']);
  })
 }

@@ -33,11 +33,16 @@ export class ShowDishComponent {
   //  dataDisp:Dish[];
   //  imagDisp:Image[];
   isadmin:boolean=true;
+  favourite = new Favourite();
+  restaurant :any;
+  flag=0;
+  alert=0;
 
 
   ngOnInit(): void{
     this.activatedRoute.paramMap.subscribe(data=>{
       let id=data.get('id') ??0;
+      this.user.restID=id;
       this.request.getDishes(id).subscribe(result1=>
         {
         result1.forEach((element: Dish) => {
@@ -66,18 +71,88 @@ export class ShowDishComponent {
   add(dish:any){
     this.favService.getAllFav(this.user.mailId).subscribe(d=>{
       this.favs=d;
-
+      if(this.favs.length!=0)
+      {
       this.favs.forEach(r=>{
+        this.favourite.favouriteId=r.favouriteId;
         console.log(r);
         r.restaurantList.forEach(restau=>{
-        this.favService.addDish(r.favouriteId,restau.restaurantId,dish).subscribe(d=>{
-      console.log("added Dish",d);
-    })
-      })
+          restau.dishList.forEach(d=>{
+            if(d.dishId==dish.dishId)
+            {
+              this.alert=1;
+              this.flag=1;
+            }
+          })
+
+            if(this.alert==0)
+            {
+            if(restau.restaurantId==this.user.restID)
+          {
+            this.favService.addDish(r.favouriteId,restau.restaurantId,dish).subscribe(d=>{
+              console.log("added Dish",d);
+            })
+            this.flag=1;
+            console.log(this.flag);
+          }
+          console.log(this.flag);
+        }
+          })      
+      
+      console.log(this.flag);
+      if(this.flag==0)
+      {
+        this.request.getRestData(this.user.restID).subscribe(data=>{
+          this.restaurant=data;
+          console.log(this.restaurant);
+          this.restaurant.dishList.forEach((_dishes: any)=>{
+            if(_dishes.dishId!=dish.dishId)
+            {
+              console.log(this.restaurant.dishList.indexOf(_dishes))
+              this.restaurant.dishList.splice(this.restaurant.dishList.indexOf(_dishes));
+            }
+            console.log(this.restaurant);
+          })
+          console.log(this.restaurant);
+          this.favService.update(this.favourite.favouriteId,this.restaurant).subscribe(d=>{
+
+          })
+        })
+        
+      }
     })
       console.log("favsdish" + JSON.stringify(this.favs));
       console.log(d);
+    }
+    else{
+      this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
+    this.favService.favId=this.favourite.favouriteId
+    console.log(this.favourite.favouriteId);
+    this.favourite.userMailId = this.user.mailId;
+    console.log("mail"+this.favourite.userMailId)
+    this.request.getRestData(this.user.restID).subscribe(data=>{
+      this.restaurant=data;
+      this.favourite.restaurantList=[this.restaurant];
+      console.log(this.favourite);
+      this.favourite.restaurantList.forEach(d=>{
+        console.log(d.dishList);
+        
+        d.dishList.forEach(dishes=>{
+          if(dishes.dishId!=dish.dishId)
+          {
+            console.log(d.dishList.indexOf(dishes))
+            d.dishList.splice(d.dishList.indexOf(dishes));
+          }
+        })
+      })
+      console.log(this.favourite);
+      this.favService.addToFav(this.favourite).subscribe(res=>{
+        console.log(res);
+      },error =>{
+          console.log(error);
+      })
     })
-
+    }
+    })
   }
 }
