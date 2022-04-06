@@ -28,11 +28,8 @@ export class ShowRestaurantComponent {
   dishes:Dish[];
   image:Image[];
   favourite = new Favourite();
-<<<<<<< HEAD
-=======
   color="white";
   isadmin:boolean=true;
->>>>>>> c937990cda7e75918522b88d0a1742f4371fb4de
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
@@ -91,13 +88,11 @@ export class ShowRestaurantComponent {
   }
 
   add(restuarent:any){
-<<<<<<< HEAD
 
     this.restuarents.forEach((ele:any)=>{
       if(ele.restaurantId == restuarent.restaurantId){
         ele.isFavourite = 'red';
       }
-=======
     //restuarent.isSelected = true;
     this.color="red";
     
@@ -129,7 +124,6 @@ export class ShowRestaurantComponent {
       // else{
         console.log(error);
       //}
->>>>>>> c937990cda7e75918522b88d0a1742f4371fb4de
     })
 
     if(this.userRqst.mailId!=null){
@@ -161,5 +155,7 @@ export class ShowRestaurantComponent {
     }else{
       this.router.navigate(['/login']);
     }
+}
+    })
   }
 }

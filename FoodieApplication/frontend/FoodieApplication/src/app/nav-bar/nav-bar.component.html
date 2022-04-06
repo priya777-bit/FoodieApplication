@@ -76,51 +76,50 @@
 <nav #nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
   <a class="navbar-brand" routerLink="">Foodie Application</a>
-  <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"> -->
-  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span></button>
-  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" >
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" mat-button color="accent" routerLink="/search"><mat-icon>search</mat-icon>Search</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/search"><mat-icon>search</mat-icon>Search</a>
         </li>
        
         <li class="nav-item">
-      <a class="nav-link" mat-button color="accent"  routerLink="showRest">Show Restaurant</a>
+      <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="showRest">Show Restaurant</a>
     </li>
       <li class="nav-item">
-      <a class="nav-link"  mat-button color="accent"  *ngIf = "!adminIsAuthenticated" routerLink="getFav">Favourite</a>
+      <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!adminIsAuthenticated" routerLink="getFav">Favourite</a>
     </li>
         <li class="nav-item">
-          <a class="nav-link" mat-button color="accent" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" class="search" routerLink="/rest">Send Restaurant</a>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" class="search" routerLink="/rest">Send Restaurant</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" mat-button color="accent" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/dish">Send Dish</a>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/dish">Send Dish</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/addRest">Add Restaurant</a>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/addRest">Add Restaurant</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/addDish">Add Dish</a>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/addDish">Add Dish</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/restRequest">View Restaurant Request</a>
+          <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/restRequest">View Restaurant Request</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</a>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  mat-button color="accent"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</a>
+          <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
+          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
+          <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
         </li>
         <li class="nav-item">
           <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
-            <a class="nav-link" mat-button  color="accent" type="submit" (click)="logout()">Logout</a>
+            <a class="nav-link" mat-button  color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" type="submit" (click)="logout()">Logout</a>
           </div>
         </li>
       </ul> 

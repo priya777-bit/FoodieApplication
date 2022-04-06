@@ -15,13 +15,6 @@ import * as $ from 'jquery'
 })
 export class NavBarComponent {
 
-   navbarOpen = false;
-
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
-  }
-
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Web)
     .pipe(
       map(result => result.matches),
@@ -41,14 +34,6 @@ export class NavBarComponent {
   LoginStatus$=new BehaviorSubject<boolean>(null);
 
   ngOnInit(){
-
-    let elem: any;
-    elem = $(".navbar-collapse");
-
-
-    $('.navbar-nav>li>a').on('click', function(){
-      elem.collapse('hide');
-  });
 
     this.authListenerSubs = this.authService.getAuthStatusListener().subscribe(isAuthenticated=>{  
       this.userIsAuthenticated = isAuthenticated
