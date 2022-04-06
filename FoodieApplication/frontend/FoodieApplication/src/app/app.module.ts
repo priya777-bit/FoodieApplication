@@ -100,7 +100,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatSelectModule,
     MatCardModule,
     MatSortModule,
-    GooglePlaceModule
+    GooglePlaceModule,
     MatSortModule,
     ToastrModule.forRoot()
   ],
