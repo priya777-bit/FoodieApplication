@@ -18,21 +18,13 @@ import { Router } from '@angular/router';
 })
 
 export class ShowRestaurantComponent {
-
-
   
   restuarents: any;
   data:Restaurant[];
-  // favId:any;
-  // mailId:any;
   dishes:Dish[];
   image:Image[];
   favourite = new Favourite();
-<<<<<<< HEAD
-=======
-  color="white";
   isadmin:boolean=true;
->>>>>>> c937990cda7e75918522b88d0a1742f4371fb4de
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
@@ -91,46 +83,12 @@ export class ShowRestaurantComponent {
   }
 
   add(restuarent:any){
-<<<<<<< HEAD
 
     this.restuarents.forEach((ele:any)=>{
       if(ele.restaurantId == restuarent.restaurantId){
         ele.isFavourite = 'red';
       }
-=======
-    //restuarent.isSelected = true;
-    this.color="red";
-    
 
-    if(this.userRqst.mailId!=null)
-    {
-    this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
-    this.favService.favId=this.favourite.favouriteId
-    console.log(this.favourite.favouriteId);
-    this.favourite.userMailId = this.userRqst.mailId;
-    console.log("mail"+this.favourite.userMailId)
-    this.favourite.restaurantList = [restuarent];
-    this.favourite.restaurantList.forEach(d=>{
-        this.dishes=d.dishList;
-        console.log("dish",this.dishes);
-          this.dishes.forEach(i=>{
-            this.request.getImages(i.dishId).subscribe(val=>{
-              this.image=val;
-              console.log("img",this.image);
-            })
-          })
-        })
-    this.favService.addToFav(this.favourite).subscribe(res=>{
-      console.log(res);
-    },error =>{
-      // if(this.favourite.restaurantList=[restuarent]){
-      //   alert("Already Added");
-      // }
-      // else{
-        console.log(error);
-      //}
->>>>>>> c937990cda7e75918522b88d0a1742f4371fb4de
-    })
 
     if(this.userRqst.mailId!=null){
       this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
@@ -161,5 +119,6 @@ export class ShowRestaurantComponent {
     }else{
       this.router.navigate(['/login']);
     }
+  })
   }
 }

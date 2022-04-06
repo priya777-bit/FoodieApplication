@@ -41,7 +41,6 @@ import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.compon
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { ListenerDirective } from './listener.directive';
 
 @NgModule({
   declarations: [
@@ -65,7 +64,6 @@ import { ListenerDirective } from './listener.directive';
     GetAllFavComponent,
     ShowDishComponent,
     GetFavDishComponent,
-    ListenerDirective,
     // AdminNavBarComponent,
   ],
   imports: [
