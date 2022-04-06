@@ -18,11 +18,15 @@ import { Router } from '@angular/router';
 })
 
 export class ShowRestaurantComponent {
-
-
   
   restuarents: any;
   data:Restaurant[];
+<<<<<<< HEAD
+  dishes:Dish[];
+  image:Image[];
+  favourite = new Favourite();
+  isadmin:boolean=true;
+=======
   favs:Favourite[];
   // favId:any;
   // mailId:any;
@@ -32,6 +36,7 @@ export class ShowRestaurantComponent {
   color="white";
   isadmin:boolean=true;
   alert=0;
+>>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
@@ -95,6 +100,40 @@ export class ShowRestaurantComponent {
       if(ele.restaurantId == restuarent.restaurantId){
         ele.isFavourite = 'red';
       }
+<<<<<<< HEAD
+
+
+    if(this.userRqst.mailId!=null){
+      this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
+      this.favService.favId=this.favourite.favouriteId
+      console.log(this.favourite.favouriteId);
+      this.favourite.userMailId = this.userRqst.mailId;
+      console.log("mail"+this.favourite.userMailId)
+      this.favourite.restaurantList = [restuarent];
+
+      this.favourite.restaurantList.forEach(d=>{
+        console.log("restaurantList",d)
+          this.dishes=d.dishList;
+          console.log("dish",this.dishes);
+            this.dishes.forEach(i=>{
+              this.request.getImages(i.dishId).subscribe(val=>{
+                this.image=val;
+                console.log("img",this.image);
+              })
+            })
+          })
+        console.log('favou. last ', this.favourite);
+
+      this.favService.addToFav(this.favourite).subscribe(res=>{
+        console.log(res);
+      },error =>{
+          console.log(error);
+      })
+    }else{
+      this.router.navigate(['/login']);
+    }
+  })
+=======
     //restuarent.isSelected = true;
    
 
@@ -144,6 +183,7 @@ export class ShowRestaurantComponent {
     },error =>{
         console.log(error);
     })
+>>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
   }
 })
 }

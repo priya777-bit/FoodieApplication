@@ -41,9 +41,12 @@ import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.compon
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+<<<<<<< HEAD
+=======
 import { ListenerDirective } from './listener.directive';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { ToastrModule } from 'ngx-toastr';
+>>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
 
 @NgModule({
   declarations: [
@@ -67,7 +70,6 @@ import { ToastrModule } from 'ngx-toastr';
     GetAllFavComponent,
     ShowDishComponent,
     GetFavDishComponent,
-    ListenerDirective,
     // AdminNavBarComponent,
   ],
   imports: [
