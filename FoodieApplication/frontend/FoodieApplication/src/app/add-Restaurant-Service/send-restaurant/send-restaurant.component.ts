@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Options } from 'ngx-google-places-autocomplete/objects/options/options';
 import { RestApiService } from 'src/app/rest_management/service/rest-api.service';
 import { Restaurant } from '../addRestModel/restaurant';
 import { RequestService } from '../addRestService/request.service';
+
+// declare let google: any;
 
 @Component({
   selector: 'app-send-restaurant',
@@ -11,6 +14,22 @@ import { RequestService } from '../addRestService/request.service';
   styleUrls: ['./send-restaurant.component.css']
 })
 export class SendRestaurantComponent implements OnInit {
+
+  public options: Options  ={
+    bounds: undefined, fields: ["address_component"], strictBounds: false,
+    types: ['geocode', 'route'],
+    componentRestrictions: { country: 'in' },
+    origin: undefined
+  };
+
+  formattedaddress=" ";
+
+  AddressChange(address: any) {
+    //setting address from API to local variable
+    console.log("THis is function");
+     this.formattedaddress=address.formatted_address
+     console.log(this.formattedaddress);
+  }
 
   constructor(private request:RequestService,private api: RestApiService,private http:HttpClient) {}
 
