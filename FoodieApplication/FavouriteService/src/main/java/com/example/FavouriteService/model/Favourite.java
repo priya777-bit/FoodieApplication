@@ -20,6 +20,5 @@ public class Favourite {
     private String userMailId;
     private List<Restaurant> restaurantList;
     private String isFavourite="white";
-//    private String foodName;
 
 }

@@ -27,11 +27,6 @@ public class FavouriteServiceImpl implements FavouriteService{
         {
              throw new FavouriteAlreadyExist();
         }
-
-//        List<Restaurant> restaurantList = favouriteRepository.findById(favourite.getFavouriteId()).get().getRestaurantList();
-//        Restaurant restaurant = restaurantList.get(0);
-//        restaurant.setIsFavouriteRestaurant("red");
-//        restaurantList.set(0,restaurant);
         favourite.setIsFavourite("red");
 
         return favouriteRepository.save(favourite);

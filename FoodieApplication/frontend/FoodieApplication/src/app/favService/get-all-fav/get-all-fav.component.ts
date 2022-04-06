@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { InventoryRequestService } from 'src/app/food-inventory/service/inventory-request.service';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Favourite } from '../domain/favourite';
@@ -12,6 +12,8 @@ import { FavService } from '../service/fav.service';
   styleUrls: ['./get-all-fav.component.css']
 })
 export class GetAllFavComponent implements OnInit {
+
+  //  @Output() restuarent = new EventEmitter<string>();
   
   favs:Favourite[];
   rest: Restaurant[];
@@ -25,6 +27,7 @@ export class GetAllFavComponent implements OnInit {
       console.log(data);
       this.favs.forEach(r=>{
         this.rest=r.restaurantList;
+        //this.restuarent.emit();
         console.log(r.restaurantList);
         this.rest.forEach(data=>{
           console.log(data.restaurantId);

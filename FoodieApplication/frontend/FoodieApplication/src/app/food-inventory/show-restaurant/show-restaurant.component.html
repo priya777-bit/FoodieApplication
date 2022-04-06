@@ -1,20 +1,27 @@
 
 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
-    <mat-card app-player matRipple class="card" *ngFor="let restuarent of data">
+    <mat-card app-player matRipple class="card" *ngFor="let restuarent of restuarents">
         <a routerLink="dishList/{{restuarent.restaurantId}}">
         <mat-card-header>
         <mat-card-title>{{ restuarent.restaurantName }}</mat-card-title>
         <mat-card-subtitle>{{ restuarent.restaurantLocation }}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-    <div *ngFor="let image of restuarent.image">
+        <img mat-card-image [src]="restuarent.restaurantImage">
+    <!-- <div *ngFor="let image of restuarent.image">
             <img mat-card-image [src]="image.image">
-        </div>
+        </div> -->
     </mat-card-content>
     </a>
     <a routerLink="dishList/{{restuarent.restaurantId}}"></a>
+<<<<<<< HEAD
+    <button mat-mini-fab >
+        <mat-icon [style.color]="restuarent.isFavourite" (click)="add(restuarent)" >favorite</mat-icon>
+    </button>
+=======
     <button mat-mini-fab *ngIf="isadmin">
         <mat-icon  [style.color]="color" (click)="add(restuarent)" >favorite</mat-icon>
         </button>
+>>>>>>> c937990cda7e75918522b88d0a1742f4371fb4de
     </mat-card>
     </div>
