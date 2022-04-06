@@ -91,7 +91,7 @@
       <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!adminIsAuthenticated" routerLink="getFav">Favourite</a>
     </li>
         <li class="nav-item">
-          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" class="search" routerLink="/rest">Send Restaurant</a>
+          <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/rest">Send Restaurant</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" routerLink="/dish">Send Dish</a>
