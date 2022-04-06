@@ -17,7 +17,9 @@
         <div class="row">
             <div class="col">
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Enter Restaurant Location" formControlName="restaurantLocation">
+                    <input ngx-google-places-autocomplete [options]=
+                    'options'  (onChange)="AddressChange($event)" matInput placeholder="Enter Restaurant Location" formControlName="restaurantLocation">
+                    {{ formattedaddress }}
                     <mat-error *ngIf="addRestaurant.controls['restaurantLocation'].hasError('required')">
                     Restaurant Location is <strong> required </strong>
                     </mat-error>

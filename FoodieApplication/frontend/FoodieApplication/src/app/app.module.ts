@@ -42,6 +42,7 @@ import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { ListenerDirective } from './listener.directive';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { ListenerDirective } from './listener.directive';
     MatInputModule,
     MatSelectModule,
     MatCardModule,
-    MatSortModule
+    MatSortModule,
+    GooglePlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent],
