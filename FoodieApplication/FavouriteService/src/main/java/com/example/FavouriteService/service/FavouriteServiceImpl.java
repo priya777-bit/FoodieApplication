@@ -98,5 +98,22 @@ public class FavouriteServiceImpl implements FavouriteService{
         }
         return result;
     }
+    @Override
+    public Favourite updateRestAndDishToFav(String favouriteId,Restaurant restaurant)
+    {
+        Favourite favourite = favouriteRepository.findById(favouriteId).get();
+        List<Restaurant> restaurantList=favourite.getRestaurantList();
+        restaurantList.add(restaurant);
+        favourite.setRestaurantList(restaurantList);
+//        for(int i=0;i<restaurantList.size();i++)
+//        {
+//            if(restaurantList.get(i).getRestaurantId().equalsIgnoreCase(restaurant.getRestaurantId()))
+//            {
+//                favourite.getRestaurantList().get(i).setDishList(Arrays.asList(dish));
+//            }
+//        }
+        favouriteRepository.save(favourite);
+        return favourite;
+    }
 
 }

@@ -23,6 +23,7 @@ export class ShowRestaurantComponent {
   
   restuarents: any;
   data:Restaurant[];
+  favs:Favourite[];
   // favId:any;
   // mailId:any;
   dishes:Dish[];
@@ -30,6 +31,7 @@ export class ShowRestaurantComponent {
   favourite = new Favourite();
   color="white";
   isadmin:boolean=true;
+  alert=0;
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
@@ -63,7 +65,7 @@ export class ShowRestaurantComponent {
             "restaurantId": element.restaurantId,
             "restaurantName": element.restaurantName,
             "restaurantLocation": element.restaurantLocation,
-            "restaurantImage": element.image[0].image,
+            //"restaurantImage": element.image[0].image,
             "isFavourite": "white",
             "dishList": element.dishList
           };
@@ -94,10 +96,31 @@ export class ShowRestaurantComponent {
         ele.isFavourite = 'red';
       }
     //restuarent.isSelected = true;
-    this.color="red";
-    
+   
 
     if(this.userRqst.mailId!=null)
+    {
+    this.favService.getAllFav(this.userRqst.mailId).subscribe(d=>{
+      this.favs=d;
+      if(this.favs.length!=0)
+      {
+        this.favs.forEach(r=>{
+          this.favourite.favouriteId=r.favouriteId;
+          r.restaurantList.forEach(restau=>{
+            if(restau.restaurantId==restuarent.restaurantId)
+            {
+              this.alert=1;
+            }
+          })
+          if(this.alert==0)
+          {
+            this.favService.update(this.favourite.favouriteId,restuarent).subscribe(e=>{
+
+            })
+          }
+        })
+      }
+    else
     {
     this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
     this.favService.favId=this.favourite.favouriteId
@@ -115,47 +138,19 @@ export class ShowRestaurantComponent {
             })
           })
         })
+        console.log(this.favourite)
     this.favService.addToFav(this.favourite).subscribe(res=>{
       console.log(res);
     },error =>{
-      // if(this.favourite.restaurantList=[restuarent]){
-      //   alert("Already Added");
-      // }
-      // else{
         console.log(error);
-      //}
-    })
-
-    if(this.userRqst.mailId!=null){
-      this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
-      this.favService.favId=this.favourite.favouriteId
-      console.log(this.favourite.favouriteId);
-      this.favourite.userMailId = this.userRqst.mailId;
-      console.log("mail"+this.favourite.userMailId)
-      this.favourite.restaurantList = [restuarent];
-
-      this.favourite.restaurantList.forEach(d=>{
-        console.log("restaurantList",d)
-          this.dishes=d.dishList;
-          console.log("dish",this.dishes);
-            this.dishes.forEach(i=>{
-              this.request.getImages(i.dishId).subscribe(val=>{
-                this.image=val;
-                console.log("img",this.image);
-              })
-            })
-          })
-        console.log('favou. last ', this.favourite);
-
-      this.favService.addToFav(this.favourite).subscribe(res=>{
-        console.log(res);
-      },error =>{
-          console.log(error);
-      })
-    }else{
-      this.router.navigate(['/login']);
-    }
-}
     })
   }
+})
+}
+else
+{
+this.router.navigate(['/login']);
+}
+})
+}
 }

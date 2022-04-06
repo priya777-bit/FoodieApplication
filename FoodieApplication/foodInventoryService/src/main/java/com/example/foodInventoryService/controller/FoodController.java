@@ -62,6 +62,19 @@ public class FoodController {
         }
     }
 
+    @GetMapping("/restData/{restaurantId}")
+    public ResponseEntity<?> getRestData(@PathVariable String restaurantId)
+    {
+        try
+        {
+            return new ResponseEntity<>(foodService.getRestaurant(restaurantId),HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>("Try Again Some Time ..",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/getDishesData/{restaurantId}")
     public ResponseEntity<?> getDishesData(@PathVariable String restaurantId)
     {

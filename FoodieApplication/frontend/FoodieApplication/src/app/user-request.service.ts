@@ -15,6 +15,7 @@ export class UserRequestService {
   show:boolean=false;
   token:any;
   loginType:any;
+  restID:any;
 
   registerURL="http://localhost:9000/api/user/v2/registerUser";
   imgURL="http://localhost:9000/api/user/v2/userImage";
