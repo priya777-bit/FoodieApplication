@@ -52,33 +52,29 @@ export class UserLoginComponent {
         this.data=response;
         this.request.token=this.data.token;
         console.log(this.data.token);
-        this.authServe.loginUser(this.data.token);
+        this.authServe.loginUser(null);
         this.request.mailId=data.userMailId;
-        const value=this.authServe.logIn(data.loginType);
+        const value=this.authServe.logIn(data.loginType); // null
         //this.request.mailId=this.fav.userMailId;
-        if(value===this.authServe.logIn(data.loginType))
+        if(value) // logic needs to be changed.
         {
         this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
-      }
-      else
-      {
-        alert("Invalid Credentials..");
-      }
-        });
-      }
-      }
+        }
       })
-    }
-}
+      }
+        }
+      })
 
       // if(flag==0)
       // {
       //   alert("Invalid UserName or Password");
       // }
-      
+      }
+
       // else
       //   // {
       //   //   alert("Invalid UserName or Password");
       //   //   break;
       //   // }
+      }

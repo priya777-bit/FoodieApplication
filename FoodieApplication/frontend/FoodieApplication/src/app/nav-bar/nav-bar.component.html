@@ -35,15 +35,15 @@
       <button mat-button color="accent" *ngIf = "adminIsAuthenticated" routerLink="admin/dishRequest">View Dish Request</button>
       </div>
 
-      <div style="margin-left:auto ;" > 
+      <div style="margin-left:auto ;" >
        <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
        <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
       </div>
-       <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
+       <div *ngIf = "userIsAuthenticated || adminIsAuthenticated">
         <button mat-button  type="submit" (click)="logout()">Logout</button>
       </div>
 
-      
+
     </mat-toolbar>
     <router-outlet></router-outlet>
     <mat-card-footer style="width: 99.9vw;">
@@ -53,7 +53,7 @@
 
           <p>Site Terms</p>
           <p>Privacy Policy And Your Policy Rights</p>
-          <p>State Disclosures</p> 
+          <p>State Disclosures</p>
       </div>
 
       <div style="margin-left:14%;">
@@ -61,7 +61,7 @@
         <img class="img2" src="/assets/social-media-icons/facebook.png">
         <img class="img2" src="/assets/social-media-icons/twitter.png">
         <img class="img2" src="/assets/social-media-icons/instagram.png">
-        <img class="img2" src="/assets/social-media-icons/youtube.png">  
+        <img class="img2" src="/assets/social-media-icons/youtube.png">
     </div>
   </div>
 
@@ -86,7 +86,7 @@
         <li class="nav-item active">
           <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/search"><mat-icon>search</mat-icon>Search</a>
         </li>
-       
+
         <li class="nav-item">
       <a class="nav-link" mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="showRest">Show Restaurant</a>
     </li>
@@ -121,24 +121,24 @@
           <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button style="margin-top: -2rem;" mat-button  type="submit">SiginUp</button> </a>
         </li>
         <li class="nav-item">
-          <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
+          <div *ngIf = "userIsAuthenticated || adminIsAuthenticated">
             <a class="nav-link" mat-button  color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" type="submit" (click)="logout()">Logout</a>
           </div>
         </li>
-      </ul> 
-       <!-- <div> 
+      </ul>
+       <!-- <div>
         <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button mat-button  type="submit">Login</button> </a>
        <a style="color: white;" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="register"> <button mat-button  type="submit">SiginUp</button> </a>
        </div>
-        <div *ngIf = "userIsAuthenticated || adminIsAuthenticated"> 
+        <div *ngIf = "userIsAuthenticated || adminIsAuthenticated">
          <button mat-button  color="accent" type="submit" (click)="logout()">Logout</button>
        </div> -->
 </div>
 </div>
- 
+
 </nav>
 <!-- <div class="bg-image" [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 / cover'}"> -->
-  <div class="bg-image" 
+  <div class="bg-image"
   [ngStyle]="{'background': 'url(' + backgroundUrl + ') no-repeat 0 0 /cover'}" style="height: 100%;margin-top: 71px;">
 <router-outlet></router-outlet>
   </div>
@@ -150,7 +150,7 @@
 
       <p>Site Terms</p>
       <p>Privacy Policy And Your Policy Rights</p>
-      <p>State Disclosures</p> 
+      <p>State Disclosures</p>
   </div>
 
   <div style="margin-left:14%;">
@@ -158,7 +158,7 @@
     <img class="img2" src="/assets/social-media-icons/facebook.png">
     <img class="img2" src="/assets/social-media-icons/twitter.png">
     <img class="img2" src="/assets/social-media-icons/instagram.png">
-    <img class="img2" src="/assets/social-media-icons/youtube.png">  
+    <img class="img2" src="/assets/social-media-icons/youtube.png">
 </div>
 </div>
 
@@ -198,16 +198,23 @@
               d-md-flex
               d-lg-flex
               justify-content-between
-              align-items-center">       
+              align-items-center">
     <div class="p-3 social-icons">
+<<<<<<< HEAD
       <a routerLink="" class="p-2 fa fa-facebook fa-lg"><img class="img2" src="/assets/social-media-icons/facebook.png"></a>
       <a routerLink="" class="p-2 fa fa-twitter fa-lg"><img class="img2" src="/assets/social-media-icons/twitter.png"></a>
       <a routerLink="" class="p-2 fa fa-instagram fa-lg"><img class="img2" src="/assets/social-media-icons/instagram.png"></a>
       <a routerLink="" class="p-2 fa fa-youtube fa-lg"><img class="img2" src="/assets/social-media-icons/youtube.png"></a>
+=======
+      <a href="https://www.facebook.com/" target="_blank" class="p-2 fa fa-facebook fa-lg"><img class="img2" src="/assets/social-media-icons/facebook.png"></a>
+      <a href="https://twitter.com/?lang=en-in" target="_blank" class="p-2 fa fa-twitter fa-lg"><img class="img2" src="/assets/social-media-icons/twitter.png"></a>
+      <a href="https://www.instagram.com/" target="_blank" class="p-2 fa fa-instagram fa-lg"><img class="img2" src="/assets/social-media-icons/instagram.png"></a>
+      <a href="https://www.youtube.com/" target="_blank" class="p-2 fa fa-youtube fa-lg"><img class="img2" src="/assets/social-media-icons/youtube.png"></a>
+>>>>>>> f35def733817064c3fac75c9fec731eb513d5357
     </div>
 </div>
-</div> 
-    
+</div>
+
   <div class="d-block
               d-lg-flex
               d-md-flex

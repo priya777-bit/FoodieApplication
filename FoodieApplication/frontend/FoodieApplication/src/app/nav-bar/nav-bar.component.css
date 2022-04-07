@@ -1,5 +1,5 @@
 
-/* 
+/*
 @media only screen and(min-width: 425px) {
 
   .mat-toolbar-row,
@@ -21,15 +21,21 @@
 .nav-link{
   margin-left: 20px;
 }
+<<<<<<< HEAD
 .bg-img {  
+=======
+
+
+.bg-img {
+>>>>>>> f35def733817064c3fac75c9fec731eb513d5357
   min-height: 380px;
-  background-image: url("/bg_image.jpg");  
+  background-image: url("/bg_image.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
- 
-} 
+
+}
 /* .sidenav-container {
   height: 100%;
 }
@@ -107,7 +113,7 @@
   font-weight:bold;
   color: rgb(236, 22, 112);
   margin-top: 50%;
-  
+
 }
 .footer-navigations>a:hover {
   color: rgb(18, 168, 118);

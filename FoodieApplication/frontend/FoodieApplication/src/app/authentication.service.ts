@@ -17,34 +17,54 @@ export class AuthenticationService {
 
 
   loginUser(token: any) {
-    console.log(token);
+    console.log("token "+token);
+    if (token) 
+    {
     localStorage.setItem("token", token);
     return true;
+    }
+    else
+    {
+      console.log("in else");
+      return false;
+    }
+    
   }
 
   logIn(code:any){
     let token = localStorage.getItem("token");
-    console.log(token);
+    console.log("token "+token);
     console.log(code);
     console.log(this.isUserAdmin);
     this.isUserAdmin = code.startsWith('admin');
     console.log(this.isUserAdmin);
-    if (token ==null || token ==undefined|| token == '' ) 
+    if(token) 
     {
+      if(this.isUserAdmin){
+        this.isLoggedIn=true;
+        this.adminStatusListener.next(true);
+        return true;
+      }
+      else
+      {
+        console.log("in else");
+        this.isLoggedIn=true;
+        this.authStatusListener.next(true);
+        return true;
+      }
+
+      // this.isLoggedIn=false;
+      // return false;
+
+    }
+    else 
+    {
+      console.log("in else false");
       this.isLoggedIn=false;
+      this.adminStatusListener.next(false);
       return false;
     }
-    else if(this.isUserAdmin){
-      this.isLoggedIn=true;
-      this.adminStatusListener.next(true);
-      return true;
-    }
-    else
-    {
-      this.isLoggedIn=true;
-      this.authStatusListener.next(true);
-      return true;
-    }
+   
   }
   logOut(){
     localStorage.removeItem("token");
