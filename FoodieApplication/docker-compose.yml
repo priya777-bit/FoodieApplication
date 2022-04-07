@@ -1,0 +1,123 @@
+version: '3.3'
+services:
+  userservice:
+    image: userserviceimage
+    container_name: userservicecontainer
+    build: UserService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8085:8085
+    depends_on:
+      - mongoservice
+      - eurekaserver
+
+  addrestuarantservice:
+    image: addrestuarantserviceimage
+    container_name: addrestuarantservicecontainer
+    build: addRestuarantService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongoservice
+      - eurekaserver
+
+  favouriteservice:
+    image: favouriteserviceimage
+    container_name: favouriteservicecontainer
+    build: FavouriteService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8087:8087
+    depends_on:
+      - mongoservice
+      - eurekaserver
+
+  foodinventoryservice:
+    image: foodinventoryserviceimage
+    container_name: foodinventoryservicecontainer
+    build: foodInventoryService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongoservice
+      - eurekaserver
+
+  restuarantmanagementservice:
+    image: restuarantmanagementserviceimage
+    container_name: restuarantmanagementservicecontainer
+    build: RestuarantManagementService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8090:8090
+    depends_on:
+      - mongoservice
+      - eurekaserver
+
+  searchservice:
+    image: searchserviceimage
+    container_name: searchservicecontainer
+    build: searchService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8084:8084
+    depends_on:
+      - mongoservice
+      - eurekaserver
+
+  apigatewayservice:
+    image: apigatewayserviceimage
+    container_name: apigatewayservicecontainer
+    build: apiGatewayService/
+    restart: always
+    network_mode: host
+    ports:
+      - 9000:9000
+    depends_on:
+      - eurekaserver
+
+  mongoservice:
+    image: mongo:3.2-jessie
+    container_name: mongocontainer1
+    ports:
+      - 27017:27017
+    network_mode: host
+
+  userauthenticationservice:
+    container_name: userauthenticationcontainer
+    image: authenticationimage
+    network_mode: host
+    build: UserAuthenticationService/
+    restart: always
+    ports:
+      - 8086:8086
+    depends_on:
+      - mysqlservice
+      - eurekaserver
+
+  mysqlservice:
+    image: mysql:5.5
+    ports:
+      - 3306:3306
+    container_name: mysql-container
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: user
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  eurekaserver:
+    image: eureka-image
+    build: EurekaService/
+    restart: always
+    network_mode: host
+    ports:
+      - 8761:8761
