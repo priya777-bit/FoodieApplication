@@ -14,20 +14,11 @@
     </mat-card-content>
     </a>
     <a routerLink="dishList/{{restuarent.restaurantId}}"></a>
-<<<<<<< HEAD
-    <button mat-mini-fab >
-        <mat-icon [style.color]="restuarent.isFavourite" (click)="add(restuarent)" >favorite</mat-icon>
-    </button>
-    <button mat-mini-fab *ngIf="isadmin">
-        <mat-icon  [style.color]="color" (click)="add(restuarent)" >favorite</mat-icon>
-        </button>
-=======
     <button mat-mini-fab *ngIf="isadmin">
         <mat-icon [style.color]="restuarent.isFavourite" (click)="add(restuarent)" >favorite</mat-icon>
     </button>
     <!-- <button mat-mini-fab *ngIf="isadmin">
         <mat-icon  [style.color]="color" (click)="add(restuarent)" >favorite</mat-icon>
         </button> -->
->>>>>>> e8fcf2b904490f8a02a27d693813eac43239d83c
     </mat-card>
     </div>
