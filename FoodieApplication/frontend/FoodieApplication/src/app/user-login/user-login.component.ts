@@ -60,25 +60,21 @@ export class UserLoginComponent {
         {
         this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
-      }
-      else
-      {
-        alert("Invalid Credentials..");
-      }
-        });
-      }
-      }
+        }
       })
-    }
-}
+      }
+        }
+      })
 
       // if(flag==0)
       // {
       //   alert("Invalid UserName or Password");
       // }
-      
+      }
+
       // else
       //   // {
       //   //   alert("Invalid UserName or Password");
       //   //   break;
       //   // }
+      }
