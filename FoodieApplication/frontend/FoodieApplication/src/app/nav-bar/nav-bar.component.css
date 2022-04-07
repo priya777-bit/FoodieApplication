@@ -1,5 +1,5 @@
 
-/* 
+/*
 @media only screen and(min-width: 425px) {
 
   .mat-toolbar-row,
@@ -14,16 +14,29 @@
   }
 
 } */
+/* .mat-button{
+  min-width: 126px;
+  line-height: 25px;
+} */
 
-.bg-img {  
+.mat-button:hover{
+  color: cadetblue;
+}
+
+.nav-link{
+  margin-left: 20px;
+}
+
+
+.bg-img {
   min-height: 380px;
-  background-image: url("/bg_image.jpg");  
+  background-image: url("/bg_image.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
- 
-} 
+
+}
 /* .sidenav-container {
   height: 100%;
 }
@@ -67,8 +80,9 @@
 }
 
 .nav-item{
-  padding:2px;
-  margin-left: 7px;
+  padding: 0px;
+  margin-left: 9px;
+  margin-top: 8px;
 }
 /* footer {
   position: absolute;
@@ -87,11 +101,7 @@
   left: 0;
   padding: 1rem;
   text-align: center;
-  background-image: url("src\assets\foot2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  /* background-image: url("src\assets\foot2.jpg"); */
   /* background-color: rgba(122, 67, 189, 0.4) */
   /* margin-top: 1vh; */
   /* margin-bottom: 90vh; */
@@ -106,7 +116,7 @@
   font-weight:bold;
   color: rgb(236, 22, 112);
   margin-top: 50%;
-  
+
 }
 .footer-navigations>a:hover {
   color: rgb(18, 168, 118);

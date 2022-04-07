@@ -18,21 +18,16 @@ import { Router } from '@angular/router';
 })
 
 export class ShowRestaurantComponent {
-  
+
   restuarents: any;
   data:Restaurant[];
-  
-  
-  favs:Favourite[];
-  // favId:any;
-  // mailId:any;
   dishes:Dish[];
   image:Image[];
   favourite = new Favourite();
-  color="white";
   isadmin:boolean=true;
+  favs:Favourite[];
   alert=0;
-  
+
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
 
   ngOnInit(){
@@ -41,7 +36,7 @@ export class ShowRestaurantComponent {
     this.favService.getAllFav(this.userRqst.mailId).subscribe(data=>{
       //console.log("favobj", data);
       data.forEach(favourite=>{
-        favourite.restaurantList.forEach((restaurant:any)=>{     
+        favourite.restaurantList.forEach((restaurant:any)=>{
           tempFavRestId.push(restaurant.restaurantId);
         })
       })
@@ -49,18 +44,18 @@ export class ShowRestaurantComponent {
       this.getInventoryRestaurants(tempFavRestId);
     })
 
-    
+
   }
 
   getInventoryRestaurants(tempFavRestId:any[]){
 
     this.request.getdata().subscribe(result=>{
       let tempArray:any[]=[];
-	  
+
       result.forEach((element) => {
         this.request.getImages(element.restaurantId).subscribe(result1=>{
           element.image=result1;
-         
+
           let rest = {
             "restaurantId": element.restaurantId,
             "restaurantName": element.restaurantName,
@@ -69,14 +64,14 @@ export class ShowRestaurantComponent {
             "isFavourite": "white",
             "dishList": element.dishList
           };
-          
+
           if(tempFavRestId.includes(element.restaurantId)){
             rest.isFavourite = 'red';
           }
 		      tempArray.push(rest);
-        })  
+        })
       });
-      this.restuarents = tempArray; 
+      this.restuarents = tempArray;
       console.log('Restaurants updated ', this.restuarents);
     })
     if(this.userRqst.loginType!="admin")
@@ -96,7 +91,7 @@ export class ShowRestaurantComponent {
         ele.isFavourite = 'red';
       }
     //restuarent.isSelected = true;
-   
+
 
     if(this.userRqst.mailId!=null)
     {

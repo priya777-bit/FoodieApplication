@@ -12,8 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
-import { AddRestComponent } from './rest_management/add-rest/add-rest.component';
-import { AddDishComponent } from './rest_management/add-dish/add-dish.component';
 import {MatSelectModule} from '@angular/material/select';
 import { NavbarComponent } from './rest_management/navbar/navbar.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
@@ -23,8 +21,6 @@ import { SendDishComponent } from './add-Restaurant-Service/send-dish/send-dish.
 import { DashboardComponent } from './add-Restaurant-Service/dashboard/dashboard.component';
 import { SearchComponent } from './search-Service/search/search.component';
 import { NavComponent } from './search-Service/nav/nav.component';
-import { ViewDishComponent } from './rest_management/view-dish/view-dish.component';
-import { ViewRestuarantComponent } from './rest_management/view-restuarant/view-restuarant.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -37,11 +33,9 @@ import { ShowRestaurantComponent } from './food-inventory/show-restaurant/show-r
 import { ShowDishComponent } from './food-inventory/show-dish/show-dish.component';
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
 import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
-import { AdminNavBarComponent } from './admin/admin-nav-bar/admin-nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-// import { ListenerDirective } from './listener.directive';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { ToastrModule } from 'ngx-toastr';
 

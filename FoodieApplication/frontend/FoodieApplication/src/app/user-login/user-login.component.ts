@@ -60,7 +60,7 @@ export class UserLoginComponent {
         {
         this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
-        } 
+        }
       })
       }
         }
@@ -71,7 +71,7 @@ export class UserLoginComponent {
       //   alert("Invalid UserName or Password");
       // }
       }
-      
+
       // else
       //   // {
       //   //   alert("Invalid UserName or Password");
