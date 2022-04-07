@@ -60,19 +60,6 @@ export class UserLoginComponent {
         {
         this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
-<<<<<<< HEAD
-      }
-      else
-      {
-        alert("Invalid Credentials..");
-      }
-        });
-      }
-      }
-      })
-    }
-}
-=======
         } 
       })
       }
@@ -91,4 +78,3 @@ export class UserLoginComponent {
       //   //   break;
       //   // }
       }
->>>>>>> e8fff1cea6bf57283660cf5e25763e54768ebb86
