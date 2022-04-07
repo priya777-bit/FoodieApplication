@@ -14,11 +14,6 @@
   }
 
 } */
-/* .mat-button{
-  min-width: 126px;
-  line-height: 25px;
-} */
-
 .mat-button:hover{
   color: cadetblue;
 }
@@ -26,8 +21,6 @@
 .nav-link{
   margin-left: 20px;
 }
-
-
 .bg-img {  
   min-height: 380px;
   background-image: url("/bg_image.jpg");  
@@ -56,9 +49,9 @@
 .navButton{
   margin-left:975px ;
 } */
-.search{
+/* .search{
   margin-left: 50px;
-}
+} */
 
 .img2{
   padding-left: 0px;
@@ -80,7 +73,7 @@
 }
 
 .nav-item{
-  padding: 0px;
+  padding:0px;
   margin-left: 9px;
   margin-top: 8px;
 }
@@ -101,8 +94,6 @@
   left: 0;
   padding: 1rem;
   text-align: center;
-  /* background-image: url("src\assets\foot2.jpg"); */
-  /* background-color: rgba(122, 67, 189, 0.4) */
   /* margin-top: 1vh; */
   /* margin-bottom: 90vh; */
 }
