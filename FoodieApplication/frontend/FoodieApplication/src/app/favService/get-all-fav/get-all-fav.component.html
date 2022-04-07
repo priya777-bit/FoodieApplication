@@ -1,13 +1,3 @@
-<!-- <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
-    <mdb-card *ngFor="let fav of favs">
-    <mdb-card-body>
-        <mdb-card-title>
-            <h4>{{ fav.restaurantName }}</h4>
-        </mdb-card-title>
-      </mdb-card-body>
-    </mdb-card>
-    </div> -->
-
 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
     <mat-card app-player matRipple class="card" *ngFor="let fav of favs">
       <div *ngFor="let rest of fav.restaurantList">

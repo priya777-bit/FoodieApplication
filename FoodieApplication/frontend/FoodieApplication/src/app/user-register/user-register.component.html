@@ -15,6 +15,14 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput type="email" placeholder="Mail Id" formControlName="userMailId">
+            <span class="text-danger"
+            *ngIf="(registerForm.controls['userMailId'].touched) && registerForm.controls['userMailId'].errors?.['required']">
+            MailId is required
+        </span>
+        <span class="text-danger"
+            *ngIf="registerForm.controls['userMailId'].touched && registerForm.controls['userMailId'].errors?.['invalidEmail']">
+            Invalid MailId
+        </span>
           </mat-form-field>
         </div>
       </div>
@@ -31,6 +39,15 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput type="password" placeholder="Password" formControlName="userPassword">
+            <span class="text-danger"
+            *ngIf="(registerForm.controls['userPassword'].touched || submitted) && registerForm.controls['userPassword'].errors?.['required']">
+            Password is required
+        </span>
+        <span class="text-danger"
+            *ngIf="registerForm.controls['userPassword'].touched && registerForm.controls['userPassword'].errors?.['invalidPassword']">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+        </span>
           </mat-form-field>
         </div>
         <div class="col">

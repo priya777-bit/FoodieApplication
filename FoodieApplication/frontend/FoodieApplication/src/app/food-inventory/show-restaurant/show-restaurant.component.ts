@@ -18,19 +18,14 @@ import { Router } from '@angular/router';
 })
 
 export class ShowRestaurantComponent {
-
-
   
   restuarents: any;
   data:Restaurant[];
-  favs:Favourite[];
-  // favId:any;
-  // mailId:any;
   dishes:Dish[];
   image:Image[];
   favourite = new Favourite();
-  color="white";
   isadmin:boolean=true;
+  favs:Favourite[];
   alert=0;
   
   constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
@@ -95,8 +90,6 @@ export class ShowRestaurantComponent {
       if(ele.restaurantId == restuarent.restaurantId){
         ele.isFavourite = 'red';
       }
-    //restuarent.isSelected = true;
-   
 
     if(this.userRqst.mailId!=null)
     {

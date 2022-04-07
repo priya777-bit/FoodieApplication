@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators ,FormGroup,FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRequestService } from '../user-request.service';
+import { ToastrService } from 'ngx-toastr';
+import { CustomvalidationService } from '../customvalidation.service';
 
 interface Type {
   value: string;
@@ -14,6 +16,7 @@ interface Type {
   styleUrls: ['./user-register.component.css']
 })
 export class UserRegisterComponent {
+  submitted = false;
   // registerForm = this.fb.group({
   //   userMailId: [null,Validators.required],
   //   userName: [null, Validators.required],
@@ -30,9 +33,10 @@ export class UserRegisterComponent {
 
   registerForm=new FormGroup(
     {
-      userMailId:new FormControl('',Validators.required),
+      userMailId:new FormControl('', Validators.compose([Validators.required, this.customValidator.emailPatternValidator()])),
       userName:new FormControl('',Validators.required),
-      userPassword: new FormControl(null, Validators.required),
+      userPassword: new FormControl('', Validators.compose([Validators.required, this.customValidator.patternValidator()])),
+      
       userPhoneNo: new FormControl(null, Validators.required),
       addressList:new FormGroup({
         addressType:new FormControl('',Validators.required),
@@ -50,7 +54,7 @@ export class UserRegisterComponent {
       {value: 'Work', viewValue: 'Work'},
       {value: 'Home', viewValue: 'Home'}]
 
-  constructor(private fb: FormBuilder,private userRequest:UserRequestService,private router:Router) {}
+  constructor(private fb: FormBuilder,private userRequest:UserRequestService,private router:Router,private toastr: ToastrService,private customValidator:CustomvalidationService) {}
 
   public selectedFile:any;
   public event1:any;
@@ -69,7 +73,7 @@ export class UserRegisterComponent {
 }
 
 onSubmit(): void {
-  
+  this.submitted = true;
   const uploadImageData = new FormData();
   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
   uploadImageData.append('uploadData', JSON.stringify(this.registerForm.value))
@@ -79,6 +83,7 @@ onSubmit(): void {
   // })
 
  this.userRequest.register(uploadImageData).subscribe(()=>{
+  this.toastr.success('Registration Success');
     this.router.navigate(['/login']);
  })
 }

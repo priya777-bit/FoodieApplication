@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { FavService } from '../favService/service/fav.service';
 import { UserRequestService } from '../user-request.service';
+import { ToastrService } from 'ngx-toastr';
+import { CustomvalidationService } from '../customvalidation.service';
 
 @Component({
   selector: 'app-user-login',
@@ -12,8 +14,8 @@ import { UserRequestService } from '../user-request.service';
 })
 export class UserLoginComponent {
   loginForm = this.fb.group({
-    userMailId: [null, Validators.required],
-    userPassword: [null, Validators.required],
+    userMailId: ['', Validators.compose([Validators.required, this.customValidator.emailPatternValidator()])],
+    userPassword: ['', Validators.compose([Validators.required, this.customValidator.patternValidator()])],
     loginType:[null, Validators.required],
     secretKey:[null, Validators.required]
   });
@@ -22,7 +24,7 @@ export class UserLoginComponent {
   loginType: any;
   types: string[] = ['Admin User', 'Normal User'];
   isAdmin:Boolean=false;
-  constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService) {}
+  constructor(private fb: FormBuilder,private request:UserRequestService,private authServe:AuthenticationService,private router:Router,private fav: FavService,private toastr: ToastrService,private customValidator:CustomvalidationService) {}
 
   ngOnInit(){
     const data=this.loginForm.value;
@@ -56,22 +58,27 @@ export class UserLoginComponent {
         //this.request.mailId=this.fav.userMailId;
         if(value===this.authServe.logIn(data.loginType))
         {
+        this.toastr.success('Welcome '+data.userMailId);
         this.router.navigate(["/showRest"]);
-        } 
-      })
       }
-        }
+      else
+      {
+        alert("Invalid Credentials..");
+      }
+        });
+      }
+      }
       })
+    }
+}
 
       // if(flag==0)
       // {
       //   alert("Invalid UserName or Password");
       // }
-      }
       
       // else
       //   // {
       //   //   alert("Invalid UserName or Password");
       //   //   break;
       //   // }
-      }
