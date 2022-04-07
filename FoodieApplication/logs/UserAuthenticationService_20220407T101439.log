@@ -9328,3 +9328,197 @@ Unconditional classes:
 10.46.55.509 [DiscoveryClient-HeartbeatExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086 - Heartbeat status: 200
 10.47.00.214 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
 10.47.00.215 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10.47.25.245 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - HTTP GET http://localhost:8761/eureka/apps/delta
+10.47.25.245 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+10.47.25.247 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.c.protocol.RequestAddCookies - CookieSpec selected: default
+10.47.25.247 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.c.protocol.RequestAuthCache - Auth cache not set in the context
+10.47.25.247 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "[read] I/O error: Read timed out"
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection leased: [id: 3][route: {}->http://localhost:8761][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-3: set socket timeout to 0
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Executing request GET /eureka/apps/delta HTTP/1.1
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> GET /eureka/apps/delta HTTP/1.1
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Accept: application/json, application/*+json
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Host: localhost:8761
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Connection: Keep-Alive
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Accept-Encoding: gzip,deflate
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "GET /eureka/apps/delta HTTP/1.1[\r][\n]"
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Accept: application/json, application/*+json[\r][\n]"
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Host: localhost:8761[\r][\n]"
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Connection: Keep-Alive[\r][\n]"
+10.47.25.259 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)[\r][\n]"
+10.47.25.260 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+10.47.25.260 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "HTTP/1.1 200 [\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Content-Encoding: gzip[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Content-Type: application/json[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Content-Length: 86[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Date: Thu, 07 Apr 2022 05:17:25 GMT[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Keep-Alive: timeout=60[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Connection: keep-alive[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "[\r][\n]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "[0x1f][0x8b][0x8][0x0][0x0][0x0][0x0][0x0][0x0][0x0][0xab]VJ,([0xc8][0xc9]LN,[0xc9][0xcc][0xcf]+V[0xb2][0xaa]V*K-*[0x6][0xb1][0xe3][0xe3]SRsJ[0x12][0x95][0xac][0x94][0xc]M[0x95]t@[0xca][0x80]B[0x19][0x89][0xc5][0x19][0xc9][0xf9])[0xa9]@[0xd1][0xd0][0x80]x[0xf3]x[0x88][0x4]L[0xbf][0x92]Utlm-[0x0][0xb4][0xff][0xa2],S[0x0][0x0][0x0]"
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << HTTP/1.1 200 
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Content-Encoding: gzip
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Content-Type: application/json
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Content-Length: 86
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Date: Thu, 07 Apr 2022 05:17:25 GMT
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Keep-Alive: timeout=60
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Connection: keep-alive
+10.47.25.261 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Connection can be kept alive for 60000 MILLISECONDS
+10.47.25.262 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - Response 200 OK
+10.47.25.262 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+10.47.25.262 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection [id: 3][route: {}->http://localhost:8761] can be kept alive for 60.0 seconds
+10.47.25.262 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-3: set socket timeout to 0
+10.47.25.262 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection released: [id: 3][route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.25.263 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - Got delta update with apps hashcode UP_7_
+10.47.25.264 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - The total number of instances fetched by the delta processor : 0
+10.47.25.264 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - The total number of all instances in the client now is 7
+10.47.25.264 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - Completed cache refresh task for discovery. All Apps hash code is Local region apps hashcode: UP_7_, is fetching remote regions? false 
+10.47.25.510 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.s.web.client.RestTemplate - HTTP PUT http://localhost:8761/eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903
+10.47.25.511 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+10.47.25.511 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.c.protocol.RequestAddCookies - CookieSpec selected: default
+10.47.25.512 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.c.protocol.RequestAuthCache - Auth cache not set in the context
+10.47.25.512 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "[read] I/O error: Read timed out"
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection leased: [id: 4][route: {}->http://localhost:8761][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-4: set socket timeout to 0
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Executing request PUT /eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903 HTTP/1.1
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> PUT /eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903 HTTP/1.1
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Accept: application/json, application/*+json
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Content-Length: 0
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Host: localhost:8761
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Connection: Keep-Alive
+10.47.25.526 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Accept-Encoding: gzip,deflate
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "PUT /eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903 HTTP/1.1[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Accept: application/json, application/*+json[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Content-Length: 0[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Host: localhost:8761[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Connection: Keep-Alive[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+10.47.25.527 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "HTTP/1.1 200 [\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Content-Type: application/json[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Content-Length: 0[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Date: Thu, 07 Apr 2022 05:17:25 GMT[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Keep-Alive: timeout=60[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Connection: keep-alive[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "[\r][\n]"
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << HTTP/1.1 200 
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Content-Type: application/json
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Content-Length: 0
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Date: Thu, 07 Apr 2022 05:17:25 GMT
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Keep-Alive: timeout=60
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Connection: keep-alive
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Connection can be kept alive for 60000 MILLISECONDS
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection [id: 4][route: {}->http://localhost:8761] can be kept alive for 60.0 seconds
+10.47.25.531 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-4: set socket timeout to 0
+10.47.25.532 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection released: [id: 4][route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.25.532 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.s.web.client.RestTemplate - Response 200 OK
+10.47.25.532 [DiscoveryClient-HeartbeatExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086 - Heartbeat status: 200
+10.47.30.219 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+10.47.30.219 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
+10.47.55.309 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - HTTP GET http://localhost:8761/eureka/apps/delta
+10.47.55.323 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+10.47.55.334 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.c.protocol.RequestAddCookies - CookieSpec selected: default
+10.47.55.335 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.c.protocol.RequestAuthCache - Auth cache not set in the context
+10.47.55.335 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.55.352 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "[read] I/O error: Read timed out"
+10.47.55.352 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection leased: [id: 3][route: {}->http://localhost:8761][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-3: set socket timeout to 0
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Executing request GET /eureka/apps/delta HTTP/1.1
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> GET /eureka/apps/delta HTTP/1.1
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Accept: application/json, application/*+json
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Host: localhost:8761
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Connection: Keep-Alive
+10.47.55.353 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 >> Accept-Encoding: gzip,deflate
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "GET /eureka/apps/delta HTTP/1.1[\r][\n]"
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Accept: application/json, application/*+json[\r][\n]"
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Host: localhost:8761[\r][\n]"
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Connection: Keep-Alive[\r][\n]"
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)[\r][\n]"
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+10.47.55.354 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 >> "[\r][\n]"
+10.47.55.359 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "HTTP/1.1 200 [\r][\n]"
+10.47.55.359 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Content-Encoding: gzip[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Content-Type: application/json[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Content-Length: 86[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Date: Thu, 07 Apr 2022 05:17:55 GMT[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Keep-Alive: timeout=60[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "Connection: keep-alive[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "[\r][\n]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.wire - http-outgoing-3 << "[0x1f][0x8b][0x8][0x0][0x0][0x0][0x0][0x0][0x0][0x0][0xab]VJ,([0xc8][0xc9]LN,[0xc9][0xcc][0xcf]+V[0xb2][0xaa]V*K-*[0x6][0xb1][0xe3][0xe3]SRsJ[0x12][0x95][0xac][0x94][0xc]M[0x95]t@[0xca][0x80]B[0x19][0x89][0xc5][0x19][0xc9][0xf9])[0xa9]@[0xd1][0xd0][0x80]x[0xf3]x[0x88][0x4]L[0xbf][0x92]Utlm-[0x0][0xb4][0xff][0xa2],S[0x0][0x0][0x0]"
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << HTTP/1.1 200 
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Content-Encoding: gzip
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Content-Type: application/json
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Content-Length: 86
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Date: Thu, 07 Apr 2022 05:17:55 GMT
+10.47.55.360 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Keep-Alive: timeout=60
+10.47.55.361 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG org.apache.http.headers - http-outgoing-3 << Connection: keep-alive
+10.47.55.362 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Connection can be kept alive for 60000 MILLISECONDS
+10.47.55.363 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - Response 200 OK
+10.47.55.374 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.s.web.client.RestTemplate - Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+10.47.55.392 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection [id: 3][route: {}->http://localhost:8761] can be kept alive for 60.0 seconds
+10.47.55.392 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-3: set socket timeout to 0
+10.47.55.392 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection released: [id: 3][route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.55.395 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - Got delta update with apps hashcode UP_7_
+10.47.55.395 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - The total number of instances fetched by the delta processor : 0
+10.47.55.398 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - The total number of all instances in the client now is 7
+10.47.55.403 [DiscoveryClient-CacheRefreshExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - Completed cache refresh task for discovery. All Apps hash code is Local region apps hashcode: UP_7_, is fetching remote regions? false 
+10.47.55.542 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.s.web.client.RestTemplate - HTTP PUT http://localhost:8761/eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903
+10.47.55.543 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.s.web.client.RestTemplate - Accept=[application/json, application/*+json]
+10.47.55.546 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.c.protocol.RequestAddCookies - CookieSpec selected: default
+10.47.55.546 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.c.protocol.RequestAuthCache - Auth cache not set in the context
+10.47.55.548 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.55.555 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "[read] I/O error: Read timed out"
+10.47.55.556 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection leased: [id: 4][route: {}->http://localhost:8761][total available: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.55.556 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-4: set socket timeout to 0
+10.47.55.556 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Executing request PUT /eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903 HTTP/1.1
+10.47.55.556 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> PUT /eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903 HTTP/1.1
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Accept: application/json, application/*+json
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Content-Length: 0
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Host: localhost:8761
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Connection: Keep-Alive
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)
+10.47.55.557 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 >> Accept-Encoding: gzip,deflate
+10.47.55.558 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "PUT /eureka/apps/USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086?status=UP&lastDirtyTimestamp=1649306764903 HTTP/1.1[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Accept: application/json, application/*+json[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Content-Length: 0[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Host: localhost:8761[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Connection: Keep-Alive[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.12)[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+10.47.55.559 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 >> "[\r][\n]"
+10.47.55.566 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "HTTP/1.1 200 [\r][\n]"
+10.47.55.566 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Content-Type: application/json[\r][\n]"
+10.47.55.566 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Content-Length: 0[\r][\n]"
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Date: Thu, 07 Apr 2022 05:17:55 GMT[\r][\n]"
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Keep-Alive: timeout=60[\r][\n]"
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "Connection: keep-alive[\r][\n]"
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.wire - http-outgoing-4 << "[\r][\n]"
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << HTTP/1.1 200 
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Content-Type: application/json
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Content-Length: 0
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Date: Thu, 07 Apr 2022 05:17:55 GMT
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Keep-Alive: timeout=60
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG org.apache.http.headers - http-outgoing-4 << Connection: keep-alive
+10.47.55.567 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.impl.execchain.MainClientExec - Connection can be kept alive for 60000 MILLISECONDS
+10.47.55.568 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection [id: 4][route: {}->http://localhost:8761] can be kept alive for 60.0 seconds
+10.47.55.568 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.DefaultManagedHttpClientConnection - http-outgoing-4: set socket timeout to 0
+10.47.55.568 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.a.h.i.c.PoolingHttpClientConnectionManager - Connection released: [id: 4][route: {}->http://localhost:8761][total available: 1; route allocated: 1 of 2; total allocated: 1 of 20]
+10.47.55.568 [DiscoveryClient-HeartbeatExecutor-0] DEBUG o.s.web.client.RestTemplate - Response 200 OK
+10.47.55.571 [DiscoveryClient-HeartbeatExecutor-0] DEBUG c.netflix.discovery.DiscoveryClient - DiscoveryClient_USER-AUTHENTICATION-SERVICE/host.docker.internal:user-authentication-service:8086 - Heartbeat status: 200
+10.48.00.235 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+10.48.00.236 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Fill pool skipped, pool is at sufficient level.
