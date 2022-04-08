@@ -13,6 +13,6 @@ public interface FavouriteService {
     List<Favourite> getALlFavourite(String userMailId);
     boolean removeFromFav(String favouriteId,String restaurantId);
     List<Dish> addDishToFav(String favouriteId,String restaurantId, Dish dish);
-    boolean removeDishFromFav(String favouriteId,String restaurantId,String dishId);
+    Favourite removeDishFromFav(String favouriteId,String restaurantId,String dishId);
     Favourite updateRestAndDishToFav(String favouriteId,Restaurant restaurant);
 }

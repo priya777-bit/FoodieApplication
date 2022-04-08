@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Favourite } from '../domain/favourite';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +33,8 @@ export class FavService {
     return this.http.delete(`${this.removeUrl}/${favouriteId}/${restaurantId}`);
   }
 
-  removeDish(favouriteId:string,restaurantId:string,dishId:string){
-    return this.http.delete(`${this.removeDishUrl}/${favouriteId}/${restaurantId}/${dishId}`);
+  removeDish(favouriteId:string,restaurantId:string,dishId:string):Observable<Favourite>{
+    return this.http.delete<Favourite>(`${this.removeDishUrl}/${favouriteId}/${restaurantId}/${dishId}`);
   }
 
   addDish(favouriteId:string,restaurantId:any,dish:any){

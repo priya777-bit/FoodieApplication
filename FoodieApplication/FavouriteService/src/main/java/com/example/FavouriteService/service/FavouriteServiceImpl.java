@@ -83,8 +83,8 @@ public class FavouriteServiceImpl implements FavouriteService{
     }
 
     @Override
-    public boolean removeDishFromFav(String favouriteId,String restaurantId,String dishId) {
-        boolean result = false;
+    public Favourite removeDishFromFav(String favouriteId,String restaurantId,String dishId) {
+//        boolean result = false;
         Favourite favourite = favouriteRepository.findById(favouriteId).get();
         List<Restaurant> restaurantList = favourite.getRestaurantList();
         for(int i = 0; i<restaurantList.size();i++){
@@ -98,7 +98,7 @@ public class FavouriteServiceImpl implements FavouriteService{
 //                    System.out.println("dishId"+dishId);
 //                    System.out.println("get"+dish.getDishId());
                     if (dish.getDishId().equalsIgnoreCase(dishId)) {
-                        result = dishList.remove(dish);
+                         dishList.remove(dish);
 //                        System.out.println(result);
 //                        System.out.println("new"+dishList);
                     }
@@ -106,7 +106,7 @@ public class FavouriteServiceImpl implements FavouriteService{
             }
             favouriteRepository.save(favourite);
         }
-        return result;
+        return favourite;
     }
     @Override
     public Favourite updateRestAndDishToFav(String favouriteId,Restaurant restaurant)
