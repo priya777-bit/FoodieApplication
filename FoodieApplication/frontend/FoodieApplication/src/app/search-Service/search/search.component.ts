@@ -70,7 +70,12 @@ getRestaurant()
     console.log(this.restaurant);
     this.restaurant.forEach(p=>{
       console.log(p);
-      this.rest=p;
+      this.rest.restaurantId=p.restaurantId;
+      this.fs.getImage(this.rest.restaurantId).subscribe(restimg=>{
+        this.image=restimg;
+        p.image=restimg;
+        this.rest=p;
+      })
       this.dishes=this.rest.dishList;
       this.dishes.forEach(d=>{
         this.dish.dishId=d.dishId;

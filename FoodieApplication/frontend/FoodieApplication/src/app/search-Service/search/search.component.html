@@ -33,7 +33,7 @@
                 <div>{{dishes.restaurantName}}</div>
                 <div>{{dishes1.dishName}}</div>
                 <div>{{dishes1.dishType}}</div>
-                <div *ngFor="let image of dishes1.image">
+                <div *ngFor="let image of dishes.image">
                 <img class="img-thumbnail" [src]="image.image">
                 </div>
             </mat-card-content>
