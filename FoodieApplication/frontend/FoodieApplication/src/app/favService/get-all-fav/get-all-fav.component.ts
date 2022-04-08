@@ -42,8 +42,9 @@ export class GetAllFavComponent implements OnInit {
 
   }
 
-  remove(fav:any){
-    this.FavService.removeFromFav(fav.favouriteId).subscribe(f=>{
+  remove(fav:any,restaurantId:any){
+    console.log(fav.favouriteId,restaurantId);
+    this.FavService.removeFromFav(fav.favouriteId,restaurantId).subscribe(f=>{
       console.log(f);
     })
   }

@@ -53,10 +53,10 @@ public class FavouriteController {
         }
     }
 
-    @DeleteMapping("/remove/{favouriteId}")
-    public ResponseEntity<?> removeFromFav(@PathVariable String favouriteId){
+    @DeleteMapping("/remove/{favouriteId}/{restaurantId}")
+    public ResponseEntity<?> removeFromFav(@PathVariable String favouriteId,@PathVariable String restaurantId){
         try {
-            return new ResponseEntity<>(favouriteService.removeFromFav(favouriteId),HttpStatus.OK);
+            return new ResponseEntity<>(favouriteService.removeFromFav(favouriteId,restaurantId),HttpStatus.OK);
         }
         catch (Exception e){
             e.printStackTrace();

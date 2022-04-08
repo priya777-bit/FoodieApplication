@@ -16,6 +16,7 @@ import { FavService } from '../service/fav.service';
 export class GetFavDishComponent implements OnInit {
 
   favs:Favourite[];
+  favsAfterRemove:Favourite;
   rest:Restaurant[];
   dishes:Dish[];
   image:Image[];
@@ -60,8 +61,17 @@ export class GetFavDishComponent implements OnInit {
   remove(dish:any){
     console.log(dish);
     this.favs.forEach(f=>{
-      this.FavService.removeDish(f.favouriteId,this.rId,dish.dishId).subscribe(f=>{
-      console.log(f);
+      this.FavService.removeDish(f.favouriteId,this.rId,dish.dishId).subscribe(d=>{
+      console.log(d);
+      this.favsAfterRemove=d;
+      this.favsAfterRemove.restaurantList.forEach(dish=>{
+        if(dish.dishList.length==0)
+        {
+          this.FavService.removeFromFav(f.favouriteId,dish.restaurantId).subscribe(f=>{
+            console.log(f);
+          })
+        }
+      })
     })
     })
   }

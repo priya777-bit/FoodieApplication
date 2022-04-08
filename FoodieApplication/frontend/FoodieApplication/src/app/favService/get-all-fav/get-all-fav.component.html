@@ -20,22 +20,22 @@
   </div> -->
 
   <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
-    <mat-card app-player matRipple class="card" *ngFor="let fav of rest">
+    <mat-card app-player matRipple class="card" *ngFor="let favRest of rest">
       <!-- <div *ngFor="let rest of fav.restaurantList"> -->
-        <a routerLink="dishList/{{fav.restaurantId}}">
+        <a routerLink="dishList/{{favRest.restaurantId}}">
             <mat-card-header>
-                <mat-card-title>{{ fav.restaurantName }}</mat-card-title>
-                <mat-card-subtitle>{{ fav.restaurantLocation }}</mat-card-subtitle>
+                <mat-card-title>{{ favRest.restaurantName }}</mat-card-title>
+                <mat-card-subtitle>{{ favRest.restaurantLocation }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <div *ngFor="let image of fav.image">
+                <div *ngFor="let image of favRest.image">
                     <img mat-card-image [src]="image.image">
                 </div>
             </mat-card-content>
         </a>
         <div *ngFor="let fav of favs">
         <button mat-mini-fab >
-            <mat-icon [style.color]=fav.isFavourite (click)="remove(fav)" >favorite</mat-icon>
+            <mat-icon [style.color]=fav.isFavourite (click)="remove(fav,favRest.restaurantId)" >favorite</mat-icon>
         </button>
     </div> 
     </mat-card>
