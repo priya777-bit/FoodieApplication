@@ -38,15 +38,25 @@ public class FavouriteServiceImpl implements FavouriteService{
     }
 
     @Override
-    public boolean removeFromFav(String favouriteId) {
+    public boolean removeFromFav(String favouriteId,String restaurantId) {
         boolean result = false;
         Favourite favourite = favouriteRepository.findById(favouriteId).get();
-
-        if(favouriteRepository.findById(favouriteId).isPresent())
+        List<Restaurant>restaurantList=favourite.getRestaurantList();
+        for(int i=0;i<restaurantList.size();i++)
         {
-            favouriteRepository.delete(favourite);
-            result = true;
+            if(restaurantList.get(i).getRestaurantId().equalsIgnoreCase(restaurantId))
+            {
+                restaurantList.remove(restaurantList.get(i));
+                result=true;
+            }
         }
+        favourite.setRestaurantList(restaurantList);
+        favouriteRepository.save(favourite);
+//        if(favouriteRepository.findById(favouriteId).isPresent())
+//        {
+//            favouriteRepository.delete(favourite);
+//            result = true;
+//        }
 
         return result;
     }

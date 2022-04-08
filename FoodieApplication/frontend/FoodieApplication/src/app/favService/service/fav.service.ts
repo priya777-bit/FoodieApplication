@@ -28,8 +28,8 @@ export class FavService {
     return this.http.get<Array<any>>(`${this.getAllFavUrl}/${userMailId}`);
   }
 
-  removeFromFav(favouriteId:string){
-    return this.http.delete(`${this.removeUrl}/${favouriteId}`);
+  removeFromFav(favouriteId:string,restaurantId:any){
+    return this.http.delete(`${this.removeUrl}/${favouriteId}/${restaurantId}`);
   }
 
   removeDish(favouriteId:string,restaurantId:string,dishId:string){
