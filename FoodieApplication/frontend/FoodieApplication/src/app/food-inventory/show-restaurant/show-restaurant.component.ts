@@ -60,7 +60,7 @@ export class ShowRestaurantComponent {
             "restaurantId": element.restaurantId,
             "restaurantName": element.restaurantName,
             "restaurantLocation": element.restaurantLocation,
-            //"restaurantImage": element.image[0].image,
+            "restaurantImage": element.image[0].image,
             "isFavourite": "white",
             "dishList": element.dishList
           };
@@ -90,8 +90,8 @@ export class ShowRestaurantComponent {
       if(ele.restaurantId == restuarent.restaurantId){
         ele.isFavourite = 'red';
       }
-    //restuarent.isSelected = true;
-
+    restuarent.isSelected = true;
+  })
 
     if(this.userRqst.mailId!=null)
     {
@@ -105,10 +105,12 @@ export class ShowRestaurantComponent {
             if(restau.restaurantId==restuarent.restaurantId)
             {
               this.alert=1;
+              console.log("if");
             }
           })
           if(this.alert==0)
           {
+            console.log("iff else");
             this.favService.update(this.favourite.favouriteId,restuarent).subscribe(e=>{
 
             })
@@ -117,6 +119,7 @@ export class ShowRestaurantComponent {
       }
     else
     {
+      console.log("else");
     this.favourite.favouriteId = Math.random().toString(36).substring(2,15);
     this.favService.favId=this.favourite.favouriteId
     console.log(this.favourite.favouriteId);
@@ -146,6 +149,6 @@ else
 {
 this.router.navigate(['/login']);
 }
-})
+
 }
 }
