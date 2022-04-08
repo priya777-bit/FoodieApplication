@@ -53,17 +53,7 @@ public class SearchServiceImpl implements SearchService{
 
     @Override
     public List<Restaurant> findByRestaurantName(String restaurantName) {
-
-        List<Restaurant> restaurants = searchRepository.findByRestaurantName(restaurantName);
-        List<Restaurant> restaurantList = new ArrayList<>();
-        for(Restaurant restaurant:restaurants)
-        {
-            String rest = restaurant.getRestaurantName();
-            if (rest.equalsIgnoreCase(restaurantName))
-                restaurantList = searchRepository.findByRestaurantName(rest);
-        }
-
-        return restaurantList;
+        return searchRepository.findByRestaurantName(restaurantName);
     }
 
     @Override

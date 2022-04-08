@@ -7,7 +7,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8085:8085
+      - "8085:8085"
     depends_on:
       - mongoservice
       - eurekaserver
@@ -19,7 +19,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8081:8081
+      - "8081:8081"
     depends_on:
       - mongoservice
       - eurekaserver
@@ -31,7 +31,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8087:8087
+      - "8087:8087"
     depends_on:
       - mongoservice
       - eurekaserver
@@ -43,7 +43,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8082:8082
+      - "8082:8082"
     depends_on:
       - mongoservice
       - eurekaserver
@@ -55,7 +55,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8090:8090
+      - "8090:8090"
     depends_on:
       - mongoservice
       - eurekaserver
@@ -67,7 +67,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8084:8084
+      - "8084:8084"
     depends_on:
       - mongoservice
       - eurekaserver
@@ -79,7 +79,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 9000:9000
+      - "9000:9000"
     depends_on:
       - eurekaserver
 
@@ -87,7 +87,7 @@ services:
     image: mongo:3.2-jessie
     container_name: mongocontainer1
     ports:
-      - 27017:27017
+      - "27017:27017"
     network_mode: host
 
   userauthenticationservice:
@@ -97,7 +97,7 @@ services:
     build: UserAuthenticationService/
     restart: always
     ports:
-      - 8086:8086
+      - "8086:8086"
     depends_on:
       - mysqlservice
       - eurekaserver
@@ -105,7 +105,7 @@ services:
   mysqlservice:
     image: mysql:5.5
     ports:
-      - 3306:3306
+      - "3306:3306"
     container_name: mysql-container
     network_mode: host
     environment:
@@ -120,4 +120,4 @@ services:
     restart: always
     network_mode: host
     ports:
-      - 8761:8761
+      - "8761:8761"
