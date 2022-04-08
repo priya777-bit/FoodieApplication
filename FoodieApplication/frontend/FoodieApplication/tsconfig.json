@@ -17,7 +17,6 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "types": [ "google.maps"],
     // "types": [ "googlemaps"],
     "lib": [
       "es2020",
