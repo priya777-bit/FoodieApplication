@@ -52,7 +52,7 @@ export class UserLoginComponent {
         this.data=response;
         this.request.token=this.data.token;
         console.log(this.data.token);
-        this.authServe.loginUser(null);
+        this.authServe.loginUser(this.data.token);
         this.request.mailId=data.userMailId;
         const value=this.authServe.logIn(data.loginType); // null
         //this.request.mailId=this.fav.userMailId;
