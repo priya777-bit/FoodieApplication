@@ -21,13 +21,9 @@
 .nav-link{
   margin-left: 20px;
 }
-<<<<<<< HEAD
-.bg-img {  
-=======
 
 
 .bg-img {
->>>>>>> f35def733817064c3fac75c9fec731eb513d5357
   min-height: 380px;
   background-image: url("/bg_image.jpg");
   background-position: center;
