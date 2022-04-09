@@ -1,5 +1,6 @@
 package com.example.OrderService.controller;
 
+import com.example.OrderService.model.Food;
 import com.example.OrderService.model.Order;
 import com.example.OrderService.service.OrderService;
 import com.example.OrderService.service.OrderServiceImpl;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("http://localhost:4200")
 @Component
 @RestController
 @RequestMapping("/api/user/users/order")
@@ -60,6 +62,17 @@ public class OrderController {
         catch (Exception error)
         {
             return new ResponseEntity<>("try after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/addDishToOrder/{orderId}/{restaurantId}/dish")
+    public ResponseEntity<?> addDishToOrder(@PathVariable String orderId, @PathVariable String restaurantId, @RequestBody Food dish){
+        try {
+            return new ResponseEntity<>(orderService.addDishToOrder(orderId,restaurantId,dish),HttpStatus.CREATED);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("Try After Some Time",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

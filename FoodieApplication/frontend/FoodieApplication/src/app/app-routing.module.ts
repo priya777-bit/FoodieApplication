@@ -17,6 +17,7 @@ import { ShowDishComponent } from './food-inventory/show-dish/show-dish.componen
 import { GetAllFavComponent } from './favService/get-all-fav/get-all-fav.component';
 import { GetFavDishComponent } from './favService/get-fav-dish/get-fav-dish.component';
 import { CanLoadGuard } from './can-load.guard';
+import { AddToCartComponent } from './addToCart/add-to-cart/add-to-cart.component';
 
 
 
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path:"showRest",component:ShowRestaurantComponent,canActivate:[AuthguardGuard]},
   {path:"showRest/dishList/:id",component:ShowDishComponent,canActivate:[AuthguardGuard]},
   {path:'getFav',component:GetAllFavComponent,canActivate:[AuthguardGuard]},
-  {path:'getFav/dishList/:id',component:GetFavDishComponent,canActivate:[AuthguardGuard]}
+  {path:'getFav/dishList/:id',component:GetFavDishComponent,canActivate:[AuthguardGuard]},
+  {path:"cart",component:AddToCartComponent,canActivate:[AuthguardGuard]}
 ];
 
 @NgModule({

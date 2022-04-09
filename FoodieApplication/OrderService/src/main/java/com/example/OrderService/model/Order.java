@@ -17,7 +17,7 @@ public class Order {
     @Id
     private String orderId;
     private String userMailId;
-    private Restaurant restuarant;
-    private List<Food> foodList;
+    private List<Restaurant> restaurantList;
+    private double quantity =1;
     private double price;
 }

@@ -9,6 +9,7 @@ import { UserRequestService } from 'src/app/user-request.service';
 import { Dish } from '../modal/dish';
 import { Image } from '../modal/image';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -27,8 +28,9 @@ export class ShowRestaurantComponent {
   isadmin:boolean=true;
   favs:Favourite[];
   alert=0;
+  dishalert=0;
 
-  constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router) {}
+  constructor(private breakpointObserver: BreakpointObserver,private request:InventoryRequestService,private favService:FavService,private userRqst:UserRequestService,private router:Router,private toastr: ToastrService) {}
 
   ngOnInit(){
     let tempFavRestId:any[]=[];
@@ -108,11 +110,12 @@ export class ShowRestaurantComponent {
               console.log("if");
             }
           })
+         
           if(this.alert==0)
           {
             console.log("iff else");
             this.favService.update(this.favourite.favouriteId,restuarent).subscribe(e=>{
-
+              this.toastr.success("Added to Favourite");
             })
           }
         })
@@ -139,6 +142,7 @@ export class ShowRestaurantComponent {
         console.log(this.favourite)
     this.favService.addToFav(this.favourite).subscribe(res=>{
       console.log(res);
+      this.toastr.success("Added to Favourite");
     },error =>{
         console.log(error);
     })

@@ -10,6 +10,9 @@ import { FavService } from 'src/app/favService/service/fav.service';
 import { Favourite } from 'src/app/favService/domain/favourite';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Restaurant } from '../modal/restaurant';
+import { ToastrService } from 'ngx-toastr';
+import { Order } from 'src/app/addToCart/add-to-cart/domain/order';
+import { OrderRequestService } from 'src/app/addToCart/add-to-cart/service/order-request.service';
 
 @Component({
   selector: 'app-show-dish',
@@ -37,6 +40,12 @@ export class ShowDishComponent {
   restaurant :any;
   flag=0;
   alert=0;
+  order=new Order();
+  ors:Order[];
+  orderRestaurant :any;
+  flagOrder=0;
+  alertOrder=0;
+
 
 
   ngOnInit(): void{
@@ -65,7 +74,7 @@ export class ShowDishComponent {
       this.isadmin=false;
     }
   }
-  constructor(private activatedRoute:ActivatedRoute,private request:InventoryRequestService,private favService:FavService,private user:UserRequestService) 
+  constructor(private activatedRoute:ActivatedRoute,private request:InventoryRequestService,private favService:FavService,private user:UserRequestService,private toastr: ToastrService,private orderService:OrderRequestService) 
   {}
 
   add(dish:any){
@@ -82,6 +91,7 @@ export class ShowDishComponent {
             {
               this.alert=1;
               this.flag=1;
+              this.toastr.error("Already added to Favourite");
             }
           })
 
@@ -91,6 +101,7 @@ export class ShowDishComponent {
           {
             this.favService.addDish(r.favouriteId,restau.restaurantId,dish).subscribe(d=>{
               console.log("added Dish",d);
+              this.toastr.success("Added to Favourite");
             })
             this.flag=1;
             console.log(this.flag);
@@ -115,7 +126,7 @@ export class ShowDishComponent {
           })
           console.log(this.restaurant);
           this.favService.update(this.favourite.favouriteId,this.restaurant).subscribe(d=>{
-
+            this.toastr.success("Added to Favourite");
           })
         })
         
@@ -148,6 +159,7 @@ export class ShowDishComponent {
       console.log(this.favourite);
       this.favService.addToFav(this.favourite).subscribe(res=>{
         console.log(res);
+        this.toastr.success("Added to Favourite");
       },error =>{
           console.log(error);
       })
@@ -155,4 +167,72 @@ export class ShowDishComponent {
     }
     })
   }
+
+  addTocart(dish:any){
+
+    this.orderService.getAllOrder(this.user.mailId).subscribe(d=>{
+      this.ors=d;
+      if(this.ors.length!=0)
+      {
+      this.ors.forEach(r=>{
+        this.order.orderId=r.orderId;
+        console.log(r);
+        r.restaurantList.forEach(restau=>{
+          restau.dishList.forEach(d=>{
+            if(d.dishId==dish.dishId)
+            {
+              this.alert=1;
+              this.flag=1;
+              this.toastr.error("Already added to Cart");
+            }
+          })
+
+            if(this.alert==0)
+            {
+            if(restau.restaurantId==this.user.restID)
+          {
+            this.orderService.addOrderDish(r.orderId,restau.restaurantId,dish).subscribe(d=>{
+              console.log("added Dish",d);
+              this.toastr.success("Added to Cart");
+            })
+            this.flag=1; 
+          }
+        }
+          })      
+      if(this.flag==0)
+      {
+        this.toastr.error("Please clear the cart and try again");
+      }
+    })
+    }
+    else
+    {
+      console.log(dish);
+      this.order.orderId = Math.random().toString(36).substring(2,15);
+      this.order.userMailId = this.user.mailId;
+      this.request.getRestData(this.user.restID).subscribe(data=>{
+        this.orderRestaurant=data;
+        this.order.restaurantList=[this.orderRestaurant];
+        this.order.restaurantList.forEach(d=>{
+          //console.log(d.dishList);
+          
+          d.dishList.forEach(dishes=>{
+            if(dishes.dishId!=dish.dishId)
+            {
+              console.log(d.dishList.indexOf(dishes))
+              d.dishList.splice(d.dishList.indexOf(dishes));
+            }
+          })
+        })
+        console.log(this.order);
+        this.orderService.addToOrder(this.order).subscribe(res=>{
+          console.log(res);
+          this.toastr.success("Added to Cart");
+        },error =>{
+            console.log(error);
+        })
+      })
+    }
+    })
+  } 
 }

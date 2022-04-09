@@ -1,0 +1,67 @@
+<!-- <mat-selection-list #cart [multiple]="false">
+  <mat-list-option *ngFor="let cart of rest">
+    <div *ngFor="let cartDish of cart.dishList">
+      {{cartDish.dishName}}
+      {{cartDish.dishType}}
+    {{cart.restaurantId}}
+    {{cart.restaurantName}}
+    {{ cart.restaurantLocation }}
+    <!-- <div *ngFor="let image of cart.image">
+      <img mat-card-image [src]="image.image">
+  </div> -->
+<!-- </div>
+  </mat-list-option>
+</mat-selection-list> --> -->
+
+
+<!-- <section>
+  <div class="spacer">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-9">
+          <div class="row shop-listing"> -->
+            <table class="table" style="color:dodgerblue;">
+              <tr>
+                <th class="b-0">Dish Image</th>
+                <th class="b-0">Restaurant Name</th>
+                <th class="b-0">Restaurant Location</th>
+                <th class="b-0">Dish Name</th>
+                <th class="b-0">Dish type</th>
+                <th class="b-0">Price</th>
+                <th class="b-0">Quantity</th>
+                <th class="b-0 text-right">Total Price</th>
+              </tr>
+              <ng-container *ngFor="let cart of rest" >
+              <tr *ngFor="let cartDish of cart.dishList" >
+
+                <div *ngFor= "let image of cartDish.image">
+                  <td ><img [src]="image.image" width="fit-content" height="80px"></td>
+                  </div>
+
+                <td>{{cart.restaurantName}}</td>
+                <td>{{cart.restaurantLocation}}</td>
+                <td>{{ cartDish.dishName }}</td>
+                <td>{{ cartDish.dishType }}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" (click)="increamentQTY(cartDish.dishId,1)">+</button>
+                  <!-- {{ cartDish.quantity }} -->
+                  <button class="btn btn-primary btn-sm">-</button>
+                </td>
+                <td class="text-right">
+                  <!-- <h5 class="font-medium m-b-30">{{ item.total }}</h5> -->
+                </td>
+              </tr>
+              </ng-container>
+            <tr>
+                <!-- <td colspan="3" align="right">Subtotal :{{ carts.subTotal }}</td> -->
+                <td colspan="4" align="right">
+                  <button class="btn btn-danger" (click)="emptyCart()">Empty Cart</button>
+                </td>
+              </tr>
+            </table>
+          <!-- </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

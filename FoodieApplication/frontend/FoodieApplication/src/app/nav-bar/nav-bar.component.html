@@ -115,6 +115,9 @@
           <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="profile">Profile</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link"  mat-button color="accent"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"  *ngIf = "userIsAuthenticated || adminIsAuthenticated" routerLink="cart">Cart</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" style="color: white;"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" *ngIf = "!userIsAuthenticated && !adminIsAuthenticated" mat-list-item routerLink="login"> <button style="margin-top: -2rem;" mat-button  type="submit">Login</button> </a>
         </li>
         <li class="nav-item">

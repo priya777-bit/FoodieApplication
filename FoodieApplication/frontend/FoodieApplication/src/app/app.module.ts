@@ -38,6 +38,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { ToastrModule } from 'ngx-toastr';
+import { AddToCartComponent } from './addToCart/add-to-cart/add-to-cart.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ToastrModule } from 'ngx-toastr';
     GetAllFavComponent,
     ShowDishComponent,
     GetFavDishComponent,
+    AddToCartComponent,
     // AdminNavBarComponent,
   ],
   imports: [
