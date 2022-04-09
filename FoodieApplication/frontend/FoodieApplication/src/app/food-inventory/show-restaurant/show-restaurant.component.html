@@ -1,4 +1,3 @@
-
 <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
     <mat-card app-player matRipple class="card" *ngFor="let restuarent of restuarents">
         <a routerLink="dishList/{{restuarent.restaurantId}}">
@@ -8,9 +7,9 @@
     </mat-card-header>
     <mat-card-content>
         <img mat-card-image [src]="restuarent.restaurantImage">
-    <!-- <div *ngFor="let image of restuarent.image">
+    <div *ngFor="let image of restuarent.image">
             <img mat-card-image [src]="image.image">
-        </div> -->
+        </div>
     </mat-card-content>
     </a>
     <a routerLink="dishList/{{restuarent.restaurantId}}"></a>
@@ -18,5 +17,6 @@
     <button mat-mini-fab *ngIf="isadmin" >
         <mat-icon [style.color]="restuarent.isFavourite" (click)="add(restuarent)" >favorite</mat-icon>
     </button>
+
     </mat-card>
     </div>

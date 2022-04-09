@@ -6,8 +6,6 @@ import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { UserRequestService } from '../user-request.service';
 
-import * as $ from 'jquery'
-
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
