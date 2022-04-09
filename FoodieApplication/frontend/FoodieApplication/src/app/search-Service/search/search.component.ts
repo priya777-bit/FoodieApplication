@@ -35,9 +35,6 @@ export class SearchComponent implements OnInit {
 
   data:Dish[];
 
-
-  // dishes2:Dish[]=[];
-
   constructor(private fs:FindService,private restapi:RestApiService) { }
 
   ngOnInit(): void {
@@ -51,17 +48,6 @@ export class SearchComponent implements OnInit {
     return this.search.get('find');
   }
 
-  // getDishId()
-  // {
-  //   this.restapi.findAllRestaurant().subscribe(obj=>{
-  //     this.dishes=obj;
-  //     this.dishes.forEach(p=>{
-  //       this.dish.dishId=p.dishId;
-  //       console.log(this.dish.dishId);
-  //     }) 
-  //   })
-  // }
-
 getRestaurant()
 {
   this.rest.restaurantName=this.search.value.find;
@@ -69,19 +55,12 @@ getRestaurant()
     this.restaurant=obj;
     console.log(this.restaurant);
     this.restaurant.forEach(p=>{
-      console.log(p);
-<<<<<<< HEAD
-      this.fs.getImage(p.restaurantId).subscribe(rImg=>{
-        this.image=rImg;
-        p.image=rImg;
-=======
       this.rest.restaurantId=p.restaurantId;
       this.fs.getImage(this.rest.restaurantId).subscribe(restimg=>{
         this.image=restimg;
         p.image=restimg;
         this.rest=p;
       })
->>>>>>> dcfff407c1c0dc3e26b1b144787a90f878de3751
       this.dishes=this.rest.dishList;
       this.rest=p;
       this.dishes.forEach(d=>{
@@ -93,30 +72,8 @@ getRestaurant()
           this.data=this.dishes;
           console.log(this.dishes);
           console.log(this.restaurant);
-        })
-        // this.image=this.dish.image;
-        // this.image.forEach(i=>{
-        //   this.img.fileName=i.fileName;
-        //   console.log("img"+this.img);
-        //   console.log("image dish dishid"+this.dish.dishId);
-        // console.log("rest dish dishid"+this.image);
-        
-       // })
-        
       })
-      // console.log("dishes..:"+this.dishes);
-      // console.log("dishlist..:"+p.dishList);
-      // this.dishes.forEach(p=>{
-      //   this.dish.dishId=p.dishId;
-      // })
     })
-    
-  //   console.log(this.dishes);
-  //   this.dishes.forEach(p=>{
-  //     this.dish.dishId=p.dishId;
-  //     console.log(this.dish.dishId);
-  //     this.getImage();
-  //   })
   })
     
   })
