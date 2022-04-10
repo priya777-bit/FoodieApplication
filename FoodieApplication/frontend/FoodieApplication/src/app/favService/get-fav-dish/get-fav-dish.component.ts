@@ -28,8 +28,8 @@ export class GetFavDishComponent implements OnInit {
   ngOnInit(): void {
     
     this.activateRoute.paramMap.subscribe(data=>{
-      let id=data.get('id') ??0;
-      this.rId = id;
+    let id=data.get('id') ??0;
+    this.rId = id;
 
     console.log('rid '+ id);
 
@@ -40,8 +40,6 @@ export class GetFavDishComponent implements OnInit {
         this.rest=r.restaurantList;
           this.rest.forEach(d=>{
             if(id == d.restaurantId){
-              // console.log('rid '+ id);
-              // console.log('d.restaurantId '+ d.restaurantId);
                 this.dishes=d.dishList;
                 console.log(this.dishes);
                 this.dishes.forEach(dish=>{

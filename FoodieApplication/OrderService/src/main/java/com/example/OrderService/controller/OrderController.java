@@ -2,7 +2,6 @@ package com.example.OrderService.controller;
 
 import com.example.OrderService.model.Food;
 import com.example.OrderService.model.Order;
-import com.example.OrderService.service.OrderService;
 import com.example.OrderService.service.OrderServiceImpl;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
