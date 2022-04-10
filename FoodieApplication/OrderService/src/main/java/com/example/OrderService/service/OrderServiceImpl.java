@@ -32,11 +32,11 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public List<Order> getOrderOfUser(String userMailId) throws OrderNotFound {
-        if(orderRepository.findByUserMailId(userMailId).isEmpty())
-        {
-            throw new OrderNotFound();
-        }
-        else
+//        if(orderRepository.findByUserMailId(userMailId).isEmpty())
+//        {
+//            throw new OrderNotFound();
+//        }
+//        else
         {
             return orderRepository.findByUserMailId(userMailId);
         }
@@ -65,5 +65,11 @@ public class OrderServiceImpl implements OrderService{
             orderRepository.save(order);
         }
         return dishList;
+    }
+
+    @Override
+    public boolean removeFromOrder(String orderId) {
+        orderRepository.deleteById(orderId);
+        return true;
     }
 }

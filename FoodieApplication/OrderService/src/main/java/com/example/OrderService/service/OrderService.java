@@ -12,4 +12,5 @@ public interface OrderService {
     List<Order> getOrderOfUser(String userMailId) throws OrderNotFound;
     List<Order> getAllOrderOfUser();
     List<Food> addDishToOrder(String orderId, String restaurantId, Food dish);
+    boolean removeFromOrder(String orderId);
 }
