@@ -5,6 +5,7 @@ import { OrderRequestService } from './service/order-request.service';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Order } from './domain/order';
 import { InventoryRequestService } from 'src/app/food-inventory/service/inventory-request.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -23,6 +24,7 @@ export class AddToCartComponent {
       console.log(data);
       this.order.forEach(r=>{
         this.rest=r.restaurantList;
+        this.orderService.orderId=r.orderId;
         //this.restuarent.emit();
         console.log(r.restaurantList);
         this.rest.forEach(data=>{
@@ -42,7 +44,9 @@ export class AddToCartComponent {
 
   }
   emptyCart(){
-
+    this.orderService.emptyCart(this.orderService.orderId).subscribe(()=>{
+      this.toaster.success("Dishes Removed !!!")
+    })
   }
 
   increamentQTY(id:any, quantity:any): void {
@@ -52,5 +56,5 @@ export class AddToCartComponent {
     };
   }
 
-   constructor(private orderService:OrderRequestService,private user:UserRequestService,private request:InventoryRequestService)  {}
+   constructor(private orderService:OrderRequestService,private user:UserRequestService,private request:InventoryRequestService,private toaster:ToastrService)  {}
 }

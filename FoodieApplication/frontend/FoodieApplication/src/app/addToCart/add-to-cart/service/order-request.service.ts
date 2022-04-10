@@ -7,9 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class OrderRequestService {
 
-  orderUrl='http://localhost:8088/api/user/users/order/order/addToCart';
-  getAllOrderUrl='http://localhost:8088/api/user/users/order/order/getUserOrder';
-  addDishUrl='http://localhost:8088/api/user/users/order/addDishToOrder';
+  orderUrl='http://localhost:9000/api/user/order/order/addToCart';
+  getAllOrderUrl='http://localhost:9000/api/user/order/order/getUserOrder';
+  addDishUrl='http://localhost:9000/api/user/order/addDishToOrder';
+  removeOrderURL='http://localhost:9000/api/user/order/deleteOrder';
+
+  orderId:any;
 
   constructor(private http:HttpClient) {  }
 
@@ -23,6 +26,10 @@ export class OrderRequestService {
 
   addOrderDish(orderId:string,restaurantId:any,dish:any){
     return this.http.post(`${this.addDishUrl}/${orderId}/${restaurantId}`+"/dish",dish);
+  }
+
+  emptyCart(orderId:any){
+    return this.http.delete(`${this.removeOrderURL}/${orderId}`);
   }
 
 }
