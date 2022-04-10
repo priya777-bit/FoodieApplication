@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Order } from 'src/app/addToCart/add-to-cart/domain/order';
+import { OrderRequestService } from 'src/app/addToCart/add-to-cart/service/order-request.service';
 import { InventoryRequestService } from 'src/app/food-inventory/service/inventory-request.service';
 import { UserRequestService } from 'src/app/user-request.service';
 import { Dish } from '../domain/dish';
@@ -21,9 +24,14 @@ export class GetFavDishComponent implements OnInit {
   dishes:Dish[];
   image:Image[];
   rId:any;
+  order=new Order();
+  ors:Order[];
+  orderRestaurant :any;
+  flag=0;
+  alert=0;
   //favId:string;
 
-  constructor(private FavService:FavService,private user:UserRequestService,private request:InventoryRequestService,private activateRoute: ActivatedRoute) { }
+  constructor(private FavService:FavService,private user:UserRequestService,private request:InventoryRequestService,private activateRoute: ActivatedRoute,private toastr: ToastrService,private orderService:OrderRequestService) { }
 
   ngOnInit(): void {
     
@@ -73,5 +81,74 @@ export class GetFavDishComponent implements OnInit {
     })
     })
   }
+
+  
+  addTocart(dish:any){
+
+    this.orderService.getAllOrder(this.user.mailId).subscribe(d=>{
+      this.ors=d;
+      if(this.ors.length!=0)
+      {
+      this.ors.forEach(r=>{
+        this.order.orderId=r.orderId;
+        console.log(r);
+        r.restaurantList.forEach(restau=>{
+          restau.dishList.forEach(d=>{
+            if(d.dishId==dish.dishId)
+            {
+              this.alert=1;
+              this.flag=1;
+              this.toastr.error("Already added to Cart");
+            }
+          })
+
+            if(this.alert==0)
+            {
+            if(restau.restaurantId==this.user.restID)
+          {
+            this.orderService.addOrderDish(r.orderId,restau.restaurantId,dish).subscribe(d=>{
+              console.log("added Dish",d);
+              this.toastr.success("Added to Cart");
+            })
+            this.flag=1; 
+          }
+        }
+          })      
+      if(this.flag==0)
+      {
+        this.toastr.error("Please clear the cart and try again");
+      }
+    })
+    }
+    else
+    {
+      console.log(dish);
+      this.order.orderId = Math.random().toString(36).substring(2,15);
+      this.order.userMailId = this.user.mailId;
+      this.request.getRestData(this.user.restID).subscribe(data=>{
+        this.orderRestaurant=data;
+        this.order.restaurantList=[this.orderRestaurant];
+        this.order.restaurantList.forEach(d=>{
+          //console.log(d.dishList);
+          
+          d.dishList.forEach(dishes=>{
+            if(dishes.dishId!=dish.dishId)
+            {
+              console.log(d.dishList.indexOf(dishes))
+              d.dishList.splice(d.dishList.indexOf(dishes));
+            }
+          })
+        })
+        console.log(this.order);
+        this.orderService.addToOrder(this.order).subscribe(res=>{
+          console.log(res);
+          this.toastr.success("Added to Cart");
+        },error =>{
+            console.log(error);
+        })
+      })
+    }
+    })
+  } 
 
 }

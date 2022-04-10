@@ -24,7 +24,7 @@ public class Consumer {
         Restaurant restaurant = new Restaurant();
         restaurant.setRestaurantId(restaurantDTO.getRestaurantId());
         restaurant.setRestaurantName(restaurantDTO.getRestaurantName());
-        restaurant.setRestaurantLocation(restaurant.getRestaurantLocation());
+        restaurant.setRestaurantLocation(restaurantDTO.getRestaurantLocation());
 
         foodService.saveRestaurant(restaurant);
     }
