@@ -49,6 +49,9 @@
                 <div *ngFor="let image of dishes1.image">
                 <img class="img-fluid img-thumbnail" [src]="image.image">
                 </div>
+                <button mat-mini-fab style="margin-left: 1rem;">
+                    <mat-icon style="float: right;" (click)="addTocart(dish)">add_box</mat-icon>
+                  </button>
             </div>
             </mat-card-content>
         </a>

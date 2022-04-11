@@ -35,7 +35,7 @@ public class OrderController {
     }
 
     public ResponseEntity<?> fallbackLogin(@RequestBody Order order){
-        String msg="login failed";
+        String msg="Add To Cart Failed ..";
         return new ResponseEntity<>(msg,HttpStatus.GATEWAY_TIMEOUT);
     }
 
